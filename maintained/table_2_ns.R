@@ -1,4 +1,4 @@
-# green_etal_2016: table_2_ns.R
+# green_etal_2016/maintained/table_2_ns.R
 # Output: output/table_2_ns.csv
 # Depends on: original/exp_1.RData through exp_4.RData, helpers.R
 # Description: Table 2: number of districts in each condition, by experiment.

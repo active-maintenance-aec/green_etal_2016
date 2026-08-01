@@ -1,4 +1,4 @@
-# green_etal_2016: ri_all_experiments.R
+# green_etal_2016/maintained/ri_all_experiments.R
 # Output: output/ri_all_experiments.csv
 # Depends on: original/exp_1.RData through exp_4.RData, helpers.R
 # Description: Randomization inference p-values for the joint null of no direct and no

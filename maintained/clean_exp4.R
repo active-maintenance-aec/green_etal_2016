@@ -1,4 +1,4 @@
-# green_etal_2016: clean_exp4.R
+# green_etal_2016/maintained/clean_exp4.R
 # Output: output/exp_4_clean.rds
 # Depends on: original/Experiment_4_Data_with_Random_Assignment.RData, Experiment_4_Permutation_Matrix.rdata, Experiment_4_Results.RData
 # Description: Rebuild the Experiment 4 (Pennsylvania 41st, 2014) analysis frame from the raw archive files.

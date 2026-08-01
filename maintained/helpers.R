@@ -1,4 +1,4 @@
-# green_etal_2016: helpers.R
+# green_etal_2016/maintained/helpers.R
 # Shared packages and helper functions sourced by every script in maintained/.
 
 library(here)

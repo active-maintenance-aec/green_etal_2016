@@ -1,4 +1,4 @@
-# green_etal_2016: table_8_het_effects.R
+# green_etal_2016/maintained/table_8_het_effects.R
 # Output: output/table_8_het_effects.csv
 # Depends on: original/exp_1.RData through exp_4.RData, helpers.R
 # Description: Table 8 (appendix D): treatment effects interacted with standardized past party support.

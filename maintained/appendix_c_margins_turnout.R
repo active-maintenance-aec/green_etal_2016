@@ -1,4 +1,4 @@
-# green_etal_2016: appendix_c_margins_turnout.R
+# green_etal_2016/maintained/appendix_c_margins_turnout.R
 # Output: output/appendix_c_margins_turnout.csv
 # Depends on: original/exp_1.RData through exp_4.RData, helpers.R
 # Description: Appendix Tables C.1 to C.4: effects on vote margin and turnout for all four experiments.

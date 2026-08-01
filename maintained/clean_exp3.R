@@ -1,4 +1,4 @@
-# green_etal_2016: clean_exp3.R
+# green_etal_2016/maintained/clean_exp3.R
 # Output: output/exp_3_clean.rds
 # Depends on: original/Experiment_3_Data_with_Random_Assignment.RData, Experiment_3_Results.RData
 # Description: Rebuild the Experiment 3 (Virginia, 2013) analysis frame from the raw archive files.

@@ -1,4 +1,4 @@
-# green_etal_2016: download_original.R
+# green_etal_2016/download_original.R
 # Output: original/ (the deposited replication archive, not redistributed in this repo)
 # Depends on: original_manifest.csv
 # Description: Fetch the deposited archive from Harvard Dataverse and verify every file.

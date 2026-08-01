@@ -1,4 +1,4 @@
-# green_etal_2016: clean_exp1.R
+# green_etal_2016/maintained/clean_exp1.R
 # Output: output/exp_1_clean.rds
 # Depends on: original/Experiment_1_Adjacencies.rdata, Experiment_1_Permutation_Matrix.rdata, Experiment_1_Results.RData
 # Description: Rebuild the Experiment 1 (NY-22, 2012) analysis frame from the raw archive files: derived vote quantities, aggregation to merged electoral districts, condition assignment and inverse-probability weights.

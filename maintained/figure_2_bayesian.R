@@ -1,4 +1,4 @@
-# green_etal_2016: figure_2_bayesian.R
+# green_etal_2016/maintained/figure_2_bayesian.R
 # Output: output/figure_2_bayesian.pdf, output/figure_2_bayesian.png,
 #   output/figure_2_bayesian.csv
 # Depends on: output/table_7_pooled.csv, helpers.R

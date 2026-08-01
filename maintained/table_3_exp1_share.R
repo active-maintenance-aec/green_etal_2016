@@ -1,4 +1,4 @@
-# green_etal_2016: table_3_exp1_share.R
+# green_etal_2016/maintained/table_3_exp1_share.R
 # Output: output/table_3_exp1_share.csv
 # Depends on: original/exp_1.RData, helpers.R
 # Description: Table 3: effect of lawn signs on vote share, Experiment 1.

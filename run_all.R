@@ -1,4 +1,4 @@
-# green_etal_2016: run_all.R
+# green_etal_2016/run_all.R
 # Runs the whole reproduction in order: fetch and verify the deposited archive, rebuild
 # each experiment's analysis frame, then every published table and figure.
 # Every script is self-contained and can also be run on its own.

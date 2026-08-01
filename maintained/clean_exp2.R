@@ -1,4 +1,4 @@
-# green_etal_2016: clean_exp2.R
+# green_etal_2016/maintained/clean_exp2.R
 # Output: output/exp_2_clean.rds
 # Depends on: original/Experiment_2_Permutation_Matrix.rdata, Experiment_2_Past_Elections.RData, Experiment_2_Results.RData
 # Description: Rebuild the Experiment 2 (Albany, 2013) analysis frame from the raw archive files. See README.md in this folder: the seed draw here selects a different permutation column than the published analysis used, so the analysis scripts read original/exp_2.RData instead.

@@ -1,4 +1,4 @@
-# green_etal_2016: table_7_pooled.R
+# green_etal_2016/maintained/table_7_pooled.R
 # Output: output/table_7_pooled.csv
 # Depends on: original/exp_1.RData through exp_4.RData, helpers.R
 # Description: Table 7: per-experiment direct and indirect effects on vote share, pooled by fixed-effects meta-analysis.
