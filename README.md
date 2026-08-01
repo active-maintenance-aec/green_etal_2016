@@ -18,6 +18,8 @@
 - [Maintained rewrite verification](#maintained-rewrite-verification)
 - [R environment](#r-environment)
 
+*Drafted by Claude Opus 5 under the supervision of Alex Coppock.*
+
 This repository holds the actively maintained replication code for
 Green, Krasno, Coppock, Farrer, Lenoir and Zingher (2016), together with
 the reproducibility report that documents what the original archive did
@@ -77,10 +79,9 @@ Two questions, answered before the detail.
 Yes. All six analysis scripts execute without error on a current R
 installation, with no hardcoded paths, no functions called before they
 are defined, and no deprecated calls that have since been removed. Every
-package they name still installs from CRAN, including `beepr`, which the
-March 2026 pass recorded as unavailable; `beepr` 2.0 installs without
-incident, and in any case only one of the random-assignment scripts
-calls it, to play a sound on completion.
+package they name still installs from CRAN, including `beepr` 2.0, which
+only one of the random-assignment scripts calls, to play a sound on
+completion.
 
 Running is not the same as reproducing, and one number changes.
 `Experiment_2_Analysis.R` picks the observed treatment assignment out of
@@ -503,16 +504,11 @@ them unverifiable rather than matched. Producing them is cheap: all
 twelve p-values together, 40,000 permutations and 120,000 pairs of
 weighted models, take under two minutes.
 
-That figure is worth stating because the March 2026 pass did not compute
-Experiments 3 and 4 at all. Their p-values were written into the script
-as constants, on the stated grounds that recomputing them “would require
-loading large matrices (Exp 3: 131x10K, Exp 4: 88x10K) and takes ~10
-min”. Neither half of that holds. The matrices are already inside the
-`exp_3.RData` and `exp_4.RData` objects the rewrite loads for the table
-scripts, so no additional file is read; and the two loops together run
-in under a minute, against an Experiment 1 loop of almost the same size
-that the script was already running. The constants happened to be right,
-but a number typed into a script is not a number the script produces.
+Every p-value here is computed rather than carried. The permutation
+matrices are already inside the `exp_3.RData` and `exp_4.RData` objects
+the table scripts load, so no additional file is read, and the two loops
+together run in under a minute. A number typed into a script is not a
+number the script produces.
 
 # Figure 2 verification
 
@@ -576,9 +572,9 @@ the maintained rewrite.
 
 The rewrite updates on the fitted coefficients at full precision,
 reading them from `maintained/output/table_7_pooled.csv`, which is what
-the original does. The March 2026 pass instead retyped the four direct
-effects at the three decimal places Table 7 prints, which is a rounding
-carried into a calculation rather than into a display.
+the original does. Retyping the four direct effects at the three decimal
+places Table 7 prints would carry a rounding into a calculation rather
+than into a display.
 
 <img src="maintained/output/figure_2_bayesian.png" style="width:100.0%"
 alt="Figure 2 as reproduced by the maintained rewrite." />

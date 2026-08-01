@@ -188,7 +188,7 @@ The archive is not wrong. It contains both the script and the object the script 
 ```{r gt_table}
 gt |>
   mutate(across(everything(), \(x) replace_na(as.character(x), ""))) |>
-  select(table_figure, experiment, arm, model, quantity, pdf_value, script_value, match) |>
+  select(table_figure, experiment, arm, model, quantity, value_paper, value_script, match) |>
   kable(
     booktabs = TRUE,
     col.names = c("Location", "Exp.", "Arm", "Model", "Quantity", "Paper", "Archive", "Match"),
@@ -302,7 +302,7 @@ gt |>
                       pr_ate_positive = "pr(ATE > 0)"),
     value_rewrite = sprintf("%.3f", as.numeric(value_rewrite))
   ) |>
-  select(experiment, arm, quantity, pdf_value, value_rewrite, match_rewrite) |>
+  select(experiment, arm, quantity, value_paper, value_rewrite, match_rewrite) |>
   kable(
     booktabs = TRUE,
     col.names = c("Observer", "Panel", "Quantity", "Paper", "Rewrite", "Match"),
@@ -330,7 +330,7 @@ knitr::include_graphics(
 ```{r rewrite_verify}
 gt |>
   mutate(across(everything(), \(x) replace_na(as.character(x), ""))) |>
-  select(table_figure, experiment, arm, model, quantity, pdf_value, value_rewrite, match_rewrite) |>
+  select(table_figure, experiment, arm, model, quantity, value_paper, value_rewrite, match_rewrite) |>
   kable(
     booktabs = TRUE,
     col.names = c("Location", "Exp.", "Arm", "Model", "Quantity", "Paper", "Rewrite", "Match"),
