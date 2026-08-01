@@ -1,0 +1,13 @@
+experiment,outcome,p_value
+Experiment 1,share,0.2225
+Experiment 1,margin,0.1573
+Experiment 1,turnout,0.5261
+Experiment 2,share,0.8974
+Experiment 2,margin,0.8928
+Experiment 2,turnout,0.6967
+Experiment 3,share,0.0208
+Experiment 3,margin,0.2633
+Experiment 3,turnout,0.3322
+Experiment 4,share,0.7714
+Experiment 4,margin,0.877
+Experiment 4,turnout,0.8509

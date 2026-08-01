@@ -1,0 +1,372 @@
+---
+title: "Active Maintenance Report: green_etal_2016"
+subtitle: "Green, Krasno, Coppock, Farrer, Lenoir and Zingher (2016, Electoral Studies): The Effects of Lawn Signs on Vote Outcomes"
+date: "2026-08-01"
+format:
+  gfm:
+    output-file: README.md
+    toc: true
+  pdf:
+    output-file: green_etal_2016_report.pdf
+    toc: true
+    toc-depth: 2
+    number-sections: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r setup}
+library(here)
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+
+here::i_am("README.qmd")
+
+# kableExtra styling is LaTeX-only; the GitHub README build takes plain pipe tables.
+latex_out <- knitr::is_latex_output()
+
+# kableExtra's styling verbs emit LaTeX and have no meaning under gfm, where the same
+# table renders as a pipe table. Each call site says what LaTeX alone gets.
+latex_only <- function(k, f) if (latex_out) f(k) else k
+
+gt <- read_csv(here::here("ground_truth", "green_etal_2016_ground_truth.csv"),
+               show_col_types = FALSE)
+```
+
+This repository holds the actively maintained replication code for Green, Krasno, Coppock, Farrer, Lenoir and Zingher (2016), together with the reproducibility report that documents what the original archive did and did not do. It is part of a program applying the maintenance proposal in Peer, Orr and Coppock (2021, *PS: Political Science & Politics*, doi [10.1017/S1049096521000366](https://doi.org/10.1017/S1049096521000366)) to a set of published archives.
+
+| | |
+|---|---|
+| Article | [10.1016/j.electstud.2015.12.002](https://doi.org/10.1016/j.electstud.2015.12.002) |
+| Replication archive | [10.7910/DVN/K2TLDB](https://doi.org/10.7910/DVN/K2TLDB) |
+| Pre-analysis plan (Experiment 3) | [osf.io/umysq](https://osf.io/umysq) |
+| Pre-analysis plan (Experiment 4) | [osf.io/ejfgk](https://osf.io/ejfgk) |
+
+**The data are not redistributed here.** The deposit is 12 MB across 33 files and lives at Harvard Dataverse, which is the only copy this repository points at. `download_original.R` fetches it and verifies every file; `original_manifest.csv` pins the file identifiers, sizes and checksums, so the exact bytes this code was written against are recorded in version control even though the bytes themselves are not.
+
+**Repository layout.** `maintained/` is the maintained rewrite: one script per published table or figure, writing to `output/`, which is committed so a reader can compare a fresh run against it without downloading anything. `ground_truth/` ties every published number to the code that produces it. `original/` is created by the download script and is deliberately absent from the repository. This file is the reproducibility report, also available as a PDF in `report/`.
+
+**License.** CC0 1.0 Universal, matching the terms of the deposit this repository maintains. See `LICENSE`.
+
+**To reproduce.** Clone or download the repository, open `green_etal_2016.Rproj`, and run:
+
+``` r
+source("run_all.R")
+```
+
+That fetches the deposit, verifies its 33 files, and produces every table and figure into `maintained/output/`. Required packages: tidyverse, estimatr, metafor, gridExtra, knitr, kableExtra, here. Paths resolve through `here`, so nothing depends on the working directory. The full run takes about two minutes, almost all of it in the 120,000 permutations behind the randomization inference p-values. A successful run overwrites `maintained/output/`, which is committed: **`git diff` on that folder is the reproduction check.**
+
+# Summary
+
+```{r summary_setup, include=FALSE}
+n_claims <- nrow(gt)
+n_archive_verifiable <- sum(!is.na(gt$match))
+n_archive_match <- sum(gt$match == 1, na.rm = TRUE)
+n_archive_fail <- sum(gt$match == 0, na.rm = TRUE)
+n_rewrite_verifiable <- sum(!is.na(gt$match_rewrite))
+n_rewrite_match <- sum(gt$match_rewrite == 1, na.rm = TRUE)
+n_unverifiable <- sum(is.na(gt$match_rewrite))
+```
+
+Two questions, answered before the detail.
+
+## Does the deposited archive run?
+
+Yes. All six analysis scripts execute without error on a current R installation, with no hardcoded paths, no functions called before they are defined, and no deprecated calls that have since been removed. Every package they name still installs from CRAN, including `beepr`, which the March 2026 pass recorded as unavailable; `beepr` 2.0 installs without incident, and in any case only one of the random-assignment scripts calls it, to play a sound on completion.
+
+Running is not the same as reproducing, and one number changes. `Experiment_2_Analysis.R` picks the observed treatment assignment out of a matrix of 10,000 admissible randomizations with `set.seed(12345); sample(1:10000, 1)`. R 3.6.0 changed how `sample()` converts uniform draws to integers, so that line returned column 7210 when the paper was written and returns column 8243 today. Column 7210 is the assignment that was actually deployed, and it is the one the archive's own pre-saved `exp_2.RData` encodes, so the archive contains the right answer and the live script path no longer finds it. `r n_archive_fail` of the `r n_archive_verifiable` claims an archive script can be checked against therefore fail to reproduce, all of them in Table 4 and in the Experiment 2 randomization inference p-value, and all from that one line.
+
+## Does the maintained rewrite reproduce the paper?
+
+Yes, without exception. All `r n_rewrite_match` of the `r n_rewrite_verifiable` verifiable ground truth claims match the published values to reported precision, including every panel label of Figure 2. The remaining `r n_unverifiable` recorded quantities are randomization inference p-values for vote margin and turnout, which the scripts compute but the article and its appendix never state; they are marked unverifiable rather than matched.
+
+The rewrite reaches Experiment 2 through the pre-saved `exp_2.RData` object rather than through the seed, which is what makes it immune to the R version change. Reaching it any other way is a live hazard rather than a hypothetical one: until August 2026 the rewrite's randomization inference script took Experiment 2's observed assignment from its own cleaning script, which redraws the seed, and consequently reported 0.79 where the article reports 0.90. That script now reads the same canonical object as everything else.
+
+# Paper overview
+
+**Citation**: Green, D. P., Krasno, J. S., Coppock, A., Farrer, B. D., Lenoir, B. and Zingher, J. N. (2016). "The effects of lawn signs on vote outcomes: Results from four randomized field experiments." *Electoral Studies*, 41, 143-150. DOI: 10.1016/j.electstud.2015.12.002
+
+**Summary**: Four randomized field experiments test whether lawn signs change vote outcomes. In each, geographic units (electoral districts or precincts) were assigned to receive signs, to be adjacent to a unit that received signs, or to neither, so that each experiment estimates a direct effect and a spillover effect at once. Because adjacency makes the assignment probabilities unequal across units, every estimate is inverse-probability weighted, and inference is randomization based: an observed F-statistic for the joint null of no direct and no indirect effect is compared against 10,000 pre-computed admissible randomizations. The four experiments are a 2012 congressional general election in New York, a 2013 mayoral primary in Albany, a 2013 gubernatorial general election in Virginia, and a 2014 state senate primary in Pennsylvania. Pooling the four by fixed-effects meta-analysis gives a direct effect of 1.7 percentage points of vote share (SE 0.7) and a spillover effect of 1.5 points (SE 0.6).
+
+# Original archive reproducibility
+
+```{r repro_table}
+tibble(
+  Script = c(
+    "Lawn_Signs_Source.R",
+    "Experiment_1_Analysis.R",
+    "Experiment_2_Analysis.R",
+    "Experiment_3_Analysis.R",
+    "Experiment_4_Analysis.R",
+    "Pooled_analysis.R",
+    "in_text_calculations.R",
+    "Experiment_1_RA_Function.R",
+    "Experiment_2_RA_Function.R",
+    "Experiment_3_RA_Function.R",
+    "Experiment_4_RA_Function.R"
+  ),
+  Status = c(
+    "Clean (sourced by all scripts)",
+    "Clean",
+    "Runs clean, but Table 4 and the Experiment 2 p-value no longer reproduce",
+    "Clean",
+    "Clean",
+    "Clean",
+    "Clean",
+    "Parses; regenerates a deposited matrix, not re-run",
+    "Parses; regenerates a deposited matrix, not re-run",
+    "Parses; regenerates a deposited matrix, not re-run",
+    "Parses; needs beepr, which installs from CRAN"
+  ),
+  Resolution = c(
+    "No changes required",
+    "No changes required",
+    "set.seed(12345, sample.kind = 'Rounding'), or read the deposited exp_2.RData",
+    "No changes required",
+    "No changes required",
+    "No changes required",
+    "No changes required",
+    "None needed: its output is deposited",
+    "None needed: its output is deposited",
+    "None needed: its output is deposited",
+    "install.packages('beepr')"
+  )
+) |>
+  kable(
+    booktabs = TRUE,
+    col.names = c("Script", "Status on current R", "Resolution"),
+    caption = "Original archive reproducibility, checked against R 4.6.0 on 1 August 2026."
+  ) |>
+  latex_only(\(k) k |>
+    kable_styling(latex_options = c("hold_position", "scale_down"), font_size = 7) |>
+    column_spec(1, width = "3.5cm") |>
+    column_spec(2, width = "4cm") |>
+    column_spec(3, width = "4.5cm"))
+```
+
+Every package the archive names still installs from CRAN: `stargazer`, `xtable`, `sandwich`, `lmtest`, `ggplot2`, `dplyr`, `randomizr`, `beepr` and `rmeta`. The last of these is the fragile one. `rmeta` 3.0 has not been updated since March 2018 and survives on CRAN by its archiving policy rather than by maintenance, and `Pooled_analysis.R` depends on it for a single call to `meta.summaries()`. The maintained rewrite pools with `metafor::rma(method = "FE")` instead, so it does not inherit the exposure.
+
+The four `*_RA_Function.R` scripts regenerate the permutation matrices from scratch. They parse cleanly and their packages install, but they were not re-run to completion: they are stochastic, they take a long time, and the matrices they build are themselves deposited, so re-running them would replace a deposited object with a different one rather than check anything.
+
+## The Experiment 2 seed
+
+The one substantive failure has nothing to do with packages. `Experiment_2_Analysis.R` opens by drawing the observed treatment assignment out of the deposited permutation matrix:
+
+``` r
+set.seed(12345)
+chosen.rand <- sample(1:10000, 1)
+```
+
+R 3.6.0, released in April 2019, replaced the "Rounding" method that `sample()` used to convert uniform variates to integers with a "Rejection" method. The same seed therefore selects a different column than it did when the analysis was run: 7210 under the old method, 8243 under the new one. The two columns are different treatment assignments and give different answers.
+
+Column 7210 is the assignment the experiment actually used. Three independent checks agree on that: it is the column the archive's own pre-saved `exp_2.RData` encodes, it is the column whose treated set matches the authors' record of which districts received signs, and it is what `set.seed(12345, sample.kind = "Rounding")` returns on any R version. Column 7210 also reproduces the published Table 4 and the published Experiment 2 p-value; column 8243 reproduces neither.
+
+```{r seed_table}
+tibble(
+  quantity = c("Table 4 M1 treated", "Table 4 M2 treated", "Section 5.2 p-value"),
+  published = c("0.009", "-0.014", "0.90"),
+  col_7210 = c("0.009", "-0.014", "0.897"),
+  col_8243 = c("0.130", "0.019", "0.794")
+) |>
+  kable(
+    booktabs = TRUE,
+    col.names = c("Quantity", "Published", "Column 7210 (R < 3.6)", "Column 8243 (R 3.6+)"),
+    caption = "What the Experiment 2 permutation column decides."
+  ) |>
+  latex_only(\(k) k |> kable_styling(latex_options = "hold_position", font_size = 9))
+```
+
+The archive is not wrong. It contains both the script and the object the script was meant to produce, and the object is correct. What it lacks is any signal that the two have come apart, which is the failure this maintenance program exists to catch: a reader running the deposited script today gets numbers that differ from the paper, with no error and no warning.
+
+# Number-by-number comparison
+
+```{r gt_table}
+gt |>
+  mutate(across(everything(), \(x) replace_na(as.character(x), ""))) |>
+  select(table_figure, experiment, arm, model, quantity, pdf_value, script_value, match) |>
+  kable(
+    booktabs = TRUE,
+    col.names = c("Location", "Exp.", "Arm", "Model", "Quantity", "Paper", "Archive", "Match"),
+    caption = "Ground truth: published value against the value the deposited scripts produce on current R. A blank Match means the quantity is not stated in the article or its appendix, or that the archive prints no comparable value."
+  ) |>
+  latex_only(\(k) k |>
+    kable_styling(latex_options = c("hold_position", "repeat_header"), font_size = 5) |>
+    column_spec(5, width = "3cm"))
+```
+
+Of the `r n_claims` recorded claims, `r n_archive_verifiable` can be compared against what a deposited script prints. `r n_archive_match` of those match the published value and `r n_archive_fail` do not, every one of the failures traceable to the Experiment 2 seed.
+
+# Maintained rewrite
+
+The rewrite lives in `maintained/`: fifteen scripts covering four cleaning steps, seven published tables, the appendix margin and turnout tables, Figure 2, and the randomization inference. It is a translation, not a reanalysis: every estimator, specification and sample restriction is the one the paper used.
+
+## Architecture
+
+Each experiment's analysis reads the archive's canonical `exp_N.RData` object, which carries both the analysis frame and that experiment's 10,000-column permutation matrix. The `clean_expN.R` scripts rebuild the same frames from the raw deposited files in tidy form and are the readable account of how each variable is constructed, but no published number is taken from them. That separation is deliberate and load-bearing: `clean_exp2.R` redraws the observed assignment with the same seed the archive uses, and therefore selects the wrong column on any current R.
+
+Weighted models use `estimatr::lm_robust(se_type = "HC2")` in place of `lm()` followed by a `coeftest(fit, vcovHC(fit, type = "HC2"))` wrapper, which is the same estimator with the same standard errors. Pooling uses `metafor::rma(method = "FE")` in place of `rmeta::meta.summaries()`. The randomization inference reimplements the archive's `get_f()` as `f_treat()` in `helpers.R` and loops over the deposited permutation matrices, computing all four experiments rather than carrying any p-value forward as a constant.
+
+## Deprecated patterns replaced
+
+```{r replacements_table}
+tibble(
+  Original = c(
+    "`rm(list = ls())`",
+    "`setwd(\"\")`",
+    "`lm()` + `coeftest(vcovHC, 'HC2')`",
+    "`rmeta::meta.summaries(method = 'fixed')`",
+    "`stargazer` + `sink()`",
+    "`xtable` + `print.xtable`",
+    "`within()` blocks over base indexing",
+    "`merge()`",
+    "`multiplot()` (grid-based)",
+    "`pdf()` / `png()` devices",
+    "`library(beepr)` + `beep()`",
+    "magrittr pipe"
+  ),
+  Replacement = c(
+    "(omitted)",
+    "`here::here()`",
+    "`estimatr::lm_robust(se_type = \"HC2\")`",
+    "`metafor::rma(method = \"FE\")`",
+    "`write_csv()` to `output/`",
+    "`write_csv()` to `output/`",
+    "`mutate()` paragraphs",
+    "`left_join()`",
+    "`gridExtra::arrangeGrob()`",
+    "`ggsave()`",
+    "(omitted)",
+    "native pipe"
+  )
+) |>
+  kable(
+    booktabs = TRUE,
+    col.names = c("Original pattern", "Replacement"),
+    caption = "Deprecated patterns and their replacements in the maintained rewrite."
+  ) |>
+  latex_only(\(k) k |>
+    kable_styling(latex_options = c("hold_position", "scale_down"), font_size = 8) |>
+    column_spec(1, width = "6cm") |>
+    column_spec(2, width = "6.5cm"))
+```
+
+# Randomization inference
+
+The article reports one randomization inference p-value per experiment, for vote share, in sections 5.1 through 5.4. All four reproduce.
+
+```{r ri_table}
+ri <- read_csv(here::here("maintained", "output", "ri_all_experiments.csv"),
+               show_col_types = FALSE)
+
+published_share <- tibble(
+  experiment = paste("Experiment", 1:4),
+  published = c(0.22, 0.90, 0.02, 0.77)
+)
+
+ri |>
+  left_join(published_share, by = "experiment") |>
+  mutate(
+    published = if_else(outcome == "share", sprintf("%.2f", published), ""),
+    p_value = sprintf("%.4f", p_value)
+  ) |>
+  select(experiment, outcome, p_value, published) |>
+  kable(
+    booktabs = TRUE,
+    col.names = c("Experiment", "Outcome", "Rewrite", "Published"),
+    caption = "Randomization inference p-values for the joint null of no direct and no indirect effect, 10,000 permutations each. The article states the vote share p-values only."
+  ) |>
+  latex_only(\(k) k |>
+    kable_styling(latex_options = "hold_position", font_size = 9))
+```
+
+The margin and turnout p-values are computed here for completeness and appear nowhere in the article or its appendix, so the ground truth marks them unverifiable rather than matched. Producing them is cheap: all twelve p-values together, 120,000 weighted model pairs, take under two minutes.
+
+That figure is worth stating because the March 2026 pass did not compute Experiments 3 and 4 at all. Their p-values were written into the script as constants, on the stated grounds that recomputing them "would require loading large matrices (Exp 3: 131x10K, Exp 4: 88x10K) and takes ~10 min". Neither half of that holds. The matrices are already inside the `exp_3.RData` and `exp_4.RData` objects the rewrite loads for the table scripts, so no additional file is read; and the two loops together run in under a minute, against an Experiment 1 loop of almost the same size that the script was already running. The constants happened to be right, but a number typed into a script is not a number the script produces.
+
+# Figure 2 verification
+
+Figure 2 traces how an agnostic, an optimistic and a skeptical observer update a prior about the direct effect as the four experiments arrive, and each of its fifteen panels is labelled with the posterior mean, the posterior standard deviation and the posterior probability that the effect is positive. Those forty-five numbers are the figure's content, and all forty-five reproduce.
+
+```{r fig2_table}
+gt |>
+  filter(table_figure == "figure_2") |>
+  mutate(
+    quantity = recode(quantity,
+                      posterior_mean = "mean",
+                      posterior_sd = "sd",
+                      pr_ate_positive = "pr(ATE > 0)"),
+    value_rewrite = sprintf("%.3f", as.numeric(value_rewrite))
+  ) |>
+  select(experiment, arm, quantity, pdf_value, value_rewrite, match_rewrite) |>
+  kable(
+    booktabs = TRUE,
+    col.names = c("Observer", "Panel", "Quantity", "Paper", "Rewrite", "Match"),
+    caption = "Figure 2 panel labels, transcribed from page 149 of the article, against the maintained rewrite."
+  ) |>
+  latex_only(\(k) k |>
+    kable_styling(latex_options = c("hold_position", "repeat_header"), font_size = 7) |>
+    collapse_rows(columns = 1, latex_hline = "major"))
+```
+
+The rewrite updates on the fitted coefficients at full precision, reading them from `maintained/output/table_7_pooled.csv`, which is what the original does. The March 2026 pass instead retyped the four direct effects at the three decimal places Table 7 prints, which is a rounding carried into a calculation rather than into a display.
+
+```{r fig2_image, out.width="100%", fig.cap="Figure 2 as reproduced by the maintained rewrite."}
+knitr::include_graphics(
+  if (latex_out) {
+    here::here("maintained", "output", "figure_2_bayesian.pdf")
+  } else {
+    "maintained/output/figure_2_bayesian.png"
+  }
+)
+```
+
+# Maintained rewrite verification
+
+```{r rewrite_verify}
+gt |>
+  mutate(across(everything(), \(x) replace_na(as.character(x), ""))) |>
+  select(table_figure, experiment, arm, model, quantity, pdf_value, value_rewrite, match_rewrite) |>
+  kable(
+    booktabs = TRUE,
+    col.names = c("Location", "Exp.", "Arm", "Model", "Quantity", "Paper", "Rewrite", "Match"),
+    caption = "Maintained rewrite verification: published value against rewrite output."
+  ) |>
+  latex_only(\(k) k |>
+    kable_styling(latex_options = c("hold_position", "repeat_header"), font_size = 5) |>
+    column_spec(5, width = "3cm"))
+```
+
+All **`r n_rewrite_match`** of the **`r n_rewrite_verifiable`** verifiable values produced by the maintained rewrite match the published paper to reported precision. The remaining `r n_unverifiable` are the margin and turnout randomization inference p-values, which the article does not state.
+
+# R environment
+
+```{r env}
+si <- sessionInfo()
+tibble(
+  Item = c("R version", "Platform", "Date run"),
+  Value = c(
+    paste(si$R.version$major, si$R.version$minor, sep = "."),
+    si$platform,
+    format(Sys.Date())
+  )
+) |>
+  kable(booktabs = TRUE) |>
+  latex_only(\(k) k |>
+    kable_styling(latex_options = "hold_position"))
+```
+
+```{r env_pkgs}
+tibble(
+  Package = c("estimatr", "metafor", "dplyr", "ggplot2", "tidyr", "purrr", "here", "gridExtra"),
+  Version = map_chr(
+    c("estimatr", "metafor", "dplyr", "ggplot2", "tidyr", "purrr", "here", "gridExtra"),
+    \(p) as.character(packageVersion(p))
+  )
+) |>
+  kable(booktabs = TRUE, caption = "Package versions used for the run behind this report.") |>
+  latex_only(\(k) k |>
+    kable_styling(latex_options = "hold_position"))
+```
