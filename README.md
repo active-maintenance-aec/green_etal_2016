@@ -63,10 +63,10 @@ That fetches the deposit, verifies its 33 files, and produces every
 table and figure into `maintained/output/`. Required packages:
 tidyverse, estimatr, metafor, gridExtra, knitr, kableExtra, here. Paths
 resolve through `here`, so nothing depends on the working directory. The
-full run takes about two minutes, almost all of it in the 120,000
-permutations behind the randomization inference p-values. A successful
-run overwrites `maintained/output/`, which is committed: **`git diff` on
-that folder is the reproduction check.**
+full run takes about two minutes, almost all of it in the randomization
+inference, which refits 120,000 pairs of weighted models across 40,000
+permutations. A successful run overwrites `maintained/output/`, which is
+committed: **`git diff` on that folder is the reproduction check.**
 
 # Summary
 
@@ -97,12 +97,12 @@ inference p-value, and all from that one line.
 
 ## Does the maintained rewrite reproduce the paper?
 
-Yes, without exception. All 191 of the 191 verifiable ground truth
-claims match the published values to reported precision, including every
-panel label of Figure 2. The remaining 8 recorded quantities are
-randomization inference p-values for vote margin and turnout, which the
-scripts compute but the article and its appendix never state; they are
-marked unverifiable rather than matched.
+Yes, without exception. All 191 verifiable ground truth claims match the
+published values to reported precision, including every panel label of
+Figure 2. The remaining 8 recorded quantities are randomization
+inference p-values for vote margin and turnout, which the scripts
+compute but the article and its appendix never state; they are marked
+unverifiable rather than matched.
 
 The rewrite reaches Experiment 2 through the pre-saved `exp_2.RData`
 object rather than through the seed, which is what makes it immune to
@@ -500,8 +500,8 @@ share p-values only.
 The margin and turnout p-values are computed here for completeness and
 appear nowhere in the article or its appendix, so the ground truth marks
 them unverifiable rather than matched. Producing them is cheap: all
-twelve p-values together, 120,000 weighted model pairs, take under two
-minutes.
+twelve p-values together, 40,000 permutations and 120,000 pairs of
+weighted models, take under two minutes.
 
 That figure is worth stating because the March 2026 pass did not compute
 Experiments 3 and 4 at all. Their p-values were written into the script
@@ -789,10 +789,11 @@ alt="Figure 2 as reproduced by the maintained rewrite." />
 
 Maintained rewrite verification: published value against rewrite output.
 
-All **191** of the **191** verifiable values produced by the maintained
-rewrite match the published paper to reported precision. The remaining 8
-are the margin and turnout randomization inference p-values, which the
-article does not state.
+Every row with a published counterpart carries `match_rewrite = 1`:
+**191** values produced by the maintained rewrite, all matching the
+published paper to reported precision. The remaining 8 are the margin
+and turnout randomization inference p-values, which the article does not
+state.
 
 # R environment
 
