@@ -1,200 +1,200 @@
-"table_figure","experiment","arm","model","quantity","script_value","pdf_value","match","notes","value_rewrite","match_rewrite"
-"table_2","all","Control","n","N","16","16","1","Exp 1 control","16","1"
-"table_2","all","Adjacent","n","N","49","49","1","Exp 1 adjacent","49","1"
-"table_2","all","Treated","n","N","23","23","1","Exp 1 treated","23","1"
-"table_2","all","Control","n","N","13","13","1","Exp 2 control","13","1"
-"table_2","all","Adjacent","n","N","41","41","1","Exp 2 adjacent","41","1"
-"table_2","all","Treated","n","N","15","15","1","Exp 2 treated","15","1"
-"table_2","all","Control","n","N","25","25","1","Exp 3 control","25","1"
-"table_2","all","Adjacent","n","N","76","76","1","Exp 3 adjacent","76","1"
-"table_2","all","Treated","n","N","30","30","1","Exp 3 treated","30","1"
-"table_2","all","Control","n","N","24","24","1","Exp 4 control","24","1"
-"table_2","all","Adjacent","n","N","44","44","1","Exp 4 adjacent","44","1"
-"table_2","all","Treated","n","N","20","20","1","Exp 4 treated","20","1"
-"table_3","1","Treated","M1","coef","0.025","0.025","1","Vote share Exp 1 model 1","0.0251849231150561","1"
-"table_3","1","Treated","M1","SE","0.027","0.027","1","","0.0271953497940833","1"
-"table_3","1","Adjacent","M1","coef","0.037","0.037","1","","0.0365245556057411","1"
-"table_3","1","Adjacent","M1","SE","0.027","0.027","1","","0.0273484964987663","1"
-"table_3","1","Treated","M2","coef","0.025","0.025","1","Vote share Exp 1 model 2 (covariate-adjusted)","0.0246700898107479","1"
-"table_3","1","Treated","M2","SE","0.017","0.017","1","","0.0170438046883578","1"
-"table_3","1","Adjacent","M2","coef","0.018","0.018","1","","0.0176924658008986","1"
-"table_3","1","Adjacent","M2","SE","0.016","0.016","1","","0.0156295800079384","1"
-"table_3","1","all","M1","N","88","88","1","","88","1"
-"table_3","1","all","M1","R2","0.031","0.031","1","","0.0314509025405569","1"
-"table_3","1","all","M2","R2","0.823","0.823","1","","0.822500240891992","1"
-"table_4","2","Treated","M1","coef","0.13","0.009","0","Vote share Exp 2 model 1: R 3.6 sample() change: script selects column 8243 not 7210","0.00850373305360868","1"
-"table_4","2","Treated","M1","SE","0.08","0.054","0","","0.0539779334852138","1"
-"table_4","2","Adjacent","M1","coef","0.137","0.012","0","","0.0117388512564832","1"
-"table_4","2","Adjacent","M1","SE","0.072","0.046","0","","0.0463818505970431","1"
-"table_4","2","Treated","M2","coef","0.019","-0.014","0","Vote share Exp 2 model 2: R 3.6 sample() change","-0.0142778009663527","1"
-"table_4","2","Treated","M2","SE","0.053","0.057","0","","0.0574424251287565","1"
-"table_4","2","Adjacent","M2","coef","0.028","0.004","0","","0.00428044547072836","1"
-"table_4","2","Adjacent","M2","SE","0.035","0.045","0","","0.0453949744301064","1"
-"table_4","2","all","M1","N","69","69","1","","69","1"
-"table_4","2","all","M1","R2","0.13","0.001","0","","0.00108065739965002","1"
-"table_5","3","Treated","M1","coef","0.042","0.042","1","Vote share Exp 3 model 1","0.0415499685697058","1"
-"table_5","3","Treated","M1","SE","0.016","0.016","1","","0.0159171166363333","1"
-"table_5","3","Adjacent","M1","coef","0.042","0.042","1","","0.042377169733312","1"
-"table_5","3","Adjacent","M1","SE","0.013","0.013","1","","0.0132163225089229","1"
-"table_5","3","Treated","M2","coef","0.018","0.018","1","Vote share Exp 3 model 2","0.0183687447195372","1"
-"table_5","3","Treated","M2","SE","0.009","0.009","1","","0.00860843709003946","1"
-"table_5","3","Adjacent","M2","coef","0.018","0.018","1","","0.0184661680108188","1"
-"table_5","3","Adjacent","M2","SE","0.007","0.007","1","","0.0065603412388164","1"
-"table_5","3","all","M1","N","131","131","1","","131","1"
-"table_5","3","all","M1","R2","0.094","0.094","1","","0.0939464783867885","1"
-"table_5","3","all","M2","R2","0.825","0.825","1","","0.825105729313222","1"
-"table_6","4","Treated","M1","coef","-0.013","-0.013","1","Vote share Exp 4 model 1","-0.0134254300332048","1"
-"table_6","4","Treated","M1","SE","0.028","0.028","1","","0.0276296540671851","1"
-"table_6","4","Adjacent","M1","coef","-0.023","-0.023","1","","-0.0234889507102779","1"
-"table_6","4","Adjacent","M1","SE","0.022","0.022","1","","0.0217799790242458","1"
-"table_6","4","Treated","M2","coef","-0.012","-0.012","1","Vote share Exp 4 model 2","-0.0122155097107169","1"
-"table_6","4","Treated","M2","SE","0.026","0.026","1","","0.0257990947698161","1"
-"table_6","4","Adjacent","M2","coef","-0.02","-0.02","1","","-0.0202615460173702","1"
-"table_6","4","Adjacent","M2","SE","0.021","0.021","1","","0.0205207147642803","1"
-"table_6","4","all","M1","N","88","88","1","","88","1"
-"table_6","4","all","M1","R2","0.012","0.012","1","","0.0115011646658062","1"
-"table_6","4","all","M2","R2","0.172","0.172","1","","0.172251358226275","1"
-"table_7","all","Treated","pooled","coef_exp1","0.025","0.025","1","Direct effect pooled table","0.0246700898107479","1"
-"table_7","all","Treated","pooled","SE_exp1","0.017","0.017","1","","0.0170438046883578","1"
-"table_7","all","Treated","pooled","coef_exp2","-0.014","-0.014","1","","-0.0142778009663527","1"
-"table_7","all","Treated","pooled","SE_exp2","0.057","0.057","1","","0.0574424251287565","1"
-"table_7","all","Treated","pooled","coef_exp3","0.018","0.018","1","","0.0183687447195372","1"
-"table_7","all","Treated","pooled","SE_exp3","0.009","0.009","1","","0.00860843709003946","1"
-"table_7","all","Treated","pooled","coef_exp4","-0.012","-0.012","1","","-0.0122155097107169","1"
-"table_7","all","Treated","pooled","SE_exp4","0.026","0.026","1","","0.0257990947698161","1"
-"table_7","all","Treated","pooled","coef_pooled","0.017","0.017","1","","0.0165465347227397","1"
-"table_7","all","Treated","pooled","SE_pooled","0.007","0.007","1","","0.00730447545153525","1"
-"table_7","all","Adjacent","pooled","coef_exp1","0.018","0.018","1","Indirect effect pooled table","0.0176924658008986","1"
-"table_7","all","Adjacent","pooled","SE_exp1","0.016","0.016","1","","0.0156295800079384","1"
-"table_7","all","Adjacent","pooled","coef_exp2","0.004","0.004","1","","0.00428044547072836","1"
-"table_7","all","Adjacent","pooled","SE_exp2","0.045","0.045","1","","0.0453949744301064","1"
-"table_7","all","Adjacent","pooled","coef_exp3","0.018","0.018","1","","0.0184661680108188","1"
-"table_7","all","Adjacent","pooled","SE_exp3","0.007","0.007","1","","0.0065603412388164","1"
-"table_7","all","Adjacent","pooled","coef_exp4","-0.02","-0.02","1","","-0.0202615460173702","1"
-"table_7","all","Adjacent","pooled","SE_exp4","0.021","0.021","1","","0.0205207147642803","1"
-"table_7","all","Adjacent","pooled","coef_pooled","0.015","0.015","1","","0.0150868010853195","1"
-"table_7","all","Adjacent","pooled","SE_pooled","0.006","0.006","1","","0.00575541650555256","1"
-"table_8","1","Treated","het","coef","0.031","0.031","1","Het effects by party support Exp 1","0.0313323003609761","1"
-"table_8","1","Treated","het","SE","0.017","0.017","1","","0.0170677333708408","1"
-"table_8","1","Adjacent","het","coef","0.021","0.021","1","","0.0209344338704731","1"
-"table_8","1","Adjacent","het","SE","0.014","0.014","1","","0.0144758800003209","1"
-"table_8","1","party_share","het","coef","0.027","0.027","1","","0.0266351630335268","1"
-"table_8","1","party_share","het","SE","0.042","0.042","1","","0.0415866162620613","1"
-"table_8","1","Treated:party_share","het","coef","0.031","0.031","1","","0.0310232649627718","1"
-"table_8","1","Treated:party_share","het","SE","0.03","0.03","1","","0.0296668745438136","1"
-"table_8","1","Adjacent:party_share","het","coef","0.011","0.011","1","","0.0110440779496757","1"
-"table_8","1","Adjacent:party_share","het","SE","0.025","0.025","1","","0.025318596318585","1"
-"table_8","1","all","het","N","88","88","1","","88","1"
-"table_8","1","all","het","R2","0.829","0.829","1","","0.828859947456358","1"
-"table_8","2","Treated","het","coef","-0.009","-0.009","1","Het effects Exp 2","-0.00939986931205115","1"
-"table_8","2","Treated","het","SE","0.06","0.06","1","","0.0598700848190547","1"
-"table_8","2","Adjacent","het","coef","0.011","0.011","1","","0.0106083651730772","1"
-"table_8","2","Adjacent","het","SE","0.046","0.046","1","","0.0460812684704982","1"
-"table_8","2","party_share","het","coef","-0.02","-0.02","1","","-0.0204280489102419","1"
-"table_8","2","party_share","het","SE","0.033","0.033","1","","0.0327925257658679","1"
-"table_8","2","Treated:party_share","het","coef","0.033","0.033","1","","0.0334982428503854","1"
-"table_8","2","Treated:party_share","het","SE","0.063","0.063","1","","0.0626600647388735","1"
-"table_8","2","Adjacent:party_share","het","coef","0.053","0.053","1","","0.0530270828146152","1"
-"table_8","2","Adjacent:party_share","het","SE","0.033","0.033","1","","0.0325277799933964","1"
-"table_8","2","all","het","N","69","69","1","","69","1"
-"table_8","2","all","het","R2","0.277","0.277","1","","0.277201723401003","1"
-"table_8","3","Treated","het","coef","0.02","0.02","1","Het effects Exp 3","0.0195718144455067","1"
-"table_8","3","Treated","het","SE","0.009","0.009","1","","0.00914339319000478","1"
-"table_8","3","Adjacent","het","coef","0.02","0.02","1","","0.0197823488638466","1"
-"table_8","3","Adjacent","het","SE","0.007","0.007","1","","0.00723695945014714","1"
-"table_8","3","party_share","het","coef","0.028","0.028","1","","0.0277688953304519","1"
-"table_8","3","party_share","het","SE","0.009","0.009","1","","0.00868969118027666","1"
-"table_8","3","Treated:party_share","het","coef","0.01","0.01","1","","0.00956524433211274","1"
-"table_8","3","Treated:party_share","het","SE","0.008","0.008","1","","0.007960757426217","1"
-"table_8","3","Adjacent:party_share","het","coef","0.008","0.008","1","","0.0076708613615315","1"
-"table_8","3","Adjacent:party_share","het","SE","0.008","0.008","1","","0.0077967575316686","1"
-"table_8","3","all","het","N","131","131","1","","131","1"
-"table_8","3","all","het","R2","0.829","0.829","1","","0.829294153064998","1"
-"table_8","4","Treated","het","coef","-0.014","-0.014","1","Het effects Exp 4","-0.0138509572033166","1"
-"table_8","4","Treated","het","SE","0.026","0.026","1","","0.0264086670442199","1"
-"table_8","4","Adjacent","het","coef","-0.02","-0.02","1","","-0.0199446168952743","1"
-"table_8","4","Adjacent","het","SE","0.021","0.021","1","","0.0211109363574492","1"
-"table_8","4","party_share","het","coef","0.02","0.02","1","","0.020485916463216","1"
-"table_8","4","party_share","het","SE","0.021","0.021","1","","0.0206558145688769","1"
-"table_8","4","Treated:party_share","het","coef","-0.021","-0.021","1","","-0.0206562354757083","1"
-"table_8","4","Treated:party_share","het","SE","0.027","0.027","1","","0.0266582996174303","1"
-"table_8","4","Adjacent:party_share","het","coef","-0.016","-0.016","1","","-0.0157750345971309","1"
-"table_8","4","Adjacent:party_share","het","SE","0.02","0.02","1","","0.0203120880299069","1"
-"table_8","4","all","het","N","88","88","1","","88","1"
-"table_8","4","all","het","R2","0.181","0.181","1","","0.181181057025949","1"
-"ri_table","1","all","RI","p_margin","0.16","","","Not reported in the article or its online appendix; computed here for completeness.","0.1573",""
-"ri_table","1","all","RI","p_share","0.22","0.22","1","Section 5.1 of the article.","0.2225","1"
-"ri_table","1","all","RI","p_turnout","0.53","","","Not reported in the article or its online appendix; computed here for completeness.","0.5261",""
-"ri_table","2","all","RI","p_margin","0.29","","","Not reported in the article or its online appendix; computed here for completeness.","0.8928",""
-"ri_table","2","all","RI","p_share","0.79","0.90","0","Section 5.2 of the article. Archive script on current R draws permutation column 8243 rather than the published 7210, so its p-value does not match.","0.8974","1"
-"ri_table","2","all","RI","p_turnout","0.44","","","Not reported in the article or its online appendix; computed here for completeness.","0.6967",""
-"ri_table","3","all","RI","p_margin","0.26","","","Not reported in the article or its online appendix; computed here for completeness.","0.2633",""
-"ri_table","3","all","RI","p_share","0.02","0.02","1","Section 5.3 of the article.","0.0208","1"
-"ri_table","3","all","RI","p_turnout","0.33","","","Not reported in the article or its online appendix; computed here for completeness.","0.3319",""
-"ri_table","4","all","RI","p_margin","0.88","","","Not reported in the article or its online appendix; computed here for completeness.","0.8773",""
-"ri_table","4","all","RI","p_share","0.77","0.77","1","Section 5.4 of the article.","0.7710","1"
-"ri_table","4","all","RI","p_turnout","0.85","","","Not reported in the article or its online appendix; computed here for completeness.","0.8514",""
-"appendix_C1","1","Treated","M1","coef","15.582","15.582","1","Vote margin Exp 1 appendix","15.5820882919866","1"
-"appendix_C1","1","Treated","M1","SE","28.327","28.327","1","","28.3269024547458","1"
-"appendix_C1","1","Adjacent","M1","coef","-9.242","-9.242","1","","-9.24162075983511","1"
-"appendix_C1","1","Adjacent","M1","SE","27.305","27.305","1","","27.3053512451301","1"
-"appendix_C1","1","Treated","M2","coef","34.786","34.786","1","","34.7862791180129","1"
-"appendix_C1","1","Treated","M2","SE","18.207","18.207","1","","18.2073735421737","1"
-"appendix_C1","1","Adjacent","M2","coef","11.713","11.713","1","","11.7130625829899","1"
-"appendix_C1","1","Adjacent","M2","SE","17.885","17.885","1","","17.8847907177863","1"
-"appendix_C1","1","Treated","M1_turnout","coef","53.002","53.002","1","Turnout Exp 1 appendix","53.0017430795609","1"
-"appendix_C1","1","Treated","M1_turnout","SE","48.748","48.748","1","","48.7480177941925","1"
-"appendix_C1","1","Adjacent","M1_turnout","coef","110.329","110.329","1","","110.329339988732","1"
-"appendix_C1","1","Adjacent","M1_turnout","SE","52.796","52.796","1","","52.7959163940458","1"
-"appendix_C1","1","Treated","M2_turnout","coef","10.331","10.331","1","","10.3313788764894","1"
-"appendix_C1","1","Treated","M2_turnout","SE","15.741","15.741","1","","15.7409806269364","1"
-"appendix_C1","1","Adjacent","M2_turnout","coef","11.914","11.914","1","","11.9137583664288","1"
-"appendix_C1","1","Adjacent","M2_turnout","SE","11.759","11.759","1","","11.7586007130588","1"
-"footnote_4","all","all","intext","total_turnout","241613","241613","1","Total votes cast across 4 experiments","241613","1"
-"footnote_4","all","all","intext","cost_per_vote_direct","3.18","3.18","1","Cost per vote at direct effect estimate","3.175958831588","1"
-"footnote_4","all","all","intext","cost_per_vote_total","1.69","1.69","1","Cost per vote including indirect effect","1.68722812928112","1"
-"figure_2","Agnostic","Prior","","posterior_mean","","0.000","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.000000","1"
-"figure_2","Agnostic","Prior","","posterior_sd","","0.050","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.050000","1"
-"figure_2","Agnostic","Prior","","pr_ate_positive","","0.500","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.500000","1"
-"figure_2","Agnostic","Update 1","","posterior_mean","","0.022","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.022102","1"
-"figure_2","Agnostic","Update 1","","posterior_sd","","0.016","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.016132","1"
-"figure_2","Agnostic","Update 1","","pr_ate_positive","","0.915","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.914663","1"
-"figure_2","Agnostic","Update 2","","posterior_mean","","0.019","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.019442","1"
-"figure_2","Agnostic","Update 2","","posterior_sd","","0.016","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.015531","1"
-"figure_2","Agnostic","Update 2","","pr_ate_positive","","0.895","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.894680","1"
-"figure_2","Agnostic","Update 3","","posterior_mean","","0.019","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.018621","1"
-"figure_2","Agnostic","Update 3","","posterior_sd","","0.008","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.007529","1"
-"figure_2","Agnostic","Update 3","","pr_ate_positive","","0.993","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.993304","1"
-"figure_2","Agnostic","Update 4","","posterior_mean","","0.016","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.016201","1"
-"figure_2","Agnostic","Update 4","","posterior_sd","","0.007","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.007228","1"
-"figure_2","Agnostic","Update 4","","pr_ate_positive","","0.988","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.987502","1"
-"figure_2","Optimist","Prior","","posterior_mean","","0.050","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.050000","1"
-"figure_2","Optimist","Prior","","posterior_sd","","0.050","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.050000","1"
-"figure_2","Optimist","Prior","","pr_ate_positive","","0.841","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.841345","1"
-"figure_2","Optimist","Update 1","","posterior_mean","","0.027","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.027307","1"
-"figure_2","Optimist","Update 1","","posterior_sd","","0.016","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.016132","1"
-"figure_2","Optimist","Update 1","","pr_ate_positive","","0.955","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.954743","1"
-"figure_2","Optimist","Update 2","","posterior_mean","","0.024","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.024267","1"
-"figure_2","Optimist","Update 2","","posterior_sd","","0.016","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.015531","1"
-"figure_2","Optimist","Update 2","","pr_ate_positive","","0.941","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.940907","1"
-"figure_2","Optimist","Update 3","","posterior_mean","","0.020","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.019755","1"
-"figure_2","Optimist","Update 3","","posterior_sd","","0.008","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.007529","1"
-"figure_2","Optimist","Update 3","","pr_ate_positive","","0.996","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.995651","1"
-"figure_2","Optimist","Update 4","","posterior_mean","","0.017","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.017246","1"
-"figure_2","Optimist","Update 4","","posterior_sd","","0.007","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.007228","1"
-"figure_2","Optimist","Update 4","","pr_ate_positive","","0.991","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.991484","1"
-"figure_2","Skeptic","Prior","","posterior_mean","","0.000","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.000000","1"
-"figure_2","Skeptic","Prior","","posterior_sd","","0.010","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.010000","1"
-"figure_2","Skeptic","Prior","","pr_ate_positive","","0.500","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.500000","1"
-"figure_2","Skeptic","Update 1","","posterior_mean","","0.006","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.006318","1"
-"figure_2","Skeptic","Update 1","","posterior_sd","","0.009","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.008625","1"
-"figure_2","Skeptic","Update 1","","pr_ate_positive","","0.768","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.768064","1"
-"figure_2","Skeptic","Update 2","","posterior_mean","","0.006","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.005864","1"
-"figure_2","Skeptic","Update 2","","posterior_sd","","0.009","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.008529","1"
-"figure_2","Skeptic","Update 2","","pr_ate_positive","","0.754","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.754103","1"
-"figure_2","Skeptic","Update 3","","posterior_mean","","0.012","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.012059","1"
-"figure_2","Skeptic","Update 3","","posterior_sd","","0.006","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.006059","1"
-"figure_2","Skeptic","Update 3","","pr_ate_positive","","0.977","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.976715","1"
-"figure_2","Skeptic","Update 4","","posterior_mean","","0.011","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.010790","1"
-"figure_2","Skeptic","Update 4","","posterior_sd","","0.006","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.005898","1"
-"figure_2","Skeptic","Update 4","","pr_ate_positive","","0.966","","Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.","0.966317","1"
+paper_id,table_figure,claim,experiment,arm,model,quantity,value_script,value_paper,match,notes,value_rewrite,match_rewrite,defect_locus
+green_etal_2016,table_2,all | Control | n | N,all,Control,n,N,16,16,1,Exp 1 control,16,1,
+green_etal_2016,table_2,all | Adjacent | n | N,all,Adjacent,n,N,49,49,1,Exp 1 adjacent,49,1,
+green_etal_2016,table_2,all | Treated | n | N,all,Treated,n,N,23,23,1,Exp 1 treated,23,1,
+green_etal_2016,table_2,all | Control | n | N,all,Control,n,N,13,13,1,Exp 2 control,13,1,
+green_etal_2016,table_2,all | Adjacent | n | N,all,Adjacent,n,N,41,41,1,Exp 2 adjacent,41,1,
+green_etal_2016,table_2,all | Treated | n | N,all,Treated,n,N,15,15,1,Exp 2 treated,15,1,
+green_etal_2016,table_2,all | Control | n | N,all,Control,n,N,25,25,1,Exp 3 control,25,1,
+green_etal_2016,table_2,all | Adjacent | n | N,all,Adjacent,n,N,76,76,1,Exp 3 adjacent,76,1,
+green_etal_2016,table_2,all | Treated | n | N,all,Treated,n,N,30,30,1,Exp 3 treated,30,1,
+green_etal_2016,table_2,all | Control | n | N,all,Control,n,N,24,24,1,Exp 4 control,24,1,
+green_etal_2016,table_2,all | Adjacent | n | N,all,Adjacent,n,N,44,44,1,Exp 4 adjacent,44,1,
+green_etal_2016,table_2,all | Treated | n | N,all,Treated,n,N,20,20,1,Exp 4 treated,20,1,
+green_etal_2016,table_3,1 | Treated | M1 | coef,1,Treated,M1,coef,0.025,0.025,1,Vote share Exp 1 model 1,0.0251849231150561,1,
+green_etal_2016,table_3,1 | Treated | M1 | SE,1,Treated,M1,SE,0.027,0.027,1,,0.0271953497940833,1,
+green_etal_2016,table_3,1 | Adjacent | M1 | coef,1,Adjacent,M1,coef,0.037,0.037,1,,0.0365245556057411,1,
+green_etal_2016,table_3,1 | Adjacent | M1 | SE,1,Adjacent,M1,SE,0.027,0.027,1,,0.0273484964987663,1,
+green_etal_2016,table_3,1 | Treated | M2 | coef,1,Treated,M2,coef,0.025,0.025,1,Vote share Exp 1 model 2 (covariate-adjusted),0.0246700898107479,1,
+green_etal_2016,table_3,1 | Treated | M2 | SE,1,Treated,M2,SE,0.017,0.017,1,,0.0170438046883578,1,
+green_etal_2016,table_3,1 | Adjacent | M2 | coef,1,Adjacent,M2,coef,0.018,0.018,1,,0.0176924658008986,1,
+green_etal_2016,table_3,1 | Adjacent | M2 | SE,1,Adjacent,M2,SE,0.016,0.016,1,,0.0156295800079384,1,
+green_etal_2016,table_3,1 | all | M1 | N,1,all,M1,N,88,88,1,,88,1,
+green_etal_2016,table_3,1 | all | M1 | R2,1,all,M1,R2,0.031,0.031,1,,0.0314509025405569,1,
+green_etal_2016,table_3,1 | all | M2 | R2,1,all,M2,R2,0.823,0.823,1,,0.822500240891992,1,
+green_etal_2016,table_4,2 | Treated | M1 | coef,2,Treated,M1,coef,0.13,0.009,0,Vote share Exp 2 model 1: R 3.6 sample() change: script selects column 8243 not 7210,0.00850373305360868,1,
+green_etal_2016,table_4,2 | Treated | M1 | SE,2,Treated,M1,SE,0.08,0.054,0,,0.0539779334852138,1,
+green_etal_2016,table_4,2 | Adjacent | M1 | coef,2,Adjacent,M1,coef,0.137,0.012,0,,0.0117388512564832,1,
+green_etal_2016,table_4,2 | Adjacent | M1 | SE,2,Adjacent,M1,SE,0.072,0.046,0,,0.0463818505970431,1,
+green_etal_2016,table_4,2 | Treated | M2 | coef,2,Treated,M2,coef,0.019,-0.014,0,Vote share Exp 2 model 2: R 3.6 sample() change,-0.0142778009663527,1,
+green_etal_2016,table_4,2 | Treated | M2 | SE,2,Treated,M2,SE,0.053,0.057,0,,0.0574424251287565,1,
+green_etal_2016,table_4,2 | Adjacent | M2 | coef,2,Adjacent,M2,coef,0.028,0.004,0,,0.00428044547072836,1,
+green_etal_2016,table_4,2 | Adjacent | M2 | SE,2,Adjacent,M2,SE,0.035,0.045,0,,0.0453949744301064,1,
+green_etal_2016,table_4,2 | all | M1 | N,2,all,M1,N,69,69,1,,69,1,
+green_etal_2016,table_4,2 | all | M1 | R2,2,all,M1,R2,0.13,0.001,0,,0.00108065739965002,1,
+green_etal_2016,table_5,3 | Treated | M1 | coef,3,Treated,M1,coef,0.042,0.042,1,Vote share Exp 3 model 1,0.0415499685697058,1,
+green_etal_2016,table_5,3 | Treated | M1 | SE,3,Treated,M1,SE,0.016,0.016,1,,0.0159171166363333,1,
+green_etal_2016,table_5,3 | Adjacent | M1 | coef,3,Adjacent,M1,coef,0.042,0.042,1,,0.042377169733312,1,
+green_etal_2016,table_5,3 | Adjacent | M1 | SE,3,Adjacent,M1,SE,0.013,0.013,1,,0.0132163225089229,1,
+green_etal_2016,table_5,3 | Treated | M2 | coef,3,Treated,M2,coef,0.018,0.018,1,Vote share Exp 3 model 2,0.0183687447195372,1,
+green_etal_2016,table_5,3 | Treated | M2 | SE,3,Treated,M2,SE,0.009,0.009,1,,0.00860843709003946,1,
+green_etal_2016,table_5,3 | Adjacent | M2 | coef,3,Adjacent,M2,coef,0.018,0.018,1,,0.0184661680108188,1,
+green_etal_2016,table_5,3 | Adjacent | M2 | SE,3,Adjacent,M2,SE,0.007,0.007,1,,0.0065603412388164,1,
+green_etal_2016,table_5,3 | all | M1 | N,3,all,M1,N,131,131,1,,131,1,
+green_etal_2016,table_5,3 | all | M1 | R2,3,all,M1,R2,0.094,0.094,1,,0.0939464783867885,1,
+green_etal_2016,table_5,3 | all | M2 | R2,3,all,M2,R2,0.825,0.825,1,,0.825105729313222,1,
+green_etal_2016,table_6,4 | Treated | M1 | coef,4,Treated,M1,coef,-0.013,-0.013,1,Vote share Exp 4 model 1,-0.0134254300332048,1,
+green_etal_2016,table_6,4 | Treated | M1 | SE,4,Treated,M1,SE,0.028,0.028,1,,0.0276296540671851,1,
+green_etal_2016,table_6,4 | Adjacent | M1 | coef,4,Adjacent,M1,coef,-0.023,-0.023,1,,-0.0234889507102779,1,
+green_etal_2016,table_6,4 | Adjacent | M1 | SE,4,Adjacent,M1,SE,0.022,0.022,1,,0.0217799790242458,1,
+green_etal_2016,table_6,4 | Treated | M2 | coef,4,Treated,M2,coef,-0.012,-0.012,1,Vote share Exp 4 model 2,-0.0122155097107169,1,
+green_etal_2016,table_6,4 | Treated | M2 | SE,4,Treated,M2,SE,0.026,0.026,1,,0.0257990947698161,1,
+green_etal_2016,table_6,4 | Adjacent | M2 | coef,4,Adjacent,M2,coef,-0.02,-0.02,1,,-0.0202615460173702,1,
+green_etal_2016,table_6,4 | Adjacent | M2 | SE,4,Adjacent,M2,SE,0.021,0.021,1,,0.0205207147642803,1,
+green_etal_2016,table_6,4 | all | M1 | N,4,all,M1,N,88,88,1,,88,1,
+green_etal_2016,table_6,4 | all | M1 | R2,4,all,M1,R2,0.012,0.012,1,,0.0115011646658062,1,
+green_etal_2016,table_6,4 | all | M2 | R2,4,all,M2,R2,0.172,0.172,1,,0.172251358226275,1,
+green_etal_2016,table_7,all | Treated | pooled | coef_exp1,all,Treated,pooled,coef_exp1,0.025,0.025,1,Direct effect pooled table,0.0246700898107479,1,
+green_etal_2016,table_7,all | Treated | pooled | SE_exp1,all,Treated,pooled,SE_exp1,0.017,0.017,1,,0.0170438046883578,1,
+green_etal_2016,table_7,all | Treated | pooled | coef_exp2,all,Treated,pooled,coef_exp2,-0.014,-0.014,1,,-0.0142778009663527,1,
+green_etal_2016,table_7,all | Treated | pooled | SE_exp2,all,Treated,pooled,SE_exp2,0.057,0.057,1,,0.0574424251287565,1,
+green_etal_2016,table_7,all | Treated | pooled | coef_exp3,all,Treated,pooled,coef_exp3,0.018,0.018,1,,0.0183687447195372,1,
+green_etal_2016,table_7,all | Treated | pooled | SE_exp3,all,Treated,pooled,SE_exp3,0.009,0.009,1,,0.00860843709003946,1,
+green_etal_2016,table_7,all | Treated | pooled | coef_exp4,all,Treated,pooled,coef_exp4,-0.012,-0.012,1,,-0.0122155097107169,1,
+green_etal_2016,table_7,all | Treated | pooled | SE_exp4,all,Treated,pooled,SE_exp4,0.026,0.026,1,,0.0257990947698161,1,
+green_etal_2016,table_7,all | Treated | pooled | coef_pooled,all,Treated,pooled,coef_pooled,0.017,0.017,1,,0.0165465347227397,1,
+green_etal_2016,table_7,all | Treated | pooled | SE_pooled,all,Treated,pooled,SE_pooled,0.007,0.007,1,,0.00730447545153525,1,
+green_etal_2016,table_7,all | Adjacent | pooled | coef_exp1,all,Adjacent,pooled,coef_exp1,0.018,0.018,1,Indirect effect pooled table,0.0176924658008986,1,
+green_etal_2016,table_7,all | Adjacent | pooled | SE_exp1,all,Adjacent,pooled,SE_exp1,0.016,0.016,1,,0.0156295800079384,1,
+green_etal_2016,table_7,all | Adjacent | pooled | coef_exp2,all,Adjacent,pooled,coef_exp2,0.004,0.004,1,,0.00428044547072836,1,
+green_etal_2016,table_7,all | Adjacent | pooled | SE_exp2,all,Adjacent,pooled,SE_exp2,0.045,0.045,1,,0.0453949744301064,1,
+green_etal_2016,table_7,all | Adjacent | pooled | coef_exp3,all,Adjacent,pooled,coef_exp3,0.018,0.018,1,,0.0184661680108188,1,
+green_etal_2016,table_7,all | Adjacent | pooled | SE_exp3,all,Adjacent,pooled,SE_exp3,0.007,0.007,1,,0.0065603412388164,1,
+green_etal_2016,table_7,all | Adjacent | pooled | coef_exp4,all,Adjacent,pooled,coef_exp4,-0.02,-0.02,1,,-0.0202615460173702,1,
+green_etal_2016,table_7,all | Adjacent | pooled | SE_exp4,all,Adjacent,pooled,SE_exp4,0.021,0.021,1,,0.0205207147642803,1,
+green_etal_2016,table_7,all | Adjacent | pooled | coef_pooled,all,Adjacent,pooled,coef_pooled,0.015,0.015,1,,0.0150868010853195,1,
+green_etal_2016,table_7,all | Adjacent | pooled | SE_pooled,all,Adjacent,pooled,SE_pooled,0.006,0.006,1,,0.00575541650555256,1,
+green_etal_2016,table_8,1 | Treated | het | coef,1,Treated,het,coef,0.031,0.031,1,Het effects by party support Exp 1,0.0313323003609761,1,
+green_etal_2016,table_8,1 | Treated | het | SE,1,Treated,het,SE,0.017,0.017,1,,0.0170677333708408,1,
+green_etal_2016,table_8,1 | Adjacent | het | coef,1,Adjacent,het,coef,0.021,0.021,1,,0.0209344338704731,1,
+green_etal_2016,table_8,1 | Adjacent | het | SE,1,Adjacent,het,SE,0.014,0.014,1,,0.0144758800003209,1,
+green_etal_2016,table_8,1 | party_share | het | coef,1,party_share,het,coef,0.027,0.027,1,,0.0266351630335268,1,
+green_etal_2016,table_8,1 | party_share | het | SE,1,party_share,het,SE,0.042,0.042,1,,0.0415866162620613,1,
+green_etal_2016,table_8,1 | Treated:party_share | het | coef,1,Treated:party_share,het,coef,0.031,0.031,1,,0.0310232649627718,1,
+green_etal_2016,table_8,1 | Treated:party_share | het | SE,1,Treated:party_share,het,SE,0.03,0.03,1,,0.0296668745438136,1,
+green_etal_2016,table_8,1 | Adjacent:party_share | het | coef,1,Adjacent:party_share,het,coef,0.011,0.011,1,,0.0110440779496757,1,
+green_etal_2016,table_8,1 | Adjacent:party_share | het | SE,1,Adjacent:party_share,het,SE,0.025,0.025,1,,0.025318596318585,1,
+green_etal_2016,table_8,1 | all | het | N,1,all,het,N,88,88,1,,88,1,
+green_etal_2016,table_8,1 | all | het | R2,1,all,het,R2,0.829,0.829,1,,0.828859947456358,1,
+green_etal_2016,table_8,2 | Treated | het | coef,2,Treated,het,coef,-0.009,-0.009,1,Het effects Exp 2,-0.00939986931205115,1,
+green_etal_2016,table_8,2 | Treated | het | SE,2,Treated,het,SE,0.06,0.06,1,,0.0598700848190547,1,
+green_etal_2016,table_8,2 | Adjacent | het | coef,2,Adjacent,het,coef,0.011,0.011,1,,0.0106083651730772,1,
+green_etal_2016,table_8,2 | Adjacent | het | SE,2,Adjacent,het,SE,0.046,0.046,1,,0.0460812684704982,1,
+green_etal_2016,table_8,2 | party_share | het | coef,2,party_share,het,coef,-0.02,-0.02,1,,-0.0204280489102419,1,
+green_etal_2016,table_8,2 | party_share | het | SE,2,party_share,het,SE,0.033,0.033,1,,0.0327925257658679,1,
+green_etal_2016,table_8,2 | Treated:party_share | het | coef,2,Treated:party_share,het,coef,0.033,0.033,1,,0.0334982428503854,1,
+green_etal_2016,table_8,2 | Treated:party_share | het | SE,2,Treated:party_share,het,SE,0.063,0.063,1,,0.0626600647388735,1,
+green_etal_2016,table_8,2 | Adjacent:party_share | het | coef,2,Adjacent:party_share,het,coef,0.053,0.053,1,,0.0530270828146152,1,
+green_etal_2016,table_8,2 | Adjacent:party_share | het | SE,2,Adjacent:party_share,het,SE,0.033,0.033,1,,0.0325277799933964,1,
+green_etal_2016,table_8,2 | all | het | N,2,all,het,N,69,69,1,,69,1,
+green_etal_2016,table_8,2 | all | het | R2,2,all,het,R2,0.277,0.277,1,,0.277201723401003,1,
+green_etal_2016,table_8,3 | Treated | het | coef,3,Treated,het,coef,0.02,0.02,1,Het effects Exp 3,0.0195718144455067,1,
+green_etal_2016,table_8,3 | Treated | het | SE,3,Treated,het,SE,0.009,0.009,1,,0.00914339319000478,1,
+green_etal_2016,table_8,3 | Adjacent | het | coef,3,Adjacent,het,coef,0.02,0.02,1,,0.0197823488638466,1,
+green_etal_2016,table_8,3 | Adjacent | het | SE,3,Adjacent,het,SE,0.007,0.007,1,,0.00723695945014714,1,
+green_etal_2016,table_8,3 | party_share | het | coef,3,party_share,het,coef,0.028,0.028,1,,0.0277688953304519,1,
+green_etal_2016,table_8,3 | party_share | het | SE,3,party_share,het,SE,0.009,0.009,1,,0.00868969118027666,1,
+green_etal_2016,table_8,3 | Treated:party_share | het | coef,3,Treated:party_share,het,coef,0.01,0.01,1,,0.00956524433211274,1,
+green_etal_2016,table_8,3 | Treated:party_share | het | SE,3,Treated:party_share,het,SE,0.008,0.008,1,,0.007960757426217,1,
+green_etal_2016,table_8,3 | Adjacent:party_share | het | coef,3,Adjacent:party_share,het,coef,0.008,0.008,1,,0.0076708613615315,1,
+green_etal_2016,table_8,3 | Adjacent:party_share | het | SE,3,Adjacent:party_share,het,SE,0.008,0.008,1,,0.0077967575316686,1,
+green_etal_2016,table_8,3 | all | het | N,3,all,het,N,131,131,1,,131,1,
+green_etal_2016,table_8,3 | all | het | R2,3,all,het,R2,0.829,0.829,1,,0.829294153064998,1,
+green_etal_2016,table_8,4 | Treated | het | coef,4,Treated,het,coef,-0.014,-0.014,1,Het effects Exp 4,-0.0138509572033166,1,
+green_etal_2016,table_8,4 | Treated | het | SE,4,Treated,het,SE,0.026,0.026,1,,0.0264086670442199,1,
+green_etal_2016,table_8,4 | Adjacent | het | coef,4,Adjacent,het,coef,-0.02,-0.02,1,,-0.0199446168952743,1,
+green_etal_2016,table_8,4 | Adjacent | het | SE,4,Adjacent,het,SE,0.021,0.021,1,,0.0211109363574492,1,
+green_etal_2016,table_8,4 | party_share | het | coef,4,party_share,het,coef,0.02,0.02,1,,0.020485916463216,1,
+green_etal_2016,table_8,4 | party_share | het | SE,4,party_share,het,SE,0.021,0.021,1,,0.0206558145688769,1,
+green_etal_2016,table_8,4 | Treated:party_share | het | coef,4,Treated:party_share,het,coef,-0.021,-0.021,1,,-0.0206562354757083,1,
+green_etal_2016,table_8,4 | Treated:party_share | het | SE,4,Treated:party_share,het,SE,0.027,0.027,1,,0.0266582996174303,1,
+green_etal_2016,table_8,4 | Adjacent:party_share | het | coef,4,Adjacent:party_share,het,coef,-0.016,-0.016,1,,-0.0157750345971309,1,
+green_etal_2016,table_8,4 | Adjacent:party_share | het | SE,4,Adjacent:party_share,het,SE,0.02,0.02,1,,0.0203120880299069,1,
+green_etal_2016,table_8,4 | all | het | N,4,all,het,N,88,88,1,,88,1,
+green_etal_2016,table_8,4 | all | het | R2,4,all,het,R2,0.181,0.181,1,,0.181181057025949,1,
+green_etal_2016,ri_table,1 | all | RI | p_margin,1,all,RI,p_margin,0.16,,,Not reported in the article or its online appendix; computed here for completeness.,0.1573,,
+green_etal_2016,ri_table,1 | all | RI | p_share,1,all,RI,p_share,0.22,0.22,1,Section 5.1 of the article.,0.2225,1,
+green_etal_2016,ri_table,1 | all | RI | p_turnout,1,all,RI,p_turnout,0.53,,,Not reported in the article or its online appendix; computed here for completeness.,0.5261,,
+green_etal_2016,ri_table,2 | all | RI | p_margin,2,all,RI,p_margin,0.29,,,Not reported in the article or its online appendix; computed here for completeness.,0.8928,,
+green_etal_2016,ri_table,2 | all | RI | p_share,2,all,RI,p_share,0.79,0.90,0,"Section 5.2 of the article. Archive script on current R draws permutation column 8243 rather than the published 7210, so its p-value does not match.",0.8974,1,
+green_etal_2016,ri_table,2 | all | RI | p_turnout,2,all,RI,p_turnout,0.44,,,Not reported in the article or its online appendix; computed here for completeness.,0.6967,,
+green_etal_2016,ri_table,3 | all | RI | p_margin,3,all,RI,p_margin,0.26,,,Not reported in the article or its online appendix; computed here for completeness.,0.2633,,
+green_etal_2016,ri_table,3 | all | RI | p_share,3,all,RI,p_share,0.02,0.02,1,Section 5.3 of the article.,0.0208,1,
+green_etal_2016,ri_table,3 | all | RI | p_turnout,3,all,RI,p_turnout,0.33,,,Not reported in the article or its online appendix; computed here for completeness.,0.3319,,
+green_etal_2016,ri_table,4 | all | RI | p_margin,4,all,RI,p_margin,0.88,,,Not reported in the article or its online appendix; computed here for completeness.,0.8773,,
+green_etal_2016,ri_table,4 | all | RI | p_share,4,all,RI,p_share,0.77,0.77,1,Section 5.4 of the article.,0.7710,1,
+green_etal_2016,ri_table,4 | all | RI | p_turnout,4,all,RI,p_turnout,0.85,,,Not reported in the article or its online appendix; computed here for completeness.,0.8514,,
+green_etal_2016,appendix_C1,1 | Treated | M1 | coef,1,Treated,M1,coef,15.582,15.582,1,Vote margin Exp 1 appendix,15.5820882919866,1,
+green_etal_2016,appendix_C1,1 | Treated | M1 | SE,1,Treated,M1,SE,28.327,28.327,1,,28.3269024547458,1,
+green_etal_2016,appendix_C1,1 | Adjacent | M1 | coef,1,Adjacent,M1,coef,-9.242,-9.242,1,,-9.24162075983511,1,
+green_etal_2016,appendix_C1,1 | Adjacent | M1 | SE,1,Adjacent,M1,SE,27.305,27.305,1,,27.3053512451301,1,
+green_etal_2016,appendix_C1,1 | Treated | M2 | coef,1,Treated,M2,coef,34.786,34.786,1,,34.7862791180129,1,
+green_etal_2016,appendix_C1,1 | Treated | M2 | SE,1,Treated,M2,SE,18.207,18.207,1,,18.2073735421737,1,
+green_etal_2016,appendix_C1,1 | Adjacent | M2 | coef,1,Adjacent,M2,coef,11.713,11.713,1,,11.7130625829899,1,
+green_etal_2016,appendix_C1,1 | Adjacent | M2 | SE,1,Adjacent,M2,SE,17.885,17.885,1,,17.8847907177863,1,
+green_etal_2016,appendix_C1,1 | Treated | M1_turnout | coef,1,Treated,M1_turnout,coef,53.002,53.002,1,Turnout Exp 1 appendix,53.0017430795609,1,
+green_etal_2016,appendix_C1,1 | Treated | M1_turnout | SE,1,Treated,M1_turnout,SE,48.748,48.748,1,,48.7480177941925,1,
+green_etal_2016,appendix_C1,1 | Adjacent | M1_turnout | coef,1,Adjacent,M1_turnout,coef,110.329,110.329,1,,110.329339988732,1,
+green_etal_2016,appendix_C1,1 | Adjacent | M1_turnout | SE,1,Adjacent,M1_turnout,SE,52.796,52.796,1,,52.7959163940458,1,
+green_etal_2016,appendix_C1,1 | Treated | M2_turnout | coef,1,Treated,M2_turnout,coef,10.331,10.331,1,,10.3313788764894,1,
+green_etal_2016,appendix_C1,1 | Treated | M2_turnout | SE,1,Treated,M2_turnout,SE,15.741,15.741,1,,15.7409806269364,1,
+green_etal_2016,appendix_C1,1 | Adjacent | M2_turnout | coef,1,Adjacent,M2_turnout,coef,11.914,11.914,1,,11.9137583664288,1,
+green_etal_2016,appendix_C1,1 | Adjacent | M2_turnout | SE,1,Adjacent,M2_turnout,SE,11.759,11.759,1,,11.7586007130588,1,
+green_etal_2016,footnote_4,all | all | intext | total_turnout,all,all,intext,total_turnout,241613,241613,1,Total votes cast across 4 experiments,241613,1,
+green_etal_2016,footnote_4,all | all | intext | cost_per_vote_direct,all,all,intext,cost_per_vote_direct,3.18,3.18,1,Cost per vote at direct effect estimate,3.175958831588,1,
+green_etal_2016,footnote_4,all | all | intext | cost_per_vote_total,all,all,intext,cost_per_vote_total,1.69,1.69,1,Cost per vote including indirect effect,1.68722812928112,1,
+green_etal_2016,figure_2,Agnostic | Prior | posterior_mean,Agnostic,Prior,,posterior_mean,,0.000,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.000000,1,
+green_etal_2016,figure_2,Agnostic | Prior | posterior_sd,Agnostic,Prior,,posterior_sd,,0.050,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.050000,1,
+green_etal_2016,figure_2,Agnostic | Prior | pr_ate_positive,Agnostic,Prior,,pr_ate_positive,,0.500,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.500000,1,
+green_etal_2016,figure_2,Agnostic | Update 1 | posterior_mean,Agnostic,Update 1,,posterior_mean,,0.022,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.022102,1,
+green_etal_2016,figure_2,Agnostic | Update 1 | posterior_sd,Agnostic,Update 1,,posterior_sd,,0.016,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.016132,1,
+green_etal_2016,figure_2,Agnostic | Update 1 | pr_ate_positive,Agnostic,Update 1,,pr_ate_positive,,0.915,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.914663,1,
+green_etal_2016,figure_2,Agnostic | Update 2 | posterior_mean,Agnostic,Update 2,,posterior_mean,,0.019,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.019442,1,
+green_etal_2016,figure_2,Agnostic | Update 2 | posterior_sd,Agnostic,Update 2,,posterior_sd,,0.016,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.015531,1,
+green_etal_2016,figure_2,Agnostic | Update 2 | pr_ate_positive,Agnostic,Update 2,,pr_ate_positive,,0.895,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.894680,1,
+green_etal_2016,figure_2,Agnostic | Update 3 | posterior_mean,Agnostic,Update 3,,posterior_mean,,0.019,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.018621,1,
+green_etal_2016,figure_2,Agnostic | Update 3 | posterior_sd,Agnostic,Update 3,,posterior_sd,,0.008,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.007529,1,
+green_etal_2016,figure_2,Agnostic | Update 3 | pr_ate_positive,Agnostic,Update 3,,pr_ate_positive,,0.993,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.993304,1,
+green_etal_2016,figure_2,Agnostic | Update 4 | posterior_mean,Agnostic,Update 4,,posterior_mean,,0.016,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.016201,1,
+green_etal_2016,figure_2,Agnostic | Update 4 | posterior_sd,Agnostic,Update 4,,posterior_sd,,0.007,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.007228,1,
+green_etal_2016,figure_2,Agnostic | Update 4 | pr_ate_positive,Agnostic,Update 4,,pr_ate_positive,,0.988,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.987502,1,
+green_etal_2016,figure_2,Optimist | Prior | posterior_mean,Optimist,Prior,,posterior_mean,,0.050,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.050000,1,
+green_etal_2016,figure_2,Optimist | Prior | posterior_sd,Optimist,Prior,,posterior_sd,,0.050,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.050000,1,
+green_etal_2016,figure_2,Optimist | Prior | pr_ate_positive,Optimist,Prior,,pr_ate_positive,,0.841,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.841345,1,
+green_etal_2016,figure_2,Optimist | Update 1 | posterior_mean,Optimist,Update 1,,posterior_mean,,0.027,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.027307,1,
+green_etal_2016,figure_2,Optimist | Update 1 | posterior_sd,Optimist,Update 1,,posterior_sd,,0.016,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.016132,1,
+green_etal_2016,figure_2,Optimist | Update 1 | pr_ate_positive,Optimist,Update 1,,pr_ate_positive,,0.955,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.954743,1,
+green_etal_2016,figure_2,Optimist | Update 2 | posterior_mean,Optimist,Update 2,,posterior_mean,,0.024,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.024267,1,
+green_etal_2016,figure_2,Optimist | Update 2 | posterior_sd,Optimist,Update 2,,posterior_sd,,0.016,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.015531,1,
+green_etal_2016,figure_2,Optimist | Update 2 | pr_ate_positive,Optimist,Update 2,,pr_ate_positive,,0.941,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.940907,1,
+green_etal_2016,figure_2,Optimist | Update 3 | posterior_mean,Optimist,Update 3,,posterior_mean,,0.020,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.019755,1,
+green_etal_2016,figure_2,Optimist | Update 3 | posterior_sd,Optimist,Update 3,,posterior_sd,,0.008,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.007529,1,
+green_etal_2016,figure_2,Optimist | Update 3 | pr_ate_positive,Optimist,Update 3,,pr_ate_positive,,0.996,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.995651,1,
+green_etal_2016,figure_2,Optimist | Update 4 | posterior_mean,Optimist,Update 4,,posterior_mean,,0.017,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.017246,1,
+green_etal_2016,figure_2,Optimist | Update 4 | posterior_sd,Optimist,Update 4,,posterior_sd,,0.007,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.007228,1,
+green_etal_2016,figure_2,Optimist | Update 4 | pr_ate_positive,Optimist,Update 4,,pr_ate_positive,,0.991,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.991484,1,
+green_etal_2016,figure_2,Skeptic | Prior | posterior_mean,Skeptic,Prior,,posterior_mean,,0.000,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.000000,1,
+green_etal_2016,figure_2,Skeptic | Prior | posterior_sd,Skeptic,Prior,,posterior_sd,,0.010,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.010000,1,
+green_etal_2016,figure_2,Skeptic | Prior | pr_ate_positive,Skeptic,Prior,,pr_ate_positive,,0.500,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.500000,1,
+green_etal_2016,figure_2,Skeptic | Update 1 | posterior_mean,Skeptic,Update 1,,posterior_mean,,0.006,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.006318,1,
+green_etal_2016,figure_2,Skeptic | Update 1 | posterior_sd,Skeptic,Update 1,,posterior_sd,,0.009,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.008625,1,
+green_etal_2016,figure_2,Skeptic | Update 1 | pr_ate_positive,Skeptic,Update 1,,pr_ate_positive,,0.768,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.768064,1,
+green_etal_2016,figure_2,Skeptic | Update 2 | posterior_mean,Skeptic,Update 2,,posterior_mean,,0.006,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.005864,1,
+green_etal_2016,figure_2,Skeptic | Update 2 | posterior_sd,Skeptic,Update 2,,posterior_sd,,0.009,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.008529,1,
+green_etal_2016,figure_2,Skeptic | Update 2 | pr_ate_positive,Skeptic,Update 2,,pr_ate_positive,,0.754,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.754103,1,
+green_etal_2016,figure_2,Skeptic | Update 3 | posterior_mean,Skeptic,Update 3,,posterior_mean,,0.012,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.012059,1,
+green_etal_2016,figure_2,Skeptic | Update 3 | posterior_sd,Skeptic,Update 3,,posterior_sd,,0.006,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.006059,1,
+green_etal_2016,figure_2,Skeptic | Update 3 | pr_ate_positive,Skeptic,Update 3,,pr_ate_positive,,0.977,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.976715,1,
+green_etal_2016,figure_2,Skeptic | Update 4 | posterior_mean,Skeptic,Update 4,,posterior_mean,,0.011,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.010790,1,
+green_etal_2016,figure_2,Skeptic | Update 4 | posterior_sd,Skeptic,Update 4,,posterior_sd,,0.006,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.005898,1,
+green_etal_2016,figure_2,Skeptic | Update 4 | pr_ate_positive,Skeptic,Update 4,,pr_ate_positive,,0.966,,"Figure 2 panel label, article p. 149. Archive column left blank: the archive draws the figure but prints no panel values.",0.966317,1,
