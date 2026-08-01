@@ -36,6 +36,8 @@ gt <- read_csv(here::here("ground_truth", "green_etal_2016_ground_truth.csv"),
                show_col_types = FALSE)
 ```
 
+*Drafted by Claude Opus 5 under the supervision of Alex Coppock.*
+
 This repository holds the actively maintained replication code for Green, Krasno, Coppock, Farrer, Lenoir and Zingher (2016), together with the reproducibility report that documents what the original archive did and did not do. It is part of a program applying the maintenance proposal in Peer, Orr and Coppock (2021, *PS: Political Science & Politics*, doi [10.1017/S1049096521000366](https://doi.org/10.1017/S1049096521000366)) to a set of published archives.
 
 | | |
@@ -75,7 +77,7 @@ Two questions, answered before the detail.
 
 ## Does the deposited archive run?
 
-Yes. All six analysis scripts execute without error on a current R installation, with no hardcoded paths, no functions called before they are defined, and no deprecated calls that have since been removed. Every package they name still installs from CRAN, including `beepr`, which the March 2026 pass recorded as unavailable; `beepr` 2.0 installs without incident, and in any case only one of the random-assignment scripts calls it, to play a sound on completion.
+Yes. All six analysis scripts execute without error on a current R installation, with no hardcoded paths, no functions called before they are defined, and no deprecated calls that have since been removed. Every package they name still installs from CRAN, including `beepr` 2.0, which only one of the random-assignment scripts calls, to play a sound on completion.
 
 Running is not the same as reproducing, and one number changes. `Experiment_2_Analysis.R` picks the observed treatment assignment out of a matrix of 10,000 admissible randomizations with `set.seed(12345); sample(1:10000, 1)`. R 3.6.0 changed how `sample()` converts uniform draws to integers, so that line returned column 7210 when the paper was written and returns column 8243 today. Column 7210 is the assignment that was actually deployed, and it is the one the archive's own pre-saved `exp_2.RData` encodes, so the archive contains the right answer and the live script path no longer finds it. `r n_archive_fail` of the `r n_archive_verifiable` claims an archive script can be checked against therefore fail to reproduce, all of them in Table 4 and in the Experiment 2 randomization inference p-value, and all from that one line.
 
@@ -284,7 +286,7 @@ ri |>
 
 The margin and turnout p-values are computed here for completeness and appear nowhere in the article or its appendix, so the ground truth marks them unverifiable rather than matched. Producing them is cheap: all twelve p-values together, 40,000 permutations and 120,000 pairs of weighted models, take under two minutes.
 
-That figure is worth stating because the March 2026 pass did not compute Experiments 3 and 4 at all. Their p-values were written into the script as constants, on the stated grounds that recomputing them "would require loading large matrices (Exp 3: 131x10K, Exp 4: 88x10K) and takes ~10 min". Neither half of that holds. The matrices are already inside the `exp_3.RData` and `exp_4.RData` objects the rewrite loads for the table scripts, so no additional file is read; and the two loops together run in under a minute, against an Experiment 1 loop of almost the same size that the script was already running. The constants happened to be right, but a number typed into a script is not a number the script produces.
+Every p-value here is computed rather than carried. The permutation matrices are already inside the `exp_3.RData` and `exp_4.RData` objects the table scripts load, so no additional file is read, and the two loops together run in under a minute. A number typed into a script is not a number the script produces.
 
 # Figure 2 verification
 
@@ -311,7 +313,7 @@ gt |>
     collapse_rows(columns = 1, latex_hline = "major"))
 ```
 
-The rewrite updates on the fitted coefficients at full precision, reading them from `maintained/output/table_7_pooled.csv`, which is what the original does. The March 2026 pass instead retyped the four direct effects at the three decimal places Table 7 prints, which is a rounding carried into a calculation rather than into a display.
+The rewrite updates on the fitted coefficients at full precision, reading them from `maintained/output/table_7_pooled.csv`, which is what the original does. Retyping the four direct effects at the three decimal places Table 7 prints would carry a rounding into a calculation rather than into a display.
 
 ```{r fig2_image, out.width="100%", fig.cap="Figure 2 as reproduced by the maintained rewrite."}
 knitr::include_graphics(
