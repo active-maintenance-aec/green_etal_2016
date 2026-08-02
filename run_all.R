@@ -37,3 +37,10 @@ source(here::here("maintained", "figure_2_bayesian.R"))
 # Four experiments by three outcomes, 10,000 permutations each; the slow step, around
 # two minutes in total.
 source(here::here("maintained", "ri_all_experiments.R"))
+
+# Deposited archive, again ----
+# The check at the top of this file is a precondition: it says original/ was intact
+# before anything ran. Nothing above writes to original/, and this second pass is what
+# demonstrates it rather than assuming it. Nothing is downloaded; the files are already
+# present and are re-checked against the manifest on checksum, byte size and membership.
+source(here::here("download_original.R"))
