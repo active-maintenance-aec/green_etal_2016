@@ -1,0 +1,17 @@
+quantity,value
+total turnout,241613
+total cost,13045
+"pooled direct effect, as Table 7 prints it",0.017
+"pooled direct effect, full precision",0.01654653472273968
+"cost per vote, direct effect only",3.1759588315879963
+"cost per vote, direct effect at full precision",3.2629974216170123
+"cost per vote, direct and indirect",1.687228129281123
+"cost per vote, direct and indirect at full precision",1.706784907687185
+"interval lower endpoint, median over seeds",1.6993853338381208
+"interval lower endpoint, minimum over seeds",1.6588664372983395
+"interval lower endpoint, maximum over seeds",1.7304343779800635
+"interval upper endpoint, median over seeds",13.172808580654374
+"interval upper endpoint, minimum over seeds",11.787742672986925
+"interval upper endpoint, maximum over seeds",15.188754107079056
+"interval level, per cent",95
+seeds drawn,200

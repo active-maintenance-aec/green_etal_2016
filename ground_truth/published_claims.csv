@@ -1,0 +1,482 @@
+claim_id,location,claim_type,value_paper,needs_block,digits
+t2_e1_control,Table 2,pipeline,16,TRUE,0
+t2_e1_adjacent,Table 2,pipeline,49,TRUE,0
+t2_e1_treated,Table 2,pipeline,23,TRUE,0
+t2_e1_total,Table 2,pipeline,88,TRUE,0
+t2_e2_control,Table 2,pipeline,13,TRUE,0
+t2_e2_adjacent,Table 2,pipeline,41,TRUE,0
+t2_e2_treated,Table 2,pipeline,15,TRUE,0
+t2_e2_total,Table 2,pipeline,69,TRUE,0
+t2_e3_control,Table 2,pipeline,25,TRUE,0
+t2_e3_adjacent,Table 2,pipeline,76,TRUE,0
+t2_e3_treated,Table 2,pipeline,30,TRUE,0
+t2_e3_total,Table 2,pipeline,131,TRUE,0
+t2_e4_control,Table 2,pipeline,24,TRUE,0
+t2_e4_adjacent,Table 2,pipeline,44,TRUE,0
+t2_e4_treated,Table 2,pipeline,20,TRUE,0
+t2_e4_total,Table 2,pipeline,88,TRUE,0
+t3_m1_treated_coef,Table 3,pipeline,0.025,TRUE,3
+t3_m1_treated_se,Table 3,pipeline,0.027,TRUE,3
+t3_m2_treated_coef,Table 3,pipeline,0.025,TRUE,3
+t3_m2_treated_se,Table 3,pipeline,0.017,TRUE,3
+t3_m1_adjacent_coef,Table 3,pipeline,0.037,TRUE,3
+t3_m1_adjacent_se,Table 3,pipeline,0.027,TRUE,3
+t3_m2_adjacent_coef,Table 3,pipeline,0.018,TRUE,3
+t3_m2_adjacent_se,Table 3,pipeline,0.016,TRUE,3
+t3_m1_constant_coef,Table 3,pipeline,0.390,TRUE,3
+t3_m1_constant_se,Table 3,pipeline,0.020,TRUE,3
+t3_m2_constant_coef,Table 3,pipeline,0.015,TRUE,3
+t3_m2_constant_se,Table 3,pipeline,0.031,TRUE,3
+t4_m1_treated_coef,Table 4,pipeline,0.009,TRUE,3
+t4_m1_treated_se,Table 4,pipeline,0.054,TRUE,3
+t4_m2_treated_coef,Table 4,pipeline,-0.014,TRUE,3
+t4_m2_treated_se,Table 4,pipeline,0.057,TRUE,3
+t4_m1_adjacent_coef,Table 4,pipeline,0.012,TRUE,3
+t4_m1_adjacent_se,Table 4,pipeline,0.046,TRUE,3
+t4_m2_adjacent_coef,Table 4,pipeline,0.004,TRUE,3
+t4_m2_adjacent_se,Table 4,pipeline,0.045,TRUE,3
+t4_m1_constant_coef,Table 4,pipeline,0.659,TRUE,3
+t4_m1_constant_se,Table 4,pipeline,0.039,TRUE,3
+t4_m2_constant_coef,Table 4,pipeline,0.287,TRUE,3
+t4_m2_constant_se,Table 4,pipeline,0.131,TRUE,3
+t5_m1_treated_coef,Table 5,pipeline,0.042,TRUE,3
+t5_m1_treated_se,Table 5,pipeline,0.016,TRUE,3
+t5_m2_treated_coef,Table 5,pipeline,0.018,TRUE,3
+t5_m2_treated_se,Table 5,pipeline,0.009,TRUE,3
+t5_m1_adjacent_coef,Table 5,pipeline,0.042,TRUE,3
+t5_m1_adjacent_se,Table 5,pipeline,0.013,TRUE,3
+t5_m2_adjacent_coef,Table 5,pipeline,0.018,TRUE,3
+t5_m2_adjacent_se,Table 5,pipeline,0.007,TRUE,3
+t5_m1_constant_coef,Table 5,pipeline,0.302,TRUE,3
+t5_m1_constant_se,Table 5,pipeline,0.011,TRUE,3
+t5_m2_constant_coef,Table 5,pipeline,0.780,TRUE,3
+t5_m2_constant_se,Table 5,pipeline,0.025,TRUE,3
+t6_m1_treated_coef,Table 6,pipeline,-0.013,TRUE,3
+t6_m1_treated_se,Table 6,pipeline,0.028,TRUE,3
+t6_m2_treated_coef,Table 6,pipeline,-0.012,TRUE,3
+t6_m2_treated_se,Table 6,pipeline,0.026,TRUE,3
+t6_m1_adjacent_coef,Table 6,pipeline,-0.023,TRUE,3
+t6_m1_adjacent_se,Table 6,pipeline,0.022,TRUE,3
+t6_m2_adjacent_coef,Table 6,pipeline,-0.020,TRUE,3
+t6_m2_adjacent_se,Table 6,pipeline,0.021,TRUE,3
+t6_m1_constant_coef,Table 6,pipeline,0.548,TRUE,3
+t6_m1_constant_se,Table 6,pipeline,0.017,TRUE,3
+t6_m2_constant_coef,Table 6,pipeline,0.532,TRUE,3
+t6_m2_constant_se,Table 6,pipeline,0.082,TRUE,3
+t3_m1_n,Table 3,pipeline,88,TRUE,0
+t3_m2_n,Table 3,pipeline,88,TRUE,0
+t3_m1_r2,Table 3,pipeline,0.031,TRUE,3
+t3_m2_r2,Table 3,pipeline,0.823,TRUE,3
+t3_label_n_treated,Table 3,pipeline,23,TRUE,0
+t3_label_n_adjacent,Table 3,pipeline,49,TRUE,0
+t4_m1_n,Table 4,pipeline,69,TRUE,0
+t4_m2_n,Table 4,pipeline,69,TRUE,0
+t4_m1_r2,Table 4,pipeline,0.001,TRUE,3
+t4_m2_r2,Table 4,pipeline,0.253,TRUE,3
+t4_label_n_treated,Table 4,pipeline,15,TRUE,0
+t4_label_n_adjacent,Table 4,pipeline,41,TRUE,0
+t5_m1_n,Table 5,pipeline,131,TRUE,0
+t5_m2_n,Table 5,pipeline,131,TRUE,0
+t5_m1_r2,Table 5,pipeline,0.094,TRUE,3
+t5_m2_r2,Table 5,pipeline,0.825,TRUE,3
+t5_label_n_treated,Table 5,pipeline,30,TRUE,0
+t5_label_n_adjacent,Table 5,pipeline,76,TRUE,0
+t6_m1_n,Table 6,pipeline,88,TRUE,0
+t6_m2_n,Table 6,pipeline,88,TRUE,0
+t6_m1_r2,Table 6,pipeline,0.012,TRUE,3
+t6_m2_r2,Table 6,pipeline,0.172,TRUE,3
+t6_label_n_treated,Table 6,pipeline,20,TRUE,0
+t6_label_n_adjacent,Table 6,pipeline,44,TRUE,0
+t7_direct_e1_coef,Table 7,pipeline,0.025,TRUE,3
+t7_direct_e1_se,Table 7,pipeline,0.017,TRUE,3
+t7_indirect_e1_coef,Table 7,pipeline,0.018,TRUE,3
+t7_indirect_e1_se,Table 7,pipeline,0.016,TRUE,3
+t7_direct_e2_coef,Table 7,pipeline,-0.014,TRUE,3
+t7_direct_e2_se,Table 7,pipeline,0.057,TRUE,3
+t7_indirect_e2_coef,Table 7,pipeline,0.004,TRUE,3
+t7_indirect_e2_se,Table 7,pipeline,0.045,TRUE,3
+t7_direct_e3_coef,Table 7,pipeline,0.018,TRUE,3
+t7_direct_e3_se,Table 7,pipeline,0.009,TRUE,3
+t7_indirect_e3_coef,Table 7,pipeline,0.018,TRUE,3
+t7_indirect_e3_se,Table 7,pipeline,0.007,TRUE,3
+t7_direct_e4_coef,Table 7,pipeline,-0.012,TRUE,3
+t7_direct_e4_se,Table 7,pipeline,0.026,TRUE,3
+t7_indirect_e4_coef,Table 7,pipeline,-0.020,TRUE,3
+t7_indirect_e4_se,Table 7,pipeline,0.021,TRUE,3
+t7_direct_pooled_coef,Table 7,pipeline,0.017,TRUE,3
+t7_direct_pooled_se,Table 7,pipeline,0.007,TRUE,3
+t7_indirect_pooled_coef,Table 7,pipeline,0.015,TRUE,3
+t7_indirect_pooled_se,Table 7,pipeline,0.006,TRUE,3
+f2_agnostic_prior_mean,Figure 2,pipeline,0.000,TRUE,3
+f2_agnostic_prior_sd,Figure 2,pipeline,0.050,TRUE,3
+f2_agnostic_prior_pr,Figure 2,pipeline,0.500,TRUE,3
+f2_agnostic_u1_mean,Figure 2,pipeline,0.022,TRUE,3
+f2_agnostic_u1_sd,Figure 2,pipeline,0.016,TRUE,3
+f2_agnostic_u1_pr,Figure 2,pipeline,0.915,TRUE,3
+f2_agnostic_u2_mean,Figure 2,pipeline,0.019,TRUE,3
+f2_agnostic_u2_sd,Figure 2,pipeline,0.016,TRUE,3
+f2_agnostic_u2_pr,Figure 2,pipeline,0.895,TRUE,3
+f2_agnostic_u3_mean,Figure 2,pipeline,0.019,TRUE,3
+f2_agnostic_u3_sd,Figure 2,pipeline,0.008,TRUE,3
+f2_agnostic_u3_pr,Figure 2,pipeline,0.993,TRUE,3
+f2_agnostic_u4_mean,Figure 2,pipeline,0.016,TRUE,3
+f2_agnostic_u4_sd,Figure 2,pipeline,0.007,TRUE,3
+f2_agnostic_u4_pr,Figure 2,pipeline,0.988,TRUE,3
+f2_optimist_prior_mean,Figure 2,pipeline,0.050,TRUE,3
+f2_optimist_prior_sd,Figure 2,pipeline,0.050,TRUE,3
+f2_optimist_prior_pr,Figure 2,pipeline,0.841,TRUE,3
+f2_optimist_u1_mean,Figure 2,pipeline,0.027,TRUE,3
+f2_optimist_u1_sd,Figure 2,pipeline,0.016,TRUE,3
+f2_optimist_u1_pr,Figure 2,pipeline,0.955,TRUE,3
+f2_optimist_u2_mean,Figure 2,pipeline,0.024,TRUE,3
+f2_optimist_u2_sd,Figure 2,pipeline,0.016,TRUE,3
+f2_optimist_u2_pr,Figure 2,pipeline,0.941,TRUE,3
+f2_optimist_u3_mean,Figure 2,pipeline,0.020,TRUE,3
+f2_optimist_u3_sd,Figure 2,pipeline,0.008,TRUE,3
+f2_optimist_u3_pr,Figure 2,pipeline,0.996,TRUE,3
+f2_optimist_u4_mean,Figure 2,pipeline,0.017,TRUE,3
+f2_optimist_u4_sd,Figure 2,pipeline,0.007,TRUE,3
+f2_optimist_u4_pr,Figure 2,pipeline,0.991,TRUE,3
+f2_skeptic_prior_mean,Figure 2,pipeline,0.000,TRUE,3
+f2_skeptic_prior_sd,Figure 2,pipeline,0.010,TRUE,3
+f2_skeptic_prior_pr,Figure 2,pipeline,0.500,TRUE,3
+f2_skeptic_u1_mean,Figure 2,pipeline,0.006,TRUE,3
+f2_skeptic_u1_sd,Figure 2,pipeline,0.009,TRUE,3
+f2_skeptic_u1_pr,Figure 2,pipeline,0.768,TRUE,3
+f2_skeptic_u2_mean,Figure 2,pipeline,0.006,TRUE,3
+f2_skeptic_u2_sd,Figure 2,pipeline,0.009,TRUE,3
+f2_skeptic_u2_pr,Figure 2,pipeline,0.754,TRUE,3
+f2_skeptic_u3_mean,Figure 2,pipeline,0.012,TRUE,3
+f2_skeptic_u3_sd,Figure 2,pipeline,0.006,TRUE,3
+f2_skeptic_u3_pr,Figure 2,pipeline,0.977,TRUE,3
+f2_skeptic_u4_mean,Figure 2,pipeline,0.011,TRUE,3
+f2_skeptic_u4_sd,Figure 2,pipeline,0.006,TRUE,3
+f2_skeptic_u4_pr,Figure 2,pipeline,0.966,TRUE,3
+c1_margin_m1_treated_coef,Table C.1,pipeline,15.582,TRUE,3
+c1_margin_m1_treated_se,Table C.1,pipeline,28.327,TRUE,3
+c1_margin_m2_treated_coef,Table C.1,pipeline,34.786,TRUE,3
+c1_margin_m2_treated_se,Table C.1,pipeline,18.207,TRUE,3
+c1_turnout_m1_treated_coef,Table C.1,pipeline,53.002,TRUE,3
+c1_turnout_m1_treated_se,Table C.1,pipeline,48.748,TRUE,3
+c1_turnout_m2_treated_coef,Table C.1,pipeline,10.331,TRUE,3
+c1_turnout_m2_treated_se,Table C.1,pipeline,15.741,TRUE,3
+c1_margin_m1_adjacent_coef,Table C.1,pipeline,-9.242,TRUE,3
+c1_margin_m1_adjacent_se,Table C.1,pipeline,27.305,TRUE,3
+c1_margin_m2_adjacent_coef,Table C.1,pipeline,11.713,TRUE,3
+c1_margin_m2_adjacent_se,Table C.1,pipeline,17.885,TRUE,3
+c1_turnout_m1_adjacent_coef,Table C.1,pipeline,110.329,TRUE,3
+c1_turnout_m1_adjacent_se,Table C.1,pipeline,52.796,TRUE,3
+c1_turnout_m2_adjacent_coef,Table C.1,pipeline,11.914,TRUE,3
+c1_turnout_m2_adjacent_se,Table C.1,pipeline,11.759,TRUE,3
+c1_margin_m1_constant_coef,Table C.1,pipeline,-95.074,TRUE,3
+c1_margin_m1_constant_se,Table C.1,pipeline,23.803,TRUE,3
+c1_margin_m2_constant_coef,Table C.1,pipeline,-60.879,TRUE,3
+c1_margin_m2_constant_se,Table C.1,pipeline,15.423,TRUE,3
+c1_turnout_m1_constant_coef,Table C.1,pipeline,448.835,TRUE,3
+c1_turnout_m1_constant_se,Table C.1,pipeline,34.762,TRUE,3
+c1_turnout_m2_constant_coef,Table C.1,pipeline,32.504,TRUE,3
+c1_turnout_m2_constant_se,Table C.1,pipeline,19.343,TRUE,3
+c2_margin_m1_treated_coef,Table C.2,pipeline,24.673,TRUE,3
+c2_margin_m1_treated_se,Table C.2,pipeline,17.196,TRUE,3
+c2_margin_m2_treated_coef,Table C.2,pipeline,4.427,TRUE,3
+c2_margin_m2_treated_se,Table C.2,pipeline,14.470,TRUE,3
+c2_turnout_m1_treated_coef,Table C.2,pipeline,38.407,TRUE,3
+c2_turnout_m1_treated_se,Table C.2,pipeline,23.037,TRUE,3
+c2_turnout_m2_treated_coef,Table C.2,pipeline,9.029,TRUE,3
+c2_turnout_m2_treated_se,Table C.2,pipeline,13.372,TRUE,3
+c2_margin_m1_adjacent_coef,Table C.2,pipeline,21.436,TRUE,3
+c2_margin_m1_adjacent_se,Table C.2,pipeline,12.565,TRUE,3
+c2_margin_m2_adjacent_coef,Table C.2,pipeline,5.563,TRUE,3
+c2_margin_m2_adjacent_se,Table C.2,pipeline,12.363,TRUE,3
+c2_turnout_m1_adjacent_coef,Table C.2,pipeline,33.191,TRUE,3
+c2_turnout_m1_adjacent_se,Table C.2,pipeline,15.131,TRUE,3
+c2_turnout_m2_adjacent_coef,Table C.2,pipeline,8.012,TRUE,3
+c2_turnout_m2_adjacent_se,Table C.2,pipeline,11.276,TRUE,3
+c2_margin_m1_constant_coef,Table C.2,pipeline,32.415,TRUE,3
+c2_margin_m1_constant_se,Table C.2,pipeline,9.733,TRUE,3
+c2_margin_m2_constant_coef,Table C.2,pipeline,-30.993,TRUE,3
+c2_margin_m2_constant_se,Table C.2,pipeline,15.629,TRUE,3
+c2_turnout_m1_constant_coef,Table C.2,pipeline,92.776,TRUE,3
+c2_turnout_m1_constant_se,Table C.2,pipeline,11.927,TRUE,3
+c2_turnout_m2_constant_coef,Table C.2,pipeline,-43.402,TRUE,3
+c2_turnout_m2_constant_se,Table C.2,pipeline,15.695,TRUE,3
+c3_margin_m1_treated_coef,Table C.3,pipeline,84.697,TRUE,3
+c3_margin_m1_treated_se,Table C.3,pipeline,47.141,TRUE,3
+c3_margin_m2_treated_coef,Table C.3,pipeline,45.304,TRUE,3
+c3_margin_m2_treated_se,Table C.3,pipeline,34.952,TRUE,3
+c3_turnout_m1_treated_coef,Table C.3,pipeline,-11.279,TRUE,3
+c3_turnout_m1_treated_se,Table C.3,pipeline,104.825,TRUE,3
+c3_turnout_m2_treated_coef,Table C.3,pipeline,-64.870,TRUE,3
+c3_turnout_m2_treated_se,Table C.3,pipeline,56.283,TRUE,3
+c3_margin_m1_adjacent_coef,Table C.3,pipeline,72.074,TRUE,3
+c3_margin_m1_adjacent_se,Table C.3,pipeline,39.568,TRUE,3
+c3_margin_m2_adjacent_coef,Table C.3,pipeline,34.385,TRUE,3
+c3_margin_m2_adjacent_se,Table C.3,pipeline,32.779,TRUE,3
+c3_turnout_m1_adjacent_coef,Table C.3,pipeline,35.978,TRUE,3
+c3_turnout_m1_adjacent_se,Table C.3,pipeline,96.364,TRUE,3
+c3_turnout_m2_adjacent_coef,Table C.3,pipeline,-16.077,TRUE,3
+c3_turnout_m2_adjacent_se,Table C.3,pipeline,50.347,TRUE,3
+c3_margin_m1_constant_coef,Table C.3,pipeline,-436.675,TRUE,3
+c3_margin_m1_constant_se,Table C.3,pipeline,33.171,TRUE,3
+c3_margin_m2_constant_coef,Table C.3,pipeline,-256.773,TRUE,3
+c3_margin_m2_constant_se,Table C.3,pipeline,38.569,TRUE,3
+c3_turnout_m1_constant_coef,Table C.3,pipeline,1141.189,TRUE,3
+c3_turnout_m1_constant_se,Table C.3,pipeline,87.706,TRUE,3
+c3_turnout_m2_constant_coef,Table C.3,pipeline,224.736,TRUE,3
+c3_turnout_m2_constant_se,Table C.3,pipeline,94.425,TRUE,3
+c4_margin_m1_treated_coef,Table C.4,pipeline,5.859,TRUE,3
+c4_margin_m1_treated_se,Table C.4,pipeline,26.721,TRUE,3
+c4_margin_m2_treated_coef,Table C.4,pipeline,-9.335,TRUE,3
+c4_margin_m2_treated_se,Table C.4,pipeline,19.548,TRUE,3
+c4_turnout_m1_treated_coef,Table C.4,pipeline,-47.222,TRUE,3
+c4_turnout_m1_treated_se,Table C.4,pipeline,64.914,TRUE,3
+c4_turnout_m2_treated_coef,Table C.4,pipeline,7.223,TRUE,3
+c4_turnout_m2_treated_se,Table C.4,pipeline,28.411,TRUE,3
+c4_margin_m1_adjacent_coef,Table C.4,pipeline,-1.170,TRUE,3
+c4_margin_m1_adjacent_se,Table C.4,pipeline,22.994,TRUE,3
+c4_margin_m2_adjacent_coef,Table C.4,pipeline,-6.031,TRUE,3
+c4_margin_m2_adjacent_se,Table C.4,pipeline,12.054,TRUE,3
+c4_turnout_m1_adjacent_coef,Table C.4,pipeline,-21.082,TRUE,3
+c4_turnout_m1_adjacent_se,Table C.4,pipeline,57.357,TRUE,3
+c4_turnout_m2_adjacent_coef,Table C.4,pipeline,14.528,TRUE,3
+c4_turnout_m2_adjacent_se,Table C.4,pipeline,22.331,TRUE,3
+c4_margin_m1_constant_coef,Table C.4,pipeline,-124.637,TRUE,3
+c4_margin_m1_constant_se,Table C.4,pipeline,16.563,TRUE,3
+c4_margin_m2_constant_coef,Table C.4,pipeline,-19.087,TRUE,3
+c4_margin_m2_constant_se,Table C.4,pipeline,22.042,TRUE,3
+c4_turnout_m1_constant_coef,Table C.4,pipeline,360.647,TRUE,3
+c4_turnout_m1_constant_se,Table C.4,pipeline,46.072,TRUE,3
+c4_turnout_m2_constant_coef,Table C.4,pipeline,5.229,TRUE,3
+c4_turnout_m2_constant_se,Table C.4,pipeline,28.481,TRUE,3
+c1_margin_m1_n,Table C.1,pipeline,88,TRUE,0
+c1_margin_m2_n,Table C.1,pipeline,88,TRUE,0
+c1_turnout_m1_n,Table C.1,pipeline,88,TRUE,0
+c1_turnout_m2_n,Table C.1,pipeline,88,TRUE,0
+c1_margin_m1_r2,Table C.1,pipeline,0.015,TRUE,3
+c1_margin_m2_r2,Table C.1,pipeline,0.666,TRUE,3
+c1_turnout_m1_r2,Table C.1,pipeline,0.066,TRUE,3
+c1_turnout_m2_r2,Table C.1,pipeline,0.959,TRUE,3
+c1_label_n_treated,Table C.1,pipeline,23,TRUE,0
+c1_label_n_adjacent,Table C.1,pipeline,49,TRUE,0
+c2_margin_m1_n,Table C.2,pipeline,69,TRUE,0
+c2_margin_m2_n,Table C.2,pipeline,69,TRUE,0
+c2_turnout_m1_n,Table C.2,pipeline,69,TRUE,0
+c2_turnout_m2_n,Table C.2,pipeline,69,TRUE,0
+c2_margin_m1_r2,Table C.2,pipeline,0.048,TRUE,3
+c2_margin_m2_r2,Table C.2,pipeline,0.501,TRUE,3
+c2_turnout_m1_r2,Table C.2,pipeline,0.067,TRUE,3
+c2_turnout_m2_r2,Table C.2,pipeline,0.695,TRUE,3
+c2_label_n_treated,Table C.2,pipeline,15,TRUE,0
+c2_label_n_adjacent,Table C.2,pipeline,41,TRUE,0
+c3_margin_m1_n,Table C.3,pipeline,131,TRUE,0
+c3_margin_m2_n,Table C.3,pipeline,131,TRUE,0
+c3_turnout_m1_n,Table C.3,pipeline,131,TRUE,0
+c3_turnout_m2_n,Table C.3,pipeline,131,TRUE,0
+c3_margin_m1_r2,Table C.3,pipeline,0.043,TRUE,3
+c3_margin_m2_r2,Table C.3,pipeline,0.652,TRUE,3
+c3_turnout_m1_r2,Table C.3,pipeline,0.003,TRUE,3
+c3_turnout_m2_r2,Table C.3,pipeline,0.736,TRUE,3
+c3_label_n_treated,Table C.3,pipeline,30,TRUE,0
+c3_label_n_adjacent,Table C.3,pipeline,76,TRUE,0
+c4_margin_m1_n,Table C.4,pipeline,88,TRUE,0
+c4_margin_m2_n,Table C.4,pipeline,88,TRUE,0
+c4_turnout_m1_n,Table C.4,pipeline,88,TRUE,0
+c4_turnout_m2_n,Table C.4,pipeline,88,TRUE,0
+c4_margin_m1_r2,Table C.4,pipeline,0.001,TRUE,3
+c4_margin_m2_r2,Table C.4,pipeline,0.627,TRUE,3
+c4_turnout_m1_r2,Table C.4,pipeline,0.009,TRUE,3
+c4_turnout_m2_r2,Table C.4,pipeline,0.877,TRUE,3
+c4_label_n_treated,Table C.4,pipeline,20,TRUE,0
+c4_label_n_adjacent,Table C.4,pipeline,44,TRUE,0
+d5_e1_treated_coef,Table D.5,pipeline,0.031,TRUE,3
+d5_e1_treated_se,Table D.5,pipeline,0.017,TRUE,3
+d5_e2_treated_coef,Table D.5,pipeline,-0.009,TRUE,3
+d5_e2_treated_se,Table D.5,pipeline,0.060,TRUE,3
+d5_e3_treated_coef,Table D.5,pipeline,0.020,TRUE,3
+d5_e3_treated_se,Table D.5,pipeline,0.009,TRUE,3
+d5_e4_treated_coef,Table D.5,pipeline,-0.014,TRUE,3
+d5_e4_treated_se,Table D.5,pipeline,0.026,TRUE,3
+d5_e1_adjacent_coef,Table D.5,pipeline,0.021,TRUE,3
+d5_e1_adjacent_se,Table D.5,pipeline,0.014,TRUE,3
+d5_e2_adjacent_coef,Table D.5,pipeline,0.011,TRUE,3
+d5_e2_adjacent_se,Table D.5,pipeline,0.046,TRUE,3
+d5_e3_adjacent_coef,Table D.5,pipeline,0.020,TRUE,3
+d5_e3_adjacent_se,Table D.5,pipeline,0.007,TRUE,3
+d5_e4_adjacent_coef,Table D.5,pipeline,-0.020,TRUE,3
+d5_e4_adjacent_se,Table D.5,pipeline,0.021,TRUE,3
+d5_e1_support_coef,Table D.5,pipeline,0.027,TRUE,3
+d5_e1_support_se,Table D.5,pipeline,0.042,TRUE,3
+d5_e2_support_coef,Table D.5,pipeline,-0.020,TRUE,3
+d5_e2_support_se,Table D.5,pipeline,0.033,TRUE,3
+d5_e3_support_coef,Table D.5,pipeline,0.028,TRUE,3
+d5_e3_support_se,Table D.5,pipeline,0.009,TRUE,3
+d5_e4_support_coef,Table D.5,pipeline,0.020,TRUE,3
+d5_e4_support_se,Table D.5,pipeline,0.021,TRUE,3
+d5_e1_treated_x_coef,Table D.5,pipeline,0.031,TRUE,3
+d5_e1_treated_x_se,Table D.5,pipeline,0.030,TRUE,3
+d5_e2_treated_x_coef,Table D.5,pipeline,0.033,TRUE,3
+d5_e2_treated_x_se,Table D.5,pipeline,0.063,TRUE,3
+d5_e3_treated_x_coef,Table D.5,pipeline,0.010,TRUE,3
+d5_e3_treated_x_se,Table D.5,pipeline,0.008,TRUE,3
+d5_e4_treated_x_coef,Table D.5,pipeline,-0.021,TRUE,3
+d5_e4_treated_x_se,Table D.5,pipeline,0.027,TRUE,3
+d5_e1_adjacent_x_coef,Table D.5,pipeline,0.011,TRUE,3
+d5_e1_adjacent_x_se,Table D.5,pipeline,0.025,TRUE,3
+d5_e2_adjacent_x_coef,Table D.5,pipeline,0.053,TRUE,3
+d5_e2_adjacent_x_se,Table D.5,pipeline,0.033,TRUE,3
+d5_e3_adjacent_x_coef,Table D.5,pipeline,0.008,TRUE,3
+d5_e3_adjacent_x_se,Table D.5,pipeline,0.008,TRUE,3
+d5_e4_adjacent_x_coef,Table D.5,pipeline,-0.016,TRUE,3
+d5_e4_adjacent_x_se,Table D.5,pipeline,0.020,TRUE,3
+d5_e1_constant_coef,Table D.5,pipeline,0.159,TRUE,3
+d5_e1_constant_se,Table D.5,pipeline,0.110,TRUE,3
+d5_e2_constant_coef,Table D.5,pipeline,0.306,TRUE,3
+d5_e2_constant_se,Table D.5,pipeline,0.238,TRUE,3
+d5_e3_constant_coef,Table D.5,pipeline,0.539,TRUE,3
+d5_e3_constant_se,Table D.5,pipeline,0.045,TRUE,3
+d5_e4_constant_coef,Table D.5,pipeline,0.477,TRUE,3
+d5_e4_constant_se,Table D.5,pipeline,0.113,TRUE,3
+d5_e1_n,Table D.5,pipeline,88,TRUE,0
+d5_e1_r2,Table D.5,pipeline,0.829,TRUE,3
+d5_e2_n,Table D.5,pipeline,69,TRUE,0
+d5_e2_r2,Table D.5,pipeline,0.277,TRUE,3
+d5_e3_n,Table D.5,pipeline,131,TRUE,0
+d5_e3_r2,Table D.5,pipeline,0.829,TRUE,3
+d5_e4_n,Table D.5,pipeline,88,TRUE,0
+d5_e4_r2,Table D.5,pipeline,0.181,TRUE,3
+text_intro_fifteen_years,"Introduction, p. 143",structural,15,FALSE,0
+text_intro_four_campaigns,"Introduction, p. 143",structural,4,FALSE,0
+text_design_e1_counties,"Section 3, p. 144",structural,2,FALSE,0
+text_design_e1_precincts,"Section 3, p. 144",definitional,97,FALSE,0
+text_design_e1_treatable,"Section 3, p. 144",pipeline,88,TRUE,0
+text_design_e2_initial,"Section 3, p. 144",definitional,128,TRUE,0
+text_design_e2_restricted,"Section 3, p. 144",pipeline,69,TRUE,0
+text_design_e3_districts_used,"Section 3, p. 144",structural,5,FALSE,0
+text_design_e3_districts_total,"Section 3, p. 144",structural,9,FALSE,0
+text_design_e3_precincts,"Section 3, p. 144",pipeline,131,TRUE,0
+text_design_e4_precincts,"Section 3, p. 144",pipeline,88,TRUE,0
+text_design_e4_county_total,"Section 3, p. 144",definitional,107,FALSE,0
+text_fn1_e1_treated_actual,"Footnote 1, p. 144",definitional,22,FALSE,0
+text_fn1_e1_treated_assigned,"Footnote 1, p. 144",pipeline,23,TRUE,0
+text_fn1_e1_ratio,"Footnote 1, p. 144",definitional,0.96,FALSE,2
+text_fn1_e4_treated_actual,"Footnote 1, p. 144",definitional,17,FALSE,0
+text_fn1_e4_treated_assigned,"Footnote 1, p. 144",pipeline,20,TRUE,0
+text_fn1_e4_ratio,"Footnote 1, p. 144",definitional,0.85,FALSE,2
+text_e1_sign_width,"Section 3.1, p. 145",structural,18,FALSE,0
+text_e1_sign_height,"Section 3.1, p. 145",structural,24,FALSE,0
+text_e1_weekends_prior,"Section 3.1, p. 145",structural,2,FALSE,0
+text_e1_cluster_low,"Section 3.1, p. 145",structural,4,FALSE,0
+text_e1_cluster_high,"Section 3.1, p. 145",structural,5,FALSE,0
+text_e1_sign_allocation,"Section 3.1, p. 145",structural,40,FALSE,0
+text_e1_untreated_precinct,"Section 3.1, p. 145",structural,1,FALSE,0
+text_e2_sign_width,"Section 3.2, p. 145",structural,18,FALSE,0
+text_e2_sign_height,"Section 3.2, p. 145",structural,24,FALSE,0
+text_e2_weeks_deployed,"Section 3.2, p. 145",structural,4,FALSE,0
+text_e3_weeks_prior,"Section 3.3, p. 145",structural,3,FALSE,0
+text_e3_clump_size,"Section 3.3, p. 145",structural,5,FALSE,0
+text_e3_clump_locations,"Section 3.3, p. 145",structural,3,FALSE,0
+text_e4_candidates,"Section 3.4, p. 145",structural,2,FALSE,0
+text_e4_signs_planted,"Section 3.4, p. 145",structural,200,FALSE,0
+text_e4_weeks_prior,"Section 3.4, p. 145",structural,2,FALSE,0
+text_e4_failure_to_treat,"Section 3.4, p. 145",structural,3,FALSE,0
+text_model_indicator_direct,"Section 4, p. 146",definitional,1,FALSE,0
+text_model_indicator_adjacent,"Section 4, p. 146",definitional,1,FALSE,0
+text_ri_permutations,"Section 4, p. 147",definitional,10000,TRUE,0
+text_r1_direct_m1,"Section 5.1, p. 147",pipeline,2.5,TRUE,1
+text_r1_direct_m1_se,"Section 5.1, p. 147",pipeline,2.7,TRUE,1
+text_r1_spillover_m1,"Section 5.1, p. 147",pipeline,3.7,TRUE,1
+text_r1_spillover_m1_se,"Section 5.1, p. 147",pipeline,2.7,TRUE,1
+text_r1_direct_m2,"Section 5.1, p. 147",pipeline,2.5,TRUE,1
+text_r1_direct_m2_se,"Section 5.1, p. 147",pipeline,1.7,TRUE,1
+text_r1_spillover_m2,"Section 5.1, p. 147",pipeline,1.8,TRUE,1
+text_r1_spillover_m2_se,"Section 5.1, p. 147",pipeline,1.6,TRUE,1
+text_r1_ri_p,"Section 5.1, p. 147",pipeline,0.22,TRUE,2
+text_r2_direct_m1,"Section 5.2, p. 147",pipeline,0.9,TRUE,1
+text_r2_direct_m2,"Section 5.2, p. 147",pipeline,1.4,TRUE,1
+text_r2_ri_p,"Section 5.2, p. 147",pipeline,0.90,TRUE,2
+text_r3_direct_m2,"Section 5.3, p. 148",pipeline,1.8,TRUE,1
+text_r3_spillover_m2,"Section 5.3, p. 148",pipeline,1.8,TRUE,1
+text_r3_ri_p,"Section 5.3, p. 148",pipeline,0.02,TRUE,2
+text_r4_direct_m2,"Section 5.4, p. 148",pipeline,1.2,TRUE,1
+text_r4_spillover_m2,"Section 5.4, p. 148",pipeline,2.0,TRUE,1
+text_r4_ri_p,"Section 5.4, p. 148",pipeline,0.77,TRUE,2
+text_turnout_pooled_direct,"Section 5.5, p. 148",pipeline,7.2,TRUE,1
+text_turnout_pooled_direct_se,"Section 5.5, p. 148",pipeline,9.5,TRUE,1
+text_turnout_no_effect,"Section 5.5, p. 148",descriptive,1,TRUE,0
+text_pooled_direct,"Section 6, p. 148",pipeline,1.7,TRUE,1
+text_pooled_direct_se,"Section 6, p. 148",pipeline,0.7,TRUE,1
+text_pooled_indirect,"Section 6, p. 148",pipeline,1.5,TRUE,1
+text_pooled_indirect_se,"Section 6, p. 148",pipeline,0.6,TRUE,1
+text_pooled_just_over_one,"Section 6, p. 148",descriptive,1,TRUE,0
+text_prior_diffuse_sd,"Section 6, p. 148",definitional,5,TRUE,0
+text_prior_skeptic_sd,"Section 6, p. 148",definitional,1,TRUE,0
+text_agnostic_pr,"Section 6, p. 148",pipeline,98.8,TRUE,1
+text_optimist_pr,"Section 6, p. 148",pipeline,0.991,TRUE,3
+text_skeptic_pr,"Section 6, p. 148",pipeline,0.966,TRUE,3
+text_fn3_cost_direct,"Footnote 3, p. 149",pipeline,3.18,TRUE,2
+text_fn3_ci_level,"Footnote 3, p. 149",definitional,95,TRUE,0
+text_fn3_ci_low,"Footnote 3, p. 149",pipeline,1.70,TRUE,2
+text_fn3_ci_high,"Footnote 3, p. 149",pipeline,13.71,TRUE,2
+text_fn3_total_turnout,"Footnote 3, p. 149",pipeline,241613,TRUE,0
+text_fn3_direct_points,"Footnote 3, p. 149",pipeline,1.7,TRUE,1
+text_fn3_total_cost,"Footnote 3, p. 149",definitional,13045,TRUE,0
+text_fn3_formula_cost,"Footnote 3, p. 149",definitional,13045,FALSE,0
+text_fn3_formula_turnout,"Footnote 3, p. 149",definitional,241613,FALSE,0
+text_fn3_formula_effect,"Footnote 3, p. 149",definitional,0.017,FALSE,3
+text_fn3_formula_result,"Footnote 3, p. 149",definitional,3.18,FALSE,2
+text_fn3_cost_total,"Footnote 3, p. 149",pipeline,1.69,TRUE,2
+appa_e1_lamb_raised,Appendix A,transcribed,337939,FALSE,0
+appa_e1_obama_share,Appendix A,transcribed,48.8,FALSE,1
+appa_e1_hanna_share,Appendix A,transcribed,61,FALSE,0
+appa_e1_hinchey_terms,Appendix A,transcribed,10,FALSE,0
+appa_e1_lamb_staff_year,Appendix A,transcribed,1997,FALSE,0
+appa_e2_primary_year,Appendix A,transcribed,2013,FALSE,0
+appa_e2_last_republican_year,Appendix A,transcribed,1931,FALSE,0
+appa_e2_jennings_term,Appendix A,transcribed,6,FALSE,0
+appa_e2_sheehan_primary_share,Appendix A,transcribed,65,FALSE,0
+appa_e2_sheehan_general_share,Appendix A,transcribed,80,FALSE,0
+appa_e3_mcauliffe_share,Appendix A,transcribed,48,FALSE,0
+appa_e3_cuccinelli_share,Appendix A,transcribed,45,FALSE,0
+appa_e3_sarvis_share,Appendix A,transcribed,7,FALSE,0
+appa_e3_spending_gap_millions,Appendix A,transcribed,15,FALSE,0
+appa_e4_candidates,Appendix A,transcribed,4,FALSE,0
+appa_e4_votes_per_ballot,Appendix A,transcribed,2,FALSE,0
+appa_e4_top_vote_getters,Appendix A,transcribed,2,FALSE,0
+appb_e1_treated_target,Appendix B,definitional,25,FALSE,0
+appb_e1_signs_per_precinct,Appendix B,definitional,40,FALSE,0
+appb_e1_untreatable,Appendix B,definitional,5,TRUE,0
+appb_e1_adjacency_miles,Appendix B,definitional,0.5,FALSE,1
+appb_e1_merged_precincts,Appendix B,definitional,4,FALSE,0
+appb_e1_precinct_total,Appendix B,definitional,97,FALSE,0
+appb_e2_treated_target,Appendix B,definitional,18,FALSE,0
+appb_e2_draws,Appendix B,definitional,100000,FALSE,0
+appb_e2_draws_restricted,Appendix B,definitional,100000,FALSE,0
+appb_e2_t_ratio,Appendix B,definitional,1.0,FALSE,1
+appb_e2_permutations,Appendix B,definitional,10000,TRUE,0
+appb_e2_permutations_restated,Appendix B,definitional,10000,FALSE,0
+appb_e3_treated,Appendix B,definitional,30,TRUE,0
+appb_e3_precincts,Appendix B,definitional,131,TRUE,0
+appb_e3_draws,Appendix B,definitional,100000,FALSE,0
+appb_e3_permutations,Appendix B,definitional,10000,TRUE,0
+appb_e3_t_ratio,Appendix B,definitional,1,FALSE,0
+appb_e3_covariate_year,Appendix B,definitional,2012,FALSE,0
+appb_e4_draws,Appendix B,definitional,100000,FALSE,0
+appb_e4_treated,Appendix B,definitional,20,TRUE,0
+appb_e4_precincts,Appendix B,definitional,88,TRUE,0
+appb_e4_regressions,Appendix B,definitional,3,FALSE,0
+appb_e4_conditions_per_regression,Appendix B,definitional,2,FALSE,0
+appb_e4_joint_tests,Appendix B,definitional,3,FALSE,0
+appb_e4_p_threshold,Appendix B,definitional,0.25,FALSE,2
+appb_e4_permutations,Appendix B,definitional,10000,TRUE,0
+appd_pooled_direct_interaction,Appendix D,pipeline,0.009,TRUE,3
+appd_pooled_direct_interaction_se,Appendix D,pipeline,0.007,TRUE,3
+appd_pooled_indirect_interaction,Appendix D,pipeline,0.007,TRUE,3
+appd_pooled_indirect_interaction_se,Appendix D,pipeline,0.007,TRUE,3
+appd_covariate_e1_year,Appendix D,definitional,2008,FALSE,0
+appd_covariate_e2_year,Appendix D,definitional,2009,FALSE,0
+appd_covariate_e3_year,Appendix D,definitional,2012,FALSE,0
+appd_covariate_e4_year,Appendix D,definitional,2008,FALSE,0
+appd_sd_increase,Appendix D,definitional,1,FALSE,0
+appd_three_of_four_positive,Appendix D,descriptive,3,TRUE,0
+appd_e4_negative_interactions,Appendix D,descriptive,1,TRUE,0
+appd_no_precise_interactions,Appendix D,descriptive,1,TRUE,0

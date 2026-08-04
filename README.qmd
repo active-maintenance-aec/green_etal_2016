@@ -32,8 +32,26 @@ latex_out <- knitr::is_latex_output()
 # table renders as a pipe table. Each call site says what LaTeX alone gets.
 latex_only <- function(k, f) if (latex_out) f(k) else k
 
-gt <- read_csv(here::here("ground_truth", "green_etal_2016_ground_truth.csv"),
-               show_col_types = FALSE)
+# value_paper is forced to character here as in every other reader. A column whose
+# entries all look numeric is guessed as double, which turns the article's 0.020 into
+# 0.02 and prints a precision the page does not use.
+gt <- read_csv(
+  here::here("ground_truth", "green_etal_2016_ground_truth.csv"),
+  col_types = cols(.default = col_character(), value_paper = col_character(),
+                   value_script = col_double(), value_rewrite = col_double(),
+                   match = col_double(), match_rewrite = col_double(),
+                   holds = col_double())
+)
+
+claims <- read_csv(
+  here::here("ground_truth", "published_claims.csv"),
+  col_types = cols(.default = col_character(), value_paper = col_character(),
+                   needs_block = col_logical(), digits = col_integer())
+)
+
+float_order <- c("Table 2", "Table 3", "Table 4", "Table 5", "Table 6", "Table 7",
+                 "Figure 2", "Table C.1", "Table C.2", "Table C.3", "Table C.4",
+                 "Table D.5")
 ```
 
 *Drafted by Claude Opus 5 under the supervision of Alex Coppock.*
@@ -49,7 +67,7 @@ This repository holds the actively maintained replication code for Green, Krasno
 
 **The data are not redistributed here.** The deposit is 12 MB across 33 files and lives at Harvard Dataverse, which is the only copy this repository points at. `download_original.R` fetches it and verifies every file; `original_manifest.csv` pins the file identifiers, sizes and checksums, so the exact bytes this code was written against are recorded in version control even though the bytes themselves are not.
 
-**Repository layout.** `maintained/` is the maintained rewrite: one script per published table or figure, writing to `output/`, which is committed so a reader can compare a fresh run against it without downloading anything. `ground_truth/` ties every published number to the code that produces it. `original/` is created by the download script and is deliberately absent from the repository. This file is the reproducibility report, also available as a PDF in `report/`.
+**Repository layout.** `maintained/` is the maintained rewrite: one script per published table or figure, writing to `output/`, which is committed so a reader can compare a fresh run against it without downloading anything. It also holds `in_text_claims.R`, which recomputes every quantity the article states and prints it beside the sentence that states it. `ground_truth/` ties every published number to the code that produces it: `published_claims.csv` is the extraction of every number the article and appendix print, `archive_values.csv` is what the deposited scripts themselves print, `build_ground_truth.R` assembles the comparison, and `claims_gate.R` enforces the coverage. `original/` is created by the download script and is deliberately absent from the repository. This file is the reproducibility report, also available as a PDF in `report/`.
 
 **License.** CC0 1.0 Universal, matching the terms of the deposit this repository maintains. See `LICENSE`.
 
@@ -70,7 +88,13 @@ n_archive_match <- sum(gt$match == 1, na.rm = TRUE)
 n_archive_fail <- sum(gt$match == 0, na.rm = TRUE)
 n_rewrite_verifiable <- sum(!is.na(gt$match_rewrite))
 n_rewrite_match <- sum(gt$match_rewrite == 1, na.rm = TRUE)
-n_unverifiable <- sum(is.na(gt$match_rewrite))
+n_rewrite_fail <- sum(gt$match_rewrite == 0, na.rm = TRUE)
+n_no_counterpart <- sum(is.na(gt$value_rewrite))
+n_holds <- sum(!is.na(gt$holds))
+n_holds_true <- sum(gt$holds == 1, na.rm = TRUE)
+n_blocks <- sum(claims$needs_block)
+n_floats <- length(float_order)
+n_float_rows <- sum(gt$table_figure %in% float_order)
 ```
 
 Two questions, answered before the detail.
@@ -79,11 +103,13 @@ Two questions, answered before the detail.
 
 Yes. All six analysis scripts execute without error on a current R installation, with no hardcoded paths, no functions called before they are defined, and no deprecated calls that have since been removed. Every package they name still installs from CRAN, including `beepr` 2.0, which only one of the random-assignment scripts calls, to play a sound on completion.
 
-Running is not the same as reproducing, and one number changes. `Experiment_2_Analysis.R` picks the observed treatment assignment out of a matrix of 10,000 admissible randomizations with `set.seed(12345); sample(1:10000, 1)`. R 3.6.0 changed how `sample()` converts uniform draws to integers, so that line returned column 7210 when the paper was written and returns column 8243 today. Column 7210 is the assignment that was actually deployed, and it is the one the archive's own pre-saved `exp_2.RData` encodes, so the archive contains the right answer and the live script path no longer finds it. `r n_archive_fail` of the `r n_archive_verifiable` claims an archive script can be checked against therefore fail to reproduce, all of them in Table 4 and in the Experiment 2 randomization inference p-value, and all from that one line.
+Running is not the same as reproducing, and one line changes a great many numbers. `Experiment_2_Analysis.R` picks the observed treatment assignment out of a matrix of 10,000 admissible randomizations with `set.seed(12345); sample(1:10000, 1)`. R 3.6.0 changed how `sample()` converts uniform draws to integers, so that line returned column 7210 when the paper was written and returns column 8243 today. Column 7210 is the assignment that was actually deployed, and it is the one the archive's own pre-saved `exp_2.RData` encodes, so the archive contains the right answer and the live script path no longer finds it. `r n_archive_fail` of the `r n_archive_verifiable` published values a deposited script can be checked against therefore fail to reproduce, and all `r n_archive_fail` come from that one line: every cell of Table 4, every cell of appendix Table C.2, and the Experiment 2 randomization inference p-value. The deposit's other scripts read `exp_2.RData` directly and are unaffected, which is why Table 7, Table D.5 and the pooled quantities reproduce exactly.
 
 ## Does the maintained rewrite reproduce the paper?
 
-Yes, without exception. All `r n_rewrite_verifiable` verifiable ground truth claims match the published values to reported precision, including every panel label of Figure 2. The remaining `r n_unverifiable` recorded quantities are randomization inference p-values for vote margin and turnout, which the scripts compute but the article and its appendix never state; they are marked unverifiable rather than matched.
+Yes, without exception. All `r n_rewrite_verifiable` published values that can be compared against the rewrite match to the precision the page prints, including every panel label of Figure 2 and all `r n_float_rows` cells of the `r n_floats` published floats. A further `r n_holds` claims have no printed number to compare, either because the sentence states a shape rather than a value or because the deposit draws the quantity without a seed; `r n_holds_true` of `r n_holds` hold against the pipeline's own estimates. The remaining `r n_no_counterpart` published numbers are design facts the deposit does not record, such as how many signs were planted and how far in advance, and are verified against the article's own methods section rather than against code.
+
+Nothing in the article contradicts its own tables, its own data or its own code, so this repository carries no errata document.
 
 The rewrite reaches Experiment 2 through the pre-saved `exp_2.RData` object rather than through the seed, which is what makes it immune to the R version change. Reaching it any other way is a live hazard rather than a hypothetical one: until August 2026 the rewrite's randomization inference script took Experiment 2's observed assignment from its own cleaning script, which redraws the seed, and consequently reported 0.79 where the article reports 0.90. That script now reads the same canonical object as everything else.
 
@@ -91,7 +117,7 @@ The rewrite reaches Experiment 2 through the pre-saved `exp_2.RData` object rath
 
 **Citation**: Green, D. P., Krasno, J. S., Coppock, A., Farrer, B. D., Lenoir, B. and Zingher, J. N. (2016). "The effects of lawn signs on vote outcomes: Results from four randomized field experiments." *Electoral Studies*, 41, 143-150. DOI: 10.1016/j.electstud.2015.12.002
 
-**Summary**: Four randomized field experiments test whether lawn signs change vote outcomes. In each, geographic units (electoral districts or precincts) were assigned to receive signs, to be adjacent to a unit that received signs, or to neither, so that each experiment estimates a direct effect and a spillover effect at once. Because adjacency makes the assignment probabilities unequal across units, every estimate is inverse-probability weighted, and inference is randomization based: an observed F-statistic for the joint null of no direct and no indirect effect is compared against 10,000 pre-computed admissible randomizations. The four experiments are a 2012 congressional general election in New York, a 2013 mayoral primary in Albany, a 2013 gubernatorial general election in Virginia, and a 2014 state senate primary in Pennsylvania. Pooling the four by fixed-effects meta-analysis gives a direct effect of 1.7 percentage points of vote share (SE 0.7) and a spillover effect of 1.5 points (SE 0.6).
+**Summary**: Four randomized field experiments test whether lawn signs change vote outcomes. In each, geographic units (electoral districts or precincts) were assigned to receive signs, to be adjacent to a unit that received signs, or to neither, so that each experiment estimates a direct effect and a spillover effect at once. Because adjacency makes the assignment probabilities unequal across units, every estimate is inverse-probability weighted, and inference is randomization based: an observed F-statistic for the joint null of no direct and no indirect effect is compared against 10,000 pre-computed admissible randomizations. The four experiments are a 2012 congressional general election in New York, a 2013 mayoral primary in Albany, a 2013 gubernatorial general election in Virginia, and a 2015 county commissioner primary in Cumberland County, Pennsylvania. Pooling the four by fixed-effects meta-analysis gives a direct effect of 1.7 percentage points of vote share (SE 0.7) and a spillover effect of 1.5 points (SE 0.6).
 
 # Original archive reproducibility
 
@@ -167,43 +193,105 @@ R 3.6.0, released in April 2019, replaced the "Rounding" method that `sample()` 
 Column 7210 is the assignment the experiment actually used. Three independent checks agree on that: it is the column the archive's own pre-saved `exp_2.RData` encodes, it is the column whose treated set matches the authors' record of which districts received signs, and it is what `set.seed(12345, sample.kind = "Rounding")` returns on any R version. Column 7210 also reproduces the published Table 4 and the published Experiment 2 p-value; column 8243 reproduces neither.
 
 ```{r seed_table}
-tibble(
-  quantity = c("Table 4 M1 treated", "Table 4 M2 treated", "Section 5.2 p-value"),
-  published = c("0.009", "-0.014", "0.90"),
-  col_7210 = c("0.009", "-0.014", "0.897"),
-  col_8243 = c("0.130", "0.019", "0.794")
-) |>
+seed_rows <- c(t4_m1_treated_coef = "Table 4 M1 treated",
+               t4_m2_treated_coef = "Table 4 M2 treated",
+               c2_margin_m1_treated_coef = "Table C.2 margin M1 treated",
+               c2_turnout_m2_treated_coef = "Table C.2 turnout M2 treated",
+               text_r2_ri_p = "Section 5.2 p-value")
+
+gt |>
+  filter(claim_id %in% names(seed_rows)) |>
+  mutate(
+    quantity = seed_rows[claim_id],
+    digits = as.integer(claims$digits[match(claim_id, claims$claim_id)]),
+    col_7210 = sprintf(paste0("%.", digits, "f"), value_rewrite),
+    col_8243 = sprintf(paste0("%.", digits, "f"), value_script)
+  ) |>
+  arrange(match(claim_id, names(seed_rows))) |>
+  select(quantity, value_paper, col_7210, col_8243) |>
   kable(
     booktabs = TRUE,
     col.names = c("Quantity", "Published", "Column 7210 (R < 3.6)", "Column 8243 (R 3.6+)"),
-    caption = "What the Experiment 2 permutation column decides."
+    caption = "What the Experiment 2 permutation column decides. The published column is the article's own string; the other two are computed."
   ) |>
   latex_only(\(k) k |> kable_styling(latex_options = "hold_position", font_size = 9))
 ```
 
 The archive is not wrong. It contains both the script and the object the script was meant to produce, and the object is correct. What it lacks is any signal that the two have come apart, which is the failure this maintenance program exists to catch: a reader running the deposited script today gets numbers that differ from the paper, with no error and no warning.
 
+# The extraction and the two instruments
+
+Everything below rests on one hand-reviewed file. `ground_truth/published_claims.csv` is the **extraction**: every numeric token in the article and the online appendix, read off the published pages, classified by hand, and committed. It carries `r nrow(claims)` rows. Table cells, figure labels, prose quantities, design facts and the numbers in appendix A that come from election returns rather than from the deposit are all in it, each with the string the page prints and the number of decimals the page prints it at.
+
+```{r extraction_table}
+claims |>
+  summarize(rows = n(), needing_a_block = sum(needs_block), .by = claim_type) |>
+  arrange(desc(rows)) |>
+  kable(
+    booktabs = TRUE,
+    col.names = c("Class", "Rows", "Needing a claim block"),
+    caption = "The extraction by class. A pipeline claim is one the code should produce; a descriptive claim states a shape or a count rather than a value; definitional, structural and transcribed claims are design facts, page structure, and numbers taken from outside the deposit."
+  ) |>
+  latex_only(\(k) k |> kable_styling(latex_options = "hold_position", font_size = 9))
+```
+
+Two instruments then read the pipeline's output independently. `ground_truth/build_ground_truth.R` reshapes each output file into a long table keyed by claim identifier and joins it to the extraction. `maintained/in_text_claims.R` selects the same numbers cell by cell, quoting the article's own sentence beside each prose claim, and prints one line per quantity. `ground_truth/claims_gate.R` runs the second file as a program, not as text, and halts the run unless three things hold: the number of printed claims equals the `r n_blocks` extraction rows requiring one, the two identifier sets are equal in both directions, and every printed value agrees with the ground truth at the precision the page uses. A claim block that errored, printed nothing, or silently read the wrong file would fail that gate.
+
+The independence is the point. The gate found two defects in this repository that no number-against-number check could: `appendix_c_margins_turnout.R` was labelling Experiment 1's rows with the dependent variable's name rather than the outcome it was passed, so a filter on turnout silently dropped one of four experiments, and the appendix D pooled interaction effects, the section 5.5 pooled turnout effect and footnote 3's cost per vote had no counterpart in `output/` at all.
+
+# Coverage
+
+The article and its appendix print `r n_claims` numbers. `r n_rewrite_verifiable` of them are produced by the pipeline and compared cell by cell; `r n_holds` are judged as claims rather than as values; the other `r n_no_counterpart` are facts about how the experiments were run that no deposited file records.
+
+```{r coverage_table}
+gt |>
+  filter(table_figure %in% float_order) |>
+  summarize(
+    cells = n(),
+    archive = sum(!is.na(match)),
+    archive_match = sum(match == 1, na.rm = TRUE),
+    rewrite = sum(!is.na(match_rewrite)),
+    rewrite_match = sum(match_rewrite == 1, na.rm = TRUE),
+    .by = table_figure
+  ) |>
+  arrange(match(table_figure, float_order)) |>
+  kable(
+    booktabs = TRUE,
+    col.names = c("Float", "Published cells", "Archive comparable", "Archive matching",
+                  "Rewrite comparable", "Rewrite matching"),
+    caption = "Every published float, with the number of cells it prints and how many reproduce. Coverage is complete: no float has a cell without a row."
+  ) |>
+  latex_only(\(k) k |> kable_styling(latex_options = "hold_position", font_size = 8))
+```
+
 # Number-by-number comparison
+
+Of the `r n_claims` published values, `r n_archive_verifiable` can be compared against what a deposited script prints. `r n_archive_match` of those match and `r n_archive_fail` do not. Every failure is listed in full below, and every one is the Experiment 2 seed.
 
 ```{r gt_table}
 gt |>
-  mutate(across(everything(), \(x) replace_na(as.character(x), ""))) |>
-  select(table_figure, experiment, arm, model, quantity, value_paper, value_script, match) |>
+  filter(!is.na(match), match == 0) |>
+  mutate(
+    digits = as.integer(claims$digits[match(claim_id, claims$claim_id)]),
+    archive = sprintf(paste0("%.", digits, "f"), value_script),
+    rewrite = sprintf(paste0("%.", digits, "f"), value_rewrite)
+  ) |>
+  select(table_figure, claim_id, value_paper, archive, rewrite, defect_locus) |>
   kable(
     booktabs = TRUE,
-    col.names = c("Location", "Exp.", "Arm", "Model", "Quantity", "Paper", "Archive", "Match"),
-    caption = "Ground truth: published value against the value the deposited scripts produce on current R. A blank Match means the quantity is not stated in the article or its appendix, or that the archive prints no comparable value."
+    col.names = c("Location", "Claim", "Paper", "Archive", "Rewrite", "Locus"),
+    caption = "Every published value a deposited script fails to reproduce on current R. The rewrite reproduces all of them, which is the signature of environment drift rather than of an error in the deposit."
   ) |>
   latex_only(\(k) k |>
-    kable_styling(latex_options = c("hold_position", "repeat_header"), font_size = 5) |>
-    column_spec(5, width = "3cm"))
+    kable_styling(latex_options = c("hold_position", "repeat_header"), font_size = 6) |>
+    column_spec(2, width = "5cm"))
 ```
 
-Of the `r n_claims` recorded claims, `r n_archive_verifiable` can be compared against what a deposited script prints. `r n_archive_match` of those match the published value and `r n_archive_fail` do not, every one of the failures traceable to the Experiment 2 seed.
+The complete row-by-row table, all `r n_claims` of them, is `ground_truth/green_etal_2016_ground_truth.csv`.
 
 # Maintained rewrite
 
-The rewrite lives in `maintained/`: fifteen scripts covering four cleaning steps, seven published tables, the appendix margin and turnout tables, Figure 2, and the randomization inference. It is a translation, not a reanalysis: every estimator, specification and sample restriction is the one the paper used.
+The rewrite lives in `maintained/`: seventeen scripts covering four cleaning steps, the six published tables, the appendix margin and turnout tables, appendix Table D.5, Figure 2, footnote 3's cost calculation, the randomization inference, and the in-text claims. It is a translation, not a reanalysis: every estimator, specification and sample restriction is the one the paper used.
 
 ## Architecture
 
@@ -263,15 +351,15 @@ The article reports one randomization inference p-value per experiment, for vote
 ri <- read_csv(here::here("maintained", "output", "ri_all_experiments.csv"),
                show_col_types = FALSE)
 
-published_share <- tibble(
-  experiment = paste("Experiment", 1:4),
-  published = c(0.22, 0.90, 0.02, 0.77)
-)
+published_share <- gt |>
+  filter(str_detect(claim_id, "^text_r\\d_ri_p$")) |>
+  transmute(experiment = paste("Experiment", str_extract(claim_id, "\\d")),
+            published = value_paper)
 
 ri |>
   left_join(published_share, by = "experiment") |>
   mutate(
-    published = if_else(outcome == "share", sprintf("%.2f", published), ""),
+    published = if_else(outcome == "share", published, ""),
     p_value = sprintf("%.4f", p_value)
   ) |>
   select(experiment, outcome, p_value, published) |>
@@ -284,7 +372,7 @@ ri |>
     kable_styling(latex_options = "hold_position", font_size = 9))
 ```
 
-The margin and turnout p-values are computed here for completeness and appear nowhere in the article or its appendix, so the ground truth marks them unverifiable rather than matched. Producing them is cheap: all twelve p-values together, 40,000 permutations and 120,000 pairs of weighted models, take under two minutes.
+The margin and turnout p-values are computed here for completeness and appear nowhere in the article or its appendix, so they have no ground-truth row: the ground truth records what the paper claims, and a quantity the paper never states is not a claim. Producing them is cheap: all twelve p-values together, 40,000 permutations and 120,000 pairs of weighted models, take under two minutes.
 
 Every p-value here is computed rather than carried. The permutation matrices are already inside the `exp_3.RData` and `exp_4.RData` objects the table scripts load, so no additional file is read, and the two loops together run in under a minute. A number typed into a script is not a number the script produces.
 
@@ -293,16 +381,22 @@ Every p-value here is computed rather than carried. The permutation matrices are
 Figure 2 traces how an agnostic, an optimistic and a skeptical observer update a prior about the direct effect as the four experiments arrive, and each of its fifteen panels is labelled with the posterior mean, the posterior standard deviation and the posterior probability that the effect is positive. Those forty-five numbers are the figure's content, and all forty-five reproduce.
 
 ```{r fig2_table}
+observer <- c(agnostic = "Agnostic", optimist = "Optimist", skeptic = "Skeptic")
+panel <- c(prior = "Prior", u1 = "Update 1", u2 = "Update 2", u3 = "Update 3",
+           u4 = "Update 4")
+statistic <- c(mean = "mean", sd = "sd", pr = "pr(ATE > 0)")
+
 gt |>
-  filter(table_figure == "figure_2") |>
+  filter(table_figure == "Figure 2") |>
   mutate(
-    quantity = recode(quantity,
-                      posterior_mean = "mean",
-                      posterior_sd = "sd",
-                      pr_ate_positive = "pr(ATE > 0)"),
-    value_rewrite = sprintf("%.3f", as.numeric(value_rewrite))
+    parts = str_split(claim_id, "_"),
+    observer = observer[map_chr(parts, 2)],
+    panel = panel[map_chr(parts, 3)],
+    quantity = statistic[map_chr(parts, 4)],
+    value_rewrite = sprintf("%.3f", value_rewrite)
   ) |>
-  select(experiment, arm, quantity, value_paper, value_rewrite, match_rewrite) |>
+  arrange(match(observer, !!observer), match(panel, !!panel), quantity, .locale = "en") |>
+  select(observer, panel, quantity, value_paper, value_rewrite, match_rewrite) |>
   kable(
     booktabs = TRUE,
     col.names = c("Observer", "Panel", "Quantity", "Paper", "Rewrite", "Match"),
@@ -327,21 +421,38 @@ knitr::include_graphics(
 
 # Maintained rewrite verification
 
-```{r rewrite_verify}
+Every published value with a counterpart in the pipeline carries `match_rewrite = 1`: **`r n_rewrite_match`** of `r n_rewrite_verifiable`, with `r n_rewrite_fail` differing. The prose is where the coverage was thinnest and is now complete, so it is worth setting out separately.
+
+```{r prose_verify}
 gt |>
-  mutate(across(everything(), \(x) replace_na(as.character(x), ""))) |>
-  select(table_figure, experiment, arm, model, quantity, value_paper, value_rewrite, match_rewrite) |>
+  filter(!table_figure %in% float_order, !is.na(value_rewrite)) |>
+  mutate(
+    digits = as.integer(claims$digits[match(claim_id, claims$claim_id)]),
+    rewrite = sprintf(paste0("%.", digits, "f"), value_rewrite),
+    verdict = case_when(!is.na(match_rewrite) & match_rewrite == 1 ~ "matches",
+                        !is.na(match_rewrite) & match_rewrite == 0 ~ "differs",
+                        !is.na(holds) & holds == 1 ~ "holds",
+                        !is.na(holds) & holds == 0 ~ "does not hold",
+                        .default = "")
+  ) |>
+  select(table_figure, claim_id, value_paper, rewrite, verdict) |>
   kable(
     booktabs = TRUE,
-    col.names = c("Location", "Exp.", "Arm", "Model", "Quantity", "Paper", "Rewrite", "Match"),
-    caption = "Maintained rewrite verification: published value against rewrite output."
+    col.names = c("Location", "Claim", "Paper", "Rewrite", "Verdict"),
+    caption = "Every quantity the article states in prose, in a footnote, or in the appendix text, against the maintained rewrite."
   ) |>
   latex_only(\(k) k |>
-    kable_styling(latex_options = c("hold_position", "repeat_header"), font_size = 5) |>
-    column_spec(5, width = "3cm"))
+    kable_styling(latex_options = c("hold_position", "repeat_header"), font_size = 7) |>
+    column_spec(2, width = "5cm"))
 ```
 
-Every row with a published counterpart carries `match_rewrite = 1`: **`r n_rewrite_match`** values produced by the maintained rewrite, all matching the published paper to reported precision. The remaining `r n_unverifiable` are the margin and turnout randomization inference p-values, which the article does not state.
+Two of these need a word. Footnote 3's cost per vote is computed by the article from the pooled direct effect as Table 7 prints it, at three decimals, so $13,045 / (241{,}613 \times 0.017) = \$3.18$ is the article's own arithmetic and reproduces exactly; at the pooled estimate's full precision the same calculation gives $3.26. And the footnote's 95 per cent interval is drawn in the deposit from 10,000 normal variates with no seed, so no single number is the published one. Over 200 seeds the lower endpoint runs from $1.66 to $1.73 and the upper from $11.79 to $15.19, and the published $1.70 and $13.71 both sit inside those ranges.
+
+# Errata
+
+None. The extraction covers all `r n_claims` numbers the article and its appendix print, and no row carries `defect_locus = paper_internal`: nothing in the article contradicts its own tables, its own data, or the code the authors deposited. The `r n_archive_fail` values a deposited script no longer reproduces are a property of R rather than of the paper, and the paper's numbers are the correct ones.
+
+Two things about the published record are worth recording without rising to errata. Table 5 prints its second goodness-of-fit row without the `R2` label its three sibling tables carry, so the values 0.094 and 0.825 sit under a blank stub. And the appendix numbers its tables C.1 through C.4 and then D.5, so there is no Table D.1 through D.4. Neither misstates a quantity.
 
 # R environment
 

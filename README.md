@@ -9,6 +9,9 @@
 - [Paper overview](#paper-overview)
 - [Original archive reproducibility](#original-archive-reproducibility)
   - [The Experiment 2 seed](#the-experiment-2-seed)
+- [The extraction and the two
+  instruments](#the-extraction-and-the-two-instruments)
+- [Coverage](#coverage)
 - [Number-by-number comparison](#number-by-number-comparison)
 - [Maintained rewrite](#maintained-rewrite)
   - [Architecture](#architecture)
@@ -16,6 +19,7 @@
 - [Randomization inference](#randomization-inference)
 - [Figure 2 verification](#figure-2-verification)
 - [Maintained rewrite verification](#maintained-rewrite-verification)
+- [Errata](#errata)
 - [R environment](#r-environment)
 
 *Drafted by Claude Opus 5 under the supervision of Alex Coppock.*
@@ -46,10 +50,16 @@ in version control even though the bytes themselves are not.
 **Repository layout.** `maintained/` is the maintained rewrite: one
 script per published table or figure, writing to `output/`, which is
 committed so a reader can compare a fresh run against it without
-downloading anything. `ground_truth/` ties every published number to the
-code that produces it. `original/` is created by the download script and
-is deliberately absent from the repository. This file is the
-reproducibility report, also available as a PDF in `report/`.
+downloading anything. It also holds `in_text_claims.R`, which recomputes
+every quantity the article states and prints it beside the sentence that
+states it. `ground_truth/` ties every published number to the code that
+produces it: `published_claims.csv` is the extraction of every number
+the article and appendix print, `archive_values.csv` is what the
+deposited scripts themselves print, `build_ground_truth.R` assembles the
+comparison, and `claims_gate.R` enforces the coverage. `original/` is
+created by the download script and is deliberately absent from the
+repository. This file is the reproducibility report, also available as a
+PDF in `report/`.
 
 **License.** CC0 1.0 Universal, matching the terms of the deposit this
 repository maintains. See `LICENSE`.
@@ -83,27 +93,37 @@ package they name still installs from CRAN, including `beepr` 2.0, which
 only one of the random-assignment scripts calls, to play a sound on
 completion.
 
-Running is not the same as reproducing, and one number changes.
-`Experiment_2_Analysis.R` picks the observed treatment assignment out of
-a matrix of 10,000 admissible randomizations with
+Running is not the same as reproducing, and one line changes a great
+many numbers. `Experiment_2_Analysis.R` picks the observed treatment
+assignment out of a matrix of 10,000 admissible randomizations with
 `set.seed(12345); sample(1:10000, 1)`. R 3.6.0 changed how `sample()`
 converts uniform draws to integers, so that line returned column 7210
 when the paper was written and returns column 8243 today. Column 7210 is
 the assignment that was actually deployed, and it is the one the
 archive’s own pre-saved `exp_2.RData` encodes, so the archive contains
-the right answer and the live script path no longer finds it. 10 of the
-146 claims an archive script can be checked against therefore fail to
-reproduce, all of them in Table 4 and in the Experiment 2 randomization
-inference p-value, and all from that one line.
+the right answer and the live script path no longer finds it. 43 of the
+378 published values a deposited script can be checked against therefore
+fail to reproduce, and all 43 come from that one line: every cell of
+Table 4, every cell of appendix Table C.2, and the Experiment 2
+randomization inference p-value. The deposit’s other scripts read
+`exp_2.RData` directly and are unaffected, which is why Table 7, Table
+D.5 and the pooled quantities reproduce exactly.
 
 ## Does the maintained rewrite reproduce the paper?
 
-Yes, without exception. All 191 verifiable ground truth claims match the
-published values to reported precision, including every panel label of
-Figure 2. The remaining 8 recorded quantities are randomization
-inference p-values for vote margin and turnout, which the scripts
-compute but the article and its appendix never state; they are marked
-unverifiable rather than matched.
+Yes, without exception. All 400 published values that can be compared
+against the rewrite match to the precision the page prints, including
+every panel label of Figure 2 and all 345 cells of the 12 published
+floats. A further 7 claims have no printed number to compare, either
+because the sentence states a shape rather than a value or because the
+deposit draws the quantity without a seed; 7 of 7 hold against the
+pipeline’s own estimates. The remaining 74 published numbers are design
+facts the deposit does not record, such as how many signs were planted
+and how far in advance, and are verified against the article’s own
+methods section rather than against code.
+
+Nothing in the article contradicts its own tables, its own data or its
+own code, so this repository carries no errata document.
 
 The rewrite reaches Experiment 2 through the pre-saved `exp_2.RData`
 object rather than through the seed, which is what makes it immune to
@@ -132,10 +152,11 @@ observed F-statistic for the joint null of no direct and no indirect
 effect is compared against 10,000 pre-computed admissible
 randomizations. The four experiments are a 2012 congressional general
 election in New York, a 2013 mayoral primary in Albany, a 2013
-gubernatorial general election in Virginia, and a 2014 state senate
-primary in Pennsylvania. Pooling the four by fixed-effects meta-analysis
-gives a direct effect of 1.7 percentage points of vote share (SE 0.7)
-and a spillover effect of 1.5 points (SE 0.6).
+gubernatorial general election in Virginia, and a 2015 county
+commissioner primary in Cumberland County, Pennsylvania. Pooling the
+four by fixed-effects meta-analysis gives a direct effect of 1.7
+percentage points of vote share (SE 0.7) and a spillover effect of 1.5
+points (SE 0.6).
 
 # Original archive reproducibility
 
@@ -198,13 +219,16 @@ what `set.seed(12345, sample.kind = "Rounding")` returns on any R
 version. Column 7210 also reproduces the published Table 4 and the
 published Experiment 2 p-value; column 8243 reproduces neither.
 
-| Quantity            | Published | Column 7210 (R \< 3.6) | Column 8243 (R 3.6+) |
-|:--------------------|:----------|:-----------------------|:---------------------|
-| Table 4 M1 treated  | 0.009     | 0.009                  | 0.130                |
-| Table 4 M2 treated  | -0.014    | -0.014                 | 0.019                |
-| Section 5.2 p-value | 0.90      | 0.897                  | 0.794                |
+| Quantity | Published | Column 7210 (R \< 3.6) | Column 8243 (R 3.6+) |
+|:---|:---|:---|:---|
+| Table 4 M1 treated | 0.009 | 0.009 | 0.130 |
+| Table 4 M2 treated | -0.014 | -0.014 | 0.019 |
+| Table C.2 margin M1 treated | 24.673 | 24.673 | 21.495 |
+| Table C.2 turnout M2 treated | 9.029 | 9.029 | 5.985 |
+| Section 5.2 p-value | 0.90 | 0.90 | 0.79 |
 
-What the Experiment 2 permutation column decides.
+What the Experiment 2 permutation column decides. The published column
+is the article’s own string; the other two are computed.
 
 The archive is not wrong. It contains both the script and the object the
 script was meant to produce, and the object is correct. What it lacks is
@@ -213,226 +237,144 @@ maintenance program exists to catch: a reader running the deposited
 script today gets numbers that differ from the paper, with no error and
 no warning.
 
+# The extraction and the two instruments
+
+Everything below rests on one hand-reviewed file.
+`ground_truth/published_claims.csv` is the **extraction**: every numeric
+token in the article and the online appendix, read off the published
+pages, classified by hand, and committed. It carries 481 rows. Table
+cells, figure labels, prose quantities, design facts and the numbers in
+appendix A that come from election returns rather than from the deposit
+are all in it, each with the string the page prints and the number of
+decimals the page prints it at.
+
+| Class        | Rows | Needing a claim block |
+|:-------------|-----:|----------------------:|
+| pipeline     |  388 |                   388 |
+| definitional |   49 |                    14 |
+| structural   |   22 |                     0 |
+| transcribed  |   17 |                     0 |
+| descriptive  |    5 |                     5 |
+
+The extraction by class. A pipeline claim is one the code should
+produce; a descriptive claim states a shape or a count rather than a
+value; definitional, structural and transcribed claims are design facts,
+page structure, and numbers taken from outside the deposit.
+
+Two instruments then read the pipeline’s output independently.
+`ground_truth/build_ground_truth.R` reshapes each output file into a
+long table keyed by claim identifier and joins it to the extraction.
+`maintained/in_text_claims.R` selects the same numbers cell by cell,
+quoting the article’s own sentence beside each prose claim, and prints
+one line per quantity. `ground_truth/claims_gate.R` runs the second file
+as a program, not as text, and halts the run unless three things hold:
+the number of printed claims equals the 407 extraction rows requiring
+one, the two identifier sets are equal in both directions, and every
+printed value agrees with the ground truth at the precision the page
+uses. A claim block that errored, printed nothing, or silently read the
+wrong file would fail that gate.
+
+The independence is the point. The gate found two defects in this
+repository that no number-against-number check could:
+`appendix_c_margins_turnout.R` was labelling Experiment 1’s rows with
+the dependent variable’s name rather than the outcome it was passed, so
+a filter on turnout silently dropped one of four experiments, and the
+appendix D pooled interaction effects, the section 5.5 pooled turnout
+effect and footnote 3’s cost per vote had no counterpart in `output/` at
+all.
+
+# Coverage
+
+The article and its appendix print 481 numbers. 400 of them are produced
+by the pipeline and compared cell by cell; 7 are judged as claims rather
+than as values; the other 74 are facts about how the experiments were
+run that no deposited file records.
+
+| Float | Published cells | Archive comparable | Archive matching | Rewrite comparable | Rewrite matching |
+|:---|---:|---:|---:|---:|---:|
+| Table 2 | 16 | 16 | 16 | 16 | 16 |
+| Table 3 | 18 | 18 | 18 | 18 | 18 |
+| Table 4 | 18 | 18 | 4 | 18 | 18 |
+| Table 5 | 18 | 18 | 18 | 18 | 18 |
+| Table 6 | 18 | 18 | 18 | 18 | 18 |
+| Table 7 | 20 | 20 | 20 | 20 | 20 |
+| Figure 2 | 45 | 45 | 45 | 45 | 45 |
+| Table C.1 | 34 | 34 | 34 | 34 | 34 |
+| Table C.2 | 34 | 34 | 6 | 34 | 34 |
+| Table C.3 | 34 | 34 | 34 | 34 | 34 |
+| Table C.4 | 34 | 34 | 34 | 34 | 34 |
+| Table D.5 | 56 | 56 | 56 | 56 | 56 |
+
+Every published float, with the number of cells it prints and how many
+reproduce. Coverage is complete: no float has a cell without a row.
+
 # Number-by-number comparison
 
-| Location | Exp. | Arm | Model | Quantity | Paper | Archive | Match |
-|:---|:---|:---|:---|:---|:---|:---|:---|
-| table_2 | all | Control | n | N | 16 | 16 | 1 |
-| table_2 | all | Adjacent | n | N | 49 | 49 | 1 |
-| table_2 | all | Treated | n | N | 23 | 23 | 1 |
-| table_2 | all | Control | n | N | 13 | 13 | 1 |
-| table_2 | all | Adjacent | n | N | 41 | 41 | 1 |
-| table_2 | all | Treated | n | N | 15 | 15 | 1 |
-| table_2 | all | Control | n | N | 25 | 25 | 1 |
-| table_2 | all | Adjacent | n | N | 76 | 76 | 1 |
-| table_2 | all | Treated | n | N | 30 | 30 | 1 |
-| table_2 | all | Control | n | N | 24 | 24 | 1 |
-| table_2 | all | Adjacent | n | N | 44 | 44 | 1 |
-| table_2 | all | Treated | n | N | 20 | 20 | 1 |
-| table_3 | 1 | Treated | M1 | coef | 0.025 | 0.025 | 1 |
-| table_3 | 1 | Treated | M1 | SE | 0.027 | 0.027 | 1 |
-| table_3 | 1 | Adjacent | M1 | coef | 0.037 | 0.037 | 1 |
-| table_3 | 1 | Adjacent | M1 | SE | 0.027 | 0.027 | 1 |
-| table_3 | 1 | Treated | M2 | coef | 0.025 | 0.025 | 1 |
-| table_3 | 1 | Treated | M2 | SE | 0.017 | 0.017 | 1 |
-| table_3 | 1 | Adjacent | M2 | coef | 0.018 | 0.018 | 1 |
-| table_3 | 1 | Adjacent | M2 | SE | 0.016 | 0.016 | 1 |
-| table_3 | 1 | all | M1 | N | 88 | 88 | 1 |
-| table_3 | 1 | all | M1 | R2 | 0.031 | 0.031 | 1 |
-| table_3 | 1 | all | M2 | R2 | 0.823 | 0.823 | 1 |
-| table_4 | 2 | Treated | M1 | coef | 0.009 | 0.13 | 0 |
-| table_4 | 2 | Treated | M1 | SE | 0.054 | 0.08 | 0 |
-| table_4 | 2 | Adjacent | M1 | coef | 0.012 | 0.137 | 0 |
-| table_4 | 2 | Adjacent | M1 | SE | 0.046 | 0.072 | 0 |
-| table_4 | 2 | Treated | M2 | coef | -0.014 | 0.019 | 0 |
-| table_4 | 2 | Treated | M2 | SE | 0.057 | 0.053 | 0 |
-| table_4 | 2 | Adjacent | M2 | coef | 0.004 | 0.028 | 0 |
-| table_4 | 2 | Adjacent | M2 | SE | 0.045 | 0.035 | 0 |
-| table_4 | 2 | all | M1 | N | 69 | 69 | 1 |
-| table_4 | 2 | all | M1 | R2 | 0.001 | 0.13 | 0 |
-| table_5 | 3 | Treated | M1 | coef | 0.042 | 0.042 | 1 |
-| table_5 | 3 | Treated | M1 | SE | 0.016 | 0.016 | 1 |
-| table_5 | 3 | Adjacent | M1 | coef | 0.042 | 0.042 | 1 |
-| table_5 | 3 | Adjacent | M1 | SE | 0.013 | 0.013 | 1 |
-| table_5 | 3 | Treated | M2 | coef | 0.018 | 0.018 | 1 |
-| table_5 | 3 | Treated | M2 | SE | 0.009 | 0.009 | 1 |
-| table_5 | 3 | Adjacent | M2 | coef | 0.018 | 0.018 | 1 |
-| table_5 | 3 | Adjacent | M2 | SE | 0.007 | 0.007 | 1 |
-| table_5 | 3 | all | M1 | N | 131 | 131 | 1 |
-| table_5 | 3 | all | M1 | R2 | 0.094 | 0.094 | 1 |
-| table_5 | 3 | all | M2 | R2 | 0.825 | 0.825 | 1 |
-| table_6 | 4 | Treated | M1 | coef | -0.013 | -0.013 | 1 |
-| table_6 | 4 | Treated | M1 | SE | 0.028 | 0.028 | 1 |
-| table_6 | 4 | Adjacent | M1 | coef | -0.023 | -0.023 | 1 |
-| table_6 | 4 | Adjacent | M1 | SE | 0.022 | 0.022 | 1 |
-| table_6 | 4 | Treated | M2 | coef | -0.012 | -0.012 | 1 |
-| table_6 | 4 | Treated | M2 | SE | 0.026 | 0.026 | 1 |
-| table_6 | 4 | Adjacent | M2 | coef | -0.02 | -0.02 | 1 |
-| table_6 | 4 | Adjacent | M2 | SE | 0.021 | 0.021 | 1 |
-| table_6 | 4 | all | M1 | N | 88 | 88 | 1 |
-| table_6 | 4 | all | M1 | R2 | 0.012 | 0.012 | 1 |
-| table_6 | 4 | all | M2 | R2 | 0.172 | 0.172 | 1 |
-| table_7 | all | Treated | pooled | coef_exp1 | 0.025 | 0.025 | 1 |
-| table_7 | all | Treated | pooled | SE_exp1 | 0.017 | 0.017 | 1 |
-| table_7 | all | Treated | pooled | coef_exp2 | -0.014 | -0.014 | 1 |
-| table_7 | all | Treated | pooled | SE_exp2 | 0.057 | 0.057 | 1 |
-| table_7 | all | Treated | pooled | coef_exp3 | 0.018 | 0.018 | 1 |
-| table_7 | all | Treated | pooled | SE_exp3 | 0.009 | 0.009 | 1 |
-| table_7 | all | Treated | pooled | coef_exp4 | -0.012 | -0.012 | 1 |
-| table_7 | all | Treated | pooled | SE_exp4 | 0.026 | 0.026 | 1 |
-| table_7 | all | Treated | pooled | coef_pooled | 0.017 | 0.017 | 1 |
-| table_7 | all | Treated | pooled | SE_pooled | 0.007 | 0.007 | 1 |
-| table_7 | all | Adjacent | pooled | coef_exp1 | 0.018 | 0.018 | 1 |
-| table_7 | all | Adjacent | pooled | SE_exp1 | 0.016 | 0.016 | 1 |
-| table_7 | all | Adjacent | pooled | coef_exp2 | 0.004 | 0.004 | 1 |
-| table_7 | all | Adjacent | pooled | SE_exp2 | 0.045 | 0.045 | 1 |
-| table_7 | all | Adjacent | pooled | coef_exp3 | 0.018 | 0.018 | 1 |
-| table_7 | all | Adjacent | pooled | SE_exp3 | 0.007 | 0.007 | 1 |
-| table_7 | all | Adjacent | pooled | coef_exp4 | -0.02 | -0.02 | 1 |
-| table_7 | all | Adjacent | pooled | SE_exp4 | 0.021 | 0.021 | 1 |
-| table_7 | all | Adjacent | pooled | coef_pooled | 0.015 | 0.015 | 1 |
-| table_7 | all | Adjacent | pooled | SE_pooled | 0.006 | 0.006 | 1 |
-| table_8 | 1 | Treated | het | coef | 0.031 | 0.031 | 1 |
-| table_8 | 1 | Treated | het | SE | 0.017 | 0.017 | 1 |
-| table_8 | 1 | Adjacent | het | coef | 0.021 | 0.021 | 1 |
-| table_8 | 1 | Adjacent | het | SE | 0.014 | 0.014 | 1 |
-| table_8 | 1 | party_share | het | coef | 0.027 | 0.027 | 1 |
-| table_8 | 1 | party_share | het | SE | 0.042 | 0.042 | 1 |
-| table_8 | 1 | Treated:party_share | het | coef | 0.031 | 0.031 | 1 |
-| table_8 | 1 | Treated:party_share | het | SE | 0.03 | 0.03 | 1 |
-| table_8 | 1 | Adjacent:party_share | het | coef | 0.011 | 0.011 | 1 |
-| table_8 | 1 | Adjacent:party_share | het | SE | 0.025 | 0.025 | 1 |
-| table_8 | 1 | all | het | N | 88 | 88 | 1 |
-| table_8 | 1 | all | het | R2 | 0.829 | 0.829 | 1 |
-| table_8 | 2 | Treated | het | coef | -0.009 | -0.009 | 1 |
-| table_8 | 2 | Treated | het | SE | 0.06 | 0.06 | 1 |
-| table_8 | 2 | Adjacent | het | coef | 0.011 | 0.011 | 1 |
-| table_8 | 2 | Adjacent | het | SE | 0.046 | 0.046 | 1 |
-| table_8 | 2 | party_share | het | coef | -0.02 | -0.02 | 1 |
-| table_8 | 2 | party_share | het | SE | 0.033 | 0.033 | 1 |
-| table_8 | 2 | Treated:party_share | het | coef | 0.033 | 0.033 | 1 |
-| table_8 | 2 | Treated:party_share | het | SE | 0.063 | 0.063 | 1 |
-| table_8 | 2 | Adjacent:party_share | het | coef | 0.053 | 0.053 | 1 |
-| table_8 | 2 | Adjacent:party_share | het | SE | 0.033 | 0.033 | 1 |
-| table_8 | 2 | all | het | N | 69 | 69 | 1 |
-| table_8 | 2 | all | het | R2 | 0.277 | 0.277 | 1 |
-| table_8 | 3 | Treated | het | coef | 0.02 | 0.02 | 1 |
-| table_8 | 3 | Treated | het | SE | 0.009 | 0.009 | 1 |
-| table_8 | 3 | Adjacent | het | coef | 0.02 | 0.02 | 1 |
-| table_8 | 3 | Adjacent | het | SE | 0.007 | 0.007 | 1 |
-| table_8 | 3 | party_share | het | coef | 0.028 | 0.028 | 1 |
-| table_8 | 3 | party_share | het | SE | 0.009 | 0.009 | 1 |
-| table_8 | 3 | Treated:party_share | het | coef | 0.01 | 0.01 | 1 |
-| table_8 | 3 | Treated:party_share | het | SE | 0.008 | 0.008 | 1 |
-| table_8 | 3 | Adjacent:party_share | het | coef | 0.008 | 0.008 | 1 |
-| table_8 | 3 | Adjacent:party_share | het | SE | 0.008 | 0.008 | 1 |
-| table_8 | 3 | all | het | N | 131 | 131 | 1 |
-| table_8 | 3 | all | het | R2 | 0.829 | 0.829 | 1 |
-| table_8 | 4 | Treated | het | coef | -0.014 | -0.014 | 1 |
-| table_8 | 4 | Treated | het | SE | 0.026 | 0.026 | 1 |
-| table_8 | 4 | Adjacent | het | coef | -0.02 | -0.02 | 1 |
-| table_8 | 4 | Adjacent | het | SE | 0.021 | 0.021 | 1 |
-| table_8 | 4 | party_share | het | coef | 0.02 | 0.02 | 1 |
-| table_8 | 4 | party_share | het | SE | 0.021 | 0.021 | 1 |
-| table_8 | 4 | Treated:party_share | het | coef | -0.021 | -0.021 | 1 |
-| table_8 | 4 | Treated:party_share | het | SE | 0.027 | 0.027 | 1 |
-| table_8 | 4 | Adjacent:party_share | het | coef | -0.016 | -0.016 | 1 |
-| table_8 | 4 | Adjacent:party_share | het | SE | 0.02 | 0.02 | 1 |
-| table_8 | 4 | all | het | N | 88 | 88 | 1 |
-| table_8 | 4 | all | het | R2 | 0.181 | 0.181 | 1 |
-| ri_table | 1 | all | RI | p_margin |  | 0.16 |  |
-| ri_table | 1 | all | RI | p_share | 0.22 | 0.22 | 1 |
-| ri_table | 1 | all | RI | p_turnout |  | 0.53 |  |
-| ri_table | 2 | all | RI | p_margin |  | 0.29 |  |
-| ri_table | 2 | all | RI | p_share | 0.9 | 0.79 | 0 |
-| ri_table | 2 | all | RI | p_turnout |  | 0.44 |  |
-| ri_table | 3 | all | RI | p_margin |  | 0.26 |  |
-| ri_table | 3 | all | RI | p_share | 0.02 | 0.02 | 1 |
-| ri_table | 3 | all | RI | p_turnout |  | 0.33 |  |
-| ri_table | 4 | all | RI | p_margin |  | 0.88 |  |
-| ri_table | 4 | all | RI | p_share | 0.77 | 0.77 | 1 |
-| ri_table | 4 | all | RI | p_turnout |  | 0.85 |  |
-| appendix_C1 | 1 | Treated | M1 | coef | 15.582 | 15.582 | 1 |
-| appendix_C1 | 1 | Treated | M1 | SE | 28.327 | 28.327 | 1 |
-| appendix_C1 | 1 | Adjacent | M1 | coef | -9.242 | -9.242 | 1 |
-| appendix_C1 | 1 | Adjacent | M1 | SE | 27.305 | 27.305 | 1 |
-| appendix_C1 | 1 | Treated | M2 | coef | 34.786 | 34.786 | 1 |
-| appendix_C1 | 1 | Treated | M2 | SE | 18.207 | 18.207 | 1 |
-| appendix_C1 | 1 | Adjacent | M2 | coef | 11.713 | 11.713 | 1 |
-| appendix_C1 | 1 | Adjacent | M2 | SE | 17.885 | 17.885 | 1 |
-| appendix_C1 | 1 | Treated | M1_turnout | coef | 53.002 | 53.002 | 1 |
-| appendix_C1 | 1 | Treated | M1_turnout | SE | 48.748 | 48.748 | 1 |
-| appendix_C1 | 1 | Adjacent | M1_turnout | coef | 110.329 | 110.329 | 1 |
-| appendix_C1 | 1 | Adjacent | M1_turnout | SE | 52.796 | 52.796 | 1 |
-| appendix_C1 | 1 | Treated | M2_turnout | coef | 10.331 | 10.331 | 1 |
-| appendix_C1 | 1 | Treated | M2_turnout | SE | 15.741 | 15.741 | 1 |
-| appendix_C1 | 1 | Adjacent | M2_turnout | coef | 11.914 | 11.914 | 1 |
-| appendix_C1 | 1 | Adjacent | M2_turnout | SE | 11.759 | 11.759 | 1 |
-| footnote_4 | all | all | intext | total_turnout | 241613 | 241613 | 1 |
-| footnote_4 | all | all | intext | cost_per_vote_direct | 3.18 | 3.18 | 1 |
-| footnote_4 | all | all | intext | cost_per_vote_total | 1.69 | 1.69 | 1 |
-| figure_2 | Agnostic | Prior |  | posterior_mean | 0 |  |  |
-| figure_2 | Agnostic | Prior |  | posterior_sd | 0.05 |  |  |
-| figure_2 | Agnostic | Prior |  | pr_ate_positive | 0.5 |  |  |
-| figure_2 | Agnostic | Update 1 |  | posterior_mean | 0.022 |  |  |
-| figure_2 | Agnostic | Update 1 |  | posterior_sd | 0.016 |  |  |
-| figure_2 | Agnostic | Update 1 |  | pr_ate_positive | 0.915 |  |  |
-| figure_2 | Agnostic | Update 2 |  | posterior_mean | 0.019 |  |  |
-| figure_2 | Agnostic | Update 2 |  | posterior_sd | 0.016 |  |  |
-| figure_2 | Agnostic | Update 2 |  | pr_ate_positive | 0.895 |  |  |
-| figure_2 | Agnostic | Update 3 |  | posterior_mean | 0.019 |  |  |
-| figure_2 | Agnostic | Update 3 |  | posterior_sd | 0.008 |  |  |
-| figure_2 | Agnostic | Update 3 |  | pr_ate_positive | 0.993 |  |  |
-| figure_2 | Agnostic | Update 4 |  | posterior_mean | 0.016 |  |  |
-| figure_2 | Agnostic | Update 4 |  | posterior_sd | 0.007 |  |  |
-| figure_2 | Agnostic | Update 4 |  | pr_ate_positive | 0.988 |  |  |
-| figure_2 | Optimist | Prior |  | posterior_mean | 0.05 |  |  |
-| figure_2 | Optimist | Prior |  | posterior_sd | 0.05 |  |  |
-| figure_2 | Optimist | Prior |  | pr_ate_positive | 0.841 |  |  |
-| figure_2 | Optimist | Update 1 |  | posterior_mean | 0.027 |  |  |
-| figure_2 | Optimist | Update 1 |  | posterior_sd | 0.016 |  |  |
-| figure_2 | Optimist | Update 1 |  | pr_ate_positive | 0.955 |  |  |
-| figure_2 | Optimist | Update 2 |  | posterior_mean | 0.024 |  |  |
-| figure_2 | Optimist | Update 2 |  | posterior_sd | 0.016 |  |  |
-| figure_2 | Optimist | Update 2 |  | pr_ate_positive | 0.941 |  |  |
-| figure_2 | Optimist | Update 3 |  | posterior_mean | 0.02 |  |  |
-| figure_2 | Optimist | Update 3 |  | posterior_sd | 0.008 |  |  |
-| figure_2 | Optimist | Update 3 |  | pr_ate_positive | 0.996 |  |  |
-| figure_2 | Optimist | Update 4 |  | posterior_mean | 0.017 |  |  |
-| figure_2 | Optimist | Update 4 |  | posterior_sd | 0.007 |  |  |
-| figure_2 | Optimist | Update 4 |  | pr_ate_positive | 0.991 |  |  |
-| figure_2 | Skeptic | Prior |  | posterior_mean | 0 |  |  |
-| figure_2 | Skeptic | Prior |  | posterior_sd | 0.01 |  |  |
-| figure_2 | Skeptic | Prior |  | pr_ate_positive | 0.5 |  |  |
-| figure_2 | Skeptic | Update 1 |  | posterior_mean | 0.006 |  |  |
-| figure_2 | Skeptic | Update 1 |  | posterior_sd | 0.009 |  |  |
-| figure_2 | Skeptic | Update 1 |  | pr_ate_positive | 0.768 |  |  |
-| figure_2 | Skeptic | Update 2 |  | posterior_mean | 0.006 |  |  |
-| figure_2 | Skeptic | Update 2 |  | posterior_sd | 0.009 |  |  |
-| figure_2 | Skeptic | Update 2 |  | pr_ate_positive | 0.754 |  |  |
-| figure_2 | Skeptic | Update 3 |  | posterior_mean | 0.012 |  |  |
-| figure_2 | Skeptic | Update 3 |  | posterior_sd | 0.006 |  |  |
-| figure_2 | Skeptic | Update 3 |  | pr_ate_positive | 0.977 |  |  |
-| figure_2 | Skeptic | Update 4 |  | posterior_mean | 0.011 |  |  |
-| figure_2 | Skeptic | Update 4 |  | posterior_sd | 0.006 |  |  |
-| figure_2 | Skeptic | Update 4 |  | pr_ate_positive | 0.966 |  |  |
+Of the 481 published values, 378 can be compared against what a
+deposited script prints. 335 of those match and 43 do not. Every failure
+is listed in full below, and every one is the Experiment 2 seed.
 
-Ground truth: published value against the value the deposited scripts
-produce on current R. A blank Match means the quantity is not stated in
-the article or its appendix, or that the archive prints no comparable
-value.
+| Location | Claim | Paper | Archive | Rewrite | Locus |
+|:---|:---|:---|:---|:---|:---|
+| Section 5.2, p. 147 | text_r2_ri_p | 0.90 | 0.79 | 0.90 | environment |
+| Table 4 | t4_m1_adjacent_coef | 0.012 | 0.137 | 0.012 | environment |
+| Table 4 | t4_m1_adjacent_se | 0.046 | 0.072 | 0.046 | environment |
+| Table 4 | t4_m1_constant_coef | 0.659 | 0.543 | 0.659 | environment |
+| Table 4 | t4_m1_constant_se | 0.039 | 0.068 | 0.039 | environment |
+| Table 4 | t4_m1_r2 | 0.001 | 0.130 | 0.001 | environment |
+| Table 4 | t4_m1_treated_coef | 0.009 | 0.130 | 0.009 | environment |
+| Table 4 | t4_m1_treated_se | 0.054 | 0.080 | 0.054 | environment |
+| Table 4 | t4_m2_adjacent_coef | 0.004 | 0.028 | 0.004 | environment |
+| Table 4 | t4_m2_adjacent_se | 0.045 | 0.035 | 0.045 | environment |
+| Table 4 | t4_m2_constant_coef | 0.287 | 0.146 | 0.287 | environment |
+| Table 4 | t4_m2_constant_se | 0.131 | 0.101 | 0.131 | environment |
+| Table 4 | t4_m2_r2 | 0.253 | 0.588 | 0.253 | environment |
+| Table 4 | t4_m2_treated_coef | -0.014 | 0.019 | -0.014 | environment |
+| Table 4 | t4_m2_treated_se | 0.057 | 0.053 | 0.057 | environment |
+| Table C.2 | c2_margin_m1_adjacent_coef | 21.436 | 34.970 | 21.436 | environment |
+| Table C.2 | c2_margin_m1_adjacent_se | 12.565 | 14.896 | 12.565 | environment |
+| Table C.2 | c2_margin_m1_constant_coef | 32.415 | 22.642 | 32.415 | environment |
+| Table C.2 | c2_margin_m1_constant_se | 9.733 | 12.294 | 9.733 | environment |
+| Table C.2 | c2_margin_m1_r2 | 0.048 | 0.087 | 0.048 | environment |
+| Table C.2 | c2_margin_m1_treated_coef | 24.673 | 21.495 | 24.673 | environment |
+| Table C.2 | c2_margin_m1_treated_se | 17.196 | 19.694 | 17.196 | environment |
+| Table C.2 | c2_margin_m2_adjacent_coef | 5.563 | 14.440 | 5.563 | environment |
+| Table C.2 | c2_margin_m2_adjacent_se | 12.363 | 9.834 | 12.363 | environment |
+| Table C.2 | c2_margin_m2_constant_coef | -30.993 | -20.217 | -30.993 | environment |
+| Table C.2 | c2_margin_m2_constant_se | 15.629 | 16.556 | 15.629 | environment |
+| Table C.2 | c2_margin_m2_r2 | 0.501 | 0.556 | 0.501 | environment |
+| Table C.2 | c2_margin_m2_treated_coef | 4.427 | -2.839 | 4.427 | environment |
+| Table C.2 | c2_margin_m2_treated_se | 14.470 | 14.972 | 14.470 | environment |
+| Table C.2 | c2_turnout_m1_adjacent_coef | 33.191 | 44.038 | 33.191 | environment |
+| Table C.2 | c2_turnout_m1_adjacent_se | 15.131 | 19.682 | 15.131 | environment |
+| Table C.2 | c2_turnout_m1_constant_coef | 92.776 | 83.329 | 92.776 | environment |
+| Table C.2 | c2_turnout_m1_constant_se | 11.927 | 16.506 | 11.927 | environment |
+| Table C.2 | c2_turnout_m1_r2 | 0.067 | 0.095 | 0.067 | environment |
+| Table C.2 | c2_turnout_m1_treated_coef | 38.407 | 37.614 | 38.407 | environment |
+| Table C.2 | c2_turnout_m1_treated_se | 23.037 | 26.008 | 23.037 | environment |
+| Table C.2 | c2_turnout_m2_adjacent_coef | 8.012 | 14.943 | 8.012 | environment |
+| Table C.2 | c2_turnout_m2_adjacent_se | 11.276 | 14.808 | 11.276 | environment |
+| Table C.2 | c2_turnout_m2_constant_coef | -43.402 | -42.177 | -43.402 | environment |
+| Table C.2 | c2_turnout_m2_constant_se | 15.695 | 16.529 | 15.695 | environment |
+| Table C.2 | c2_turnout_m2_r2 | 0.695 | 0.702 | 0.695 | environment |
+| Table C.2 | c2_turnout_m2_treated_coef | 9.029 | 5.985 | 9.029 | environment |
+| Table C.2 | c2_turnout_m2_treated_se | 13.372 | 15.442 | 13.372 | environment |
 
-Of the 199 recorded claims, 146 can be compared against what a deposited
-script prints. 136 of those match the published value and 10 do not,
-every one of the failures traceable to the Experiment 2 seed.
+Every published value a deposited script fails to reproduce on current
+R. The rewrite reproduces all of them, which is the signature of
+environment drift rather than of an error in the deposit.
+
+The complete row-by-row table, all 481 of them, is
+`ground_truth/green_etal_2016_ground_truth.csv`.
 
 # Maintained rewrite
 
-The rewrite lives in `maintained/`: fifteen scripts covering four
-cleaning steps, seven published tables, the appendix margin and turnout
-tables, Figure 2, and the randomization inference. It is a translation,
-not a reanalysis: every estimator, specification and sample restriction
-is the one the paper used.
+The rewrite lives in `maintained/`: seventeen scripts covering four
+cleaning steps, the six published tables, the appendix margin and
+turnout tables, appendix Table D.5, Figure 2, footnote 3’s cost
+calculation, the randomization inference, and the in-text claims. It is
+a translation, not a reanalysis: every estimator, specification and
+sample restriction is the one the paper used.
 
 ## Architecture
 
@@ -499,9 +441,10 @@ indirect effect, 10,000 permutations each. The article states the vote
 share p-values only.
 
 The margin and turnout p-values are computed here for completeness and
-appear nowhere in the article or its appendix, so the ground truth marks
-them unverifiable rather than matched. Producing them is cheap: all
-twelve p-values together, 40,000 permutations and 120,000 pairs of
+appear nowhere in the article or its appendix, so they have no
+ground-truth row: the ground truth records what the paper claims, and a
+quantity the paper never states is not a claim. Producing them is cheap:
+all twelve p-values together, 40,000 permutations and 120,000 pairs of
 weighted models, take under two minutes.
 
 Every p-value here is computed rather than carried. The permutation
@@ -520,52 +463,52 @@ effect is positive. Those forty-five numbers are the figure’s content,
 and all forty-five reproduce.
 
 | Observer | Panel    | Quantity     | Paper | Rewrite | Match |
-|:---------|:---------|:-------------|------:|:--------|------:|
+|:---------|:---------|:-------------|:------|:--------|------:|
 | Agnostic | Prior    | mean         | 0.000 | 0.000   |     1 |
-| Agnostic | Prior    | sd           | 0.050 | 0.050   |     1 |
 | Agnostic | Prior    | pr(ATE \> 0) | 0.500 | 0.500   |     1 |
+| Agnostic | Prior    | sd           | 0.050 | 0.050   |     1 |
 | Agnostic | Update 1 | mean         | 0.022 | 0.022   |     1 |
-| Agnostic | Update 1 | sd           | 0.016 | 0.016   |     1 |
 | Agnostic | Update 1 | pr(ATE \> 0) | 0.915 | 0.915   |     1 |
+| Agnostic | Update 1 | sd           | 0.016 | 0.016   |     1 |
 | Agnostic | Update 2 | mean         | 0.019 | 0.019   |     1 |
-| Agnostic | Update 2 | sd           | 0.016 | 0.016   |     1 |
 | Agnostic | Update 2 | pr(ATE \> 0) | 0.895 | 0.895   |     1 |
+| Agnostic | Update 2 | sd           | 0.016 | 0.016   |     1 |
 | Agnostic | Update 3 | mean         | 0.019 | 0.019   |     1 |
-| Agnostic | Update 3 | sd           | 0.008 | 0.008   |     1 |
 | Agnostic | Update 3 | pr(ATE \> 0) | 0.993 | 0.993   |     1 |
+| Agnostic | Update 3 | sd           | 0.008 | 0.008   |     1 |
 | Agnostic | Update 4 | mean         | 0.016 | 0.016   |     1 |
-| Agnostic | Update 4 | sd           | 0.007 | 0.007   |     1 |
 | Agnostic | Update 4 | pr(ATE \> 0) | 0.988 | 0.988   |     1 |
+| Agnostic | Update 4 | sd           | 0.007 | 0.007   |     1 |
 | Optimist | Prior    | mean         | 0.050 | 0.050   |     1 |
-| Optimist | Prior    | sd           | 0.050 | 0.050   |     1 |
 | Optimist | Prior    | pr(ATE \> 0) | 0.841 | 0.841   |     1 |
+| Optimist | Prior    | sd           | 0.050 | 0.050   |     1 |
 | Optimist | Update 1 | mean         | 0.027 | 0.027   |     1 |
-| Optimist | Update 1 | sd           | 0.016 | 0.016   |     1 |
 | Optimist | Update 1 | pr(ATE \> 0) | 0.955 | 0.955   |     1 |
+| Optimist | Update 1 | sd           | 0.016 | 0.016   |     1 |
 | Optimist | Update 2 | mean         | 0.024 | 0.024   |     1 |
-| Optimist | Update 2 | sd           | 0.016 | 0.016   |     1 |
 | Optimist | Update 2 | pr(ATE \> 0) | 0.941 | 0.941   |     1 |
+| Optimist | Update 2 | sd           | 0.016 | 0.016   |     1 |
 | Optimist | Update 3 | mean         | 0.020 | 0.020   |     1 |
-| Optimist | Update 3 | sd           | 0.008 | 0.008   |     1 |
 | Optimist | Update 3 | pr(ATE \> 0) | 0.996 | 0.996   |     1 |
+| Optimist | Update 3 | sd           | 0.008 | 0.008   |     1 |
 | Optimist | Update 4 | mean         | 0.017 | 0.017   |     1 |
-| Optimist | Update 4 | sd           | 0.007 | 0.007   |     1 |
 | Optimist | Update 4 | pr(ATE \> 0) | 0.991 | 0.991   |     1 |
+| Optimist | Update 4 | sd           | 0.007 | 0.007   |     1 |
 | Skeptic  | Prior    | mean         | 0.000 | 0.000   |     1 |
-| Skeptic  | Prior    | sd           | 0.010 | 0.010   |     1 |
 | Skeptic  | Prior    | pr(ATE \> 0) | 0.500 | 0.500   |     1 |
+| Skeptic  | Prior    | sd           | 0.010 | 0.010   |     1 |
 | Skeptic  | Update 1 | mean         | 0.006 | 0.006   |     1 |
-| Skeptic  | Update 1 | sd           | 0.009 | 0.009   |     1 |
 | Skeptic  | Update 1 | pr(ATE \> 0) | 0.768 | 0.768   |     1 |
+| Skeptic  | Update 1 | sd           | 0.009 | 0.009   |     1 |
 | Skeptic  | Update 2 | mean         | 0.006 | 0.006   |     1 |
-| Skeptic  | Update 2 | sd           | 0.009 | 0.009   |     1 |
 | Skeptic  | Update 2 | pr(ATE \> 0) | 0.754 | 0.754   |     1 |
+| Skeptic  | Update 2 | sd           | 0.009 | 0.009   |     1 |
 | Skeptic  | Update 3 | mean         | 0.012 | 0.012   |     1 |
-| Skeptic  | Update 3 | sd           | 0.006 | 0.006   |     1 |
 | Skeptic  | Update 3 | pr(ATE \> 0) | 0.977 | 0.977   |     1 |
+| Skeptic  | Update 3 | sd           | 0.006 | 0.006   |     1 |
 | Skeptic  | Update 4 | mean         | 0.011 | 0.011   |     1 |
-| Skeptic  | Update 4 | sd           | 0.006 | 0.006   |     1 |
 | Skeptic  | Update 4 | pr(ATE \> 0) | 0.966 | 0.966   |     1 |
+| Skeptic  | Update 4 | sd           | 0.006 | 0.006   |     1 |
 
 Figure 2 panel labels, transcribed from page 149 of the article, against
 the maintained rewrite.
@@ -581,215 +524,105 @@ alt="Figure 2 as reproduced by the maintained rewrite." />
 
 # Maintained rewrite verification
 
-| Location | Exp. | Arm | Model | Quantity | Paper | Rewrite | Match |
-|:---|:---|:---|:---|:---|:---|:---|:---|
-| table_2 | all | Control | n | N | 16 | 16 | 1 |
-| table_2 | all | Adjacent | n | N | 49 | 49 | 1 |
-| table_2 | all | Treated | n | N | 23 | 23 | 1 |
-| table_2 | all | Control | n | N | 13 | 13 | 1 |
-| table_2 | all | Adjacent | n | N | 41 | 41 | 1 |
-| table_2 | all | Treated | n | N | 15 | 15 | 1 |
-| table_2 | all | Control | n | N | 25 | 25 | 1 |
-| table_2 | all | Adjacent | n | N | 76 | 76 | 1 |
-| table_2 | all | Treated | n | N | 30 | 30 | 1 |
-| table_2 | all | Control | n | N | 24 | 24 | 1 |
-| table_2 | all | Adjacent | n | N | 44 | 44 | 1 |
-| table_2 | all | Treated | n | N | 20 | 20 | 1 |
-| table_3 | 1 | Treated | M1 | coef | 0.025 | 0.0251849231150561 | 1 |
-| table_3 | 1 | Treated | M1 | SE | 0.027 | 0.0271953497940833 | 1 |
-| table_3 | 1 | Adjacent | M1 | coef | 0.037 | 0.0365245556057411 | 1 |
-| table_3 | 1 | Adjacent | M1 | SE | 0.027 | 0.0273484964987663 | 1 |
-| table_3 | 1 | Treated | M2 | coef | 0.025 | 0.0246700898107479 | 1 |
-| table_3 | 1 | Treated | M2 | SE | 0.017 | 0.0170438046883578 | 1 |
-| table_3 | 1 | Adjacent | M2 | coef | 0.018 | 0.0176924658008986 | 1 |
-| table_3 | 1 | Adjacent | M2 | SE | 0.016 | 0.0156295800079384 | 1 |
-| table_3 | 1 | all | M1 | N | 88 | 88 | 1 |
-| table_3 | 1 | all | M1 | R2 | 0.031 | 0.0314509025405569 | 1 |
-| table_3 | 1 | all | M2 | R2 | 0.823 | 0.822500240891992 | 1 |
-| table_4 | 2 | Treated | M1 | coef | 0.009 | 0.00850373305360868 | 1 |
-| table_4 | 2 | Treated | M1 | SE | 0.054 | 0.0539779334852138 | 1 |
-| table_4 | 2 | Adjacent | M1 | coef | 0.012 | 0.0117388512564832 | 1 |
-| table_4 | 2 | Adjacent | M1 | SE | 0.046 | 0.0463818505970431 | 1 |
-| table_4 | 2 | Treated | M2 | coef | -0.014 | -0.0142778009663527 | 1 |
-| table_4 | 2 | Treated | M2 | SE | 0.057 | 0.0574424251287565 | 1 |
-| table_4 | 2 | Adjacent | M2 | coef | 0.004 | 0.00428044547072836 | 1 |
-| table_4 | 2 | Adjacent | M2 | SE | 0.045 | 0.0453949744301064 | 1 |
-| table_4 | 2 | all | M1 | N | 69 | 69 | 1 |
-| table_4 | 2 | all | M1 | R2 | 0.001 | 0.00108065739965002 | 1 |
-| table_5 | 3 | Treated | M1 | coef | 0.042 | 0.0415499685697058 | 1 |
-| table_5 | 3 | Treated | M1 | SE | 0.016 | 0.0159171166363333 | 1 |
-| table_5 | 3 | Adjacent | M1 | coef | 0.042 | 0.042377169733312 | 1 |
-| table_5 | 3 | Adjacent | M1 | SE | 0.013 | 0.0132163225089229 | 1 |
-| table_5 | 3 | Treated | M2 | coef | 0.018 | 0.0183687447195372 | 1 |
-| table_5 | 3 | Treated | M2 | SE | 0.009 | 0.00860843709003946 | 1 |
-| table_5 | 3 | Adjacent | M2 | coef | 0.018 | 0.0184661680108188 | 1 |
-| table_5 | 3 | Adjacent | M2 | SE | 0.007 | 0.0065603412388164 | 1 |
-| table_5 | 3 | all | M1 | N | 131 | 131 | 1 |
-| table_5 | 3 | all | M1 | R2 | 0.094 | 0.0939464783867885 | 1 |
-| table_5 | 3 | all | M2 | R2 | 0.825 | 0.825105729313222 | 1 |
-| table_6 | 4 | Treated | M1 | coef | -0.013 | -0.0134254300332048 | 1 |
-| table_6 | 4 | Treated | M1 | SE | 0.028 | 0.0276296540671851 | 1 |
-| table_6 | 4 | Adjacent | M1 | coef | -0.023 | -0.0234889507102779 | 1 |
-| table_6 | 4 | Adjacent | M1 | SE | 0.022 | 0.0217799790242458 | 1 |
-| table_6 | 4 | Treated | M2 | coef | -0.012 | -0.0122155097107169 | 1 |
-| table_6 | 4 | Treated | M2 | SE | 0.026 | 0.0257990947698161 | 1 |
-| table_6 | 4 | Adjacent | M2 | coef | -0.02 | -0.0202615460173702 | 1 |
-| table_6 | 4 | Adjacent | M2 | SE | 0.021 | 0.0205207147642803 | 1 |
-| table_6 | 4 | all | M1 | N | 88 | 88 | 1 |
-| table_6 | 4 | all | M1 | R2 | 0.012 | 0.0115011646658062 | 1 |
-| table_6 | 4 | all | M2 | R2 | 0.172 | 0.172251358226275 | 1 |
-| table_7 | all | Treated | pooled | coef_exp1 | 0.025 | 0.0246700898107479 | 1 |
-| table_7 | all | Treated | pooled | SE_exp1 | 0.017 | 0.0170438046883578 | 1 |
-| table_7 | all | Treated | pooled | coef_exp2 | -0.014 | -0.0142778009663527 | 1 |
-| table_7 | all | Treated | pooled | SE_exp2 | 0.057 | 0.0574424251287565 | 1 |
-| table_7 | all | Treated | pooled | coef_exp3 | 0.018 | 0.0183687447195372 | 1 |
-| table_7 | all | Treated | pooled | SE_exp3 | 0.009 | 0.00860843709003946 | 1 |
-| table_7 | all | Treated | pooled | coef_exp4 | -0.012 | -0.0122155097107169 | 1 |
-| table_7 | all | Treated | pooled | SE_exp4 | 0.026 | 0.0257990947698161 | 1 |
-| table_7 | all | Treated | pooled | coef_pooled | 0.017 | 0.0165465347227397 | 1 |
-| table_7 | all | Treated | pooled | SE_pooled | 0.007 | 0.00730447545153525 | 1 |
-| table_7 | all | Adjacent | pooled | coef_exp1 | 0.018 | 0.0176924658008986 | 1 |
-| table_7 | all | Adjacent | pooled | SE_exp1 | 0.016 | 0.0156295800079384 | 1 |
-| table_7 | all | Adjacent | pooled | coef_exp2 | 0.004 | 0.00428044547072836 | 1 |
-| table_7 | all | Adjacent | pooled | SE_exp2 | 0.045 | 0.0453949744301064 | 1 |
-| table_7 | all | Adjacent | pooled | coef_exp3 | 0.018 | 0.0184661680108188 | 1 |
-| table_7 | all | Adjacent | pooled | SE_exp3 | 0.007 | 0.0065603412388164 | 1 |
-| table_7 | all | Adjacent | pooled | coef_exp4 | -0.02 | -0.0202615460173702 | 1 |
-| table_7 | all | Adjacent | pooled | SE_exp4 | 0.021 | 0.0205207147642803 | 1 |
-| table_7 | all | Adjacent | pooled | coef_pooled | 0.015 | 0.0150868010853195 | 1 |
-| table_7 | all | Adjacent | pooled | SE_pooled | 0.006 | 0.00575541650555256 | 1 |
-| table_8 | 1 | Treated | het | coef | 0.031 | 0.0313323003609761 | 1 |
-| table_8 | 1 | Treated | het | SE | 0.017 | 0.0170677333708408 | 1 |
-| table_8 | 1 | Adjacent | het | coef | 0.021 | 0.0209344338704731 | 1 |
-| table_8 | 1 | Adjacent | het | SE | 0.014 | 0.0144758800003209 | 1 |
-| table_8 | 1 | party_share | het | coef | 0.027 | 0.0266351630335268 | 1 |
-| table_8 | 1 | party_share | het | SE | 0.042 | 0.0415866162620613 | 1 |
-| table_8 | 1 | Treated:party_share | het | coef | 0.031 | 0.0310232649627718 | 1 |
-| table_8 | 1 | Treated:party_share | het | SE | 0.03 | 0.0296668745438136 | 1 |
-| table_8 | 1 | Adjacent:party_share | het | coef | 0.011 | 0.0110440779496757 | 1 |
-| table_8 | 1 | Adjacent:party_share | het | SE | 0.025 | 0.025318596318585 | 1 |
-| table_8 | 1 | all | het | N | 88 | 88 | 1 |
-| table_8 | 1 | all | het | R2 | 0.829 | 0.828859947456358 | 1 |
-| table_8 | 2 | Treated | het | coef | -0.009 | -0.00939986931205115 | 1 |
-| table_8 | 2 | Treated | het | SE | 0.06 | 0.0598700848190547 | 1 |
-| table_8 | 2 | Adjacent | het | coef | 0.011 | 0.0106083651730772 | 1 |
-| table_8 | 2 | Adjacent | het | SE | 0.046 | 0.0460812684704982 | 1 |
-| table_8 | 2 | party_share | het | coef | -0.02 | -0.0204280489102419 | 1 |
-| table_8 | 2 | party_share | het | SE | 0.033 | 0.0327925257658679 | 1 |
-| table_8 | 2 | Treated:party_share | het | coef | 0.033 | 0.0334982428503854 | 1 |
-| table_8 | 2 | Treated:party_share | het | SE | 0.063 | 0.0626600647388735 | 1 |
-| table_8 | 2 | Adjacent:party_share | het | coef | 0.053 | 0.0530270828146152 | 1 |
-| table_8 | 2 | Adjacent:party_share | het | SE | 0.033 | 0.0325277799933964 | 1 |
-| table_8 | 2 | all | het | N | 69 | 69 | 1 |
-| table_8 | 2 | all | het | R2 | 0.277 | 0.277201723401003 | 1 |
-| table_8 | 3 | Treated | het | coef | 0.02 | 0.0195718144455067 | 1 |
-| table_8 | 3 | Treated | het | SE | 0.009 | 0.00914339319000478 | 1 |
-| table_8 | 3 | Adjacent | het | coef | 0.02 | 0.0197823488638466 | 1 |
-| table_8 | 3 | Adjacent | het | SE | 0.007 | 0.00723695945014714 | 1 |
-| table_8 | 3 | party_share | het | coef | 0.028 | 0.0277688953304519 | 1 |
-| table_8 | 3 | party_share | het | SE | 0.009 | 0.00868969118027666 | 1 |
-| table_8 | 3 | Treated:party_share | het | coef | 0.01 | 0.00956524433211274 | 1 |
-| table_8 | 3 | Treated:party_share | het | SE | 0.008 | 0.007960757426217 | 1 |
-| table_8 | 3 | Adjacent:party_share | het | coef | 0.008 | 0.0076708613615315 | 1 |
-| table_8 | 3 | Adjacent:party_share | het | SE | 0.008 | 0.0077967575316686 | 1 |
-| table_8 | 3 | all | het | N | 131 | 131 | 1 |
-| table_8 | 3 | all | het | R2 | 0.829 | 0.829294153064998 | 1 |
-| table_8 | 4 | Treated | het | coef | -0.014 | -0.0138509572033166 | 1 |
-| table_8 | 4 | Treated | het | SE | 0.026 | 0.0264086670442199 | 1 |
-| table_8 | 4 | Adjacent | het | coef | -0.02 | -0.0199446168952743 | 1 |
-| table_8 | 4 | Adjacent | het | SE | 0.021 | 0.0211109363574492 | 1 |
-| table_8 | 4 | party_share | het | coef | 0.02 | 0.020485916463216 | 1 |
-| table_8 | 4 | party_share | het | SE | 0.021 | 0.0206558145688769 | 1 |
-| table_8 | 4 | Treated:party_share | het | coef | -0.021 | -0.0206562354757083 | 1 |
-| table_8 | 4 | Treated:party_share | het | SE | 0.027 | 0.0266582996174303 | 1 |
-| table_8 | 4 | Adjacent:party_share | het | coef | -0.016 | -0.0157750345971309 | 1 |
-| table_8 | 4 | Adjacent:party_share | het | SE | 0.02 | 0.0203120880299069 | 1 |
-| table_8 | 4 | all | het | N | 88 | 88 | 1 |
-| table_8 | 4 | all | het | R2 | 0.181 | 0.181181057025949 | 1 |
-| ri_table | 1 | all | RI | p_margin |  | 0.1573 |  |
-| ri_table | 1 | all | RI | p_share | 0.22 | 0.2225 | 1 |
-| ri_table | 1 | all | RI | p_turnout |  | 0.5261 |  |
-| ri_table | 2 | all | RI | p_margin |  | 0.8928 |  |
-| ri_table | 2 | all | RI | p_share | 0.9 | 0.8974 | 1 |
-| ri_table | 2 | all | RI | p_turnout |  | 0.6967 |  |
-| ri_table | 3 | all | RI | p_margin |  | 0.2633 |  |
-| ri_table | 3 | all | RI | p_share | 0.02 | 0.0208 | 1 |
-| ri_table | 3 | all | RI | p_turnout |  | 0.3319 |  |
-| ri_table | 4 | all | RI | p_margin |  | 0.8773 |  |
-| ri_table | 4 | all | RI | p_share | 0.77 | 0.771 | 1 |
-| ri_table | 4 | all | RI | p_turnout |  | 0.8514 |  |
-| appendix_C1 | 1 | Treated | M1 | coef | 15.582 | 15.5820882919866 | 1 |
-| appendix_C1 | 1 | Treated | M1 | SE | 28.327 | 28.3269024547458 | 1 |
-| appendix_C1 | 1 | Adjacent | M1 | coef | -9.242 | -9.24162075983511 | 1 |
-| appendix_C1 | 1 | Adjacent | M1 | SE | 27.305 | 27.3053512451301 | 1 |
-| appendix_C1 | 1 | Treated | M2 | coef | 34.786 | 34.7862791180129 | 1 |
-| appendix_C1 | 1 | Treated | M2 | SE | 18.207 | 18.2073735421737 | 1 |
-| appendix_C1 | 1 | Adjacent | M2 | coef | 11.713 | 11.7130625829899 | 1 |
-| appendix_C1 | 1 | Adjacent | M2 | SE | 17.885 | 17.8847907177863 | 1 |
-| appendix_C1 | 1 | Treated | M1_turnout | coef | 53.002 | 53.0017430795609 | 1 |
-| appendix_C1 | 1 | Treated | M1_turnout | SE | 48.748 | 48.7480177941925 | 1 |
-| appendix_C1 | 1 | Adjacent | M1_turnout | coef | 110.329 | 110.329339988732 | 1 |
-| appendix_C1 | 1 | Adjacent | M1_turnout | SE | 52.796 | 52.7959163940458 | 1 |
-| appendix_C1 | 1 | Treated | M2_turnout | coef | 10.331 | 10.3313788764894 | 1 |
-| appendix_C1 | 1 | Treated | M2_turnout | SE | 15.741 | 15.7409806269364 | 1 |
-| appendix_C1 | 1 | Adjacent | M2_turnout | coef | 11.914 | 11.9137583664288 | 1 |
-| appendix_C1 | 1 | Adjacent | M2_turnout | SE | 11.759 | 11.7586007130588 | 1 |
-| footnote_4 | all | all | intext | total_turnout | 241613 | 241613 | 1 |
-| footnote_4 | all | all | intext | cost_per_vote_direct | 3.18 | 3.175958831588 | 1 |
-| footnote_4 | all | all | intext | cost_per_vote_total | 1.69 | 1.68722812928112 | 1 |
-| figure_2 | Agnostic | Prior |  | posterior_mean | 0 | 0 | 1 |
-| figure_2 | Agnostic | Prior |  | posterior_sd | 0.05 | 0.05 | 1 |
-| figure_2 | Agnostic | Prior |  | pr_ate_positive | 0.5 | 0.5 | 1 |
-| figure_2 | Agnostic | Update 1 |  | posterior_mean | 0.022 | 0.022102 | 1 |
-| figure_2 | Agnostic | Update 1 |  | posterior_sd | 0.016 | 0.016132 | 1 |
-| figure_2 | Agnostic | Update 1 |  | pr_ate_positive | 0.915 | 0.914663 | 1 |
-| figure_2 | Agnostic | Update 2 |  | posterior_mean | 0.019 | 0.019442 | 1 |
-| figure_2 | Agnostic | Update 2 |  | posterior_sd | 0.016 | 0.015531 | 1 |
-| figure_2 | Agnostic | Update 2 |  | pr_ate_positive | 0.895 | 0.89468 | 1 |
-| figure_2 | Agnostic | Update 3 |  | posterior_mean | 0.019 | 0.018621 | 1 |
-| figure_2 | Agnostic | Update 3 |  | posterior_sd | 0.008 | 0.007529 | 1 |
-| figure_2 | Agnostic | Update 3 |  | pr_ate_positive | 0.993 | 0.993304 | 1 |
-| figure_2 | Agnostic | Update 4 |  | posterior_mean | 0.016 | 0.016201 | 1 |
-| figure_2 | Agnostic | Update 4 |  | posterior_sd | 0.007 | 0.007228 | 1 |
-| figure_2 | Agnostic | Update 4 |  | pr_ate_positive | 0.988 | 0.987502 | 1 |
-| figure_2 | Optimist | Prior |  | posterior_mean | 0.05 | 0.05 | 1 |
-| figure_2 | Optimist | Prior |  | posterior_sd | 0.05 | 0.05 | 1 |
-| figure_2 | Optimist | Prior |  | pr_ate_positive | 0.841 | 0.841345 | 1 |
-| figure_2 | Optimist | Update 1 |  | posterior_mean | 0.027 | 0.027307 | 1 |
-| figure_2 | Optimist | Update 1 |  | posterior_sd | 0.016 | 0.016132 | 1 |
-| figure_2 | Optimist | Update 1 |  | pr_ate_positive | 0.955 | 0.954743 | 1 |
-| figure_2 | Optimist | Update 2 |  | posterior_mean | 0.024 | 0.024267 | 1 |
-| figure_2 | Optimist | Update 2 |  | posterior_sd | 0.016 | 0.015531 | 1 |
-| figure_2 | Optimist | Update 2 |  | pr_ate_positive | 0.941 | 0.940907 | 1 |
-| figure_2 | Optimist | Update 3 |  | posterior_mean | 0.02 | 0.019755 | 1 |
-| figure_2 | Optimist | Update 3 |  | posterior_sd | 0.008 | 0.007529 | 1 |
-| figure_2 | Optimist | Update 3 |  | pr_ate_positive | 0.996 | 0.995651 | 1 |
-| figure_2 | Optimist | Update 4 |  | posterior_mean | 0.017 | 0.017246 | 1 |
-| figure_2 | Optimist | Update 4 |  | posterior_sd | 0.007 | 0.007228 | 1 |
-| figure_2 | Optimist | Update 4 |  | pr_ate_positive | 0.991 | 0.991484 | 1 |
-| figure_2 | Skeptic | Prior |  | posterior_mean | 0 | 0 | 1 |
-| figure_2 | Skeptic | Prior |  | posterior_sd | 0.01 | 0.01 | 1 |
-| figure_2 | Skeptic | Prior |  | pr_ate_positive | 0.5 | 0.5 | 1 |
-| figure_2 | Skeptic | Update 1 |  | posterior_mean | 0.006 | 0.006318 | 1 |
-| figure_2 | Skeptic | Update 1 |  | posterior_sd | 0.009 | 0.008625 | 1 |
-| figure_2 | Skeptic | Update 1 |  | pr_ate_positive | 0.768 | 0.768064 | 1 |
-| figure_2 | Skeptic | Update 2 |  | posterior_mean | 0.006 | 0.005864 | 1 |
-| figure_2 | Skeptic | Update 2 |  | posterior_sd | 0.009 | 0.008529 | 1 |
-| figure_2 | Skeptic | Update 2 |  | pr_ate_positive | 0.754 | 0.754103 | 1 |
-| figure_2 | Skeptic | Update 3 |  | posterior_mean | 0.012 | 0.012059 | 1 |
-| figure_2 | Skeptic | Update 3 |  | posterior_sd | 0.006 | 0.006059 | 1 |
-| figure_2 | Skeptic | Update 3 |  | pr_ate_positive | 0.977 | 0.976715 | 1 |
-| figure_2 | Skeptic | Update 4 |  | posterior_mean | 0.011 | 0.01079 | 1 |
-| figure_2 | Skeptic | Update 4 |  | posterior_sd | 0.006 | 0.005898 | 1 |
-| figure_2 | Skeptic | Update 4 |  | pr_ate_positive | 0.966 | 0.966317 | 1 |
+Every published value with a counterpart in the pipeline carries
+`match_rewrite = 1`: **400** of 400, with 0 differing. The prose is
+where the coverage was thinnest and is now complete, so it is worth
+setting out separately.
 
-Maintained rewrite verification: published value against rewrite output.
+| Location | Claim | Paper | Rewrite | Verdict |
+|:---|:---|:---|:---|:---|
+| Appendix B | appb_e1_untreatable | 5 | 5 | matches |
+| Appendix B | appb_e2_permutations | 10000 | 10000 | matches |
+| Appendix B | appb_e3_permutations | 10000 | 10000 | matches |
+| Appendix B | appb_e3_precincts | 131 | 131 | matches |
+| Appendix B | appb_e3_treated | 30 | 30 | matches |
+| Appendix B | appb_e4_permutations | 10000 | 10000 | matches |
+| Appendix B | appb_e4_precincts | 88 | 88 | matches |
+| Appendix B | appb_e4_treated | 20 | 20 | matches |
+| Appendix D | appd_e4_negative_interactions | 1 | 1 | holds |
+| Appendix D | appd_no_precise_interactions | 1 | 1 | holds |
+| Appendix D | appd_pooled_direct_interaction | 0.009 | 0.009 | matches |
+| Appendix D | appd_pooled_direct_interaction_se | 0.007 | 0.007 | matches |
+| Appendix D | appd_pooled_indirect_interaction | 0.007 | 0.007 | matches |
+| Appendix D | appd_pooled_indirect_interaction_se | 0.007 | 0.007 | matches |
+| Appendix D | appd_three_of_four_positive | 3 | 3 | holds |
+| Footnote 1, p. 144 | text_fn1_e1_treated_assigned | 23 | 23 | matches |
+| Footnote 1, p. 144 | text_fn1_e4_treated_assigned | 20 | 20 | matches |
+| Footnote 3, p. 149 | text_fn3_ci_high | 13.71 | 13.17 | holds |
+| Footnote 3, p. 149 | text_fn3_ci_level | 95 | 95 | matches |
+| Footnote 3, p. 149 | text_fn3_ci_low | 1.70 | 1.70 | holds |
+| Footnote 3, p. 149 | text_fn3_cost_direct | 3.18 | 3.18 | matches |
+| Footnote 3, p. 149 | text_fn3_cost_total | 1.69 | 1.69 | matches |
+| Footnote 3, p. 149 | text_fn3_direct_points | 1.7 | 1.7 | matches |
+| Footnote 3, p. 149 | text_fn3_total_cost | 13045 | 13045 | matches |
+| Footnote 3, p. 149 | text_fn3_total_turnout | 241613 | 241613 | matches |
+| Section 3, p. 144 | text_design_e1_treatable | 88 | 88 | matches |
+| Section 3, p. 144 | text_design_e2_initial | 128 | 128 | matches |
+| Section 3, p. 144 | text_design_e2_restricted | 69 | 69 | matches |
+| Section 3, p. 144 | text_design_e3_precincts | 131 | 131 | matches |
+| Section 3, p. 144 | text_design_e4_precincts | 88 | 88 | matches |
+| Section 4, p. 147 | text_ri_permutations | 10000 | 10000 | matches |
+| Section 5.1, p. 147 | text_r1_direct_m1 | 2.5 | 2.5 | matches |
+| Section 5.1, p. 147 | text_r1_direct_m1_se | 2.7 | 2.7 | matches |
+| Section 5.1, p. 147 | text_r1_direct_m2 | 2.5 | 2.5 | matches |
+| Section 5.1, p. 147 | text_r1_direct_m2_se | 1.7 | 1.7 | matches |
+| Section 5.1, p. 147 | text_r1_ri_p | 0.22 | 0.22 | matches |
+| Section 5.1, p. 147 | text_r1_spillover_m1 | 3.7 | 3.7 | matches |
+| Section 5.1, p. 147 | text_r1_spillover_m1_se | 2.7 | 2.7 | matches |
+| Section 5.1, p. 147 | text_r1_spillover_m2 | 1.8 | 1.8 | matches |
+| Section 5.1, p. 147 | text_r1_spillover_m2_se | 1.6 | 1.6 | matches |
+| Section 5.2, p. 147 | text_r2_direct_m1 | 0.9 | 0.9 | matches |
+| Section 5.2, p. 147 | text_r2_direct_m2 | 1.4 | 1.4 | matches |
+| Section 5.2, p. 147 | text_r2_ri_p | 0.90 | 0.90 | matches |
+| Section 5.3, p. 148 | text_r3_direct_m2 | 1.8 | 1.8 | matches |
+| Section 5.3, p. 148 | text_r3_ri_p | 0.02 | 0.02 | matches |
+| Section 5.3, p. 148 | text_r3_spillover_m2 | 1.8 | 1.8 | matches |
+| Section 5.4, p. 148 | text_r4_direct_m2 | 1.2 | 1.2 | matches |
+| Section 5.4, p. 148 | text_r4_ri_p | 0.77 | 0.77 | matches |
+| Section 5.4, p. 148 | text_r4_spillover_m2 | 2.0 | 2.0 | matches |
+| Section 5.5, p. 148 | text_turnout_no_effect | 1 | 1 | holds |
+| Section 5.5, p. 148 | text_turnout_pooled_direct | 7.2 | 7.2 | matches |
+| Section 5.5, p. 148 | text_turnout_pooled_direct_se | 9.5 | 9.5 | matches |
+| Section 6, p. 148 | text_agnostic_pr | 98.8 | 98.8 | matches |
+| Section 6, p. 148 | text_optimist_pr | 0.991 | 0.991 | matches |
+| Section 6, p. 148 | text_pooled_direct | 1.7 | 1.7 | matches |
+| Section 6, p. 148 | text_pooled_direct_se | 0.7 | 0.7 | matches |
+| Section 6, p. 148 | text_pooled_indirect | 1.5 | 1.5 | matches |
+| Section 6, p. 148 | text_pooled_indirect_se | 0.6 | 0.6 | matches |
+| Section 6, p. 148 | text_pooled_just_over_one | 1 | 1 | holds |
+| Section 6, p. 148 | text_prior_diffuse_sd | 5 | 5 | matches |
+| Section 6, p. 148 | text_prior_skeptic_sd | 1 | 1 | matches |
+| Section 6, p. 148 | text_skeptic_pr | 0.966 | 0.966 | matches |
 
-Every row with a published counterpart carries `match_rewrite = 1`:
-**191** values produced by the maintained rewrite, all matching the
-published paper to reported precision. The remaining 8 are the margin
-and turnout randomization inference p-values, which the article does not
-state.
+Every quantity the article states in prose, in a footnote, or in the
+appendix text, against the maintained rewrite.
+
+Two of these need a word. Footnote 3’s cost per vote is computed by the
+article from the pooled direct effect as Table 7 prints it, at three
+decimals, so $13,045 / (241{,}613 \times 0.017) = \$3.18$ is the
+article’s own arithmetic and reproduces exactly; at the pooled
+estimate’s full precision the same calculation gives \$3.26. And the
+footnote’s 95 per cent interval is drawn in the deposit from 10,000
+normal variates with no seed, so no single number is the published one.
+Over 200 seeds the lower endpoint runs from \$1.66 to \$1.73 and the
+upper from \$11.79 to \$15.19, and the published \$1.70 and \$13.71 both
+sit inside those ranges.
+
+# Errata
+
+None. The extraction covers all 481 numbers the article and its appendix
+print, and no row carries `defect_locus = paper_internal`: nothing in
+the article contradicts its own tables, its own data, or the code the
+authors deposited. The 43 values a deposited script no longer reproduces
+are a property of R rather than of the paper, and the paper’s numbers
+are the correct ones.
+
+Two things about the published record are worth recording without rising
+to errata. Table 5 prints its second goodness-of-fit row without the
+`R2` label its three sibling tables carry, so the values 0.094 and 0.825
+sit under a blank stub. And the appendix numbers its tables C.1 through
+C.4 and then D.5, so there is no Table D.1 through D.4. Neither
+misstates a quantity.
 
 # R environment
 
@@ -797,7 +630,7 @@ state.
 |:----------|:-----------------------|
 | R version | 4.6.0                  |
 | Platform  | aarch64-apple-darwin23 |
-| Date run  | 2026-08-01             |
+| Date run  | 2026-08-03             |
 
 | Package   | Version |
 |:----------|:--------|

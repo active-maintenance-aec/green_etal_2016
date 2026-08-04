@@ -1,7 +1,8 @@
 # green_etal_2016/maintained/table_8_het_effects.R
-# Output: output/table_8_het_effects.csv
+# Output: output/table_8_het_effects.csv, output/text_pooled_interactions.csv
 # Depends on: original/exp_1.RData through exp_4.RData, helpers.R
-# Description: Table 8 (appendix D): treatment effects interacted with standardized past party support.
+# Description: Appendix Table D.5: treatment effects interacted with standardized past party
+#   support, plus the pooled interaction effects the appendix D text reports.
 source(here::here("maintained", "helpers.R"))
 
 load(here::here("original", "exp_1.RData"))
@@ -29,11 +30,29 @@ m4 <- lm_robust(share ~ condition_factor * party_share + GOVP2010 + GOVP2006 + U
                 weights = weights, data = exp_4, se_type = "HC2")
 
 # Extract results ----
+# The intercept is kept because Table D.5 prints a Constant row.
 extract_het <- function(mod, exp_label) {
   tidy(mod) |>
-    filter(str_detect(term, "condition_factor|party_share")) |>
+    filter(term == "(Intercept)" | str_detect(term, "condition_factor|party_share")) |>
     mutate(experiment = exp_label, n = nobs(mod), r2 = summary(mod)$r.squared)
 }
 
 results <- map2_dfr(list(m1, m2, m3, m4), paste0("Experiment ", 1:4), extract_het)
 write_csv(results, here::here("maintained", "output", "table_8_het_effects.csv"))
+
+# Pooled interaction effects, appendix D text ----
+# The appendix pools the four interaction coefficients by the same fixed-effects
+# meta-analysis used for the treatment effects themselves.
+direct_int <- filter(results, term == "condition_factorTreated:party_share") |> arrange(experiment)
+indirect_int <- filter(results, term == "condition_factorAdjacent:party_share") |> arrange(experiment)
+
+direct_int_fe <- rma(yi = direct_int$estimate, sei = direct_int$std.error, method = "FE")
+indirect_int_fe <- rma(yi = indirect_int$estimate, sei = indirect_int$std.error, method = "FE")
+
+pooled_interactions <- tribble(
+  ~arm, ~estimate, ~std.error, ~n_studies,
+  "Treated", as.numeric(direct_int_fe$beta), direct_int_fe$se, nrow(direct_int),
+  "Adjacent", as.numeric(indirect_int_fe$beta), indirect_int_fe$se, nrow(indirect_int)
+)
+write_csv(pooled_interactions,
+          here::here("maintained", "output", "text_pooled_interactions.csv"))

@@ -84,12 +84,16 @@ make_panel <- function(scen) {
     )
 }
 
+# arrangeGrob draws nothing but still opens a device, which under Rscript means a stray
+# Rplots.pdf in the working directory. A null device absorbs it.
+pdf(NULL)
 g_all <- arrangeGrob(
   make_panel("Agnostic"),
   make_panel("Optimist"),
   make_panel("Skeptic"),
   ncol = 1
 )
+dev.off()
 
 ggsave(here::here("maintained", "output", "figure_2_bayesian.pdf"),
        plot = g_all, width = 15, height = 9)
