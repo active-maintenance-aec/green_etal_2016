@@ -630,11 +630,11 @@ misstates a quantity.
 |:----------|:-----------------------|
 | R version | 4.6.0                  |
 | Platform  | aarch64-apple-darwin23 |
-| Date run  | 2026-08-03             |
+| Date run  | 2026-09-27             |
 
 | Package   | Version |
 |:----------|:--------|
-| estimatr  | 1.0.6   |
+| estimatr  | 2.0.1   |
 | metafor   | 5.0.1   |
 | dplyr     | 1.2.1   |
 | ggplot2   | 4.0.3   |

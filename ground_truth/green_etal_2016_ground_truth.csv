@@ -48,57 +48,57 @@ green_etal_2016,appd_covariate_e3_year,Appendix D,definitional,NA,2012,NA,NA,NA,
 green_etal_2016,appd_covariate_e4_year,Appendix D,definitional,NA,2008,NA,NA,NA,NA,NA,No counterpart in the pipeline; verified at the point of use. A design fact the deposit does not record.
 green_etal_2016,appd_e4_negative_interactions,Appendix D,descriptive,NA,1,NA,1,NA,1,NA,The claim holds against the pipeline's own estimates. The deposited scripts print no counterpart to this value.
 green_etal_2016,appd_no_precise_interactions,Appendix D,descriptive,NA,1,NA,1,NA,1,NA,The claim holds against the pipeline's own estimates. The deposited scripts print no counterpart to this value.
-green_etal_2016,appd_pooled_direct_interaction,Appendix D,pipeline,0.0089166433086039,0.009,1,0.00891664330860391,1,NA,NA,Reproduced at the precision the page prints: 0.009.
+green_etal_2016,appd_pooled_direct_interaction,Appendix D,pipeline,0.0089166433086039,0.009,1,0.00891664330860397,1,NA,NA,Reproduced at the precision the page prints: 0.009.
 green_etal_2016,appd_pooled_direct_interaction_se,Appendix D,pipeline,0.00733680305571093,0.007,1,0.00733680305571094,1,NA,NA,Reproduced at the precision the page prints: 0.007.
-green_etal_2016,appd_pooled_indirect_interaction,Appendix D,pipeline,0.00726402825817918,0.007,1,0.00726402825817922,1,NA,NA,Reproduced at the precision the page prints: 0.007.
-green_etal_2016,appd_pooled_indirect_interaction_se,Appendix D,pipeline,0.00683919801606159,0.007,1,0.00683919801606161,1,NA,NA,Reproduced at the precision the page prints: 0.007.
+green_etal_2016,appd_pooled_indirect_interaction,Appendix D,pipeline,0.00726402825817918,0.007,1,0.00726402825817926,1,NA,NA,Reproduced at the precision the page prints: 0.007.
+green_etal_2016,appd_pooled_indirect_interaction_se,Appendix D,pipeline,0.00683919801606159,0.007,1,0.0068391980160616,1,NA,NA,Reproduced at the precision the page prints: 0.007.
 green_etal_2016,appd_sd_increase,Appendix D,definitional,NA,1,NA,NA,NA,NA,NA,No counterpart in the pipeline; verified at the point of use. A design fact the deposit does not record.
 green_etal_2016,appd_three_of_four_positive,Appendix D,descriptive,NA,3,NA,3,NA,1,NA,The claim holds against the pipeline's own estimates. The deposited scripts print no counterpart to this value.
 green_etal_2016,f2_agnostic_prior_mean,Figure 2,pipeline,0,0.000,1,0,1,NA,NA,Reproduced at the precision the page prints: 0.000.
 green_etal_2016,f2_agnostic_prior_pr,Figure 2,pipeline,0.5,0.500,1,0.5,1,NA,NA,Reproduced at the precision the page prints: 0.500.
 green_etal_2016,f2_agnostic_prior_sd,Figure 2,pipeline,0.05,0.050,1,0.05,1,NA,NA,Reproduced at the precision the page prints: 0.050.
-green_etal_2016,f2_agnostic_u1_mean,Figure 2,pipeline,0.02210192341666808,0.022,1,0.02210192341666807,1,NA,NA,Reproduced at the precision the page prints: 0.022.
-green_etal_2016,f2_agnostic_u1_pr,Figure 2,pipeline,0.9146630896847038,0.915,1,0.9146630896847024,1,NA,NA,Reproduced at the precision the page prints: 0.915.
-green_etal_2016,f2_agnostic_u1_sd,Figure 2,pipeline,0.01613229735378258,0.016,1,0.01613229735378268,1,NA,NA,Reproduced at the precision the page prints: 0.016.
-green_etal_2016,f2_agnostic_u2_mean,Figure 2,pipeline,0.0194423248540146,0.019,1,0.01944232485401457,1,NA,NA,Reproduced at the precision the page prints: 0.019.
-green_etal_2016,f2_agnostic_u2_pr,Figure 2,pipeline,0.8946797483313458,0.895,1,0.894679748331344,1,NA,NA,Reproduced at the precision the page prints: 0.895.
-green_etal_2016,f2_agnostic_u2_sd,Figure 2,pipeline,0.01553141804612422,0.016,1,0.01553141804612431,1,NA,NA,Reproduced at the precision the page prints: 0.016.
-green_etal_2016,f2_agnostic_u3_mean,Figure 2,pipeline,0.01862104492785499,0.019,1,0.018621044927855,1,NA,NA,Reproduced at the precision the page prints: 0.019.
-green_etal_2016,f2_agnostic_u3_pr,Figure 2,pipeline,0.9933037012153848,0.993,1,0.9933037012153844,1,NA,NA,Reproduced at the precision the page prints: 0.993.
-green_etal_2016,f2_agnostic_u3_sd,Figure 2,pipeline,0.0075292666947491,0.008,1,0.00752926669474914,1,NA,NA,Reproduced at the precision the page prints: 0.008.
-green_etal_2016,f2_agnostic_u4_mean,Figure 2,pipeline,0.01620077543008752,0.016,1,0.01620077543008751,1,NA,NA,Reproduced at the precision the page prints: 0.016.
-green_etal_2016,f2_agnostic_u4_pr,Figure 2,pipeline,0.9875020871654464,0.988,1,0.987502087165446,1,NA,NA,Reproduced at the precision the page prints: 0.988.
-green_etal_2016,f2_agnostic_u4_sd,Figure 2,pipeline,0.00722775474296403,0.007,1,0.00722775474296407,1,NA,NA,Reproduced at the precision the page prints: 0.007.
+green_etal_2016,f2_agnostic_u1_mean,Figure 2,pipeline,0.02210192341666808,0.022,1,0.02210192341666809,1,NA,NA,Reproduced at the precision the page prints: 0.022.
+green_etal_2016,f2_agnostic_u1_pr,Figure 2,pipeline,0.9146630896847038,0.915,1,0.9146630896847034,1,NA,NA,Reproduced at the precision the page prints: 0.915.
+green_etal_2016,f2_agnostic_u1_sd,Figure 2,pipeline,0.01613229735378258,0.016,1,0.01613229735378261,1,NA,NA,Reproduced at the precision the page prints: 0.016.
+green_etal_2016,f2_agnostic_u2_mean,Figure 2,pipeline,0.0194423248540146,0.019,1,0.01944232485401461,1,NA,NA,Reproduced at the precision the page prints: 0.019.
+green_etal_2016,f2_agnostic_u2_pr,Figure 2,pipeline,0.8946797483313458,0.895,1,0.8946797483313453,1,NA,NA,Reproduced at the precision the page prints: 0.895.
+green_etal_2016,f2_agnostic_u2_sd,Figure 2,pipeline,0.01553141804612422,0.016,1,0.01553141804612425,1,NA,NA,Reproduced at the precision the page prints: 0.016.
+green_etal_2016,f2_agnostic_u3_mean,Figure 2,pipeline,0.01862104492785499,0.019,1,0.01862104492785501,1,NA,NA,Reproduced at the precision the page prints: 0.019.
+green_etal_2016,f2_agnostic_u3_pr,Figure 2,pipeline,0.9933037012153848,0.993,1,0.9933037012153846,1,NA,NA,Reproduced at the precision the page prints: 0.993.
+green_etal_2016,f2_agnostic_u3_sd,Figure 2,pipeline,0.0075292666947491,0.008,1,0.00752926669474911,1,NA,NA,Reproduced at the precision the page prints: 0.008.
+green_etal_2016,f2_agnostic_u4_mean,Figure 2,pipeline,0.01620077543008752,0.016,1,0.01620077543008754,1,NA,NA,Reproduced at the precision the page prints: 0.016.
+green_etal_2016,f2_agnostic_u4_pr,Figure 2,pipeline,0.9875020871654464,0.988,1,0.9875020871654464,1,NA,NA,Reproduced at the precision the page prints: 0.988.
+green_etal_2016,f2_agnostic_u4_sd,Figure 2,pipeline,0.00722775474296403,0.007,1,0.00722775474296404,1,NA,NA,Reproduced at the precision the page prints: 0.007.
 green_etal_2016,f2_optimist_prior_mean,Figure 2,pipeline,0.05,0.050,1,0.05,1,NA,NA,Reproduced at the precision the page prints: 0.050.
 green_etal_2016,f2_optimist_prior_pr,Figure 2,pipeline,0.8413447460685429,0.841,1,0.8413447460685429,1,NA,NA,Reproduced at the precision the page prints: 0.841.
 green_etal_2016,f2_optimist_prior_sd,Figure 2,pipeline,0.05,0.050,1,0.05,1,NA,NA,Reproduced at the precision the page prints: 0.050.
-green_etal_2016,f2_optimist_u1_mean,Figure 2,pipeline,0.02730694377488529,0.027,1,0.02730694377488534,1,NA,NA,Reproduced at the precision the page prints: 0.027.
-green_etal_2016,f2_optimist_u1_pr,Figure 2,pipeline,0.9547425507176476,0.955,1,0.9547425507176468,1,NA,NA,Reproduced at the precision the page prints: 0.955.
-green_etal_2016,f2_optimist_u1_sd,Figure 2,pipeline,0.01613229735378258,0.016,1,0.01613229735378268,1,NA,NA,Reproduced at the precision the page prints: 0.016.
+green_etal_2016,f2_optimist_u1_mean,Figure 2,pipeline,0.02730694377488529,0.027,1,0.02730694377488532,1,NA,NA,Reproduced at the precision the page prints: 0.027.
+green_etal_2016,f2_optimist_u1_pr,Figure 2,pipeline,0.9547425507176476,0.955,1,0.9547425507176472,1,NA,NA,Reproduced at the precision the page prints: 0.955.
+green_etal_2016,f2_optimist_u1_sd,Figure 2,pipeline,0.01613229735378258,0.016,1,0.01613229735378261,1,NA,NA,Reproduced at the precision the page prints: 0.016.
 green_etal_2016,f2_optimist_u2_mean,Figure 2,pipeline,0.02426682378448406,0.024,1,0.02426682378448409,1,NA,NA,Reproduced at the precision the page prints: 0.024.
-green_etal_2016,f2_optimist_u2_pr,Figure 2,pipeline,0.9409071705144626,0.941,1,0.9409071705144616,1,NA,NA,Reproduced at the precision the page prints: 0.941.
-green_etal_2016,f2_optimist_u2_sd,Figure 2,pipeline,0.01553141804612422,0.016,1,0.01553141804612431,1,NA,NA,Reproduced at the precision the page prints: 0.016.
+green_etal_2016,f2_optimist_u2_pr,Figure 2,pipeline,0.9409071705144626,0.941,1,0.9409071705144624,1,NA,NA,Reproduced at the precision the page prints: 0.941.
+green_etal_2016,f2_optimist_u2_sd,Figure 2,pipeline,0.01553141804612422,0.016,1,0.01553141804612425,1,NA,NA,Reproduced at the precision the page prints: 0.016.
 green_etal_2016,f2_optimist_u3_mean,Figure 2,pipeline,0.01975484206706816,0.020,1,0.01975484206706818,1,NA,NA,Reproduced at the precision the page prints: 0.020.
 green_etal_2016,f2_optimist_u3_pr,Figure 2,pipeline,0.9956514991902524,0.996,1,0.9956514991902524,1,NA,NA,Reproduced at the precision the page prints: 0.996.
-green_etal_2016,f2_optimist_u3_sd,Figure 2,pipeline,0.0075292666947491,0.008,1,0.00752926669474914,1,NA,NA,Reproduced at the precision the page prints: 0.008.
-green_etal_2016,f2_optimist_u4_mean,Figure 2,pipeline,0.0172455842025763,0.017,1,0.0172455842025763,1,NA,NA,Reproduced at the precision the page prints: 0.017.
-green_etal_2016,f2_optimist_u4_pr,Figure 2,pipeline,0.9914841415308532,0.991,1,0.9914841415308528,1,NA,NA,Reproduced at the precision the page prints: 0.991.
-green_etal_2016,f2_optimist_u4_sd,Figure 2,pipeline,0.00722775474296403,0.007,1,0.00722775474296407,1,NA,NA,Reproduced at the precision the page prints: 0.007.
+green_etal_2016,f2_optimist_u3_sd,Figure 2,pipeline,0.0075292666947491,0.008,1,0.00752926669474911,1,NA,NA,Reproduced at the precision the page prints: 0.008.
+green_etal_2016,f2_optimist_u4_mean,Figure 2,pipeline,0.0172455842025763,0.017,1,0.01724558420257633,1,NA,NA,Reproduced at the precision the page prints: 0.017.
+green_etal_2016,f2_optimist_u4_pr,Figure 2,pipeline,0.9914841415308532,0.991,1,0.9914841415308532,1,NA,NA,Reproduced at the precision the page prints: 0.991.
+green_etal_2016,f2_optimist_u4_sd,Figure 2,pipeline,0.00722775474296403,0.007,1,0.00722775474296404,1,NA,NA,Reproduced at the precision the page prints: 0.007.
 green_etal_2016,f2_skeptic_prior_mean,Figure 2,pipeline,0,0.000,1,0,1,NA,NA,Reproduced at the precision the page prints: 0.000.
 green_etal_2016,f2_skeptic_prior_pr,Figure 2,pipeline,0.5,0.500,1,0.5,1,NA,NA,Reproduced at the precision the page prints: 0.500.
 green_etal_2016,f2_skeptic_prior_sd,Figure 2,pipeline,0.01,0.010,1,0.01,1,NA,NA,Reproduced at the precision the page prints: 0.010.
-green_etal_2016,f2_skeptic_u1_mean,Figure 2,pipeline,0.00631770571701348,0.006,1,0.00631770571701341,1,NA,NA,Reproduced at the precision the page prints: 0.006.
-green_etal_2016,f2_skeptic_u1_pr,Figure 2,pipeline,0.7680635878774599,0.768,1,0.7680635878774572,1,NA,NA,Reproduced at the precision the page prints: 0.768.
-green_etal_2016,f2_skeptic_u1_sd,Figure 2,pipeline,0.00862503527011142,0.009,1,0.00862503527011144,1,NA,NA,Reproduced at the precision the page prints: 0.009.
-green_etal_2016,f2_skeptic_u2_mean,Figure 2,pipeline,0.00586361131814246,0.006,1,0.0058636113181424,1,NA,NA,Reproduced at the precision the page prints: 0.006.
-green_etal_2016,f2_skeptic_u2_pr,Figure 2,pipeline,0.7541026239948323,0.754,1,0.7541026239948296,1,NA,NA,Reproduced at the precision the page prints: 0.754.
-green_etal_2016,f2_skeptic_u2_sd,Figure 2,pipeline,0.00852942194039547,0.009,1,0.00852942194039548,1,NA,NA,Reproduced at the precision the page prints: 0.009.
-green_etal_2016,f2_skeptic_u3_mean,Figure 2,pipeline,0.01205852356028039,0.012,1,0.01205852356028035,1,NA,NA,Reproduced at the precision the page prints: 0.012.
-green_etal_2016,f2_skeptic_u3_pr,Figure 2,pipeline,0.9767154675246812,0.977,1,0.9767154675246804,1,NA,NA,Reproduced at the precision the page prints: 0.977.
-green_etal_2016,f2_skeptic_u3_sd,Figure 2,pipeline,0.00605895496864245,0.006,1,0.00605895496864247,1,NA,NA,Reproduced at the precision the page prints: 0.006.
-green_etal_2016,f2_skeptic_u4_mean,Figure 2,pipeline,0.01078966822400117,0.011,1,0.01078966822400113,1,NA,NA,Reproduced at the precision the page prints: 0.011.
-green_etal_2016,f2_skeptic_u4_pr,Figure 2,pipeline,0.9663174904930414,0.966,1,0.9663174904930404,1,NA,NA,Reproduced at the precision the page prints: 0.966.
-green_etal_2016,f2_skeptic_u4_sd,Figure 2,pipeline,0.00589847240052737,0.006,1,0.00589847240052739,1,NA,NA,Reproduced at the precision the page prints: 0.006.
+green_etal_2016,f2_skeptic_u1_mean,Figure 2,pipeline,0.00631770571701348,0.006,1,0.00631770571701346,1,NA,NA,Reproduced at the precision the page prints: 0.006.
+green_etal_2016,f2_skeptic_u1_pr,Figure 2,pipeline,0.7680635878774599,0.768,1,0.7680635878774591,1,NA,NA,Reproduced at the precision the page prints: 0.768.
+green_etal_2016,f2_skeptic_u1_sd,Figure 2,pipeline,0.00862503527011142,0.009,1,0.00862503527011143,1,NA,NA,Reproduced at the precision the page prints: 0.009.
+green_etal_2016,f2_skeptic_u2_mean,Figure 2,pipeline,0.00586361131814246,0.006,1,0.00586361131814244,1,NA,NA,Reproduced at the precision the page prints: 0.006.
+green_etal_2016,f2_skeptic_u2_pr,Figure 2,pipeline,0.7541026239948323,0.754,1,0.7541026239948316,1,NA,NA,Reproduced at the precision the page prints: 0.754.
+green_etal_2016,f2_skeptic_u2_sd,Figure 2,pipeline,0.00852942194039547,0.009,1,0.00852942194039547,1,NA,NA,Reproduced at the precision the page prints: 0.009.
+green_etal_2016,f2_skeptic_u3_mean,Figure 2,pipeline,0.01205852356028039,0.012,1,0.01205852356028039,1,NA,NA,Reproduced at the precision the page prints: 0.012.
+green_etal_2016,f2_skeptic_u3_pr,Figure 2,pipeline,0.9767154675246812,0.977,1,0.9767154675246812,1,NA,NA,Reproduced at the precision the page prints: 0.977.
+green_etal_2016,f2_skeptic_u3_sd,Figure 2,pipeline,0.00605895496864245,0.006,1,0.00605895496864246,1,NA,NA,Reproduced at the precision the page prints: 0.006.
+green_etal_2016,f2_skeptic_u4_mean,Figure 2,pipeline,0.01078966822400117,0.011,1,0.01078966822400118,1,NA,NA,Reproduced at the precision the page prints: 0.011.
+green_etal_2016,f2_skeptic_u4_pr,Figure 2,pipeline,0.9663174904930414,0.966,1,0.9663174904930412,1,NA,NA,Reproduced at the precision the page prints: 0.966.
+green_etal_2016,f2_skeptic_u4_sd,Figure 2,pipeline,0.00589847240052737,0.006,1,0.00589847240052738,1,NA,NA,Reproduced at the precision the page prints: 0.006.
 green_etal_2016,text_fn1_e1_ratio,"Footnote 1, p. 144",definitional,NA,0.96,NA,NA,NA,NA,NA,No counterpart in the pipeline; verified at the point of use. A design fact the deposit does not record.
 green_etal_2016,text_fn1_e1_treated_actual,"Footnote 1, p. 144",definitional,NA,22,NA,NA,NA,NA,NA,No counterpart in the pipeline; verified at the point of use. A design fact the deposit does not record.
 green_etal_2016,text_fn1_e1_treated_assigned,"Footnote 1, p. 144",pipeline,NA,23,NA,23,1,NA,NA,Reproduced at the precision the page prints: 23. The deposited scripts print no counterpart to this value.
@@ -110,7 +110,7 @@ green_etal_2016,text_fn3_ci_level,"Footnote 3, p. 149",definitional,NA,95,NA,95,
 green_etal_2016,text_fn3_ci_low,"Footnote 3, p. 149",pipeline,NA,1.70,NA,1.6993853338381208,NA,1,NA,The claim holds against the pipeline's own estimates. The deposited scripts print no counterpart to this value.
 green_etal_2016,text_fn3_cost_direct,"Footnote 3, p. 149",pipeline,3.1759588315879963,3.18,1,3.1759588315879963,1,NA,NA,Reproduced at the precision the page prints: 3.18.
 green_etal_2016,text_fn3_cost_total,"Footnote 3, p. 149",pipeline,1.687228129281123,1.69,1,1.687228129281123,1,NA,NA,Reproduced at the precision the page prints: 1.69.
-green_etal_2016,text_fn3_direct_points,"Footnote 3, p. 149",pipeline,1.6546534722739692,1.7,1,1.6546534722739679,1,NA,NA,Reproduced at the precision the page prints: 1.7.
+green_etal_2016,text_fn3_direct_points,"Footnote 3, p. 149",pipeline,1.6546534722739692,1.7,1,1.654653472273972,1,NA,NA,Reproduced at the precision the page prints: 1.7.
 green_etal_2016,text_fn3_formula_cost,"Footnote 3, p. 149",definitional,NA,13045,NA,NA,NA,NA,NA,No counterpart in the pipeline; verified at the point of use. A design fact the deposit does not record.
 green_etal_2016,text_fn3_formula_effect,"Footnote 3, p. 149",definitional,NA,0.017,NA,NA,NA,NA,NA,No counterpart in the pipeline; verified at the point of use. A design fact the deposit does not record.
 green_etal_2016,text_fn3_formula_result,"Footnote 3, p. 149",definitional,NA,3.18,NA,NA,NA,NA,NA,No counterpart in the pipeline; verified at the point of use. A design fact the deposit does not record.
@@ -149,37 +149,37 @@ green_etal_2016,text_e4_weeks_prior,"Section 3.4, p. 145",structural,NA,2,NA,NA,
 green_etal_2016,text_model_indicator_adjacent,"Section 4, p. 146",definitional,NA,1,NA,NA,NA,NA,NA,No counterpart in the pipeline; verified at the point of use. A design fact the deposit does not record.
 green_etal_2016,text_model_indicator_direct,"Section 4, p. 146",definitional,NA,1,NA,NA,NA,NA,NA,No counterpart in the pipeline; verified at the point of use. A design fact the deposit does not record.
 green_etal_2016,text_ri_permutations,"Section 4, p. 147",definitional,NA,10000,NA,10000,1,NA,NA,Reproduced at the precision the page prints: 10000. The deposited scripts print no counterpart to this value.
-green_etal_2016,text_r1_direct_m1,"Section 5.1, p. 147",pipeline,NA,2.5,NA,2.518492311505607,1,NA,NA,Reproduced at the precision the page prints: 2.5. The deposited scripts print no counterpart to this value.
-green_etal_2016,text_r1_direct_m1_se,"Section 5.1, p. 147",pipeline,NA,2.7,NA,2.7195349794083312,1,NA,NA,Reproduced at the precision the page prints: 2.7. The deposited scripts print no counterpart to this value.
+green_etal_2016,text_r1_direct_m1,"Section 5.1, p. 147",pipeline,NA,2.5,NA,2.5184923115056037,1,NA,NA,Reproduced at the precision the page prints: 2.5. The deposited scripts print no counterpart to this value.
+green_etal_2016,text_r1_direct_m1_se,"Section 5.1, p. 147",pipeline,NA,2.7,NA,2.7195349794083348,1,NA,NA,Reproduced at the precision the page prints: 2.7. The deposited scripts print no counterpart to this value.
 green_etal_2016,text_r1_direct_m2,"Section 5.1, p. 147",pipeline,2.4670089810747875,2.5,1,2.4670089810747897,1,NA,NA,Reproduced at the precision the page prints: 2.5.
-green_etal_2016,text_r1_direct_m2_se,"Section 5.1, p. 147",pipeline,1.7043804688357724,1.7,1,1.7043804688357849,1,NA,NA,Reproduced at the precision the page prints: 1.7.
+green_etal_2016,text_r1_direct_m2_se,"Section 5.1, p. 147",pipeline,1.7043804688357724,1.7,1,1.7043804688357769,1,NA,NA,Reproduced at the precision the page prints: 1.7.
 green_etal_2016,text_r1_ri_p,"Section 5.1, p. 147",pipeline,0.2225,0.22,1,0.2225,1,NA,NA,Reproduced at the precision the page prints: 0.22.
-green_etal_2016,text_r1_spillover_m1,"Section 5.1, p. 147",pipeline,NA,3.7,NA,3.652455560574109,1,NA,NA,Reproduced at the precision the page prints: 3.7. The deposited scripts print no counterpart to this value.
-green_etal_2016,text_r1_spillover_m1_se,"Section 5.1, p. 147",pipeline,NA,2.7,NA,2.734849649876629,1,NA,NA,Reproduced at the precision the page prints: 2.7. The deposited scripts print no counterpart to this value.
-green_etal_2016,text_r1_spillover_m2,"Section 5.1, p. 147",pipeline,1.7692465800898616,1.8,1,1.769246580089864,1,NA,NA,Reproduced at the precision the page prints: 1.8.
-green_etal_2016,text_r1_spillover_m2_se,"Section 5.1, p. 147",pipeline,1.562958000793836,1.6,1,1.562958000793841,1,NA,NA,Reproduced at the precision the page prints: 1.6.
-green_etal_2016,text_r2_direct_m1,"Section 5.2, p. 147",pipeline,NA,0.9,NA,0.850373305360868,1,NA,NA,Reproduced at the precision the page prints: 0.9. The deposited scripts print no counterpart to this value.
-green_etal_2016,text_r2_direct_m2,"Section 5.2, p. 147",pipeline,1.427780096635274,1.4,1,1.4277800966352732,1,NA,NA,Reproduced at the precision the page prints: 1.4.
+green_etal_2016,text_r1_spillover_m1,"Section 5.1, p. 147",pipeline,NA,3.7,NA,3.6524555605741105,1,NA,NA,Reproduced at the precision the page prints: 3.7. The deposited scripts print no counterpart to this value.
+green_etal_2016,text_r1_spillover_m1_se,"Section 5.1, p. 147",pipeline,NA,2.7,NA,2.734849649876633,1,NA,NA,Reproduced at the precision the page prints: 2.7. The deposited scripts print no counterpart to this value.
+green_etal_2016,text_r1_spillover_m2,"Section 5.1, p. 147",pipeline,1.7692465800898616,1.8,1,1.7692465800898671,1,NA,NA,Reproduced at the precision the page prints: 1.8.
+green_etal_2016,text_r1_spillover_m2_se,"Section 5.1, p. 147",pipeline,1.562958000793836,1.6,1,1.562958000793836,1,NA,NA,Reproduced at the precision the page prints: 1.6.
+green_etal_2016,text_r2_direct_m1,"Section 5.2, p. 147",pipeline,NA,0.9,NA,0.850373305360865,1,NA,NA,Reproduced at the precision the page prints: 0.9. The deposited scripts print no counterpart to this value.
+green_etal_2016,text_r2_direct_m2,"Section 5.2, p. 147",pipeline,1.427780096635274,1.4,1,1.427780096635267,1,NA,NA,Reproduced at the precision the page prints: 1.4.
 green_etal_2016,text_r2_ri_p,"Section 5.2, p. 147",pipeline,0.7935,0.90,0,0.8974,1,NA,environment,The deposited scripts print 0.79 where the article prints 0.90; the rewrite reproduces the article.
 green_etal_2016,text_r3_direct_m2,"Section 5.3, p. 148",pipeline,1.836874471953716,1.8,1,1.836874471953719,1,NA,NA,Reproduced at the precision the page prints: 1.8.
 green_etal_2016,text_r3_ri_p,"Section 5.3, p. 148",pipeline,0.0208,0.02,1,0.0208,1,NA,NA,Reproduced at the precision the page prints: 0.02.
-green_etal_2016,text_r3_spillover_m2,"Section 5.3, p. 148",pipeline,1.8466168010818764,1.8,1,1.8466168010818789,1,NA,NA,Reproduced at the precision the page prints: 1.8.
-green_etal_2016,text_r4_direct_m2,"Section 5.4, p. 148",pipeline,1.221550971071681,1.2,1,1.221550971071685,1,NA,NA,Reproduced at the precision the page prints: 1.2.
+green_etal_2016,text_r3_spillover_m2,"Section 5.3, p. 148",pipeline,1.8466168010818764,1.8,1,1.84661680108188,1,NA,NA,Reproduced at the precision the page prints: 1.8.
+green_etal_2016,text_r4_direct_m2,"Section 5.4, p. 148",pipeline,1.221550971071681,1.2,1,1.221550971071673,1,NA,NA,Reproduced at the precision the page prints: 1.2.
 green_etal_2016,text_r4_ri_p,"Section 5.4, p. 148",pipeline,0.7714,0.77,1,0.7714,1,NA,NA,Reproduced at the precision the page prints: 0.77.
-green_etal_2016,text_r4_spillover_m2,"Section 5.4, p. 148",pipeline,2.026154601737022,2.0,1,2.0261546017370238,1,NA,NA,Reproduced at the precision the page prints: 2.0.
+green_etal_2016,text_r4_spillover_m2,"Section 5.4, p. 148",pipeline,2.026154601737022,2.0,1,2.026154601737023,1,NA,NA,Reproduced at the precision the page prints: 2.0.
 green_etal_2016,text_turnout_no_effect,"Section 5.5, p. 148",descriptive,NA,1,NA,1,NA,1,NA,The claim holds against the pipeline's own estimates. The deposited scripts print no counterpart to this value.
-green_etal_2016,text_turnout_pooled_direct,"Section 5.5, p. 148",pipeline,7.213052072217754,7.2,1,7.213052072217786,1,NA,NA,Reproduced at the precision the page prints: 7.2.
-green_etal_2016,text_turnout_pooled_direct_se,"Section 5.5, p. 148",pipeline,9.456325866693051,9.5,1,9.456325866692966,1,NA,NA,Reproduced at the precision the page prints: 9.5.
-green_etal_2016,text_agnostic_pr,"Section 6, p. 148",pipeline,98.75020871654463,98.8,1,98.75020871654459,1,NA,NA,Reproduced at the precision the page prints: 98.8.
-green_etal_2016,text_optimist_pr,"Section 6, p. 148",pipeline,0.9914841415308532,0.991,1,0.9914841415308528,1,NA,NA,Reproduced at the precision the page prints: 0.991.
-green_etal_2016,text_pooled_direct,"Section 6, p. 148",pipeline,1.6546534722739692,1.7,1,1.6546534722739679,1,NA,NA,Reproduced at the precision the page prints: 1.7.
-green_etal_2016,text_pooled_direct_se,"Section 6, p. 148",pipeline,0.7304475451535196,0.7,1,0.730447545153523,1,NA,NA,Reproduced at the precision the page prints: 0.7.
-green_etal_2016,text_pooled_indirect,"Section 6, p. 148",pipeline,1.508680108531947,1.5,1,1.5086801085319461,1,NA,NA,Reproduced at the precision the page prints: 1.5.
-green_etal_2016,text_pooled_indirect_se,"Section 6, p. 148",pipeline,0.57554165055525075,0.6,1,0.575541650555254,1,NA,NA,Reproduced at the precision the page prints: 0.6.
+green_etal_2016,text_turnout_pooled_direct,"Section 5.5, p. 148",pipeline,7.213052072217754,7.2,1,7.213052072217775,1,NA,NA,Reproduced at the precision the page prints: 7.2.
+green_etal_2016,text_turnout_pooled_direct_se,"Section 5.5, p. 148",pipeline,9.456325866693051,9.5,1,9.45632586669299,1,NA,NA,Reproduced at the precision the page prints: 9.5.
+green_etal_2016,text_agnostic_pr,"Section 6, p. 148",pipeline,98.75020871654463,98.8,1,98.75020871654463,1,NA,NA,Reproduced at the precision the page prints: 98.8.
+green_etal_2016,text_optimist_pr,"Section 6, p. 148",pipeline,0.9914841415308532,0.991,1,0.9914841415308532,1,NA,NA,Reproduced at the precision the page prints: 0.991.
+green_etal_2016,text_pooled_direct,"Section 6, p. 148",pipeline,1.6546534722739692,1.7,1,1.654653472273972,1,NA,NA,Reproduced at the precision the page prints: 1.7.
+green_etal_2016,text_pooled_direct_se,"Section 6, p. 148",pipeline,0.7304475451535196,0.7,1,0.730447545153521,1,NA,NA,Reproduced at the precision the page prints: 0.7.
+green_etal_2016,text_pooled_indirect,"Section 6, p. 148",pipeline,1.508680108531947,1.5,1,1.508680108531948,1,NA,NA,Reproduced at the precision the page prints: 1.5.
+green_etal_2016,text_pooled_indirect_se,"Section 6, p. 148",pipeline,0.57554165055525075,0.6,1,0.575541650555252,1,NA,NA,Reproduced at the precision the page prints: 0.6.
 green_etal_2016,text_pooled_just_over_one,"Section 6, p. 148",descriptive,NA,1,NA,1,NA,1,NA,The claim holds against the pipeline's own estimates. The deposited scripts print no counterpart to this value.
 green_etal_2016,text_prior_diffuse_sd,"Section 6, p. 148",definitional,5,5,1,5,1,NA,NA,Reproduced at the precision the page prints: 5.
 green_etal_2016,text_prior_skeptic_sd,"Section 6, p. 148",definitional,1,1,1,1,1,NA,NA,Reproduced at the precision the page prints: 1.
-green_etal_2016,text_skeptic_pr,"Section 6, p. 148",pipeline,0.9663174904930414,0.966,1,0.9663174904930404,1,NA,NA,Reproduced at the precision the page prints: 0.966.
+green_etal_2016,text_skeptic_pr,"Section 6, p. 148",pipeline,0.9663174904930414,0.966,1,0.9663174904930412,1,NA,NA,Reproduced at the precision the page prints: 0.966.
 green_etal_2016,t2_e1_adjacent,Table 2,pipeline,49,49,1,49,1,NA,NA,Reproduced at the precision the page prints: 49.
 green_etal_2016,t2_e1_control,Table 2,pipeline,16,16,1,16,1,NA,NA,Reproduced at the precision the page prints: 16.
 green_etal_2016,t2_e1_total,Table 2,pipeline,88,88,1,88,1,NA,NA,Reproduced at the precision the page prints: 88.
@@ -198,285 +198,285 @@ green_etal_2016,t2_e4_total,Table 2,pipeline,88,88,1,88,1,NA,NA,Reproduced at th
 green_etal_2016,t2_e4_treated,Table 2,pipeline,20,20,1,20,1,NA,NA,Reproduced at the precision the page prints: 20.
 green_etal_2016,t3_label_n_adjacent,Table 3,pipeline,49,49,1,49,1,NA,NA,Reproduced at the precision the page prints: 49.
 green_etal_2016,t3_label_n_treated,Table 3,pipeline,23,23,1,23,1,NA,NA,Reproduced at the precision the page prints: 23.
-green_etal_2016,t3_m1_adjacent_coef,Table 3,pipeline,0.037,0.037,1,0.03652455560574109,1,NA,NA,Reproduced at the precision the page prints: 0.037.
-green_etal_2016,t3_m1_adjacent_se,Table 3,pipeline,0.027,0.027,1,0.02734849649876629,1,NA,NA,Reproduced at the precision the page prints: 0.027.
-green_etal_2016,t3_m1_constant_coef,Table 3,pipeline,0.39,0.390,1,0.3899745634777834,1,NA,NA,Reproduced at the precision the page prints: 0.390.
-green_etal_2016,t3_m1_constant_se,Table 3,pipeline,0.02,0.020,1,0.02046619180705447,1,NA,NA,Reproduced at the precision the page prints: 0.020.
+green_etal_2016,t3_m1_adjacent_coef,Table 3,pipeline,0.037,0.037,1,0.0365245556057411,1,NA,NA,Reproduced at the precision the page prints: 0.037.
+green_etal_2016,t3_m1_adjacent_se,Table 3,pipeline,0.027,0.027,1,0.02734849649876633,1,NA,NA,Reproduced at the precision the page prints: 0.027.
+green_etal_2016,t3_m1_constant_coef,Table 3,pipeline,0.39,0.390,1,0.3899745634777836,1,NA,NA,Reproduced at the precision the page prints: 0.390.
+green_etal_2016,t3_m1_constant_se,Table 3,pipeline,0.02,0.020,1,0.02046619180705452,1,NA,NA,Reproduced at the precision the page prints: 0.020.
 green_etal_2016,t3_m1_n,Table 3,pipeline,88,88,1,88,1,NA,NA,Reproduced at the precision the page prints: 88.
-green_etal_2016,t3_m1_r2,Table 3,pipeline,0.031,0.031,1,0.03145090254055693,1,NA,NA,Reproduced at the precision the page prints: 0.031.
-green_etal_2016,t3_m1_treated_coef,Table 3,pipeline,0.025,0.025,1,0.02518492311505607,1,NA,NA,Reproduced at the precision the page prints: 0.025.
-green_etal_2016,t3_m1_treated_se,Table 3,pipeline,0.027,0.027,1,0.02719534979408331,1,NA,NA,Reproduced at the precision the page prints: 0.027.
-green_etal_2016,t3_m2_adjacent_coef,Table 3,pipeline,0.018,0.018,1,0.01769246580089864,1,NA,NA,Reproduced at the precision the page prints: 0.018.
-green_etal_2016,t3_m2_adjacent_se,Table 3,pipeline,0.016,0.016,1,0.01562958000793841,1,NA,NA,Reproduced at the precision the page prints: 0.016.
-green_etal_2016,t3_m2_constant_coef,Table 3,pipeline,0.015,0.015,1,0.01477117297270866,1,NA,NA,Reproduced at the precision the page prints: 0.015.
-green_etal_2016,t3_m2_constant_se,Table 3,pipeline,0.031,0.031,1,0.03104765758256055,1,NA,NA,Reproduced at the precision the page prints: 0.031.
+green_etal_2016,t3_m1_r2,Table 3,pipeline,0.031,0.031,1,0.0314509025405566,1,NA,NA,Reproduced at the precision the page prints: 0.031.
+green_etal_2016,t3_m1_treated_coef,Table 3,pipeline,0.025,0.025,1,0.02518492311505604,1,NA,NA,Reproduced at the precision the page prints: 0.025.
+green_etal_2016,t3_m1_treated_se,Table 3,pipeline,0.027,0.027,1,0.02719534979408335,1,NA,NA,Reproduced at the precision the page prints: 0.027.
+green_etal_2016,t3_m2_adjacent_coef,Table 3,pipeline,0.018,0.018,1,0.01769246580089867,1,NA,NA,Reproduced at the precision the page prints: 0.018.
+green_etal_2016,t3_m2_adjacent_se,Table 3,pipeline,0.016,0.016,1,0.01562958000793836,1,NA,NA,Reproduced at the precision the page prints: 0.016.
+green_etal_2016,t3_m2_constant_coef,Table 3,pipeline,0.015,0.015,1,0.01477117297270891,1,NA,NA,Reproduced at the precision the page prints: 0.015.
+green_etal_2016,t3_m2_constant_se,Table 3,pipeline,0.031,0.031,1,0.0310476575825607,1,NA,NA,Reproduced at the precision the page prints: 0.031.
 green_etal_2016,t3_m2_n,Table 3,pipeline,88,88,1,88,1,NA,NA,Reproduced at the precision the page prints: 88.
-green_etal_2016,t3_m2_r2,Table 3,pipeline,0.823,0.823,1,0.8225002408919925,1,NA,NA,Reproduced at the precision the page prints: 0.823.
+green_etal_2016,t3_m2_r2,Table 3,pipeline,0.823,0.823,1,0.8225002408919926,1,NA,NA,Reproduced at the precision the page prints: 0.823.
 green_etal_2016,t3_m2_treated_coef,Table 3,pipeline,0.025,0.025,1,0.0246700898107479,1,NA,NA,Reproduced at the precision the page prints: 0.025.
-green_etal_2016,t3_m2_treated_se,Table 3,pipeline,0.017,0.017,1,0.01704380468835785,1,NA,NA,Reproduced at the precision the page prints: 0.017.
+green_etal_2016,t3_m2_treated_se,Table 3,pipeline,0.017,0.017,1,0.01704380468835777,1,NA,NA,Reproduced at the precision the page prints: 0.017.
 green_etal_2016,t4_label_n_adjacent,Table 4,pipeline,41,41,1,41,1,NA,NA,Reproduced at the precision the page prints: 41.
 green_etal_2016,t4_label_n_treated,Table 4,pipeline,15,15,1,15,1,NA,NA,Reproduced at the precision the page prints: 15.
-green_etal_2016,t4_m1_adjacent_coef,Table 4,pipeline,0.137,0.012,0,0.01173885125648315,1,NA,environment,The deposited scripts print 0.137 where the article prints 0.012; the rewrite reproduces the article.
-green_etal_2016,t4_m1_adjacent_se,Table 4,pipeline,0.072,0.046,0,0.04638185059704315,1,NA,environment,The deposited scripts print 0.072 where the article prints 0.046; the rewrite reproduces the article.
-green_etal_2016,t4_m1_constant_coef,Table 4,pipeline,0.543,0.659,0,0.6592965840717283,1,NA,environment,The deposited scripts print 0.543 where the article prints 0.659; the rewrite reproduces the article.
-green_etal_2016,t4_m1_constant_se,Table 4,pipeline,0.068,0.039,0,0.03883927127338688,1,NA,environment,The deposited scripts print 0.068 where the article prints 0.039; the rewrite reproduces the article.
+green_etal_2016,t4_m1_adjacent_coef,Table 4,pipeline,0.137,0.012,0,0.01173885125648312,1,NA,environment,The deposited scripts print 0.137 where the article prints 0.012; the rewrite reproduces the article.
+green_etal_2016,t4_m1_adjacent_se,Table 4,pipeline,0.072,0.046,0,0.04638185059704316,1,NA,environment,The deposited scripts print 0.072 where the article prints 0.046; the rewrite reproduces the article.
+green_etal_2016,t4_m1_constant_coef,Table 4,pipeline,0.543,0.659,0,0.6592965840717286,1,NA,environment,The deposited scripts print 0.543 where the article prints 0.659; the rewrite reproduces the article.
+green_etal_2016,t4_m1_constant_se,Table 4,pipeline,0.068,0.039,0,0.03883927127338692,1,NA,environment,The deposited scripts print 0.068 where the article prints 0.039; the rewrite reproduces the article.
 green_etal_2016,t4_m1_n,Table 4,pipeline,69,69,1,69,1,NA,NA,Reproduced at the precision the page prints: 69.
-green_etal_2016,t4_m1_r2,Table 4,pipeline,0.13,0.001,0,0.0010806573996499,1,NA,environment,The deposited scripts print 0.130 where the article prints 0.001; the rewrite reproduces the article.
-green_etal_2016,t4_m1_treated_coef,Table 4,pipeline,0.13,0.009,0,0.00850373305360868,1,NA,environment,The deposited scripts print 0.130 where the article prints 0.009; the rewrite reproduces the article.
+green_etal_2016,t4_m1_r2,Table 4,pipeline,0.13,0.001,0,0.00108065739964968,1,NA,environment,The deposited scripts print 0.130 where the article prints 0.001; the rewrite reproduces the article.
+green_etal_2016,t4_m1_treated_coef,Table 4,pipeline,0.13,0.009,0,0.00850373305360865,1,NA,environment,The deposited scripts print 0.130 where the article prints 0.009; the rewrite reproduces the article.
 green_etal_2016,t4_m1_treated_se,Table 4,pipeline,0.08,0.054,0,0.05397793348521384,1,NA,environment,The deposited scripts print 0.080 where the article prints 0.054; the rewrite reproduces the article.
-green_etal_2016,t4_m2_adjacent_coef,Table 4,pipeline,0.028,0.004,0,0.00428044547072836,1,NA,environment,The deposited scripts print 0.028 where the article prints 0.004; the rewrite reproduces the article.
-green_etal_2016,t4_m2_adjacent_se,Table 4,pipeline,0.035,0.045,0,0.04539497443010643,1,NA,environment,The deposited scripts print 0.035 where the article prints 0.045; the rewrite reproduces the article.
-green_etal_2016,t4_m2_constant_coef,Table 4,pipeline,0.146,0.287,0,0.2871031358959922,1,NA,environment,The deposited scripts print 0.146 where the article prints 0.287; the rewrite reproduces the article.
-green_etal_2016,t4_m2_constant_se,Table 4,pipeline,0.101,0.131,0,0.1314390657610892,1,NA,environment,The deposited scripts print 0.101 where the article prints 0.131; the rewrite reproduces the article.
+green_etal_2016,t4_m2_adjacent_coef,Table 4,pipeline,0.028,0.004,0,0.00428044547072832,1,NA,environment,The deposited scripts print 0.028 where the article prints 0.004; the rewrite reproduces the article.
+green_etal_2016,t4_m2_adjacent_se,Table 4,pipeline,0.035,0.045,0,0.0453949744301064,1,NA,environment,The deposited scripts print 0.035 where the article prints 0.045; the rewrite reproduces the article.
+green_etal_2016,t4_m2_constant_coef,Table 4,pipeline,0.146,0.287,0,0.28710313589599207,1,NA,environment,The deposited scripts print 0.146 where the article prints 0.287; the rewrite reproduces the article.
+green_etal_2016,t4_m2_constant_se,Table 4,pipeline,0.101,0.131,0,0.1314390657610901,1,NA,environment,The deposited scripts print 0.101 where the article prints 0.131; the rewrite reproduces the article.
 green_etal_2016,t4_m2_n,Table 4,pipeline,69,69,1,69,1,NA,NA,Reproduced at the precision the page prints: 69.
-green_etal_2016,t4_m2_r2,Table 4,pipeline,0.588,0.253,0,0.25323981750447144,1,NA,environment,The deposited scripts print 0.588 where the article prints 0.253; the rewrite reproduces the article.
-green_etal_2016,t4_m2_treated_coef,Table 4,pipeline,0.019,-0.014,0,-0.01427780096635273,1,NA,environment,The deposited scripts print 0.019 where the article prints -0.014; the rewrite reproduces the article.
-green_etal_2016,t4_m2_treated_se,Table 4,pipeline,0.053,0.057,0,0.05744242512875655,1,NA,environment,The deposited scripts print 0.053 where the article prints 0.057; the rewrite reproduces the article.
+green_etal_2016,t4_m2_r2,Table 4,pipeline,0.588,0.253,0,0.2532398175044712,1,NA,environment,The deposited scripts print 0.588 where the article prints 0.253; the rewrite reproduces the article.
+green_etal_2016,t4_m2_treated_coef,Table 4,pipeline,0.019,-0.014,0,-0.01427780096635267,1,NA,environment,The deposited scripts print 0.019 where the article prints -0.014; the rewrite reproduces the article.
+green_etal_2016,t4_m2_treated_se,Table 4,pipeline,0.053,0.057,0,0.05744242512875654,1,NA,environment,The deposited scripts print 0.053 where the article prints 0.057; the rewrite reproduces the article.
 green_etal_2016,t5_label_n_adjacent,Table 5,pipeline,76,76,1,76,1,NA,NA,Reproduced at the precision the page prints: 76.
 green_etal_2016,t5_label_n_treated,Table 5,pipeline,30,30,1,30,1,NA,NA,Reproduced at the precision the page prints: 30.
 green_etal_2016,t5_m1_adjacent_coef,Table 5,pipeline,0.042,0.042,1,0.04237716973331201,1,NA,NA,Reproduced at the precision the page prints: 0.042.
-green_etal_2016,t5_m1_adjacent_se,Table 5,pipeline,0.013,0.013,1,0.01321632250892289,1,NA,NA,Reproduced at the precision the page prints: 0.013.
-green_etal_2016,t5_m1_constant_coef,Table 5,pipeline,0.302,0.302,1,0.3017991329577807,1,NA,NA,Reproduced at the precision the page prints: 0.302.
+green_etal_2016,t5_m1_adjacent_se,Table 5,pipeline,0.013,0.013,1,0.01321632250892288,1,NA,NA,Reproduced at the precision the page prints: 0.013.
+green_etal_2016,t5_m1_constant_coef,Table 5,pipeline,0.302,0.302,1,0.30179913295778077,1,NA,NA,Reproduced at the precision the page prints: 0.302.
 green_etal_2016,t5_m1_constant_se,Table 5,pipeline,0.011,0.011,1,0.01084088322158592,1,NA,NA,Reproduced at the precision the page prints: 0.011.
 green_etal_2016,t5_m1_n,Table 5,pipeline,131,131,1,131,1,NA,NA,Reproduced at the precision the page prints: 131.
 green_etal_2016,t5_m1_r2,Table 5,pipeline,0.094,0.094,1,0.09394647838678848,1,NA,NA,Reproduced at the precision the page prints: 0.094.
-green_etal_2016,t5_m1_treated_coef,Table 5,pipeline,0.042,0.042,1,0.04154996856970582,1,NA,NA,Reproduced at the precision the page prints: 0.042.
-green_etal_2016,t5_m1_treated_se,Table 5,pipeline,0.016,0.016,1,0.01591711663633326,1,NA,NA,Reproduced at the precision the page prints: 0.016.
-green_etal_2016,t5_m2_adjacent_coef,Table 5,pipeline,0.018,0.018,1,0.01846616801081879,1,NA,NA,Reproduced at the precision the page prints: 0.018.
-green_etal_2016,t5_m2_adjacent_se,Table 5,pipeline,0.007,0.007,1,0.00656034123881637,1,NA,NA,Reproduced at the precision the page prints: 0.007.
-green_etal_2016,t5_m2_constant_coef,Table 5,pipeline,0.78,0.780,1,0.7798180653743245,1,NA,NA,Reproduced at the precision the page prints: 0.780.
-green_etal_2016,t5_m2_constant_se,Table 5,pipeline,0.025,0.025,1,0.02468410479906023,1,NA,NA,Reproduced at the precision the page prints: 0.025.
+green_etal_2016,t5_m1_treated_coef,Table 5,pipeline,0.042,0.042,1,0.04154996856970584,1,NA,NA,Reproduced at the precision the page prints: 0.042.
+green_etal_2016,t5_m1_treated_se,Table 5,pipeline,0.016,0.016,1,0.01591711663633327,1,NA,NA,Reproduced at the precision the page prints: 0.016.
+green_etal_2016,t5_m2_adjacent_coef,Table 5,pipeline,0.018,0.018,1,0.0184661680108188,1,NA,NA,Reproduced at the precision the page prints: 0.018.
+green_etal_2016,t5_m2_adjacent_se,Table 5,pipeline,0.007,0.007,1,0.00656034123881635,1,NA,NA,Reproduced at the precision the page prints: 0.007.
+green_etal_2016,t5_m2_constant_coef,Table 5,pipeline,0.78,0.780,1,0.7798180653743249,1,NA,NA,Reproduced at the precision the page prints: 0.780.
+green_etal_2016,t5_m2_constant_se,Table 5,pipeline,0.025,0.025,1,0.02468410479905971,1,NA,NA,Reproduced at the precision the page prints: 0.025.
 green_etal_2016,t5_m2_n,Table 5,pipeline,131,131,1,131,1,NA,NA,Reproduced at the precision the page prints: 131.
-green_etal_2016,t5_m2_r2,Table 5,pipeline,0.825,0.825,1,0.8251057293132225,1,NA,NA,Reproduced at the precision the page prints: 0.825.
+green_etal_2016,t5_m2_r2,Table 5,pipeline,0.825,0.825,1,0.8251057293132226,1,NA,NA,Reproduced at the precision the page prints: 0.825.
 green_etal_2016,t5_m2_treated_coef,Table 5,pipeline,0.018,0.018,1,0.01836874471953719,1,NA,NA,Reproduced at the precision the page prints: 0.018.
-green_etal_2016,t5_m2_treated_se,Table 5,pipeline,0.009,0.009,1,0.00860843709003943,1,NA,NA,Reproduced at the precision the page prints: 0.009.
+green_etal_2016,t5_m2_treated_se,Table 5,pipeline,0.009,0.009,1,0.0086084370900394,1,NA,NA,Reproduced at the precision the page prints: 0.009.
 green_etal_2016,t6_label_n_adjacent,Table 6,pipeline,44,44,1,44,1,NA,NA,Reproduced at the precision the page prints: 44.
 green_etal_2016,t6_label_n_treated,Table 6,pipeline,20,20,1,20,1,NA,NA,Reproduced at the precision the page prints: 20.
-green_etal_2016,t6_m1_adjacent_coef,Table 6,pipeline,-0.023,-0.023,1,-0.02348895071027792,1,NA,NA,Reproduced at the precision the page prints: -0.023.
+green_etal_2016,t6_m1_adjacent_coef,Table 6,pipeline,-0.023,-0.023,1,-0.02348895071027791,1,NA,NA,Reproduced at the precision the page prints: -0.023.
 green_etal_2016,t6_m1_adjacent_se,Table 6,pipeline,0.022,0.022,1,0.02177997902424581,1,NA,NA,Reproduced at the precision the page prints: 0.022.
-green_etal_2016,t6_m1_constant_coef,Table 6,pipeline,0.548,0.548,1,0.5482790587073118,1,NA,NA,Reproduced at the precision the page prints: 0.548.
+green_etal_2016,t6_m1_constant_coef,Table 6,pipeline,0.548,0.548,1,0.548279058707312,1,NA,NA,Reproduced at the precision the page prints: 0.548.
 green_etal_2016,t6_m1_constant_se,Table 6,pipeline,0.017,0.017,1,0.01718756339411014,1,NA,NA,Reproduced at the precision the page prints: 0.017.
 green_etal_2016,t6_m1_n,Table 6,pipeline,88,88,1,88,1,NA,NA,Reproduced at the precision the page prints: 88.
 green_etal_2016,t6_m1_r2,Table 6,pipeline,0.012,0.012,1,0.01150116466580619,1,NA,NA,Reproduced at the precision the page prints: 0.012.
-green_etal_2016,t6_m1_treated_coef,Table 6,pipeline,-0.013,-0.013,1,-0.01342543003320477,1,NA,NA,Reproduced at the precision the page prints: -0.013.
-green_etal_2016,t6_m1_treated_se,Table 6,pipeline,0.028,0.028,1,0.02762965406718507,1,NA,NA,Reproduced at the precision the page prints: 0.028.
-green_etal_2016,t6_m2_adjacent_coef,Table 6,pipeline,-0.02,-0.020,1,-0.02026154601737024,1,NA,NA,Reproduced at the precision the page prints: -0.020.
-green_etal_2016,t6_m2_adjacent_se,Table 6,pipeline,0.021,0.021,1,0.02052071476428034,1,NA,NA,Reproduced at the precision the page prints: 0.021.
-green_etal_2016,t6_m2_constant_coef,Table 6,pipeline,0.532,0.532,1,0.5323476553291283,1,NA,NA,Reproduced at the precision the page prints: 0.532.
-green_etal_2016,t6_m2_constant_se,Table 6,pipeline,0.082,0.082,1,0.08208634372549059,1,NA,NA,Reproduced at the precision the page prints: 0.082.
+green_etal_2016,t6_m1_treated_coef,Table 6,pipeline,-0.013,-0.013,1,-0.01342543003320468,1,NA,NA,Reproduced at the precision the page prints: -0.013.
+green_etal_2016,t6_m1_treated_se,Table 6,pipeline,0.028,0.028,1,0.02762965406718505,1,NA,NA,Reproduced at the precision the page prints: 0.028.
+green_etal_2016,t6_m2_adjacent_coef,Table 6,pipeline,-0.02,-0.020,1,-0.02026154601737023,1,NA,NA,Reproduced at the precision the page prints: -0.020.
+green_etal_2016,t6_m2_adjacent_se,Table 6,pipeline,0.021,0.021,1,0.0205207147642803,1,NA,NA,Reproduced at the precision the page prints: 0.021.
+green_etal_2016,t6_m2_constant_coef,Table 6,pipeline,0.532,0.532,1,0.5323476553291282,1,NA,NA,Reproduced at the precision the page prints: 0.532.
+green_etal_2016,t6_m2_constant_se,Table 6,pipeline,0.082,0.082,1,0.08208634372548523,1,NA,NA,Reproduced at the precision the page prints: 0.082.
 green_etal_2016,t6_m2_n,Table 6,pipeline,88,88,1,88,1,NA,NA,Reproduced at the precision the page prints: 88.
-green_etal_2016,t6_m2_r2,Table 6,pipeline,0.172,0.172,1,0.1722513582262748,1,NA,NA,Reproduced at the precision the page prints: 0.172.
-green_etal_2016,t6_m2_treated_coef,Table 6,pipeline,-0.012,-0.012,1,-0.01221550971071685,1,NA,NA,Reproduced at the precision the page prints: -0.012.
-green_etal_2016,t6_m2_treated_se,Table 6,pipeline,0.026,0.026,1,0.02579909476981606,1,NA,NA,Reproduced at the precision the page prints: 0.026.
+green_etal_2016,t6_m2_r2,Table 6,pipeline,0.172,0.172,1,0.17225135822627524,1,NA,NA,Reproduced at the precision the page prints: 0.172.
+green_etal_2016,t6_m2_treated_coef,Table 6,pipeline,-0.012,-0.012,1,-0.01221550971071673,1,NA,NA,Reproduced at the precision the page prints: -0.012.
+green_etal_2016,t6_m2_treated_se,Table 6,pipeline,0.026,0.026,1,0.02579909476981607,1,NA,NA,Reproduced at the precision the page prints: 0.026.
 green_etal_2016,t7_direct_e1_coef,Table 7,pipeline,0.02467008981074787,0.025,1,0.0246700898107479,1,NA,NA,Reproduced at the precision the page prints: 0.025.
-green_etal_2016,t7_direct_e1_se,Table 7,pipeline,0.01704380468835772,0.017,1,0.01704380468835785,1,NA,NA,Reproduced at the precision the page prints: 0.017.
-green_etal_2016,t7_direct_e2_coef,Table 7,pipeline,-0.01427780096635274,-0.014,1,-0.01427780096635273,1,NA,NA,Reproduced at the precision the page prints: -0.014.
-green_etal_2016,t7_direct_e2_se,Table 7,pipeline,0.05744242512875646,0.057,1,0.05744242512875655,1,NA,NA,Reproduced at the precision the page prints: 0.057.
+green_etal_2016,t7_direct_e1_se,Table 7,pipeline,0.01704380468835772,0.017,1,0.01704380468835777,1,NA,NA,Reproduced at the precision the page prints: 0.017.
+green_etal_2016,t7_direct_e2_coef,Table 7,pipeline,-0.01427780096635274,-0.014,1,-0.01427780096635267,1,NA,NA,Reproduced at the precision the page prints: -0.014.
+green_etal_2016,t7_direct_e2_se,Table 7,pipeline,0.05744242512875646,0.057,1,0.05744242512875654,1,NA,NA,Reproduced at the precision the page prints: 0.057.
 green_etal_2016,t7_direct_e3_coef,Table 7,pipeline,0.01836874471953716,0.018,1,0.01836874471953719,1,NA,NA,Reproduced at the precision the page prints: 0.018.
-green_etal_2016,t7_direct_e3_se,Table 7,pipeline,0.00860843709003939,0.009,1,0.00860843709003943,1,NA,NA,Reproduced at the precision the page prints: 0.009.
-green_etal_2016,t7_direct_e4_coef,Table 7,pipeline,-0.01221550971071681,-0.012,1,-0.01221550971071685,1,NA,NA,Reproduced at the precision the page prints: -0.012.
-green_etal_2016,t7_direct_e4_se,Table 7,pipeline,0.02579909476981603,0.026,1,0.02579909476981606,1,NA,NA,Reproduced at the precision the page prints: 0.026.
-green_etal_2016,t7_direct_pooled_coef,Table 7,pipeline,0.01654653472273969,0.017,1,0.01654653472273968,1,NA,NA,Reproduced at the precision the page prints: 0.017.
-green_etal_2016,t7_direct_pooled_se,Table 7,pipeline,0.00730447545153519,0.007,1,0.00730447545153523,1,NA,NA,Reproduced at the precision the page prints: 0.007.
-green_etal_2016,t7_indirect_e1_coef,Table 7,pipeline,0.01769246580089861,0.018,1,0.01769246580089864,1,NA,NA,Reproduced at the precision the page prints: 0.018.
-green_etal_2016,t7_indirect_e1_se,Table 7,pipeline,0.01562958000793836,0.016,1,0.01562958000793841,1,NA,NA,Reproduced at the precision the page prints: 0.016.
-green_etal_2016,t7_indirect_e2_coef,Table 7,pipeline,0.00428044547072839,0.004,1,0.00428044547072836,1,NA,NA,Reproduced at the precision the page prints: 0.004.
-green_etal_2016,t7_indirect_e2_se,Table 7,pipeline,0.04539497443010631,0.045,1,0.04539497443010643,1,NA,NA,Reproduced at the precision the page prints: 0.045.
-green_etal_2016,t7_indirect_e3_coef,Table 7,pipeline,0.01846616801081876,0.018,1,0.01846616801081879,1,NA,NA,Reproduced at the precision the page prints: 0.018.
-green_etal_2016,t7_indirect_e3_se,Table 7,pipeline,0.00656034123881632,0.007,1,0.00656034123881637,1,NA,NA,Reproduced at the precision the page prints: 0.007.
-green_etal_2016,t7_indirect_e4_coef,Table 7,pipeline,-0.02026154601737021,-0.020,1,-0.02026154601737024,1,NA,NA,Reproduced at the precision the page prints: -0.020.
-green_etal_2016,t7_indirect_e4_se,Table 7,pipeline,0.02052071476428029,0.021,1,0.02052071476428034,1,NA,NA,Reproduced at the precision the page prints: 0.021.
-green_etal_2016,t7_indirect_pooled_coef,Table 7,pipeline,0.01508680108531947,0.015,1,0.01508680108531946,1,NA,NA,Reproduced at the precision the page prints: 0.015.
-green_etal_2016,t7_indirect_pooled_se,Table 7,pipeline,0.0057554165055525,0.006,1,0.00575541650555254,1,NA,NA,Reproduced at the precision the page prints: 0.006.
+green_etal_2016,t7_direct_e3_se,Table 7,pipeline,0.00860843709003939,0.009,1,0.0086084370900394,1,NA,NA,Reproduced at the precision the page prints: 0.009.
+green_etal_2016,t7_direct_e4_coef,Table 7,pipeline,-0.01221550971071681,-0.012,1,-0.01221550971071673,1,NA,NA,Reproduced at the precision the page prints: -0.012.
+green_etal_2016,t7_direct_e4_se,Table 7,pipeline,0.02579909476981603,0.026,1,0.02579909476981607,1,NA,NA,Reproduced at the precision the page prints: 0.026.
+green_etal_2016,t7_direct_pooled_coef,Table 7,pipeline,0.01654653472273969,0.017,1,0.01654653472273972,1,NA,NA,Reproduced at the precision the page prints: 0.017.
+green_etal_2016,t7_direct_pooled_se,Table 7,pipeline,0.00730447545153519,0.007,1,0.00730447545153521,1,NA,NA,Reproduced at the precision the page prints: 0.007.
+green_etal_2016,t7_indirect_e1_coef,Table 7,pipeline,0.01769246580089861,0.018,1,0.01769246580089867,1,NA,NA,Reproduced at the precision the page prints: 0.018.
+green_etal_2016,t7_indirect_e1_se,Table 7,pipeline,0.01562958000793836,0.016,1,0.01562958000793836,1,NA,NA,Reproduced at the precision the page prints: 0.016.
+green_etal_2016,t7_indirect_e2_coef,Table 7,pipeline,0.00428044547072839,0.004,1,0.00428044547072832,1,NA,NA,Reproduced at the precision the page prints: 0.004.
+green_etal_2016,t7_indirect_e2_se,Table 7,pipeline,0.04539497443010631,0.045,1,0.0453949744301064,1,NA,NA,Reproduced at the precision the page prints: 0.045.
+green_etal_2016,t7_indirect_e3_coef,Table 7,pipeline,0.01846616801081876,0.018,1,0.0184661680108188,1,NA,NA,Reproduced at the precision the page prints: 0.018.
+green_etal_2016,t7_indirect_e3_se,Table 7,pipeline,0.00656034123881632,0.007,1,0.00656034123881635,1,NA,NA,Reproduced at the precision the page prints: 0.007.
+green_etal_2016,t7_indirect_e4_coef,Table 7,pipeline,-0.02026154601737021,-0.020,1,-0.02026154601737023,1,NA,NA,Reproduced at the precision the page prints: -0.020.
+green_etal_2016,t7_indirect_e4_se,Table 7,pipeline,0.02052071476428029,0.021,1,0.0205207147642803,1,NA,NA,Reproduced at the precision the page prints: 0.021.
+green_etal_2016,t7_indirect_pooled_coef,Table 7,pipeline,0.01508680108531947,0.015,1,0.01508680108531948,1,NA,NA,Reproduced at the precision the page prints: 0.015.
+green_etal_2016,t7_indirect_pooled_se,Table 7,pipeline,0.0057554165055525,0.006,1,0.00575541650555252,1,NA,NA,Reproduced at the precision the page prints: 0.006.
 green_etal_2016,c1_label_n_adjacent,Table C.1,pipeline,49,49,1,49,1,NA,NA,Reproduced at the precision the page prints: 49.
 green_etal_2016,c1_label_n_treated,Table C.1,pipeline,23,23,1,23,1,NA,NA,Reproduced at the precision the page prints: 23.
-green_etal_2016,c1_margin_m1_adjacent_coef,Table C.1,pipeline,-9.242,-9.242,1,-9.241620759835108,1,NA,NA,Reproduced at the precision the page prints: -9.242.
-green_etal_2016,c1_margin_m1_adjacent_se,Table C.1,pipeline,27.305,27.305,1,27.30535124513007,1,NA,NA,Reproduced at the precision the page prints: 27.305.
-green_etal_2016,c1_margin_m1_constant_coef,Table C.1,pipeline,-95.074,-95.074,1,-95.07393410368404,1,NA,NA,Reproduced at the precision the page prints: -95.074.
-green_etal_2016,c1_margin_m1_constant_se,Table C.1,pipeline,23.803,23.803,1,23.802885975257276,1,NA,NA,Reproduced at the precision the page prints: 23.803.
+green_etal_2016,c1_margin_m1_adjacent_coef,Table C.1,pipeline,-9.242,-9.242,1,-9.241620759835111,1,NA,NA,Reproduced at the precision the page prints: -9.242.
+green_etal_2016,c1_margin_m1_adjacent_se,Table C.1,pipeline,27.305,27.305,1,27.305351245130076,1,NA,NA,Reproduced at the precision the page prints: 27.305.
+green_etal_2016,c1_margin_m1_constant_coef,Table C.1,pipeline,-95.074,-95.074,1,-95.0739341036841,1,NA,NA,Reproduced at the precision the page prints: -95.074.
+green_etal_2016,c1_margin_m1_constant_se,Table C.1,pipeline,23.803,23.803,1,23.802885975257286,1,NA,NA,Reproduced at the precision the page prints: 23.803.
 green_etal_2016,c1_margin_m1_n,Table C.1,pipeline,88,88,1,88,1,NA,NA,Reproduced at the precision the page prints: 88.
-green_etal_2016,c1_margin_m1_r2,Table C.1,pipeline,0.015,0.015,1,0.01472646023888313,1,NA,NA,Reproduced at the precision the page prints: 0.015.
-green_etal_2016,c1_margin_m1_treated_coef,Table C.1,pipeline,15.582,15.582,1,15.582088291986617,1,NA,NA,Reproduced at the precision the page prints: 15.582.
-green_etal_2016,c1_margin_m1_treated_se,Table C.1,pipeline,28.327,28.327,1,28.326902454745827,1,NA,NA,Reproduced at the precision the page prints: 28.327.
-green_etal_2016,c1_margin_m2_adjacent_coef,Table C.1,pipeline,11.713,11.713,1,11.713062582989853,1,NA,NA,Reproduced at the precision the page prints: 11.713.
+green_etal_2016,c1_margin_m1_r2,Table C.1,pipeline,0.015,0.015,1,0.01472646023888268,1,NA,NA,Reproduced at the precision the page prints: 0.015.
+green_etal_2016,c1_margin_m1_treated_coef,Table C.1,pipeline,15.582,15.582,1,15.58208829198662,1,NA,NA,Reproduced at the precision the page prints: 15.582.
+green_etal_2016,c1_margin_m1_treated_se,Table C.1,pipeline,28.327,28.327,1,28.32690245474582,1,NA,NA,Reproduced at the precision the page prints: 28.327.
+green_etal_2016,c1_margin_m2_adjacent_coef,Table C.1,pipeline,11.713,11.713,1,11.713062582989862,1,NA,NA,Reproduced at the precision the page prints: 11.713.
 green_etal_2016,c1_margin_m2_adjacent_se,Table C.1,pipeline,17.885,17.885,1,17.88479071778628,1,NA,NA,Reproduced at the precision the page prints: 17.885.
-green_etal_2016,c1_margin_m2_constant_coef,Table C.1,pipeline,-60.879,-60.879,1,-60.87896632714621,1,NA,NA,Reproduced at the precision the page prints: -60.879.
-green_etal_2016,c1_margin_m2_constant_se,Table C.1,pipeline,15.423,15.423,1,15.422881883463225,1,NA,NA,Reproduced at the precision the page prints: 15.423.
+green_etal_2016,c1_margin_m2_constant_coef,Table C.1,pipeline,-60.879,-60.879,1,-60.87896632714627,1,NA,NA,Reproduced at the precision the page prints: -60.879.
+green_etal_2016,c1_margin_m2_constant_se,Table C.1,pipeline,15.423,15.423,1,15.42288188346324,1,NA,NA,Reproduced at the precision the page prints: 15.423.
 green_etal_2016,c1_margin_m2_n,Table C.1,pipeline,88,88,1,88,1,NA,NA,Reproduced at the precision the page prints: 88.
 green_etal_2016,c1_margin_m2_r2,Table C.1,pipeline,0.666,0.666,1,0.6660705156050595,1,NA,NA,Reproduced at the precision the page prints: 0.666.
-green_etal_2016,c1_margin_m2_treated_coef,Table C.1,pipeline,34.786,34.786,1,34.786279118012885,1,NA,NA,Reproduced at the precision the page prints: 34.786.
-green_etal_2016,c1_margin_m2_treated_se,Table C.1,pipeline,18.207,18.207,1,18.207373542173652,1,NA,NA,Reproduced at the precision the page prints: 18.207.
-green_etal_2016,c1_turnout_m1_adjacent_coef,Table C.1,pipeline,110.329,110.329,1,110.32933998873212,1,NA,NA,Reproduced at the precision the page prints: 110.329.
-green_etal_2016,c1_turnout_m1_adjacent_se,Table C.1,pipeline,52.796,52.796,1,52.79591639404581,1,NA,NA,Reproduced at the precision the page prints: 52.796.
-green_etal_2016,c1_turnout_m1_constant_coef,Table C.1,pipeline,448.835,448.835,1,448.8345510685992,1,NA,NA,Reproduced at the precision the page prints: 448.835.
-green_etal_2016,c1_turnout_m1_constant_se,Table C.1,pipeline,34.762,34.762,1,34.76222562082296,1,NA,NA,Reproduced at the precision the page prints: 34.762.
+green_etal_2016,c1_margin_m2_treated_coef,Table C.1,pipeline,34.786,34.786,1,34.7862791180129,1,NA,NA,Reproduced at the precision the page prints: 34.786.
+green_etal_2016,c1_margin_m2_treated_se,Table C.1,pipeline,18.207,18.207,1,18.20737354217364,1,NA,NA,Reproduced at the precision the page prints: 18.207.
+green_etal_2016,c1_turnout_m1_adjacent_coef,Table C.1,pipeline,110.329,110.329,1,110.3293399887322,1,NA,NA,Reproduced at the precision the page prints: 110.329.
+green_etal_2016,c1_turnout_m1_adjacent_se,Table C.1,pipeline,52.796,52.796,1,52.795916394045825,1,NA,NA,Reproduced at the precision the page prints: 52.796.
+green_etal_2016,c1_turnout_m1_constant_coef,Table C.1,pipeline,448.835,448.835,1,448.8345510685993,1,NA,NA,Reproduced at the precision the page prints: 448.835.
+green_etal_2016,c1_turnout_m1_constant_se,Table C.1,pipeline,34.762,34.762,1,34.76222562082298,1,NA,NA,Reproduced at the precision the page prints: 34.762.
 green_etal_2016,c1_turnout_m1_n,Table C.1,pipeline,88,88,1,88,1,NA,NA,Reproduced at the precision the page prints: 88.
-green_etal_2016,c1_turnout_m1_r2,Table C.1,pipeline,0.066,0.066,1,0.06635129325030864,1,NA,NA,Reproduced at the precision the page prints: 0.066.
-green_etal_2016,c1_turnout_m1_treated_coef,Table C.1,pipeline,53.002,53.002,1,53.00174307956092,1,NA,NA,Reproduced at the precision the page prints: 53.002.
-green_etal_2016,c1_turnout_m1_treated_se,Table C.1,pipeline,48.748,48.748,1,48.74801779419254,1,NA,NA,Reproduced at the precision the page prints: 48.748.
-green_etal_2016,c1_turnout_m2_adjacent_coef,Table C.1,pipeline,11.914,11.914,1,11.913758366428848,1,NA,NA,Reproduced at the precision the page prints: 11.914.
-green_etal_2016,c1_turnout_m2_adjacent_se,Table C.1,pipeline,11.759,11.759,1,11.75860071305897,1,NA,NA,Reproduced at the precision the page prints: 11.759.
-green_etal_2016,c1_turnout_m2_constant_coef,Table C.1,pipeline,32.504,32.504,1,32.503877155098834,1,NA,NA,Reproduced at the precision the page prints: 32.504.
-green_etal_2016,c1_turnout_m2_constant_se,Table C.1,pipeline,19.343,19.343,1,19.343433501813024,1,NA,NA,Reproduced at the precision the page prints: 19.343.
+green_etal_2016,c1_turnout_m1_r2,Table C.1,pipeline,0.066,0.066,1,0.06635129325030853,1,NA,NA,Reproduced at the precision the page prints: 0.066.
+green_etal_2016,c1_turnout_m1_treated_coef,Table C.1,pipeline,53.002,53.002,1,53.0017430795609,1,NA,NA,Reproduced at the precision the page prints: 53.002.
+green_etal_2016,c1_turnout_m1_treated_se,Table C.1,pipeline,48.748,48.748,1,48.748017794192535,1,NA,NA,Reproduced at the precision the page prints: 48.748.
+green_etal_2016,c1_turnout_m2_adjacent_coef,Table C.1,pipeline,11.914,11.914,1,11.91375836642887,1,NA,NA,Reproduced at the precision the page prints: 11.914.
+green_etal_2016,c1_turnout_m2_adjacent_se,Table C.1,pipeline,11.759,11.759,1,11.758600713058998,1,NA,NA,Reproduced at the precision the page prints: 11.759.
+green_etal_2016,c1_turnout_m2_constant_coef,Table C.1,pipeline,32.504,32.504,1,32.50387715509893,1,NA,NA,Reproduced at the precision the page prints: 32.504.
+green_etal_2016,c1_turnout_m2_constant_se,Table C.1,pipeline,19.343,19.343,1,19.343433501813116,1,NA,NA,Reproduced at the precision the page prints: 19.343.
 green_etal_2016,c1_turnout_m2_n,Table C.1,pipeline,88,88,1,88,1,NA,NA,Reproduced at the precision the page prints: 88.
 green_etal_2016,c1_turnout_m2_r2,Table C.1,pipeline,0.959,0.959,1,0.9586829635731264,1,NA,NA,Reproduced at the precision the page prints: 0.959.
-green_etal_2016,c1_turnout_m2_treated_coef,Table C.1,pipeline,10.331,10.331,1,10.331378876489415,1,NA,NA,Reproduced at the precision the page prints: 10.331.
-green_etal_2016,c1_turnout_m2_treated_se,Table C.1,pipeline,15.741,15.741,1,15.740980626936365,1,NA,NA,Reproduced at the precision the page prints: 15.741.
+green_etal_2016,c1_turnout_m2_treated_coef,Table C.1,pipeline,10.331,10.331,1,10.331378876489456,1,NA,NA,Reproduced at the precision the page prints: 10.331.
+green_etal_2016,c1_turnout_m2_treated_se,Table C.1,pipeline,15.741,15.741,1,15.740980626936487,1,NA,NA,Reproduced at the precision the page prints: 15.741.
 green_etal_2016,c2_label_n_adjacent,Table C.2,pipeline,41,41,1,41,1,NA,NA,Reproduced at the precision the page prints: 41.
 green_etal_2016,c2_label_n_treated,Table C.2,pipeline,15,15,1,15,1,NA,NA,Reproduced at the precision the page prints: 15.
-green_etal_2016,c2_margin_m1_adjacent_coef,Table C.2,pipeline,34.97,21.436,0,21.43633326537814,1,NA,environment,The deposited scripts print 34.970 where the article prints 21.436; the rewrite reproduces the article.
-green_etal_2016,c2_margin_m1_adjacent_se,Table C.2,pipeline,14.896,12.565,0,12.565167920250278,1,NA,environment,The deposited scripts print 14.896 where the article prints 12.565; the rewrite reproduces the article.
-green_etal_2016,c2_margin_m1_constant_coef,Table C.2,pipeline,22.642,32.415,0,32.414785040337186,1,NA,environment,The deposited scripts print 22.642 where the article prints 32.415; the rewrite reproduces the article.
-green_etal_2016,c2_margin_m1_constant_se,Table C.2,pipeline,12.294,9.733,0,9.733040197984256,1,NA,environment,The deposited scripts print 12.294 where the article prints 9.733; the rewrite reproduces the article.
+green_etal_2016,c2_margin_m1_adjacent_coef,Table C.2,pipeline,34.97,21.436,0,21.436333265378124,1,NA,environment,The deposited scripts print 34.970 where the article prints 21.436; the rewrite reproduces the article.
+green_etal_2016,c2_margin_m1_adjacent_se,Table C.2,pipeline,14.896,12.565,0,12.565167920250277,1,NA,environment,The deposited scripts print 14.896 where the article prints 12.565; the rewrite reproduces the article.
+green_etal_2016,c2_margin_m1_constant_coef,Table C.2,pipeline,22.642,32.415,0,32.41478504033721,1,NA,environment,The deposited scripts print 22.642 where the article prints 32.415; the rewrite reproduces the article.
+green_etal_2016,c2_margin_m1_constant_se,Table C.2,pipeline,12.294,9.733,0,9.73304019798426,1,NA,environment,The deposited scripts print 12.294 where the article prints 9.733; the rewrite reproduces the article.
 green_etal_2016,c2_margin_m1_n,Table C.2,pipeline,69,69,1,69,1,NA,NA,Reproduced at the precision the page prints: 69.
-green_etal_2016,c2_margin_m1_r2,Table C.2,pipeline,0.087,0.048,0,0.04756515239352899,1,NA,environment,The deposited scripts print 0.087 where the article prints 0.048; the rewrite reproduces the article.
-green_etal_2016,c2_margin_m1_treated_coef,Table C.2,pipeline,21.495,24.673,0,24.67298370538242,1,NA,environment,The deposited scripts print 21.495 where the article prints 24.673; the rewrite reproduces the article.
-green_etal_2016,c2_margin_m1_treated_se,Table C.2,pipeline,19.694,17.196,0,17.195614263283137,1,NA,environment,The deposited scripts print 19.694 where the article prints 17.196; the rewrite reproduces the article.
-green_etal_2016,c2_margin_m2_adjacent_coef,Table C.2,pipeline,14.44,5.563,0,5.563074524689106,1,NA,environment,The deposited scripts print 14.440 where the article prints 5.563; the rewrite reproduces the article.
-green_etal_2016,c2_margin_m2_adjacent_se,Table C.2,pipeline,9.834,12.363,0,12.363148740947809,1,NA,environment,The deposited scripts print 9.834 where the article prints 12.363; the rewrite reproduces the article.
-green_etal_2016,c2_margin_m2_constant_coef,Table C.2,pipeline,-20.217,-30.993,0,-30.99261240441678,1,NA,environment,The deposited scripts print -20.217 where the article prints -30.993; the rewrite reproduces the article.
-green_etal_2016,c2_margin_m2_constant_se,Table C.2,pipeline,16.556,15.629,0,15.628680142738189,1,NA,environment,The deposited scripts print 16.556 where the article prints 15.629; the rewrite reproduces the article.
+green_etal_2016,c2_margin_m1_r2,Table C.2,pipeline,0.087,0.048,0,0.04756515239352921,1,NA,environment,The deposited scripts print 0.087 where the article prints 0.048; the rewrite reproduces the article.
+green_etal_2016,c2_margin_m1_treated_coef,Table C.2,pipeline,21.495,24.673,0,24.672983705382425,1,NA,environment,The deposited scripts print 21.495 where the article prints 24.673; the rewrite reproduces the article.
+green_etal_2016,c2_margin_m1_treated_se,Table C.2,pipeline,19.694,17.196,0,17.195614263283133,1,NA,environment,The deposited scripts print 19.694 where the article prints 17.196; the rewrite reproduces the article.
+green_etal_2016,c2_margin_m2_adjacent_coef,Table C.2,pipeline,14.44,5.563,0,5.563074524689096,1,NA,environment,The deposited scripts print 14.440 where the article prints 5.563; the rewrite reproduces the article.
+green_etal_2016,c2_margin_m2_adjacent_se,Table C.2,pipeline,9.834,12.363,0,12.363148740947803,1,NA,environment,The deposited scripts print 9.834 where the article prints 12.363; the rewrite reproduces the article.
+green_etal_2016,c2_margin_m2_constant_coef,Table C.2,pipeline,-20.217,-30.993,0,-30.992612404416768,1,NA,environment,The deposited scripts print -20.217 where the article prints -30.993; the rewrite reproduces the article.
+green_etal_2016,c2_margin_m2_constant_se,Table C.2,pipeline,16.556,15.629,0,15.628680142738206,1,NA,environment,The deposited scripts print 16.556 where the article prints 15.629; the rewrite reproduces the article.
 green_etal_2016,c2_margin_m2_n,Table C.2,pipeline,69,69,1,69,1,NA,NA,Reproduced at the precision the page prints: 69.
-green_etal_2016,c2_margin_m2_r2,Table C.2,pipeline,0.556,0.501,0,0.5014586161903034,1,NA,environment,The deposited scripts print 0.556 where the article prints 0.501; the rewrite reproduces the article.
-green_etal_2016,c2_margin_m2_treated_coef,Table C.2,pipeline,-2.839,4.427,0,4.427068943343274,1,NA,environment,The deposited scripts print -2.839 where the article prints 4.427; the rewrite reproduces the article.
-green_etal_2016,c2_margin_m2_treated_se,Table C.2,pipeline,14.972,14.470,0,14.470401349157903,1,NA,environment,The deposited scripts print 14.972 where the article prints 14.470; the rewrite reproduces the article.
+green_etal_2016,c2_margin_m2_r2,Table C.2,pipeline,0.556,0.501,0,0.5014586161903036,1,NA,environment,The deposited scripts print 0.556 where the article prints 0.501; the rewrite reproduces the article.
+green_etal_2016,c2_margin_m2_treated_coef,Table C.2,pipeline,-2.839,4.427,0,4.427068943343272,1,NA,environment,The deposited scripts print -2.839 where the article prints 4.427; the rewrite reproduces the article.
+green_etal_2016,c2_margin_m2_treated_se,Table C.2,pipeline,14.972,14.470,0,14.470401349157902,1,NA,environment,The deposited scripts print 14.972 where the article prints 14.470; the rewrite reproduces the article.
 green_etal_2016,c2_turnout_m1_adjacent_coef,Table C.2,pipeline,44.038,33.191,0,33.19050670299451,1,NA,environment,The deposited scripts print 44.038 where the article prints 33.191; the rewrite reproduces the article.
-green_etal_2016,c2_turnout_m1_adjacent_se,Table C.2,pipeline,19.682,15.131,0,15.131205184607248,1,NA,environment,The deposited scripts print 19.682 where the article prints 15.131; the rewrite reproduces the article.
-green_etal_2016,c2_turnout_m1_constant_coef,Table C.2,pipeline,83.329,92.776,0,92.7759219787044,1,NA,environment,The deposited scripts print 83.329 where the article prints 92.776; the rewrite reproduces the article.
-green_etal_2016,c2_turnout_m1_constant_se,Table C.2,pipeline,16.506,11.927,0,11.92732601729661,1,NA,environment,The deposited scripts print 16.506 where the article prints 11.927; the rewrite reproduces the article.
+green_etal_2016,c2_turnout_m1_adjacent_se,Table C.2,pipeline,19.682,15.131,0,15.131205184607252,1,NA,environment,The deposited scripts print 19.682 where the article prints 15.131; the rewrite reproduces the article.
+green_etal_2016,c2_turnout_m1_constant_coef,Table C.2,pipeline,83.329,92.776,0,92.77592197870445,1,NA,environment,The deposited scripts print 83.329 where the article prints 92.776; the rewrite reproduces the article.
+green_etal_2016,c2_turnout_m1_constant_se,Table C.2,pipeline,16.506,11.927,0,11.927326017296624,1,NA,environment,The deposited scripts print 16.506 where the article prints 11.927; the rewrite reproduces the article.
 green_etal_2016,c2_turnout_m1_n,Table C.2,pipeline,69,69,1,69,1,NA,NA,Reproduced at the precision the page prints: 69.
-green_etal_2016,c2_turnout_m1_r2,Table C.2,pipeline,0.095,0.067,0,0.0674438218886253,1,NA,environment,The deposited scripts print 0.095 where the article prints 0.067; the rewrite reproduces the article.
-green_etal_2016,c2_turnout_m1_treated_coef,Table C.2,pipeline,37.614,38.407,0,38.40740178143983,1,NA,environment,The deposited scripts print 37.614 where the article prints 38.407; the rewrite reproduces the article.
+green_etal_2016,c2_turnout_m1_r2,Table C.2,pipeline,0.095,0.067,0,0.06744382188862574,1,NA,environment,The deposited scripts print 0.095 where the article prints 0.067; the rewrite reproduces the article.
+green_etal_2016,c2_turnout_m1_treated_coef,Table C.2,pipeline,37.614,38.407,0,38.40740178143985,1,NA,environment,The deposited scripts print 37.614 where the article prints 38.407; the rewrite reproduces the article.
 green_etal_2016,c2_turnout_m1_treated_se,Table C.2,pipeline,26.008,23.037,0,23.037467324990025,1,NA,environment,The deposited scripts print 26.008 where the article prints 23.037; the rewrite reproduces the article.
-green_etal_2016,c2_turnout_m2_adjacent_coef,Table C.2,pipeline,14.943,8.012,0,8.012017325135036,1,NA,environment,The deposited scripts print 14.943 where the article prints 8.012; the rewrite reproduces the article.
-green_etal_2016,c2_turnout_m2_adjacent_se,Table C.2,pipeline,14.808,11.276,0,11.275629901511858,1,NA,environment,The deposited scripts print 14.808 where the article prints 11.276; the rewrite reproduces the article.
-green_etal_2016,c2_turnout_m2_constant_coef,Table C.2,pipeline,-42.177,-43.402,0,-43.40244134599911,1,NA,environment,The deposited scripts print -42.177 where the article prints -43.402; the rewrite reproduces the article.
-green_etal_2016,c2_turnout_m2_constant_se,Table C.2,pipeline,16.529,15.695,0,15.695116311126428,1,NA,environment,The deposited scripts print 16.529 where the article prints 15.695; the rewrite reproduces the article.
+green_etal_2016,c2_turnout_m2_adjacent_coef,Table C.2,pipeline,14.943,8.012,0,8.012017325135027,1,NA,environment,The deposited scripts print 14.943 where the article prints 8.012; the rewrite reproduces the article.
+green_etal_2016,c2_turnout_m2_adjacent_se,Table C.2,pipeline,14.808,11.276,0,11.275629901511856,1,NA,environment,The deposited scripts print 14.808 where the article prints 11.276; the rewrite reproduces the article.
+green_etal_2016,c2_turnout_m2_constant_coef,Table C.2,pipeline,-42.177,-43.402,0,-43.402441345999094,1,NA,environment,The deposited scripts print -42.177 where the article prints -43.402; the rewrite reproduces the article.
+green_etal_2016,c2_turnout_m2_constant_se,Table C.2,pipeline,16.529,15.695,0,15.695116311126414,1,NA,environment,The deposited scripts print 16.529 where the article prints 15.695; the rewrite reproduces the article.
 green_etal_2016,c2_turnout_m2_n,Table C.2,pipeline,69,69,1,69,1,NA,NA,Reproduced at the precision the page prints: 69.
 green_etal_2016,c2_turnout_m2_r2,Table C.2,pipeline,0.702,0.695,0,0.6947306920948547,1,NA,environment,The deposited scripts print 0.702 where the article prints 0.695; the rewrite reproduces the article.
 green_etal_2016,c2_turnout_m2_treated_coef,Table C.2,pipeline,5.985,9.029,0,9.029496124238744,1,NA,environment,The deposited scripts print 5.985 where the article prints 9.029; the rewrite reproduces the article.
-green_etal_2016,c2_turnout_m2_treated_se,Table C.2,pipeline,15.442,13.372,0,13.372053162793788,1,NA,environment,The deposited scripts print 15.442 where the article prints 13.372; the rewrite reproduces the article.
+green_etal_2016,c2_turnout_m2_treated_se,Table C.2,pipeline,15.442,13.372,0,13.372053162793785,1,NA,environment,The deposited scripts print 15.442 where the article prints 13.372; the rewrite reproduces the article.
 green_etal_2016,c3_label_n_adjacent,Table C.3,pipeline,76,76,1,76,1,NA,NA,Reproduced at the precision the page prints: 76.
 green_etal_2016,c3_label_n_treated,Table C.3,pipeline,30,30,1,30,1,NA,NA,Reproduced at the precision the page prints: 30.
-green_etal_2016,c3_margin_m1_adjacent_coef,Table C.3,pipeline,72.074,72.074,1,72.07384176675937,1,NA,NA,Reproduced at the precision the page prints: 72.074.
-green_etal_2016,c3_margin_m1_adjacent_se,Table C.3,pipeline,39.568,39.568,1,39.56813351230163,1,NA,NA,Reproduced at the precision the page prints: 39.568.
-green_etal_2016,c3_margin_m1_constant_coef,Table C.3,pipeline,-436.675,-436.675,1,-436.6754434544466,1,NA,NA,Reproduced at the precision the page prints: -436.675.
-green_etal_2016,c3_margin_m1_constant_se,Table C.3,pipeline,33.171,33.171,1,33.170935299062364,1,NA,NA,Reproduced at the precision the page prints: 33.171.
+green_etal_2016,c3_margin_m1_adjacent_coef,Table C.3,pipeline,72.074,72.074,1,72.07384176675934,1,NA,NA,Reproduced at the precision the page prints: 72.074.
+green_etal_2016,c3_margin_m1_adjacent_se,Table C.3,pipeline,39.568,39.568,1,39.56813351230161,1,NA,NA,Reproduced at the precision the page prints: 39.568.
+green_etal_2016,c3_margin_m1_constant_coef,Table C.3,pipeline,-436.675,-436.675,1,-436.67544345444657,1,NA,NA,Reproduced at the precision the page prints: -436.675.
+green_etal_2016,c3_margin_m1_constant_se,Table C.3,pipeline,33.171,33.171,1,33.17093529906236,1,NA,NA,Reproduced at the precision the page prints: 33.171.
 green_etal_2016,c3_margin_m1_n,Table C.3,pipeline,131,131,1,131,1,NA,NA,Reproduced at the precision the page prints: 131.
-green_etal_2016,c3_margin_m1_r2,Table C.3,pipeline,0.043,0.043,1,0.04252630785399713,1,NA,NA,Reproduced at the precision the page prints: 0.043.
-green_etal_2016,c3_margin_m1_treated_coef,Table C.3,pipeline,84.697,84.697,1,84.69684208483011,1,NA,NA,Reproduced at the precision the page prints: 84.697.
-green_etal_2016,c3_margin_m1_treated_se,Table C.3,pipeline,47.141,47.141,1,47.140929451444954,1,NA,NA,Reproduced at the precision the page prints: 47.141.
-green_etal_2016,c3_margin_m2_adjacent_coef,Table C.3,pipeline,34.385,34.385,1,34.384871588478724,1,NA,NA,Reproduced at the precision the page prints: 34.385.
-green_etal_2016,c3_margin_m2_adjacent_se,Table C.3,pipeline,32.779,32.779,1,32.7790530210217,1,NA,NA,Reproduced at the precision the page prints: 32.779.
-green_etal_2016,c3_margin_m2_constant_coef,Table C.3,pipeline,-256.773,-256.773,1,-256.7728099751601,1,NA,NA,Reproduced at the precision the page prints: -256.773.
-green_etal_2016,c3_margin_m2_constant_se,Table C.3,pipeline,38.569,38.569,1,38.569224721167224,1,NA,NA,Reproduced at the precision the page prints: 38.569.
+green_etal_2016,c3_margin_m1_r2,Table C.3,pipeline,0.043,0.043,1,0.04252630785399691,1,NA,NA,Reproduced at the precision the page prints: 0.043.
+green_etal_2016,c3_margin_m1_treated_coef,Table C.3,pipeline,84.697,84.697,1,84.69684208483014,1,NA,NA,Reproduced at the precision the page prints: 84.697.
+green_etal_2016,c3_margin_m1_treated_se,Table C.3,pipeline,47.141,47.141,1,47.14092945144496,1,NA,NA,Reproduced at the precision the page prints: 47.141.
+green_etal_2016,c3_margin_m2_adjacent_coef,Table C.3,pipeline,34.385,34.385,1,34.38487158847872,1,NA,NA,Reproduced at the precision the page prints: 34.385.
+green_etal_2016,c3_margin_m2_adjacent_se,Table C.3,pipeline,32.779,32.779,1,32.779053021021724,1,NA,NA,Reproduced at the precision the page prints: 32.779.
+green_etal_2016,c3_margin_m2_constant_coef,Table C.3,pipeline,-256.773,-256.773,1,-256.77280997516,1,NA,NA,Reproduced at the precision the page prints: -256.773.
+green_etal_2016,c3_margin_m2_constant_se,Table C.3,pipeline,38.569,38.569,1,38.56922472116723,1,NA,NA,Reproduced at the precision the page prints: 38.569.
 green_etal_2016,c3_margin_m2_n,Table C.3,pipeline,131,131,1,131,1,NA,NA,Reproduced at the precision the page prints: 131.
-green_etal_2016,c3_margin_m2_r2,Table C.3,pipeline,0.652,0.652,1,0.6516330841299744,1,NA,NA,Reproduced at the precision the page prints: 0.652.
+green_etal_2016,c3_margin_m2_r2,Table C.3,pipeline,0.652,0.652,1,0.6516330841299743,1,NA,NA,Reproduced at the precision the page prints: 0.652.
 green_etal_2016,c3_margin_m2_treated_coef,Table C.3,pipeline,45.304,45.304,1,45.30423927633843,1,NA,NA,Reproduced at the precision the page prints: 45.304.
-green_etal_2016,c3_margin_m2_treated_se,Table C.3,pipeline,34.952,34.952,1,34.951833044887934,1,NA,NA,Reproduced at the precision the page prints: 34.952.
-green_etal_2016,c3_turnout_m1_adjacent_coef,Table C.3,pipeline,35.978,35.978,1,35.97800287303613,1,NA,NA,Reproduced at the precision the page prints: 35.978.
-green_etal_2016,c3_turnout_m1_adjacent_se,Table C.3,pipeline,96.364,96.364,1,96.36362285249798,1,NA,NA,Reproduced at the precision the page prints: 96.364.
+green_etal_2016,c3_margin_m2_treated_se,Table C.3,pipeline,34.952,34.952,1,34.951833044887955,1,NA,NA,Reproduced at the precision the page prints: 34.952.
+green_etal_2016,c3_turnout_m1_adjacent_coef,Table C.3,pipeline,35.978,35.978,1,35.97800287303614,1,NA,NA,Reproduced at the precision the page prints: 35.978.
+green_etal_2016,c3_turnout_m1_adjacent_se,Table C.3,pipeline,96.364,96.364,1,96.36362285249795,1,NA,NA,Reproduced at the precision the page prints: 96.364.
 green_etal_2016,c3_turnout_m1_constant_coef,Table C.3,pipeline,1141.189,1141.189,1,1141.1888233243064,1,NA,NA,Reproduced at the precision the page prints: 1141.189.
-green_etal_2016,c3_turnout_m1_constant_se,Table C.3,pipeline,87.706,87.706,1,87.70576945096026,1,NA,NA,Reproduced at the precision the page prints: 87.706.
+green_etal_2016,c3_turnout_m1_constant_se,Table C.3,pipeline,87.706,87.706,1,87.7057694509603,1,NA,NA,Reproduced at the precision the page prints: 87.706.
 green_etal_2016,c3_turnout_m1_n,Table C.3,pipeline,131,131,1,131,1,NA,NA,Reproduced at the precision the page prints: 131.
-green_etal_2016,c3_turnout_m1_r2,Table C.3,pipeline,0.003,0.003,1,0.00325791308239042,1,NA,NA,Reproduced at the precision the page prints: 0.003.
-green_etal_2016,c3_turnout_m1_treated_coef,Table C.3,pipeline,-11.279,-11.279,1,-11.278552645158014,1,NA,NA,Reproduced at the precision the page prints: -11.279.
-green_etal_2016,c3_turnout_m1_treated_se,Table C.3,pipeline,104.825,104.825,1,104.82529392963473,1,NA,NA,Reproduced at the precision the page prints: 104.825.
-green_etal_2016,c3_turnout_m2_adjacent_coef,Table C.3,pipeline,-16.077,-16.077,1,-16.076682398780555,1,NA,NA,Reproduced at the precision the page prints: -16.077.
-green_etal_2016,c3_turnout_m2_adjacent_se,Table C.3,pipeline,50.347,50.347,1,50.34651514726685,1,NA,NA,Reproduced at the precision the page prints: 50.347.
-green_etal_2016,c3_turnout_m2_constant_coef,Table C.3,pipeline,224.736,224.736,1,224.73553742239812,1,NA,NA,Reproduced at the precision the page prints: 224.736.
-green_etal_2016,c3_turnout_m2_constant_se,Table C.3,pipeline,94.425,94.425,1,94.42490074713022,1,NA,NA,Reproduced at the precision the page prints: 94.425.
+green_etal_2016,c3_turnout_m1_r2,Table C.3,pipeline,0.003,0.003,1,0.00325791308239031,1,NA,NA,Reproduced at the precision the page prints: 0.003.
+green_etal_2016,c3_turnout_m1_treated_coef,Table C.3,pipeline,-11.279,-11.279,1,-11.278552645158072,1,NA,NA,Reproduced at the precision the page prints: -11.279.
+green_etal_2016,c3_turnout_m1_treated_se,Table C.3,pipeline,104.825,104.825,1,104.82529392963475,1,NA,NA,Reproduced at the precision the page prints: 104.825.
+green_etal_2016,c3_turnout_m2_adjacent_coef,Table C.3,pipeline,-16.077,-16.077,1,-16.07668239878055,1,NA,NA,Reproduced at the precision the page prints: -16.077.
+green_etal_2016,c3_turnout_m2_adjacent_se,Table C.3,pipeline,50.347,50.347,1,50.34651514726686,1,NA,NA,Reproduced at the precision the page prints: 50.347.
+green_etal_2016,c3_turnout_m2_constant_coef,Table C.3,pipeline,224.736,224.736,1,224.73553742239824,1,NA,NA,Reproduced at the precision the page prints: 224.736.
+green_etal_2016,c3_turnout_m2_constant_se,Table C.3,pipeline,94.425,94.425,1,94.42490074713017,1,NA,NA,Reproduced at the precision the page prints: 94.425.
 green_etal_2016,c3_turnout_m2_n,Table C.3,pipeline,131,131,1,131,1,NA,NA,Reproduced at the precision the page prints: 131.
-green_etal_2016,c3_turnout_m2_r2,Table C.3,pipeline,0.736,0.736,1,0.7362716477961149,1,NA,NA,Reproduced at the precision the page prints: 0.736.
-green_etal_2016,c3_turnout_m2_treated_coef,Table C.3,pipeline,-64.87,-64.870,1,-64.8704177709568,1,NA,NA,Reproduced at the precision the page prints: -64.870.
-green_etal_2016,c3_turnout_m2_treated_se,Table C.3,pipeline,56.283,56.283,1,56.282927444614565,1,NA,NA,Reproduced at the precision the page prints: 56.283.
+green_etal_2016,c3_turnout_m2_r2,Table C.3,pipeline,0.736,0.736,1,0.7362716477961148,1,NA,NA,Reproduced at the precision the page prints: 0.736.
+green_etal_2016,c3_turnout_m2_treated_coef,Table C.3,pipeline,-64.87,-64.870,1,-64.87041777095679,1,NA,NA,Reproduced at the precision the page prints: -64.870.
+green_etal_2016,c3_turnout_m2_treated_se,Table C.3,pipeline,56.283,56.283,1,56.282927444614586,1,NA,NA,Reproduced at the precision the page prints: 56.283.
 green_etal_2016,c4_label_n_adjacent,Table C.4,pipeline,44,44,1,44,1,NA,NA,Reproduced at the precision the page prints: 44.
 green_etal_2016,c4_label_n_treated,Table C.4,pipeline,20,20,1,20,1,NA,NA,Reproduced at the precision the page prints: 20.
-green_etal_2016,c4_margin_m1_adjacent_coef,Table C.4,pipeline,-1.17,-1.170,1,-1.1698013531877114,1,NA,NA,Reproduced at the precision the page prints: -1.170.
-green_etal_2016,c4_margin_m1_adjacent_se,Table C.4,pipeline,22.994,22.994,1,22.99420201277368,1,NA,NA,Reproduced at the precision the page prints: 22.994.
-green_etal_2016,c4_margin_m1_constant_coef,Table C.4,pipeline,-124.637,-124.637,1,-124.63736588185633,1,NA,NA,Reproduced at the precision the page prints: -124.637.
-green_etal_2016,c4_margin_m1_constant_se,Table C.4,pipeline,16.563,16.563,1,16.562963011507332,1,NA,NA,Reproduced at the precision the page prints: 16.563.
+green_etal_2016,c4_margin_m1_adjacent_coef,Table C.4,pipeline,-1.17,-1.170,1,-1.169801353187723,1,NA,NA,Reproduced at the precision the page prints: -1.170.
+green_etal_2016,c4_margin_m1_adjacent_se,Table C.4,pipeline,22.994,22.994,1,22.994202012773687,1,NA,NA,Reproduced at the precision the page prints: 22.994.
+green_etal_2016,c4_margin_m1_constant_coef,Table C.4,pipeline,-124.637,-124.637,1,-124.63736588185634,1,NA,NA,Reproduced at the precision the page prints: -124.637.
+green_etal_2016,c4_margin_m1_constant_se,Table C.4,pipeline,16.563,16.563,1,16.56296301150733,1,NA,NA,Reproduced at the precision the page prints: 16.563.
 green_etal_2016,c4_margin_m1_n,Table C.4,pipeline,88,88,1,88,1,NA,NA,Reproduced at the precision the page prints: 88.
 green_etal_2016,c4_margin_m1_r2,Table C.4,pipeline,0.001,0.001,1,0.00118716891646886,1,NA,NA,Reproduced at the precision the page prints: 0.001.
-green_etal_2016,c4_margin_m1_treated_coef,Table C.4,pipeline,5.859,5.859,1,5.859393765709248,1,NA,NA,Reproduced at the precision the page prints: 5.859.
-green_etal_2016,c4_margin_m1_treated_se,Table C.4,pipeline,26.721,26.721,1,26.72146197140214,1,NA,NA,Reproduced at the precision the page prints: 26.721.
-green_etal_2016,c4_margin_m2_adjacent_coef,Table C.4,pipeline,-6.031,-6.031,1,-6.031498933574489,1,NA,NA,Reproduced at the precision the page prints: -6.031.
-green_etal_2016,c4_margin_m2_adjacent_se,Table C.4,pipeline,12.054,12.054,1,12.054228171741284,1,NA,NA,Reproduced at the precision the page prints: 12.054.
-green_etal_2016,c4_margin_m2_constant_coef,Table C.4,pipeline,-19.087,-19.087,1,-19.08677825036558,1,NA,NA,Reproduced at the precision the page prints: -19.087.
-green_etal_2016,c4_margin_m2_constant_se,Table C.4,pipeline,22.042,22.042,1,22.04229863903977,1,NA,NA,Reproduced at the precision the page prints: 22.042.
+green_etal_2016,c4_margin_m1_treated_coef,Table C.4,pipeline,5.859,5.859,1,5.859393765709217,1,NA,NA,Reproduced at the precision the page prints: 5.859.
+green_etal_2016,c4_margin_m1_treated_se,Table C.4,pipeline,26.721,26.721,1,26.72146197140211,1,NA,NA,Reproduced at the precision the page prints: 26.721.
+green_etal_2016,c4_margin_m2_adjacent_coef,Table C.4,pipeline,-6.031,-6.031,1,-6.0314989335744915,1,NA,NA,Reproduced at the precision the page prints: -6.031.
+green_etal_2016,c4_margin_m2_adjacent_se,Table C.4,pipeline,12.054,12.054,1,12.054228171741292,1,NA,NA,Reproduced at the precision the page prints: 12.054.
+green_etal_2016,c4_margin_m2_constant_coef,Table C.4,pipeline,-19.087,-19.087,1,-19.08677825036565,1,NA,NA,Reproduced at the precision the page prints: -19.087.
+green_etal_2016,c4_margin_m2_constant_se,Table C.4,pipeline,22.042,22.042,1,22.042298639039753,1,NA,NA,Reproduced at the precision the page prints: 22.042.
 green_etal_2016,c4_margin_m2_n,Table C.4,pipeline,88,88,1,88,1,NA,NA,Reproduced at the precision the page prints: 88.
 green_etal_2016,c4_margin_m2_r2,Table C.4,pipeline,0.627,0.627,1,0.6272248739337478,1,NA,NA,Reproduced at the precision the page prints: 0.627.
 green_etal_2016,c4_margin_m2_treated_coef,Table C.4,pipeline,-9.335,-9.335,1,-9.33496471401686,1,NA,NA,Reproduced at the precision the page prints: -9.335.
-green_etal_2016,c4_margin_m2_treated_se,Table C.4,pipeline,19.548,19.548,1,19.547744607318872,1,NA,NA,Reproduced at the precision the page prints: 19.548.
-green_etal_2016,c4_turnout_m1_adjacent_coef,Table C.4,pipeline,-21.082,-21.082,1,-21.082325930810946,1,NA,NA,Reproduced at the precision the page prints: -21.082.
-green_etal_2016,c4_turnout_m1_adjacent_se,Table C.4,pipeline,57.357,57.357,1,57.356635851411184,1,NA,NA,Reproduced at the precision the page prints: 57.357.
-green_etal_2016,c4_turnout_m1_constant_coef,Table C.4,pipeline,360.647,360.647,1,360.6469584841197,1,NA,NA,Reproduced at the precision the page prints: 360.647.
-green_etal_2016,c4_turnout_m1_constant_se,Table C.4,pipeline,46.072,46.072,1,46.07171162970658,1,NA,NA,Reproduced at the precision the page prints: 46.072.
+green_etal_2016,c4_margin_m2_treated_se,Table C.4,pipeline,19.548,19.548,1,19.547744607318855,1,NA,NA,Reproduced at the precision the page prints: 19.548.
+green_etal_2016,c4_turnout_m1_adjacent_coef,Table C.4,pipeline,-21.082,-21.082,1,-21.08232593081095,1,NA,NA,Reproduced at the precision the page prints: -21.082.
+green_etal_2016,c4_turnout_m1_adjacent_se,Table C.4,pipeline,57.357,57.357,1,57.35663585141119,1,NA,NA,Reproduced at the precision the page prints: 57.357.
+green_etal_2016,c4_turnout_m1_constant_coef,Table C.4,pipeline,360.647,360.647,1,360.64695848411975,1,NA,NA,Reproduced at the precision the page prints: 360.647.
+green_etal_2016,c4_turnout_m1_constant_se,Table C.4,pipeline,46.072,46.072,1,46.07171162970657,1,NA,NA,Reproduced at the precision the page prints: 46.072.
 green_etal_2016,c4_turnout_m1_n,Table C.4,pipeline,88,88,1,88,1,NA,NA,Reproduced at the precision the page prints: 88.
 green_etal_2016,c4_turnout_m1_r2,Table C.4,pipeline,0.009,0.009,1,0.00907382986356741,1,NA,NA,Reproduced at the precision the page prints: 0.009.
-green_etal_2016,c4_turnout_m1_treated_coef,Table C.4,pipeline,-47.222,-47.222,1,-47.221741847843035,1,NA,NA,Reproduced at the precision the page prints: -47.222.
-green_etal_2016,c4_turnout_m1_treated_se,Table C.4,pipeline,64.914,64.914,1,64.91378829539302,1,NA,NA,Reproduced at the precision the page prints: 64.914.
-green_etal_2016,c4_turnout_m2_adjacent_coef,Table C.4,pipeline,14.528,14.528,1,14.528023991617346,1,NA,NA,Reproduced at the precision the page prints: 14.528.
-green_etal_2016,c4_turnout_m2_adjacent_se,Table C.4,pipeline,22.331,22.331,1,22.331098173348707,1,NA,NA,Reproduced at the precision the page prints: 22.331.
-green_etal_2016,c4_turnout_m2_constant_coef,Table C.4,pipeline,5.229,5.229,1,5.229038252061733,1,NA,NA,Reproduced at the precision the page prints: 5.229.
-green_etal_2016,c4_turnout_m2_constant_se,Table C.4,pipeline,28.481,28.481,1,28.481485929576166,1,NA,NA,Reproduced at the precision the page prints: 28.481.
+green_etal_2016,c4_turnout_m1_treated_coef,Table C.4,pipeline,-47.222,-47.222,1,-47.22174184784297,1,NA,NA,Reproduced at the precision the page prints: -47.222.
+green_etal_2016,c4_turnout_m1_treated_se,Table C.4,pipeline,64.914,64.914,1,64.91378829539298,1,NA,NA,Reproduced at the precision the page prints: 64.914.
+green_etal_2016,c4_turnout_m2_adjacent_coef,Table C.4,pipeline,14.528,14.528,1,14.52802399161724,1,NA,NA,Reproduced at the precision the page prints: 14.528.
+green_etal_2016,c4_turnout_m2_adjacent_se,Table C.4,pipeline,22.331,22.331,1,22.331098173348657,1,NA,NA,Reproduced at the precision the page prints: 22.331.
+green_etal_2016,c4_turnout_m2_constant_coef,Table C.4,pipeline,5.229,5.229,1,5.229038252061795,1,NA,NA,Reproduced at the precision the page prints: 5.229.
+green_etal_2016,c4_turnout_m2_constant_se,Table C.4,pipeline,28.481,28.481,1,28.481485929576458,1,NA,NA,Reproduced at the precision the page prints: 28.481.
 green_etal_2016,c4_turnout_m2_n,Table C.4,pipeline,88,88,1,88,1,NA,NA,Reproduced at the precision the page prints: 88.
-green_etal_2016,c4_turnout_m2_r2,Table C.4,pipeline,0.877,0.877,1,0.8774663861992492,1,NA,NA,Reproduced at the precision the page prints: 0.877.
-green_etal_2016,c4_turnout_m2_treated_coef,Table C.4,pipeline,7.223,7.223,1,7.222524128585534,1,NA,NA,Reproduced at the precision the page prints: 7.223.
+green_etal_2016,c4_turnout_m2_r2,Table C.4,pipeline,0.877,0.877,1,0.8774663861992491,1,NA,NA,Reproduced at the precision the page prints: 0.877.
+green_etal_2016,c4_turnout_m2_treated_coef,Table C.4,pipeline,7.223,7.223,1,7.222524128585461,1,NA,NA,Reproduced at the precision the page prints: 7.223.
 green_etal_2016,c4_turnout_m2_treated_se,Table C.4,pipeline,28.411,28.411,1,28.41065858795935,1,NA,NA,Reproduced at the precision the page prints: 28.411.
-green_etal_2016,d5_e1_adjacent_coef,Table D.5,pipeline,0.021,0.021,1,0.02093443387047308,1,NA,NA,Reproduced at the precision the page prints: 0.021.
-green_etal_2016,d5_e1_adjacent_se,Table D.5,pipeline,0.014,0.014,1,0.0144758800003209,1,NA,NA,Reproduced at the precision the page prints: 0.014.
+green_etal_2016,d5_e1_adjacent_coef,Table D.5,pipeline,0.021,0.021,1,0.02093443387047306,1,NA,NA,Reproduced at the precision the page prints: 0.021.
+green_etal_2016,d5_e1_adjacent_se,Table D.5,pipeline,0.014,0.014,1,0.01447588000032099,1,NA,NA,Reproduced at the precision the page prints: 0.014.
 green_etal_2016,d5_e1_adjacent_x_coef,Table D.5,pipeline,0.011,0.011,1,0.01104407794967571,1,NA,NA,Reproduced at the precision the page prints: 0.011.
-green_etal_2016,d5_e1_adjacent_x_se,Table D.5,pipeline,0.025,0.025,1,0.02531859631858515,1,NA,NA,Reproduced at the precision the page prints: 0.025.
-green_etal_2016,d5_e1_constant_coef,Table D.5,pipeline,0.159,0.159,1,0.15926356166093877,1,NA,NA,Reproduced at the precision the page prints: 0.159.
-green_etal_2016,d5_e1_constant_se,Table D.5,pipeline,0.11,0.110,1,0.1099976166957582,1,NA,NA,Reproduced at the precision the page prints: 0.110.
+green_etal_2016,d5_e1_adjacent_x_se,Table D.5,pipeline,0.025,0.025,1,0.02531859631858506,1,NA,NA,Reproduced at the precision the page prints: 0.025.
+green_etal_2016,d5_e1_constant_coef,Table D.5,pipeline,0.159,0.159,1,0.15926356166093938,1,NA,NA,Reproduced at the precision the page prints: 0.159.
+green_etal_2016,d5_e1_constant_se,Table D.5,pipeline,0.11,0.110,1,0.10999761669576771,1,NA,NA,Reproduced at the precision the page prints: 0.110.
 green_etal_2016,d5_e1_n,Table D.5,pipeline,88,88,1,88,1,NA,NA,Reproduced at the precision the page prints: 88.
 green_etal_2016,d5_e1_r2,Table D.5,pipeline,0.829,0.829,1,0.8288599474563577,1,NA,NA,Reproduced at the precision the page prints: 0.829.
-green_etal_2016,d5_e1_support_coef,Table D.5,pipeline,0.027,0.027,1,0.02663516303352676,1,NA,NA,Reproduced at the precision the page prints: 0.027.
-green_etal_2016,d5_e1_support_se,Table D.5,pipeline,0.042,0.042,1,0.04158661626206071,1,NA,NA,Reproduced at the precision the page prints: 0.042.
-green_etal_2016,d5_e1_treated_coef,Table D.5,pipeline,0.031,0.031,1,0.03133230036097609,1,NA,NA,Reproduced at the precision the page prints: 0.031.
-green_etal_2016,d5_e1_treated_se,Table D.5,pipeline,0.017,0.017,1,0.0170677333708407,1,NA,NA,Reproduced at the precision the page prints: 0.017.
-green_etal_2016,d5_e1_treated_x_coef,Table D.5,pipeline,0.031,0.031,1,0.03102326496277177,1,NA,NA,Reproduced at the precision the page prints: 0.031.
-green_etal_2016,d5_e1_treated_x_se,Table D.5,pipeline,0.03,0.030,1,0.02966687454381363,1,NA,NA,Reproduced at the precision the page prints: 0.030.
-green_etal_2016,d5_e2_adjacent_coef,Table D.5,pipeline,0.011,0.011,1,0.01060836517307719,1,NA,NA,Reproduced at the precision the page prints: 0.011.
-green_etal_2016,d5_e2_adjacent_se,Table D.5,pipeline,0.046,0.046,1,0.04608126847049828,1,NA,NA,Reproduced at the precision the page prints: 0.046.
-green_etal_2016,d5_e2_adjacent_x_coef,Table D.5,pipeline,0.053,0.053,1,0.05302708281461518,1,NA,NA,Reproduced at the precision the page prints: 0.053.
-green_etal_2016,d5_e2_adjacent_x_se,Table D.5,pipeline,0.033,0.033,1,0.0325277799933964,1,NA,NA,Reproduced at the precision the page prints: 0.033.
-green_etal_2016,d5_e2_constant_coef,Table D.5,pipeline,0.306,0.306,1,0.3063318376787973,1,NA,NA,Reproduced at the precision the page prints: 0.306.
-green_etal_2016,d5_e2_constant_se,Table D.5,pipeline,0.238,0.238,1,0.238187963669014,1,NA,NA,Reproduced at the precision the page prints: 0.238.
+green_etal_2016,d5_e1_support_coef,Table D.5,pipeline,0.027,0.027,1,0.026635163033526858,1,NA,NA,Reproduced at the precision the page prints: 0.027.
+green_etal_2016,d5_e1_support_se,Table D.5,pipeline,0.042,0.042,1,0.04158661626206086,1,NA,NA,Reproduced at the precision the page prints: 0.042.
+green_etal_2016,d5_e1_treated_coef,Table D.5,pipeline,0.031,0.031,1,0.03133230036097606,1,NA,NA,Reproduced at the precision the page prints: 0.031.
+green_etal_2016,d5_e1_treated_se,Table D.5,pipeline,0.017,0.017,1,0.01706773337084086,1,NA,NA,Reproduced at the precision the page prints: 0.017.
+green_etal_2016,d5_e1_treated_x_coef,Table D.5,pipeline,0.031,0.031,1,0.03102326496277174,1,NA,NA,Reproduced at the precision the page prints: 0.031.
+green_etal_2016,d5_e1_treated_x_se,Table D.5,pipeline,0.03,0.030,1,0.02966687454381351,1,NA,NA,Reproduced at the precision the page prints: 0.030.
+green_etal_2016,d5_e2_adjacent_coef,Table D.5,pipeline,0.011,0.011,1,0.0106083651730772,1,NA,NA,Reproduced at the precision the page prints: 0.011.
+green_etal_2016,d5_e2_adjacent_se,Table D.5,pipeline,0.046,0.046,1,0.0460812684704981,1,NA,NA,Reproduced at the precision the page prints: 0.046.
+green_etal_2016,d5_e2_adjacent_x_coef,Table D.5,pipeline,0.053,0.053,1,0.05302708281461525,1,NA,NA,Reproduced at the precision the page prints: 0.053.
+green_etal_2016,d5_e2_adjacent_x_se,Table D.5,pipeline,0.033,0.033,1,0.03252777999339639,1,NA,NA,Reproduced at the precision the page prints: 0.033.
+green_etal_2016,d5_e2_constant_coef,Table D.5,pipeline,0.306,0.306,1,0.306331837678797,1,NA,NA,Reproduced at the precision the page prints: 0.306.
+green_etal_2016,d5_e2_constant_se,Table D.5,pipeline,0.238,0.238,1,0.2381879636690052,1,NA,NA,Reproduced at the precision the page prints: 0.238.
 green_etal_2016,d5_e2_n,Table D.5,pipeline,69,69,1,69,1,NA,NA,Reproduced at the precision the page prints: 69.
-green_etal_2016,d5_e2_r2,Table D.5,pipeline,0.277,0.277,1,0.2772017234010027,1,NA,NA,Reproduced at the precision the page prints: 0.277.
-green_etal_2016,d5_e2_support_coef,Table D.5,pipeline,-0.02,-0.020,1,-0.02042804891024191,1,NA,NA,Reproduced at the precision the page prints: -0.020.
-green_etal_2016,d5_e2_support_se,Table D.5,pipeline,0.033,0.033,1,0.03279252576586847,1,NA,NA,Reproduced at the precision the page prints: 0.033.
-green_etal_2016,d5_e2_treated_coef,Table D.5,pipeline,-0.009,-0.009,1,-0.00939986931205114,1,NA,NA,Reproduced at the precision the page prints: -0.009.
-green_etal_2016,d5_e2_treated_se,Table D.5,pipeline,0.06,0.060,1,0.05987008481905474,1,NA,NA,Reproduced at the precision the page prints: 0.060.
-green_etal_2016,d5_e2_treated_x_coef,Table D.5,pipeline,0.033,0.033,1,0.03349824285038543,1,NA,NA,Reproduced at the precision the page prints: 0.033.
+green_etal_2016,d5_e2_r2,Table D.5,pipeline,0.277,0.277,1,0.2772017234010026,1,NA,NA,Reproduced at the precision the page prints: 0.277.
+green_etal_2016,d5_e2_support_coef,Table D.5,pipeline,-0.02,-0.020,1,-0.02042804891024196,1,NA,NA,Reproduced at the precision the page prints: -0.020.
+green_etal_2016,d5_e2_support_se,Table D.5,pipeline,0.033,0.033,1,0.03279252576586718,1,NA,NA,Reproduced at the precision the page prints: 0.033.
+green_etal_2016,d5_e2_treated_coef,Table D.5,pipeline,-0.009,-0.009,1,-0.00939986931205108,1,NA,NA,Reproduced at the precision the page prints: -0.009.
+green_etal_2016,d5_e2_treated_se,Table D.5,pipeline,0.06,0.060,1,0.05987008481905453,1,NA,NA,Reproduced at the precision the page prints: 0.060.
+green_etal_2016,d5_e2_treated_x_coef,Table D.5,pipeline,0.033,0.033,1,0.03349824285038551,1,NA,NA,Reproduced at the precision the page prints: 0.033.
 green_etal_2016,d5_e2_treated_x_se,Table D.5,pipeline,0.063,0.063,1,0.06266006473887353,1,NA,NA,Reproduced at the precision the page prints: 0.063.
-green_etal_2016,d5_e3_adjacent_coef,Table D.5,pipeline,0.02,0.020,1,0.01978234886384655,1,NA,NA,Reproduced at the precision the page prints: 0.020.
-green_etal_2016,d5_e3_adjacent_se,Table D.5,pipeline,0.007,0.007,1,0.00723695945014715,1,NA,NA,Reproduced at the precision the page prints: 0.007.
-green_etal_2016,d5_e3_adjacent_x_coef,Table D.5,pipeline,0.008,0.008,1,0.0076708613615315,1,NA,NA,Reproduced at the precision the page prints: 0.008.
-green_etal_2016,d5_e3_adjacent_x_se,Table D.5,pipeline,0.008,0.008,1,0.0077967575316686,1,NA,NA,Reproduced at the precision the page prints: 0.008.
+green_etal_2016,d5_e3_adjacent_coef,Table D.5,pipeline,0.02,0.020,1,0.01978234886384657,1,NA,NA,Reproduced at the precision the page prints: 0.020.
+green_etal_2016,d5_e3_adjacent_se,Table D.5,pipeline,0.007,0.007,1,0.00723695945014714,1,NA,NA,Reproduced at the precision the page prints: 0.007.
+green_etal_2016,d5_e3_adjacent_x_coef,Table D.5,pipeline,0.008,0.008,1,0.00767086136153148,1,NA,NA,Reproduced at the precision the page prints: 0.008.
+green_etal_2016,d5_e3_adjacent_x_se,Table D.5,pipeline,0.008,0.008,1,0.00779675753166859,1,NA,NA,Reproduced at the precision the page prints: 0.008.
 green_etal_2016,d5_e3_constant_coef,Table D.5,pipeline,0.539,0.539,1,0.5386218737212788,1,NA,NA,Reproduced at the precision the page prints: 0.539.
-green_etal_2016,d5_e3_constant_se,Table D.5,pipeline,0.045,0.045,1,0.04490476200028756,1,NA,NA,Reproduced at the precision the page prints: 0.045.
+green_etal_2016,d5_e3_constant_se,Table D.5,pipeline,0.045,0.045,1,0.04490476200028658,1,NA,NA,Reproduced at the precision the page prints: 0.045.
 green_etal_2016,d5_e3_n,Table D.5,pipeline,131,131,1,131,1,NA,NA,Reproduced at the precision the page prints: 131.
-green_etal_2016,d5_e3_r2,Table D.5,pipeline,0.829,0.829,1,0.8292941530649983,1,NA,NA,Reproduced at the precision the page prints: 0.829.
-green_etal_2016,d5_e3_support_coef,Table D.5,pipeline,0.028,0.028,1,0.02776889533045185,1,NA,NA,Reproduced at the precision the page prints: 0.028.
-green_etal_2016,d5_e3_support_se,Table D.5,pipeline,0.009,0.009,1,0.00868969118027668,1,NA,NA,Reproduced at the precision the page prints: 0.009.
-green_etal_2016,d5_e3_treated_coef,Table D.5,pipeline,0.02,0.020,1,0.01957181444550674,1,NA,NA,Reproduced at the precision the page prints: 0.020.
-green_etal_2016,d5_e3_treated_se,Table D.5,pipeline,0.009,0.009,1,0.0091433931900048,1,NA,NA,Reproduced at the precision the page prints: 0.009.
-green_etal_2016,d5_e3_treated_x_coef,Table D.5,pipeline,0.01,0.010,1,0.00956524433211274,1,NA,NA,Reproduced at the precision the page prints: 0.010.
-green_etal_2016,d5_e3_treated_x_se,Table D.5,pipeline,0.008,0.008,1,0.00796075742621701,1,NA,NA,Reproduced at the precision the page prints: 0.008.
-green_etal_2016,d5_e4_adjacent_coef,Table D.5,pipeline,-0.02,-0.020,1,-0.01994461689527428,1,NA,NA,Reproduced at the precision the page prints: -0.020.
-green_etal_2016,d5_e4_adjacent_se,Table D.5,pipeline,0.021,0.021,1,0.02111093635744915,1,NA,NA,Reproduced at the precision the page prints: 0.021.
-green_etal_2016,d5_e4_adjacent_x_coef,Table D.5,pipeline,-0.016,-0.016,1,-0.01577503459713093,1,NA,NA,Reproduced at the precision the page prints: -0.016.
-green_etal_2016,d5_e4_adjacent_x_se,Table D.5,pipeline,0.02,0.020,1,0.02031208802990696,1,NA,NA,Reproduced at the precision the page prints: 0.020.
-green_etal_2016,d5_e4_constant_coef,Table D.5,pipeline,0.477,0.477,1,0.47716695358060696,1,NA,NA,Reproduced at the precision the page prints: 0.477.
-green_etal_2016,d5_e4_constant_se,Table D.5,pipeline,0.113,0.113,1,0.11331911941827756,1,NA,NA,Reproduced at the precision the page prints: 0.113.
+green_etal_2016,d5_e3_r2,Table D.5,pipeline,0.829,0.829,1,0.8292941530649984,1,NA,NA,Reproduced at the precision the page prints: 0.829.
+green_etal_2016,d5_e3_support_coef,Table D.5,pipeline,0.028,0.028,1,0.02776889533045189,1,NA,NA,Reproduced at the precision the page prints: 0.028.
+green_etal_2016,d5_e3_support_se,Table D.5,pipeline,0.009,0.009,1,0.0086896911802766,1,NA,NA,Reproduced at the precision the page prints: 0.009.
+green_etal_2016,d5_e3_treated_coef,Table D.5,pipeline,0.02,0.020,1,0.01957181444550675,1,NA,NA,Reproduced at the precision the page prints: 0.020.
+green_etal_2016,d5_e3_treated_se,Table D.5,pipeline,0.009,0.009,1,0.00914339319000478,1,NA,NA,Reproduced at the precision the page prints: 0.009.
+green_etal_2016,d5_e3_treated_x_coef,Table D.5,pipeline,0.01,0.010,1,0.00956524433211273,1,NA,NA,Reproduced at the precision the page prints: 0.010.
+green_etal_2016,d5_e3_treated_x_se,Table D.5,pipeline,0.008,0.008,1,0.00796075742621699,1,NA,NA,Reproduced at the precision the page prints: 0.008.
+green_etal_2016,d5_e4_adjacent_coef,Table D.5,pipeline,-0.02,-0.020,1,-0.01994461689527426,1,NA,NA,Reproduced at the precision the page prints: -0.020.
+green_etal_2016,d5_e4_adjacent_se,Table D.5,pipeline,0.021,0.021,1,0.0211109363574491,1,NA,NA,Reproduced at the precision the page prints: 0.021.
+green_etal_2016,d5_e4_adjacent_x_coef,Table D.5,pipeline,-0.016,-0.016,1,-0.01577503459713092,1,NA,NA,Reproduced at the precision the page prints: -0.016.
+green_etal_2016,d5_e4_adjacent_x_se,Table D.5,pipeline,0.02,0.020,1,0.0203120880299071,1,NA,NA,Reproduced at the precision the page prints: 0.020.
+green_etal_2016,d5_e4_constant_coef,Table D.5,pipeline,0.477,0.477,1,0.4771669535806064,1,NA,NA,Reproduced at the precision the page prints: 0.477.
+green_etal_2016,d5_e4_constant_se,Table D.5,pipeline,0.113,0.113,1,0.11331911941828277,1,NA,NA,Reproduced at the precision the page prints: 0.113.
 green_etal_2016,d5_e4_n,Table D.5,pipeline,88,88,1,88,1,NA,NA,Reproduced at the precision the page prints: 88.
 green_etal_2016,d5_e4_r2,Table D.5,pipeline,0.181,0.181,1,0.181181057025949,1,NA,NA,Reproduced at the precision the page prints: 0.181.
-green_etal_2016,d5_e4_support_coef,Table D.5,pipeline,0.02,0.020,1,0.02048591646321597,1,NA,NA,Reproduced at the precision the page prints: 0.020.
-green_etal_2016,d5_e4_support_se,Table D.5,pipeline,0.021,0.021,1,0.02065581456887564,1,NA,NA,Reproduced at the precision the page prints: 0.021.
-green_etal_2016,d5_e4_treated_coef,Table D.5,pipeline,-0.014,-0.014,1,-0.01385095720331658,1,NA,NA,Reproduced at the precision the page prints: -0.014.
-green_etal_2016,d5_e4_treated_se,Table D.5,pipeline,0.026,0.026,1,0.02640866704421989,1,NA,NA,Reproduced at the precision the page prints: 0.026.
-green_etal_2016,d5_e4_treated_x_coef,Table D.5,pipeline,-0.021,-0.021,1,-0.02065623547570826,1,NA,NA,Reproduced at the precision the page prints: -0.021.
-green_etal_2016,d5_e4_treated_x_se,Table D.5,pipeline,0.027,0.027,1,0.02665829961743035,1,NA,NA,Reproduced at the precision the page prints: 0.027.
+green_etal_2016,d5_e4_support_coef,Table D.5,pipeline,0.02,0.020,1,0.02048591646321604,1,NA,NA,Reproduced at the precision the page prints: 0.020.
+green_etal_2016,d5_e4_support_se,Table D.5,pipeline,0.021,0.021,1,0.02065581456887471,1,NA,NA,Reproduced at the precision the page prints: 0.021.
+green_etal_2016,d5_e4_treated_coef,Table D.5,pipeline,-0.014,-0.014,1,-0.01385095720331649,1,NA,NA,Reproduced at the precision the page prints: -0.014.
+green_etal_2016,d5_e4_treated_se,Table D.5,pipeline,0.026,0.026,1,0.02640866704421992,1,NA,NA,Reproduced at the precision the page prints: 0.026.
+green_etal_2016,d5_e4_treated_x_coef,Table D.5,pipeline,-0.021,-0.021,1,-0.02065623547570823,1,NA,NA,Reproduced at the precision the page prints: -0.021.
+green_etal_2016,d5_e4_treated_x_se,Table D.5,pipeline,0.027,0.027,1,0.02665829961743068,1,NA,NA,Reproduced at the precision the page prints: 0.027.
