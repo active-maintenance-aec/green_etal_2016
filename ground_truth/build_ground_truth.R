@@ -303,9 +303,20 @@ gt <- gt |>
 # signature of environment drift: the archive fails and the rewrite succeeds.
 sampler_rows <- gt$claim_id[str_detect(gt$claim_id, "^(t4_|c2_|text_r2_)")]
 
+# Errata entry 1: Experiment_1_Analysis.R sums vote shares across merged precincts, and the
+# printed values carry the result. The deposit and the rewrite both reproduce the page, so
+# these rows keep their matching verdicts, and the locus records that the number matched is
+# wrong because of the deposited code. The ids come from the errata spine.
+entry_1_rows <- read_csv(here::here("errata_entries.csv"), show_col_types = FALSE) |>
+  filter(entry == 1) |>
+  pull(claim_ids) |>
+  str_split_1(";")
+stopifnot(all(entry_1_rows %in% gt$claim_id))
+
 gt <- gt |>
   mutate(
     defect_locus = case_when(
+      claim_id %in% entry_1_rows ~ "archive",
       claim_id %in% sampler_rows & !is.na(match) & match == 0 ~ "environment",
       !is.na(match) & match == 0 ~ "unresolved",
       !is.na(match_rewrite) & match_rewrite == 0 ~ "unresolved",
@@ -314,14 +325,18 @@ gt <- gt |>
     )
   )
 
-# THE LOCUS RULE, three states. An adverse row, meaning either verdict is 0 or holds is
-# 0, must carry a locus. A clean match must not. A row with no verdict may.
+# THE LOCUS RULE, four states. An adverse row, meaning either verdict is 0 or holds is 0,
+# must carry a locus. A clean match must not. A row with no verdict may. A faithfully printed
+# defect, a clean match listed in the errata's claim_ids, may carry archive: entry 1's rows.
 adverse <- (!is.na(gt$match) & gt$match == 0) |
   (!is.na(gt$match_rewrite) & gt$match_rewrite == 0) |
   (!is.na(gt$holds) & gt$holds == 0)
 clean <- (!is.na(gt$match_rewrite) & gt$match_rewrite == 1) &
   (is.na(gt$match) | gt$match == 1) & is.na(gt$holds)
-stopifnot(all(!is.na(gt$defect_locus[adverse])), all(is.na(gt$defect_locus[clean])))
+in_entry_1 <- gt$claim_id %in% entry_1_rows
+stopifnot(all(!is.na(gt$defect_locus[adverse])),
+          all(is.na(gt$defect_locus[clean & !in_entry_1])),
+          all(clean[in_entry_1]))
 
 # Notes, computed from the same comparison that set the verdict ----
 gt <- gt |>
@@ -347,7 +362,12 @@ gt <- gt |>
         " The deposited scripts print no counterpart to this value.",
       .default = ""
     ),
-    notes = str_c(verdict_clause, coverage_clause)
+    locus_clause = if_else(
+      claim_id %in% entry_1_rows,
+      " The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv.",
+      ""
+    ),
+    notes = str_c(verdict_clause, coverage_clause, locus_clause)
   )
 
 # claim_id is the claim: it names the float, the row, the column and the statistic, and

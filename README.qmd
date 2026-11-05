@@ -67,7 +67,7 @@ This repository holds the actively maintained replication code for Green, Krasno
 
 **The data are not redistributed here.** The deposit is 12 MB across 33 files and lives at Harvard Dataverse, which is the only copy this repository points at. `download_original.R` fetches it and verifies every file; `original_manifest.csv` pins the file identifiers, sizes and checksums, so the exact bytes this code was written against are recorded in version control even though the bytes themselves are not.
 
-**Repository layout.** `maintained/` is the maintained rewrite: one script per published table or figure, writing to `output/`, which is committed so a reader can compare a fresh run against it without downloading anything. It also holds `in_text_claims.R`, which recomputes every quantity the article states and prints it beside the sentence that states it. `ground_truth/` ties every published number to the code that produces it: `published_claims.csv` is the extraction of every number the article and appendix print, `archive_values.csv` is what the deposited scripts themselves print, `build_ground_truth.R` assembles the comparison, and `claims_gate.R` enforces the coverage. `original/` is created by the download script and is deliberately absent from the repository. This file is the reproducibility report, also available as a PDF in `report/`.
+**Repository layout.** `maintained/` is the maintained rewrite: one script per published table or figure, writing to `output/`, which is committed so a reader can compare a fresh run against it without downloading anything. It also holds `in_text_claims.R`, which recomputes every quantity the article states and prints it beside the sentence that states it. `ground_truth/` ties every published number to the code that produces it: `published_claims.csv` is the extraction of every number the article and appendix print, `archive_values.csv` is what the deposited scripts themselves print, `build_ground_truth.R` assembles the comparison, and `claims_gate.R` enforces the coverage. `errata.qmd` corrects the published article and appendix, rendering to `green_etal_2016_errata.pdf` at the root and writing its entries to `errata_entries.csv`. `original/` is created by the download script and is deliberately absent from the repository. This file is the reproducibility report, also available as a PDF in `report/`.
 
 **License.** CC0 1.0 Universal, matching the terms of the deposit this repository maintains. See `LICENSE`.
 
@@ -95,6 +95,16 @@ n_holds_true <- sum(gt$holds == 1, na.rm = TRUE)
 n_blocks <- sum(claims$needs_block)
 n_floats <- length(float_order)
 n_float_rows <- sum(gt$table_figure %in% float_order)
+
+# The errata are defined once, in errata.qmd, which writes errata_entries.csv when it renders.
+spine <- read_csv(here("errata_entries.csv"), show_col_types = FALSE)
+n_corrections <- sum(spine$form != "note")
+n_entry_1_rows <- sum(gt$defect_locus == "archive", na.rm = TRUE)
+merged_shares <- read_csv(here("maintained", "output", "text_exp1_merged_shares.csv"), show_col_types = FALSE)
+adjacent_estimates <- merged_shares |>
+  filter(float == "Table 3", term == "Adjacent") |>
+  select(column, corrected) |>
+  deframe()
 ```
 
 Two questions, answered before the detail.
@@ -109,7 +119,7 @@ Running is not the same as reproducing, and one line changes a great many number
 
 Yes, without exception. All `r n_rewrite_verifiable` published values that can be compared against the rewrite match to the precision the page prints, including every panel label of Figure 2 and all `r n_float_rows` cells of the `r n_floats` published floats. A further `r n_holds` claims have no printed number to compare, either because the sentence states a shape rather than a value or because the deposit draws the quantity without a seed; `r n_holds_true` of `r n_holds` hold against the pipeline's own estimates. The remaining `r n_no_counterpart` published numbers are design facts the deposit does not record, such as how many signs were planted and how far in advance, and are verified against the article's own methods section rather than against code.
 
-Nothing in the article contradicts its own tables, its own data or its own code, so this repository carries no errata document.
+That agreement is between the page and the deposit, and it does not make the deposit right. The deposited Experiment 1 script sums vote shares across merged precincts and the printed numbers carry the result, so `r n_entry_1_rows` of the matches above are matches to an error, and each carries `defect_locus = archive`. Reading the article and its appendix word by word found further errors of description and wording. `green_etal_2016_errata.pdf`, at the root of this repository, lists `r n_corrections` corrections and one unresolved citation, set out under Errata below. None changes the paper's conclusions.
 
 The rewrite reaches Experiment 2 through the pre-saved `exp_2.RData` object rather than through the seed, which is what makes it immune to the R version change. Reaching it any other way is a live hazard rather than a hypothetical one: until August 2026 the rewrite's randomization inference script took Experiment 2's observed assignment from its own cleaning script, which redraws the seed, and consequently reported 0.79 where the article reports 0.90. That script now reads the same canonical object as everything else.
 
@@ -291,7 +301,7 @@ The complete row-by-row table, all `r n_claims` of them, is `ground_truth/green_
 
 # Maintained rewrite
 
-The rewrite lives in `maintained/`: seventeen scripts covering four cleaning steps, the six published tables, the appendix margin and turnout tables, appendix Table D.5, Figure 2, footnote 3's cost calculation, the randomization inference, and the in-text claims. It is a translation, not a reanalysis: every estimator, specification and sample restriction is the one the paper used.
+The rewrite lives in `maintained/`: seventeen scripts covering four cleaning steps, the six published tables, the appendix margin and turnout tables, appendix Table D.5, Figure 2, footnote 3's cost calculation, the randomization inference, and the in-text claims. It is a translation, not a reanalysis: every estimator, specification and sample restriction is the one the paper used. An eighteenth script, `text_exp1_merged_shares.R`, is the exception by design: it recomputes everything downstream of Experiment 1's vote shares for errata entry 1, and leaves the published objects alone.
 
 ## Architecture
 
@@ -450,9 +460,13 @@ Two of these need a word. Footnote 3's cost per vote is computed by the article 
 
 # Errata
 
-None. The extraction covers all `r n_claims` numbers the article and its appendix print, and no row carries `defect_locus = paper_internal`: nothing in the article contradicts its own tables, its own data, or the code the authors deposited. The `r n_archive_fail` values a deposited script no longer reproduces are a property of R rather than of the paper, and the paper's numbers are the correct ones.
+`errata.qmd` renders to `green_etal_2016_errata.pdf` at the root of this repository and writes its entries to `errata_entries.csv`. The note lists `r n_corrections` corrections and one unresolved citation, and none changes the paper's conclusions.
 
-Two things about the published record are worth recording without rising to errata. Table 5 prints its second goodness-of-fit row without the `R2` label its three sibling tables carry, so the values 0.094 and 0.825 sit under a blank stub. And the appendix numbers its tables C.1 through C.4 and then D.5, so there is no Table D.1 through D.4. Neither misstates a quantity.
+Entry 1 is the only one that moves an estimate. Line 68 of `Experiment_1_Analysis.R` sums the share columns across the precincts merged for assignment after the shares are computed, so the four merged units, all in the adjacent arm, carry the sum of two shares. With each merged unit's shares taken from its summed vote counts, Table 3's spillover estimate goes from 0.037 to `r sprintf("%.3f", adjacent_estimates[["Model 1"]])` in Model 1 and from 0.018 to `r sprintf("%.3f", adjacent_estimates[["Model 2"]])` in Model 2, so covariate adjustment raises the estimate where the article says it falls. Table 7's pooled estimates hold at the precision it prints. `maintained/text_exp1_merged_shares.R` writes the corrected values to `maintained/output/text_exp1_merged_shares.csv` and leaves the published objects alone, so the rewrite still reproduces the page. The entry's `r n_entry_1_rows` ground-truth rows therefore keep their matching verdicts and carry `defect_locus = archive`: the page reports the deposit faithfully, and the deposit's code is wrong.
+
+Entries 2 and 24 are mirror errors of description: the notes to Tables 3 to 6 call past vote shares margins, and the notes to Tables C.1 to C.4 call past vote margins shares. No estimate changes. Table 5's missing `R2` label and the appendix's jump from Table C.4 to Table D.5, which this report formerly recorded as falling short of errata, are entries 5 and 22. The remaining entries correct wording, spelling, and references.
+
+The extraction covers all `r n_claims` numbers the article and its appendix print, and no row carries `defect_locus = paper_internal`: none of those numbers contradicts the article's own tables. The `r n_archive_fail` values a deposited script no longer reproduces are a property of R rather than of the paper, and the paper's numbers are the correct ones.
 
 # R environment
 

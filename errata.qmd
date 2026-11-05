@@ -1,0 +1,391 @@
+---
+title: "Errata"
+subtitle: "On Green, Krasno, Coppock, Farrer, Lenoir and Zingher (2016), *Electoral Studies* 41"
+format:
+  pdf:
+    output-file: green_etal_2016_errata.pdf
+    geometry: margin=1.25in
+    fontsize: 11pt
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(here)
+library(tidyverse)
+here::i_am("errata.qmd")
+
+fmt <- function(x) sprintf("%.3f", x)
+
+# Entry 1's corrected values are read from the maintained pipeline's output rather than
+# typed here: text_exp1_merged_shares.R recomputes everything downstream of Experiment 1's
+# vote shares with the merged precincts' shares taken from their summed vote counts.
+merged_shares <- read_csv(here("maintained", "output", "text_exp1_merged_shares.csv"),
+                          show_col_types = FALSE)
+corrected_value <- function(float_name, column_name, term_name) {
+  value <- merged_shares$corrected[merged_shares$float == float_name &
+                                     merged_shares$column == column_name &
+                                     merged_shares$term == term_name]
+  stopifnot(length(value) == 1)
+  value
+}
+percent_points <- function(x) sprintf("%.1f", 100 * x)
+
+spillover_m1 <- corrected_value("Table 3", "Model 1", "Adjacent")
+spillover_m1_se <- corrected_value("Table 3", "Model 1", "Adjacent SE")
+spillover_m2 <- corrected_value("Table 3", "Model 2", "Adjacent")
+spillover_m2_se <- corrected_value("Table 3", "Model 2", "Adjacent SE")
+ri_p <- corrected_value("Section 5.1 text", "Experiment 1", "RI p-value")
+agnostic_pr <- corrected_value("Figure 2", "Agnostic, Update 4", "pr(ATE>0)")
+indirect_interaction <- corrected_value("Appendix D text", "Pooled interaction", "Adjacent estimate")
+
+# The corrected sentence says the spillover estimate rises with covariates, which holds
+# only while the recomputed estimates stand in this order.
+stopifnot(spillover_m2 > spillover_m1, spillover_m2_se < spillover_m1_se)
+
+# Pooled results are the conclusion's basis, and the note says they do not move as printed.
+stopifnot(
+  fmt(corrected_value("Table 7", "Pooled", "Treated estimate")) == "0.017",
+  fmt(corrected_value("Table 7", "Pooled", "Treated std.error")) == "0.007",
+  fmt(corrected_value("Table 7", "Pooled", "Adjacent estimate")) == "0.015",
+  fmt(corrected_value("Table 7", "Pooled", "Adjacent std.error")) == "0.006"
+)
+
+# Every printed cell the correction moves, listed in entry 1's note from the output.
+changed_cells <- merged_shares |>
+  filter(float %in% c("Table 3", "Table 7", "Table D.5", "Figure 2"),
+         fmt(published) != fmt(corrected)) |>
+  mutate(
+    label = str_replace_all(term, c(
+      "condition_factorTreated:party_share" = "Assigned * Support",
+      "condition_factorAdjacent:party_share" = "Adjacent * Support",
+      "condition_factorTreated" = "Assigned Lawn Signs",
+      "condition_factorAdjacent" = "Adjacent to Lawn Signs",
+      "party_share" = "Past Party Support",
+      "\\(Intercept\\)" = "Constant",
+      "std\\.error" = "SE",
+      " estimate" = ""
+    )),
+    change = str_glue("{label} {fmt(published)} to {fmt(corrected)}")
+  )
+changed_list <- changed_cells |>
+  group_by(float, column) |>
+  summarise(changes = str_c(change, collapse = ", "), .groups = "drop") |>
+  mutate(float = fct_relevel(float, "Table 3", "Table 7", "Table D.5", "Figure 2")) |>
+  arrange(float) |>
+  transmute(sentence = str_glue("{float}, {column}: {changes}.")) |>
+  pull(sentence) |>
+  str_c(collapse = " ")
+
+entry_1_claims <- c(
+  "text_r1_spillover_m1", "text_r1_spillover_m1_se", "text_r1_spillover_m2", "text_r1_spillover_m2_se",
+  "text_r1_ri_p", "text_agnostic_pr", "appd_pooled_indirect_interaction",
+  "t3_m1_adjacent_coef", "t3_m1_adjacent_se", "t3_m1_r2", "t3_m2_adjacent_coef", "t3_m2_adjacent_se",
+  "t3_m2_constant_coef", "t3_m2_constant_se", "t3_m2_r2",
+  "t7_indirect_e1_coef", "t7_indirect_e1_se",
+  "d5_e1_constant_coef", "d5_e1_constant_se", "d5_e1_treated_coef", "d5_e1_adjacent_coef", "d5_e1_adjacent_se",
+  "d5_e1_support_coef", "d5_e1_support_se", "d5_e1_treated_x_coef", "d5_e1_treated_x_se",
+  "d5_e1_adjacent_x_coef", "d5_e1_adjacent_x_se", "d5_e1_r2",
+  "f2_agnostic_u1_mean", "f2_agnostic_u2_mean", "f2_optimist_u1_mean", "f2_optimist_u2_mean",
+  "f2_agnostic_u2_pr", "f2_agnostic_u4_pr", "f2_skeptic_u1_pr", "f2_skeptic_u2_pr", "f2_skeptic_u3_pr"
+)
+stopifnot(sum(str_detect(entry_1_claims, "^(t3|t7|d5|f2)_")) == nrow(changed_cells))
+
+# The covariate evidence is each table's Model 2 refit twice, once on past vote shares and
+# once on the deposit's vote margin variables, recorded here because the deposit is
+# downloaded rather than committed. When the deposit is present the chunk refits and refuses
+# to render if the figures have moved. Tables 3 to 6 are the vote share models (entry 2);
+# Tables C.1 to C.4 are the vote margin models (entry 24).
+model_2_fits <- tribble(
+  ~table, ~experiment, ~outcome, ~share_covariates, ~margin_covariates, ~printed_constant, ~printed_r2, ~share_constant, ~share_r2, ~margin_constant, ~margin_r2,
+  "3", 1, "dvote12", "dvote10 + dvote08 + dvote06 + pvote08", "nvote10 + nvote08 + nvote06 + npvote08", 0.015, 0.823, 0.015, 0.823, 0.399, 0.550,
+  "4", 2, "share", "registereddems + jenningsvoteshare09 + jenningsvoteshare05", "registereddems + jenningsvotemargin09 + jenningsvotemargin05", 0.287, 0.253, 0.287, 0.253, 0.614, 0.257,
+  "5", 3, "share", "obama_share_2012 + shannon_share_2009", "obama_margin_2012 + shannon_margin_2009", 0.780, 0.825, 0.780, 0.825, 0.367, 0.716,
+  "6", 4, "share", "GOVP2010 + USPP2008 + GOVP2006 + USPP2004 + GOVP2002 + USPP2000", "GOVM2010 + USPM2008 + GOVM2006 + USPM2004 + GOVM2002 + USPM2000", 0.532, 0.172, 0.532, 0.172, 0.566, 0.076,
+  "C.1", 1, "nvote12", "dvote10 + dvote08 + dvote06 + pvote08", "nvote10 + nvote08 + nvote06 + npvote08", -60.879, 0.666, -183.440, 0.148, -60.879, 0.666,
+  "C.2", 2, "margin", "registereddems + jenningsvoteshare09 + jenningsvoteshare05", "registereddems + jenningsvotemargin09 + jenningsvotemargin05", -30.993, 0.501, -116.141, 0.455, -30.993, 0.501,
+  "C.3", 3, "margin", "obama_share_2012 + shannon_share_2009", "obama_margin_2012 + shannon_margin_2009", -256.773, 0.652, 542.690, 0.412, -256.773, 0.652,
+  "C.4", 4, "margin", "GOVP2010 + USPP2008 + GOVP2006 + USPP2004 + GOVP2002 + USPP2000", "GOVM2010 + USPM2008 + GOVM2006 + USPM2004 + GOVM2002 + USPM2000", -19.087, 0.627, -220.707, 0.203, -19.087, 0.627
+)
+
+if (file.exists(here("original", "exp_1.RData"))) {
+  walk(1:4, function(i) load(here("original", str_glue("exp_{i}.RData")), envir = globalenv()))
+  analysis_data <- list(filter(exp_1, treatable == 1), filter(exp_2, include == 1), exp_3, exp_4)
+  refit <- function(experiment, outcome, covariates) {
+    fit <- lm(as.formula(str_glue("{outcome} ~ condition_factor + {covariates}")),
+              weights = weights, data = analysis_data[[experiment]])
+    round(c(unname(coef(fit)["(Intercept)"]), summary(fit)$r.squared), 3)
+  }
+  share_refits <- pmap(list(model_2_fits$experiment, model_2_fits$outcome, model_2_fits$share_covariates), refit)
+  margin_refits <- pmap(list(model_2_fits$experiment, model_2_fits$outcome, model_2_fits$margin_covariates), refit)
+  stopifnot(all(map_dbl(share_refits, 1) == model_2_fits$share_constant),
+            all(map_dbl(share_refits, 2) == model_2_fits$share_r2),
+            all(map_dbl(margin_refits, 1) == model_2_fits$margin_constant),
+            all(map_dbl(margin_refits, 2) == model_2_fits$margin_r2))
+}
+
+fit_evidence <- function(tables) {
+  model_2_fits |>
+    filter(table %in% tables) |>
+    mutate(sentence = str_glue("Table {table} prints {fmt(printed_constant)} and {fmt(printed_r2)}; vote shares give {fmt(share_constant)} and {fmt(share_r2)}, and vote margins give {fmt(margin_constant)} and {fmt(margin_r2)}.")) |>
+    pull(sentence) |>
+    str_c(collapse = " ")
+}
+```
+
+```{r entries}
+# THE ERRATA SPINE. Every entry is defined once, here, and rendered from here: into this
+# document, and into whatever else needs it, which reads the errata_entries.csv written at
+# the bottom of this file rather than keeping a second hand-typed copy.
+#
+# [[...]] marks the span that changes. Each renderer supplies its own markup for it: bold
+# here, \was{} in an edition. Nothing else in a field is markup, so the same string can be
+# set by either.
+#
+# Numbering is APPEND-ONLY once this note is published: an entry can already have been
+# cited, so a later finding is added at the end and never interleaved.
+#
+# claim_ids names the ground-truth rows an entry corrects, semicolon-separated.
+#
+# Entry 23 is a note (decision 15): it corrects nothing, so its corrected field is NA.
+entries <- tribble(
+  ~entry, ~class, ~source, ~form, ~title, ~location, ~published, ~corrected, ~note, ~claim_ids,
+
+  1, "quantity", "pipeline", "full",
+  "Experiment 1 adds vote shares together across merged precincts",
+  "published p. 147, Section 5.1 and Table 3; p. 148, Section 6, Table 7, and Figure 2; appendix p. 7, Section D; appendix p. 8, Table D.5",
+  "the estimated spillover effect is [[3.7]] percentage points (robust SE = [[2.7]]). ... The estimated spillover effect [[decreases]] to [[1.8]] percentage points, and its standard error falls to [[1.6]] percentage points. Using randomization inference, we fail to reject the joint null hypothesis of no direct or indirect effects (p = [[0.22]]). ... there is a [[98.8]] percent chance that lawn signs increase the vote share of the advertising candidate. ... The estimated average interaction effect for the indirect treatment is [[0.007]], with a standard error of 0.007.",
+  str_glue("the estimated spillover effect is [[{percent_points(spillover_m1)}]] percentage points (robust SE = [[{percent_points(spillover_m1_se)}]]). ... The estimated spillover effect [[increases]] to [[{percent_points(spillover_m2)}]] percentage points, and its standard error falls to [[{percent_points(spillover_m2_se)}]] percentage points. Using randomization inference, we fail to reject the joint null hypothesis of no direct or indirect effects (p = [[{sprintf('%.2f', ri_p)}]]). ... there is a [[{percent_points(agnostic_pr)}]] percent chance that lawn signs increase the vote share of the advertising candidate. ... The estimated average interaction effect for the indirect treatment is [[{fmt(indirect_interaction)}]], with a standard error of 0.007."),
+  str_c("The Experiment 1 analysis computes each precinct's vote shares and then sums its columns across the precincts merged for assignment, so the four merged units carry the sum of two shares: their outcomes are 0.658, 0.802, 0.894, and 0.739 where the shares of their summed votes are 0.328, 0.398, 0.433, and 0.367, and their covariates reach 1.171. All four units are in the adjacent group, which is why the unadjusted spillover estimate is the number that moves most. The corrected values take the merged units' shares from their summed vote counts, by the deposited script's own definitions, which return the deposited value for every other unit. The direct effect in Table 3 stays at 0.025 in both models, the pooled estimates in Table 7 stay at 0.017 and 0.015 with standard errors of 0.007 and 0.006, and the paper's conclusions stand. The vote margin and turnout results use counts and are unaffected. The printed tables report the deposited objects faithfully, so the error is in the analysis rather than in their transcription. Every printed cell that moves follows. ", changed_list),
+  str_c(entry_1_claims, collapse = ";"),
+
+  2, "description", "reading", "full",
+  "The covariates described as vote margins are vote shares",
+  "published p. 147, Section 4 and the notes to Tables 3, 4, and 5; p. 148, the note to Table 6",
+  "in addition to past presidential vote [[margin]]. ... The covariates included the vote [[margin]] for Barack Obama in the 2008 presidential election ... and for the Democratic congressional candidates ... Covariates: congressional vote [[margin]] ’06, ’08, ’10 and presidential vote [[margin]] ’08. ... Covariates: registered democrats and mayoral vote [[margin]] ’05 and ’09. ... Covariates: gubernatorial vote [[margin]] ’09 and presidential vote [[margin]] ’12. ... Covariates: gubernatorial vote [[margin]] ’02, ’06, ’10 and presidential vote [[margin]] ’00, ’04, ’08.",
+  "in addition to past presidential vote [[share]]. ... The covariates included the vote [[share]] for Barack Obama in the 2008 presidential election ... and for the Democratic congressional candidates ... Covariates: congressional vote [[share]] ’06, ’08, ’10 and presidential vote [[share]] ’08. ... Covariates: registered democrats and mayoral vote [[share]] ’05 and ’09. ... Covariates: gubernatorial vote [[share]] ’09 and presidential vote [[share]] ’12. ... Covariates: gubernatorial vote [[share]] ’02, ’06, ’10 and presidential vote [[share]] ’00, ’04, ’08.",
+  str_c("The models behind Tables 3 to 6 adjust for past vote shares, and the printed estimates are those models' estimates, so this correction changes no estimate. Refitting each Model 2 on the deposited data reproduces the printed constant and R² with past vote shares and not with the deposit's vote margin variables (constant, then R²). ", fit_evidence(c("3", "4", "5", "6"))),
+  "",
+
+  3, "description", "reading", "brief",
+  "The introduction reports vote margins where the results are vote shares",
+  "published p. 144, Section 1",
+  "electoral results from all four studies taken together suggest that the signs significantly increased advertising candidates' vote [[margins]].",
+  "electoral results from all four studies taken together suggest that the signs significantly increased advertising candidates' vote [[shares]].",
+  "The pooled results in Table 7 and the abstract are in vote shares.",
+  "",
+
+  4, "description", "reading", "brief",
+  "Covariates raise one of Table 4's standard errors, not both",
+  "published p. 147, Section 5.2",
+  "Ironically, controlling for covariates increases [[our estimated standard errors]].",
+  "Ironically, controlling for covariates increases [[the estimated standard error of the direct effect]].",
+  "In Table 4, the direct effect's standard error rises from 0.054 to 0.057 and the adjacent effect's falls from 0.046 to 0.045.",
+  "",
+
+  5, "label", "reading", "brief",
+  "Table 5 omits its R² label",
+  "published p. 147, Table 5",
+  "0.094 0.825",
+  "[[R²]] 0.094 0.825",
+  "The row's two values sit under a blank stub. Tables 3, 4, and 6 print the label on the same row. The values themselves are correct.",
+  "",
+
+  6, "spelling", "reading", "brief",
+  "\"though\" for \"through\"",
+  "published p. 148, Section 5.5",
+  "We interpret this null finding on turnout to mean that any positive impact on vote share operates primarily [[though]] a persuasion mechanism, not through mobilization.",
+  "We interpret this null finding on turnout to mean that any positive impact on vote share operates primarily [[through]] a persuasion mechanism, not through mobilization.",
+  "",
+  "",
+
+  7, "wording", "reading", "brief",
+  "A dropped verb in Section 6",
+  "published p. 148, Section 6",
+  "the experimental evidence has largely displaced the prior views that these observers in advance of these studies.",
+  "the experimental evidence has largely displaced the prior views that these observers [[held]] in advance of these studies.",
+  "",
+  "",
+
+  8, "wording", "reading", "brief",
+  "A dropped article in Section 3.3",
+  "published p. 145, Section 3.3",
+  "The sign was designed to highlight the fact that the opposing candidate was Democratic fundraiser before becoming a candidate for higher office.",
+  "The sign was designed to highlight the fact that the opposing candidate was [[a]] Democratic fundraiser before becoming a candidate for higher office.",
+  "",
+  "",
+
+  9, "wording", "reading", "brief",
+  "A dropped preposition in Section 5.4",
+  "published p. 148, Section 5.4",
+  "The randomization inference test shows that we cannot reject the null hypothesis no direct or indirect effects (p = 0.77).",
+  "The randomization inference test shows that we cannot reject the null hypothesis [[of]] no direct or indirect effects (p = 0.77).",
+  "",
+  "",
+
+  10, "label", "reading", "brief",
+  "The heading of Section 3.4 reverses its siblings' form",
+  "published p. 145, Section 3.4",
+  "3.4. [[Treatment: experiment 4]]",
+  "3.4. [[Experiment 4: treatment]]",
+  "Sections 3.1 to 3.3 are headed \"Experiment 1: treatment\" and so on.",
+  "",
+
+  11, "bibliographic", "reading", "brief",
+  "The Bedolla and Michelson reference misspells its publisher",
+  "published p. 150, references",
+  "Yale [[Univeristy]] Press, New Haven.",
+  "Yale [[University]] Press, New Haven.",
+  "",
+  "",
+
+  12, "bibliographic", "reading", "brief",
+  "The Sommer reference prints its title twice",
+  "published p. 150, references",
+  "Sommer, B., 1979. Front yard signs as predictors of election outcome [[front yard signs as predictors of election outcome]]. Polit. Methodol. 6 (2), 237--240.",
+  "Sommer, B., 1979. Front yard signs as predictors of election outcome. Polit. Methodol. 6 (2), 237--240.",
+  "",
+  "",
+
+  13, "bibliographic", "crossref", "brief",
+  "The Ansolabehere and Iyengar reference prints no pages",
+  "published p. 150, references",
+  "Polit. Commun. 11 (4).",
+  "Polit. Commun. 11 (4), [[413--430]].",
+  "Crossref, doi 10.1080/10584609.1994.9963048, gives the article's pages as 413 to 430.",
+  "",
+
+  14, "wording", "reading", "brief",
+  "A dropped noun in the description of Experiment 2",
+  "published appendix p. 2",
+  "The 2013 Albany Democratic was held September 10, 2013.",
+  "The 2013 Albany Democratic [[primary]] was held September 10, 2013.",
+  "",
+  "",
+
+  15, "spelling", "reading", "brief",
+  "McAuliffe is misspelled twice",
+  "published appendix p. 2",
+  "The Democratic candidate was experienced businessman and fundraiser Terry [[McAullife]], also a longtime Clinton ally ... In the end, [[McAullife]] won with 48% of the vote",
+  "The Democratic candidate was experienced businessman and fundraiser Terry [[McAuliffe]], also a longtime Clinton ally ... In the end, [[McAuliffe]] won with 48% of the vote",
+  "The paragraph's last sentence and the article spell the name correctly.",
+  "",
+
+  16, "spelling", "reading", "brief",
+  "DeFilippo is misspelled once",
+  "published appendix p. 3",
+  "The top two vote-getters were Eichelberger and [[Defilippo]], who will proceed to the general election in November 2015.",
+  "The top two vote-getters were Eichelberger and [[DeFilippo]], who will proceed to the general election in November 2015.",
+  "The appendix prints \"Vince DeFilippo\" on p. 2.",
+  "",
+
+  17, "wording", "reading", "brief",
+  "A dropped word in the Experiment 2 randomization protocol",
+  "published appendix p. 4",
+  "when the t-ratio for the treatment indicator was less 1.0, the randomization was accepted into our final set of permissible randomizations.",
+  "when the t-ratio for the treatment indicator was less [[than]] 1.0, the randomization was accepted into our final set of permissible randomizations.",
+  "",
+  "",
+
+  18, "wording", "reading", "brief",
+  "A dropped preposition in the Experiment 4 randomization protocol",
+  "published appendix p. 4",
+  "In this case, we ran 3 regressions treatment assignment on covariates, where each regression only considered two treatment conditions at a time.",
+  "In this case, we ran 3 regressions [[of]] treatment assignment on covariates, where each regression only considered two treatment conditions at a time.",
+  "",
+  "",
+
+  19, "wording", "reading", "brief",
+  "A plural for a single experiment",
+  "published appendix p. 7, Section D",
+  "In [[experiments]] 1, we used 2008 Democratic presidential vote share.",
+  "In [[experiment]] 1, we used 2008 Democratic presidential vote share.",
+  "",
+  "",
+
+  20, "wording", "reading", "brief",
+  "A doubled word in a table note",
+  "published appendix p. 8, the note to Table D.5",
+  "Covariates for each experiment are listed in [[in]] Tables 3-6.",
+  "Covariates for each experiment are listed in Tables 3-6.",
+  "",
+  "",
+
+  21, "spelling", "reading", "brief",
+  "A table title misspells Heterogeneous",
+  "published appendix p. 8, the title of Table D.5",
+  "[[Heterogenous]] Effects by Past Party Support",
+  "[[Heterogeneous]] Effects by Past Party Support",
+  "The heading of Section D, on p. 7, spells the word correctly.",
+  "",
+
+  22, "label", "reading", "brief",
+  "Section D's only table is numbered D.5",
+  "published appendix p. 8",
+  "Table [[D.5]]:",
+  "Table [[D.1]]:",
+  "The numbering continues from Tables C.1 to C.4 across a change of section. No Tables D.1 to D.4 exist, and neither the appendix nor the article cites the table by number.",
+  "",
+
+  23, "citation", "reading", "note",
+  "A citation with no entry in the appendix's references",
+  "published appendix p. 2",
+  "several pro-hydraulic fracturing groups and the New York Chamber of Commerce (Joint Landowners Coalition of New York, Inc, 2012).",
+  NA,
+  "The appendix's references, on p. 9, list only Esch (2012) and Niedt (2012). We have not located the cited source, so there is no entry to supply and this item corrects nothing.",
+  "",
+
+  24, "description", "reading", "full",
+  "The notes to Tables C.1 to C.4 describe margin covariates as vote shares",
+  "published appendix pp. 5--6, the notes to Tables C.1, C.2, C.3, and C.4",
+  "Column 2 covariates: Congressional Vote [[Share]] ’06, ’08, ’10 and Presidential Vote [[Share]] ’08. ... Column 2 covariates: Registered Democrats and Mayoral Vote [[Share]] ’05 and ’09. ... Column 2 covariates: Gubernatorial Vote [[Share]] ’09 and Presidential Vote [[Share]] ’12. ... Column 2 covariates: Gubernatorial Vote [[Share]] ’02, ’06, ’10 and Presidential Vote [[Share]] ’00, ’04, ’08.",
+  "Column 2 covariates: Congressional Vote [[Margin]] ’06, ’08, ’10 and Presidential Vote [[Margin]] ’08. ... Column 2 covariates: Registered Democrats and Mayoral Vote [[Margin]] ’05 and ’09. ... Column 2 covariates: Gubernatorial Vote [[Margin]] ’09 and Presidential Vote [[Margin]] ’12. ... Column 2 covariates: Gubernatorial Vote [[Margin]] ’02, ’06, ’10 and Presidential Vote [[Margin]] ’00, ’04, ’08.",
+  str_c("The mirror of entry 2: the vote margin models adjust for past vote margins, and the printed estimates are those models' estimates, so this correction changes no estimate. Refitting each table's column 2 on the deposited data reproduces the printed constant and R² with past vote margins and not with past vote shares (constant, then R²). ", fit_evidence(c("C.1", "C.2", "C.3", "C.4"))),
+  ""
+) |>
+  mutate(across(c(title, published, corrected, note, claim_ids), as.character))
+
+stopifnot(nrow(entries) == max(entries$entry), !anyDuplicated(entries$entry),
+          all(is.na(entries$corrected) == (entries$form == "note")))
+
+# The spine's markup, resolved for this document. Another renderer resolves it differently.
+bold <- function(x) str_replace_all(x, "\\[\\[(.*?)\\]\\]", "**\\1**")
+
+# A heading is only a heading when a blank line precedes it, which is why every emitted
+# entry opens with one.
+emit_entry <- function(n) {
+  e <- entries |> filter(entry == n)
+  cat("\n\n## ", e$entry, ". ", e$title, "\n\nPublished, ",
+      str_remove(e$location, "^published "), ":\n\n> ", bold(e$published), sep = "")
+  if (e$form != "note") cat("\n\nCorrected:\n\n> ", bold(e$corrected), sep = "")
+  cat("\n\n", e$note, "\n", sep = "")
+}
+```
+
+This note lists `r sum(entries$form != "note")` corrections and one unresolved citation in "The effects of lawn signs on vote outcomes: Results from four randomized field experiments," published in *Electoral Studies* 41:143--150, doi [10.1016/j.electstud.2015.12.002](https://doi.org/10.1016/j.electstud.2015.12.002), and its online appendix. **One correction changes printed estimates, and it changes neither the pooled results nor the paper's conclusions.** The Experiment 1 analysis adds vote shares together across merged precincts, which inflates the unadjusted spillover estimate from `r percent_points(spillover_m1)` to 3.7 percentage points. Two further corrections fix misdescribed covariates: the article calls its vote shares margins, and the appendix calls its margins vote shares. The rest are smaller matters of description, labelling, and reference, along with words dropped, doubled, or misspelled.
+
+The first entry came from tracing the deposited analysis code, and its corrected values are computed from the deposited replication archive, doi [10.7910/DVN/K2TLDB](https://doi.org/10.7910/DVN/K2TLDB), by the maintained analysis. The others came from reading the article and its appendix word by word, except the Ansolabehere and Iyengar pages, which came from Crossref. Each quotation was checked against an image of the published page. The figures in the notes to entries 2 and 24 are refit from the archive whenever this document is rendered with the archive present. The code supporting the maintained analysis is at [github.com/active-maintenance-aec/green_etal_2016](https://github.com/active-maintenance-aec/green_etal_2016).
+
+# The article
+
+```{r article-entries, results="asis"}
+walk(1:10, emit_entry)
+```
+
+# The reference list
+
+```{r reference-entries, results="asis"}
+walk(11:13, emit_entry)
+```
+
+# The appendix
+
+```{r appendix-entries, results="asis"}
+walk(14:24, emit_entry)
+```
+
+```{r emit-spine}
+# The machine-readable spine, written wherever this document is rendered. Anything else
+# that needs these entries reads it rather than keeping its own copy, so the two cannot
+# drift.
+write_csv(entries, here("errata_entries.csv"))
+```

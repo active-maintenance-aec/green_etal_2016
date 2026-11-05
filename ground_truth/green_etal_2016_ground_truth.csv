@@ -50,32 +50,32 @@ green_etal_2016,appd_e4_negative_interactions,Appendix D,descriptive,NA,1,NA,1,N
 green_etal_2016,appd_no_precise_interactions,Appendix D,descriptive,NA,1,NA,1,NA,1,NA,The claim holds against the pipeline's own estimates. The deposited scripts print no counterpart to this value.
 green_etal_2016,appd_pooled_direct_interaction,Appendix D,pipeline,0.0089166433086039,0.009,1,0.00891664330860397,1,NA,NA,Reproduced at the precision the page prints: 0.009.
 green_etal_2016,appd_pooled_direct_interaction_se,Appendix D,pipeline,0.00733680305571093,0.007,1,0.00733680305571094,1,NA,NA,Reproduced at the precision the page prints: 0.007.
-green_etal_2016,appd_pooled_indirect_interaction,Appendix D,pipeline,0.00726402825817918,0.007,1,0.00726402825817926,1,NA,NA,Reproduced at the precision the page prints: 0.007.
+green_etal_2016,appd_pooled_indirect_interaction,Appendix D,pipeline,0.00726402825817918,0.007,1,0.00726402825817926,1,NA,archive,"Reproduced at the precision the page prints: 0.007. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
 green_etal_2016,appd_pooled_indirect_interaction_se,Appendix D,pipeline,0.00683919801606159,0.007,1,0.0068391980160616,1,NA,NA,Reproduced at the precision the page prints: 0.007.
 green_etal_2016,appd_sd_increase,Appendix D,definitional,NA,1,NA,NA,NA,NA,NA,No counterpart in the pipeline; verified at the point of use. A design fact the deposit does not record.
 green_etal_2016,appd_three_of_four_positive,Appendix D,descriptive,NA,3,NA,3,NA,1,NA,The claim holds against the pipeline's own estimates. The deposited scripts print no counterpart to this value.
 green_etal_2016,f2_agnostic_prior_mean,Figure 2,pipeline,0,0.000,1,0,1,NA,NA,Reproduced at the precision the page prints: 0.000.
 green_etal_2016,f2_agnostic_prior_pr,Figure 2,pipeline,0.5,0.500,1,0.5,1,NA,NA,Reproduced at the precision the page prints: 0.500.
 green_etal_2016,f2_agnostic_prior_sd,Figure 2,pipeline,0.05,0.050,1,0.05,1,NA,NA,Reproduced at the precision the page prints: 0.050.
-green_etal_2016,f2_agnostic_u1_mean,Figure 2,pipeline,0.02210192341666808,0.022,1,0.02210192341666809,1,NA,NA,Reproduced at the precision the page prints: 0.022.
+green_etal_2016,f2_agnostic_u1_mean,Figure 2,pipeline,0.02210192341666808,0.022,1,0.02210192341666809,1,NA,archive,"Reproduced at the precision the page prints: 0.022. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
 green_etal_2016,f2_agnostic_u1_pr,Figure 2,pipeline,0.9146630896847038,0.915,1,0.9146630896847034,1,NA,NA,Reproduced at the precision the page prints: 0.915.
 green_etal_2016,f2_agnostic_u1_sd,Figure 2,pipeline,0.01613229735378258,0.016,1,0.01613229735378261,1,NA,NA,Reproduced at the precision the page prints: 0.016.
-green_etal_2016,f2_agnostic_u2_mean,Figure 2,pipeline,0.0194423248540146,0.019,1,0.01944232485401461,1,NA,NA,Reproduced at the precision the page prints: 0.019.
-green_etal_2016,f2_agnostic_u2_pr,Figure 2,pipeline,0.8946797483313458,0.895,1,0.8946797483313453,1,NA,NA,Reproduced at the precision the page prints: 0.895.
+green_etal_2016,f2_agnostic_u2_mean,Figure 2,pipeline,0.0194423248540146,0.019,1,0.01944232485401461,1,NA,archive,"Reproduced at the precision the page prints: 0.019. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
+green_etal_2016,f2_agnostic_u2_pr,Figure 2,pipeline,0.8946797483313458,0.895,1,0.8946797483313453,1,NA,archive,"Reproduced at the precision the page prints: 0.895. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
 green_etal_2016,f2_agnostic_u2_sd,Figure 2,pipeline,0.01553141804612422,0.016,1,0.01553141804612425,1,NA,NA,Reproduced at the precision the page prints: 0.016.
 green_etal_2016,f2_agnostic_u3_mean,Figure 2,pipeline,0.01862104492785499,0.019,1,0.01862104492785501,1,NA,NA,Reproduced at the precision the page prints: 0.019.
 green_etal_2016,f2_agnostic_u3_pr,Figure 2,pipeline,0.9933037012153848,0.993,1,0.9933037012153846,1,NA,NA,Reproduced at the precision the page prints: 0.993.
 green_etal_2016,f2_agnostic_u3_sd,Figure 2,pipeline,0.0075292666947491,0.008,1,0.00752926669474911,1,NA,NA,Reproduced at the precision the page prints: 0.008.
 green_etal_2016,f2_agnostic_u4_mean,Figure 2,pipeline,0.01620077543008752,0.016,1,0.01620077543008754,1,NA,NA,Reproduced at the precision the page prints: 0.016.
-green_etal_2016,f2_agnostic_u4_pr,Figure 2,pipeline,0.9875020871654464,0.988,1,0.9875020871654464,1,NA,NA,Reproduced at the precision the page prints: 0.988.
+green_etal_2016,f2_agnostic_u4_pr,Figure 2,pipeline,0.9875020871654464,0.988,1,0.9875020871654464,1,NA,archive,"Reproduced at the precision the page prints: 0.988. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
 green_etal_2016,f2_agnostic_u4_sd,Figure 2,pipeline,0.00722775474296403,0.007,1,0.00722775474296404,1,NA,NA,Reproduced at the precision the page prints: 0.007.
 green_etal_2016,f2_optimist_prior_mean,Figure 2,pipeline,0.05,0.050,1,0.05,1,NA,NA,Reproduced at the precision the page prints: 0.050.
 green_etal_2016,f2_optimist_prior_pr,Figure 2,pipeline,0.8413447460685429,0.841,1,0.8413447460685429,1,NA,NA,Reproduced at the precision the page prints: 0.841.
 green_etal_2016,f2_optimist_prior_sd,Figure 2,pipeline,0.05,0.050,1,0.05,1,NA,NA,Reproduced at the precision the page prints: 0.050.
-green_etal_2016,f2_optimist_u1_mean,Figure 2,pipeline,0.02730694377488529,0.027,1,0.02730694377488532,1,NA,NA,Reproduced at the precision the page prints: 0.027.
+green_etal_2016,f2_optimist_u1_mean,Figure 2,pipeline,0.02730694377488529,0.027,1,0.02730694377488532,1,NA,archive,"Reproduced at the precision the page prints: 0.027. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
 green_etal_2016,f2_optimist_u1_pr,Figure 2,pipeline,0.9547425507176476,0.955,1,0.9547425507176472,1,NA,NA,Reproduced at the precision the page prints: 0.955.
 green_etal_2016,f2_optimist_u1_sd,Figure 2,pipeline,0.01613229735378258,0.016,1,0.01613229735378261,1,NA,NA,Reproduced at the precision the page prints: 0.016.
-green_etal_2016,f2_optimist_u2_mean,Figure 2,pipeline,0.02426682378448406,0.024,1,0.02426682378448409,1,NA,NA,Reproduced at the precision the page prints: 0.024.
+green_etal_2016,f2_optimist_u2_mean,Figure 2,pipeline,0.02426682378448406,0.024,1,0.02426682378448409,1,NA,archive,"Reproduced at the precision the page prints: 0.024. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
 green_etal_2016,f2_optimist_u2_pr,Figure 2,pipeline,0.9409071705144626,0.941,1,0.9409071705144624,1,NA,NA,Reproduced at the precision the page prints: 0.941.
 green_etal_2016,f2_optimist_u2_sd,Figure 2,pipeline,0.01553141804612422,0.016,1,0.01553141804612425,1,NA,NA,Reproduced at the precision the page prints: 0.016.
 green_etal_2016,f2_optimist_u3_mean,Figure 2,pipeline,0.01975484206706816,0.020,1,0.01975484206706818,1,NA,NA,Reproduced at the precision the page prints: 0.020.
@@ -88,13 +88,13 @@ green_etal_2016,f2_skeptic_prior_mean,Figure 2,pipeline,0,0.000,1,0,1,NA,NA,Repr
 green_etal_2016,f2_skeptic_prior_pr,Figure 2,pipeline,0.5,0.500,1,0.5,1,NA,NA,Reproduced at the precision the page prints: 0.500.
 green_etal_2016,f2_skeptic_prior_sd,Figure 2,pipeline,0.01,0.010,1,0.01,1,NA,NA,Reproduced at the precision the page prints: 0.010.
 green_etal_2016,f2_skeptic_u1_mean,Figure 2,pipeline,0.00631770571701348,0.006,1,0.00631770571701346,1,NA,NA,Reproduced at the precision the page prints: 0.006.
-green_etal_2016,f2_skeptic_u1_pr,Figure 2,pipeline,0.7680635878774599,0.768,1,0.7680635878774591,1,NA,NA,Reproduced at the precision the page prints: 0.768.
+green_etal_2016,f2_skeptic_u1_pr,Figure 2,pipeline,0.7680635878774599,0.768,1,0.7680635878774591,1,NA,archive,"Reproduced at the precision the page prints: 0.768. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
 green_etal_2016,f2_skeptic_u1_sd,Figure 2,pipeline,0.00862503527011142,0.009,1,0.00862503527011143,1,NA,NA,Reproduced at the precision the page prints: 0.009.
 green_etal_2016,f2_skeptic_u2_mean,Figure 2,pipeline,0.00586361131814246,0.006,1,0.00586361131814244,1,NA,NA,Reproduced at the precision the page prints: 0.006.
-green_etal_2016,f2_skeptic_u2_pr,Figure 2,pipeline,0.7541026239948323,0.754,1,0.7541026239948316,1,NA,NA,Reproduced at the precision the page prints: 0.754.
+green_etal_2016,f2_skeptic_u2_pr,Figure 2,pipeline,0.7541026239948323,0.754,1,0.7541026239948316,1,NA,archive,"Reproduced at the precision the page prints: 0.754. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
 green_etal_2016,f2_skeptic_u2_sd,Figure 2,pipeline,0.00852942194039547,0.009,1,0.00852942194039547,1,NA,NA,Reproduced at the precision the page prints: 0.009.
 green_etal_2016,f2_skeptic_u3_mean,Figure 2,pipeline,0.01205852356028039,0.012,1,0.01205852356028039,1,NA,NA,Reproduced at the precision the page prints: 0.012.
-green_etal_2016,f2_skeptic_u3_pr,Figure 2,pipeline,0.9767154675246812,0.977,1,0.9767154675246812,1,NA,NA,Reproduced at the precision the page prints: 0.977.
+green_etal_2016,f2_skeptic_u3_pr,Figure 2,pipeline,0.9767154675246812,0.977,1,0.9767154675246812,1,NA,archive,"Reproduced at the precision the page prints: 0.977. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
 green_etal_2016,f2_skeptic_u3_sd,Figure 2,pipeline,0.00605895496864245,0.006,1,0.00605895496864246,1,NA,NA,Reproduced at the precision the page prints: 0.006.
 green_etal_2016,f2_skeptic_u4_mean,Figure 2,pipeline,0.01078966822400117,0.011,1,0.01078966822400118,1,NA,NA,Reproduced at the precision the page prints: 0.011.
 green_etal_2016,f2_skeptic_u4_pr,Figure 2,pipeline,0.9663174904930414,0.966,1,0.9663174904930412,1,NA,NA,Reproduced at the precision the page prints: 0.966.
@@ -153,11 +153,11 @@ green_etal_2016,text_r1_direct_m1,"Section 5.1, p. 147",pipeline,NA,2.5,NA,2.518
 green_etal_2016,text_r1_direct_m1_se,"Section 5.1, p. 147",pipeline,NA,2.7,NA,2.7195349794083348,1,NA,NA,Reproduced at the precision the page prints: 2.7. The deposited scripts print no counterpart to this value.
 green_etal_2016,text_r1_direct_m2,"Section 5.1, p. 147",pipeline,2.4670089810747875,2.5,1,2.4670089810747897,1,NA,NA,Reproduced at the precision the page prints: 2.5.
 green_etal_2016,text_r1_direct_m2_se,"Section 5.1, p. 147",pipeline,1.7043804688357724,1.7,1,1.7043804688357769,1,NA,NA,Reproduced at the precision the page prints: 1.7.
-green_etal_2016,text_r1_ri_p,"Section 5.1, p. 147",pipeline,0.2225,0.22,1,0.2225,1,NA,NA,Reproduced at the precision the page prints: 0.22.
-green_etal_2016,text_r1_spillover_m1,"Section 5.1, p. 147",pipeline,NA,3.7,NA,3.6524555605741105,1,NA,NA,Reproduced at the precision the page prints: 3.7. The deposited scripts print no counterpart to this value.
-green_etal_2016,text_r1_spillover_m1_se,"Section 5.1, p. 147",pipeline,NA,2.7,NA,2.734849649876633,1,NA,NA,Reproduced at the precision the page prints: 2.7. The deposited scripts print no counterpart to this value.
-green_etal_2016,text_r1_spillover_m2,"Section 5.1, p. 147",pipeline,1.7692465800898616,1.8,1,1.7692465800898671,1,NA,NA,Reproduced at the precision the page prints: 1.8.
-green_etal_2016,text_r1_spillover_m2_se,"Section 5.1, p. 147",pipeline,1.562958000793836,1.6,1,1.562958000793836,1,NA,NA,Reproduced at the precision the page prints: 1.6.
+green_etal_2016,text_r1_ri_p,"Section 5.1, p. 147",pipeline,0.2225,0.22,1,0.2225,1,NA,archive,"Reproduced at the precision the page prints: 0.22. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
+green_etal_2016,text_r1_spillover_m1,"Section 5.1, p. 147",pipeline,NA,3.7,NA,3.6524555605741105,1,NA,archive,"Reproduced at the precision the page prints: 3.7. The deposited scripts print no counterpart to this value. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
+green_etal_2016,text_r1_spillover_m1_se,"Section 5.1, p. 147",pipeline,NA,2.7,NA,2.734849649876633,1,NA,archive,"Reproduced at the precision the page prints: 2.7. The deposited scripts print no counterpart to this value. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
+green_etal_2016,text_r1_spillover_m2,"Section 5.1, p. 147",pipeline,1.7692465800898616,1.8,1,1.7692465800898671,1,NA,archive,"Reproduced at the precision the page prints: 1.8. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
+green_etal_2016,text_r1_spillover_m2_se,"Section 5.1, p. 147",pipeline,1.562958000793836,1.6,1,1.562958000793836,1,NA,archive,"Reproduced at the precision the page prints: 1.6. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
 green_etal_2016,text_r2_direct_m1,"Section 5.2, p. 147",pipeline,NA,0.9,NA,0.850373305360865,1,NA,NA,Reproduced at the precision the page prints: 0.9. The deposited scripts print no counterpart to this value.
 green_etal_2016,text_r2_direct_m2,"Section 5.2, p. 147",pipeline,1.427780096635274,1.4,1,1.427780096635267,1,NA,NA,Reproduced at the precision the page prints: 1.4.
 green_etal_2016,text_r2_ri_p,"Section 5.2, p. 147",pipeline,0.7935,0.90,0,0.8974,1,NA,environment,The deposited scripts print 0.79 where the article prints 0.90; the rewrite reproduces the article.
@@ -170,7 +170,7 @@ green_etal_2016,text_r4_spillover_m2,"Section 5.4, p. 148",pipeline,2.0261546017
 green_etal_2016,text_turnout_no_effect,"Section 5.5, p. 148",descriptive,NA,1,NA,1,NA,1,NA,The claim holds against the pipeline's own estimates. The deposited scripts print no counterpart to this value.
 green_etal_2016,text_turnout_pooled_direct,"Section 5.5, p. 148",pipeline,7.213052072217754,7.2,1,7.213052072217775,1,NA,NA,Reproduced at the precision the page prints: 7.2.
 green_etal_2016,text_turnout_pooled_direct_se,"Section 5.5, p. 148",pipeline,9.456325866693051,9.5,1,9.45632586669299,1,NA,NA,Reproduced at the precision the page prints: 9.5.
-green_etal_2016,text_agnostic_pr,"Section 6, p. 148",pipeline,98.75020871654463,98.8,1,98.75020871654463,1,NA,NA,Reproduced at the precision the page prints: 98.8.
+green_etal_2016,text_agnostic_pr,"Section 6, p. 148",pipeline,98.75020871654463,98.8,1,98.75020871654463,1,NA,archive,"Reproduced at the precision the page prints: 98.8. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
 green_etal_2016,text_optimist_pr,"Section 6, p. 148",pipeline,0.9914841415308532,0.991,1,0.9914841415308532,1,NA,NA,Reproduced at the precision the page prints: 0.991.
 green_etal_2016,text_pooled_direct,"Section 6, p. 148",pipeline,1.6546534722739692,1.7,1,1.654653472273972,1,NA,NA,Reproduced at the precision the page prints: 1.7.
 green_etal_2016,text_pooled_direct_se,"Section 6, p. 148",pipeline,0.7304475451535196,0.7,1,0.730447545153521,1,NA,NA,Reproduced at the precision the page prints: 0.7.
@@ -198,20 +198,20 @@ green_etal_2016,t2_e4_total,Table 2,pipeline,88,88,1,88,1,NA,NA,Reproduced at th
 green_etal_2016,t2_e4_treated,Table 2,pipeline,20,20,1,20,1,NA,NA,Reproduced at the precision the page prints: 20.
 green_etal_2016,t3_label_n_adjacent,Table 3,pipeline,49,49,1,49,1,NA,NA,Reproduced at the precision the page prints: 49.
 green_etal_2016,t3_label_n_treated,Table 3,pipeline,23,23,1,23,1,NA,NA,Reproduced at the precision the page prints: 23.
-green_etal_2016,t3_m1_adjacent_coef,Table 3,pipeline,0.037,0.037,1,0.0365245556057411,1,NA,NA,Reproduced at the precision the page prints: 0.037.
-green_etal_2016,t3_m1_adjacent_se,Table 3,pipeline,0.027,0.027,1,0.02734849649876633,1,NA,NA,Reproduced at the precision the page prints: 0.027.
+green_etal_2016,t3_m1_adjacent_coef,Table 3,pipeline,0.037,0.037,1,0.0365245556057411,1,NA,archive,"Reproduced at the precision the page prints: 0.037. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
+green_etal_2016,t3_m1_adjacent_se,Table 3,pipeline,0.027,0.027,1,0.02734849649876633,1,NA,archive,"Reproduced at the precision the page prints: 0.027. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
 green_etal_2016,t3_m1_constant_coef,Table 3,pipeline,0.39,0.390,1,0.3899745634777836,1,NA,NA,Reproduced at the precision the page prints: 0.390.
 green_etal_2016,t3_m1_constant_se,Table 3,pipeline,0.02,0.020,1,0.02046619180705452,1,NA,NA,Reproduced at the precision the page prints: 0.020.
 green_etal_2016,t3_m1_n,Table 3,pipeline,88,88,1,88,1,NA,NA,Reproduced at the precision the page prints: 88.
-green_etal_2016,t3_m1_r2,Table 3,pipeline,0.031,0.031,1,0.0314509025405566,1,NA,NA,Reproduced at the precision the page prints: 0.031.
+green_etal_2016,t3_m1_r2,Table 3,pipeline,0.031,0.031,1,0.0314509025405566,1,NA,archive,"Reproduced at the precision the page prints: 0.031. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
 green_etal_2016,t3_m1_treated_coef,Table 3,pipeline,0.025,0.025,1,0.02518492311505604,1,NA,NA,Reproduced at the precision the page prints: 0.025.
 green_etal_2016,t3_m1_treated_se,Table 3,pipeline,0.027,0.027,1,0.02719534979408335,1,NA,NA,Reproduced at the precision the page prints: 0.027.
-green_etal_2016,t3_m2_adjacent_coef,Table 3,pipeline,0.018,0.018,1,0.01769246580089867,1,NA,NA,Reproduced at the precision the page prints: 0.018.
-green_etal_2016,t3_m2_adjacent_se,Table 3,pipeline,0.016,0.016,1,0.01562958000793836,1,NA,NA,Reproduced at the precision the page prints: 0.016.
-green_etal_2016,t3_m2_constant_coef,Table 3,pipeline,0.015,0.015,1,0.01477117297270891,1,NA,NA,Reproduced at the precision the page prints: 0.015.
-green_etal_2016,t3_m2_constant_se,Table 3,pipeline,0.031,0.031,1,0.0310476575825607,1,NA,NA,Reproduced at the precision the page prints: 0.031.
+green_etal_2016,t3_m2_adjacent_coef,Table 3,pipeline,0.018,0.018,1,0.01769246580089867,1,NA,archive,"Reproduced at the precision the page prints: 0.018. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
+green_etal_2016,t3_m2_adjacent_se,Table 3,pipeline,0.016,0.016,1,0.01562958000793836,1,NA,archive,"Reproduced at the precision the page prints: 0.016. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
+green_etal_2016,t3_m2_constant_coef,Table 3,pipeline,0.015,0.015,1,0.01477117297270891,1,NA,archive,"Reproduced at the precision the page prints: 0.015. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
+green_etal_2016,t3_m2_constant_se,Table 3,pipeline,0.031,0.031,1,0.0310476575825607,1,NA,archive,"Reproduced at the precision the page prints: 0.031. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
 green_etal_2016,t3_m2_n,Table 3,pipeline,88,88,1,88,1,NA,NA,Reproduced at the precision the page prints: 88.
-green_etal_2016,t3_m2_r2,Table 3,pipeline,0.823,0.823,1,0.8225002408919926,1,NA,NA,Reproduced at the precision the page prints: 0.823.
+green_etal_2016,t3_m2_r2,Table 3,pipeline,0.823,0.823,1,0.8225002408919926,1,NA,archive,"Reproduced at the precision the page prints: 0.823. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
 green_etal_2016,t3_m2_treated_coef,Table 3,pipeline,0.025,0.025,1,0.0246700898107479,1,NA,NA,Reproduced at the precision the page prints: 0.025.
 green_etal_2016,t3_m2_treated_se,Table 3,pipeline,0.017,0.017,1,0.01704380468835777,1,NA,NA,Reproduced at the precision the page prints: 0.017.
 green_etal_2016,t4_label_n_adjacent,Table 4,pipeline,41,41,1,41,1,NA,NA,Reproduced at the precision the page prints: 41.
@@ -278,8 +278,8 @@ green_etal_2016,t7_direct_e4_coef,Table 7,pipeline,-0.01221550971071681,-0.012,1
 green_etal_2016,t7_direct_e4_se,Table 7,pipeline,0.02579909476981603,0.026,1,0.02579909476981607,1,NA,NA,Reproduced at the precision the page prints: 0.026.
 green_etal_2016,t7_direct_pooled_coef,Table 7,pipeline,0.01654653472273969,0.017,1,0.01654653472273972,1,NA,NA,Reproduced at the precision the page prints: 0.017.
 green_etal_2016,t7_direct_pooled_se,Table 7,pipeline,0.00730447545153519,0.007,1,0.00730447545153521,1,NA,NA,Reproduced at the precision the page prints: 0.007.
-green_etal_2016,t7_indirect_e1_coef,Table 7,pipeline,0.01769246580089861,0.018,1,0.01769246580089867,1,NA,NA,Reproduced at the precision the page prints: 0.018.
-green_etal_2016,t7_indirect_e1_se,Table 7,pipeline,0.01562958000793836,0.016,1,0.01562958000793836,1,NA,NA,Reproduced at the precision the page prints: 0.016.
+green_etal_2016,t7_indirect_e1_coef,Table 7,pipeline,0.01769246580089861,0.018,1,0.01769246580089867,1,NA,archive,"Reproduced at the precision the page prints: 0.018. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
+green_etal_2016,t7_indirect_e1_se,Table 7,pipeline,0.01562958000793836,0.016,1,0.01562958000793836,1,NA,archive,"Reproduced at the precision the page prints: 0.016. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
 green_etal_2016,t7_indirect_e2_coef,Table 7,pipeline,0.00428044547072839,0.004,1,0.00428044547072832,1,NA,NA,Reproduced at the precision the page prints: 0.004.
 green_etal_2016,t7_indirect_e2_se,Table 7,pipeline,0.04539497443010631,0.045,1,0.0453949744301064,1,NA,NA,Reproduced at the precision the page prints: 0.045.
 green_etal_2016,t7_indirect_e3_coef,Table 7,pipeline,0.01846616801081876,0.018,1,0.0184661680108188,1,NA,NA,Reproduced at the precision the page prints: 0.018.
@@ -424,20 +424,20 @@ green_etal_2016,c4_turnout_m2_n,Table C.4,pipeline,88,88,1,88,1,NA,NA,Reproduced
 green_etal_2016,c4_turnout_m2_r2,Table C.4,pipeline,0.877,0.877,1,0.8774663861992491,1,NA,NA,Reproduced at the precision the page prints: 0.877.
 green_etal_2016,c4_turnout_m2_treated_coef,Table C.4,pipeline,7.223,7.223,1,7.222524128585461,1,NA,NA,Reproduced at the precision the page prints: 7.223.
 green_etal_2016,c4_turnout_m2_treated_se,Table C.4,pipeline,28.411,28.411,1,28.41065858795935,1,NA,NA,Reproduced at the precision the page prints: 28.411.
-green_etal_2016,d5_e1_adjacent_coef,Table D.5,pipeline,0.021,0.021,1,0.02093443387047306,1,NA,NA,Reproduced at the precision the page prints: 0.021.
-green_etal_2016,d5_e1_adjacent_se,Table D.5,pipeline,0.014,0.014,1,0.01447588000032099,1,NA,NA,Reproduced at the precision the page prints: 0.014.
-green_etal_2016,d5_e1_adjacent_x_coef,Table D.5,pipeline,0.011,0.011,1,0.01104407794967571,1,NA,NA,Reproduced at the precision the page prints: 0.011.
-green_etal_2016,d5_e1_adjacent_x_se,Table D.5,pipeline,0.025,0.025,1,0.02531859631858506,1,NA,NA,Reproduced at the precision the page prints: 0.025.
-green_etal_2016,d5_e1_constant_coef,Table D.5,pipeline,0.159,0.159,1,0.15926356166093938,1,NA,NA,Reproduced at the precision the page prints: 0.159.
-green_etal_2016,d5_e1_constant_se,Table D.5,pipeline,0.11,0.110,1,0.10999761669576771,1,NA,NA,Reproduced at the precision the page prints: 0.110.
+green_etal_2016,d5_e1_adjacent_coef,Table D.5,pipeline,0.021,0.021,1,0.02093443387047306,1,NA,archive,"Reproduced at the precision the page prints: 0.021. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
+green_etal_2016,d5_e1_adjacent_se,Table D.5,pipeline,0.014,0.014,1,0.01447588000032099,1,NA,archive,"Reproduced at the precision the page prints: 0.014. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
+green_etal_2016,d5_e1_adjacent_x_coef,Table D.5,pipeline,0.011,0.011,1,0.01104407794967571,1,NA,archive,"Reproduced at the precision the page prints: 0.011. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
+green_etal_2016,d5_e1_adjacent_x_se,Table D.5,pipeline,0.025,0.025,1,0.02531859631858506,1,NA,archive,"Reproduced at the precision the page prints: 0.025. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
+green_etal_2016,d5_e1_constant_coef,Table D.5,pipeline,0.159,0.159,1,0.15926356166093938,1,NA,archive,"Reproduced at the precision the page prints: 0.159. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
+green_etal_2016,d5_e1_constant_se,Table D.5,pipeline,0.11,0.110,1,0.10999761669576771,1,NA,archive,"Reproduced at the precision the page prints: 0.110. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
 green_etal_2016,d5_e1_n,Table D.5,pipeline,88,88,1,88,1,NA,NA,Reproduced at the precision the page prints: 88.
-green_etal_2016,d5_e1_r2,Table D.5,pipeline,0.829,0.829,1,0.8288599474563577,1,NA,NA,Reproduced at the precision the page prints: 0.829.
-green_etal_2016,d5_e1_support_coef,Table D.5,pipeline,0.027,0.027,1,0.026635163033526858,1,NA,NA,Reproduced at the precision the page prints: 0.027.
-green_etal_2016,d5_e1_support_se,Table D.5,pipeline,0.042,0.042,1,0.04158661626206086,1,NA,NA,Reproduced at the precision the page prints: 0.042.
-green_etal_2016,d5_e1_treated_coef,Table D.5,pipeline,0.031,0.031,1,0.03133230036097606,1,NA,NA,Reproduced at the precision the page prints: 0.031.
+green_etal_2016,d5_e1_r2,Table D.5,pipeline,0.829,0.829,1,0.8288599474563577,1,NA,archive,"Reproduced at the precision the page prints: 0.829. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
+green_etal_2016,d5_e1_support_coef,Table D.5,pipeline,0.027,0.027,1,0.026635163033526858,1,NA,archive,"Reproduced at the precision the page prints: 0.027. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
+green_etal_2016,d5_e1_support_se,Table D.5,pipeline,0.042,0.042,1,0.04158661626206086,1,NA,archive,"Reproduced at the precision the page prints: 0.042. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
+green_etal_2016,d5_e1_treated_coef,Table D.5,pipeline,0.031,0.031,1,0.03133230036097606,1,NA,archive,"Reproduced at the precision the page prints: 0.031. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
 green_etal_2016,d5_e1_treated_se,Table D.5,pipeline,0.017,0.017,1,0.01706773337084086,1,NA,NA,Reproduced at the precision the page prints: 0.017.
-green_etal_2016,d5_e1_treated_x_coef,Table D.5,pipeline,0.031,0.031,1,0.03102326496277174,1,NA,NA,Reproduced at the precision the page prints: 0.031.
-green_etal_2016,d5_e1_treated_x_se,Table D.5,pipeline,0.03,0.030,1,0.02966687454381351,1,NA,NA,Reproduced at the precision the page prints: 0.030.
+green_etal_2016,d5_e1_treated_x_coef,Table D.5,pipeline,0.031,0.031,1,0.03102326496277174,1,NA,archive,"Reproduced at the precision the page prints: 0.031. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
+green_etal_2016,d5_e1_treated_x_se,Table D.5,pipeline,0.03,0.030,1,0.02966687454381351,1,NA,archive,"Reproduced at the precision the page prints: 0.030. The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv."
 green_etal_2016,d5_e2_adjacent_coef,Table D.5,pipeline,0.011,0.011,1,0.0106083651730772,1,NA,NA,Reproduced at the precision the page prints: 0.011.
 green_etal_2016,d5_e2_adjacent_se,Table D.5,pipeline,0.046,0.046,1,0.0460812684704981,1,NA,NA,Reproduced at the precision the page prints: 0.046.
 green_etal_2016,d5_e2_adjacent_x_coef,Table D.5,pipeline,0.053,0.053,1,0.05302708281461525,1,NA,NA,Reproduced at the precision the page prints: 0.053.

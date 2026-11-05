@@ -43,6 +43,11 @@ source(here::here("maintained", "text_footnote_3_cost_per_vote.R"))
 # two minutes in total.
 source(here::here("maintained", "ri_all_experiments.R"))
 
+# Experiment 1 merged-share correction ----
+# Errata entry 1: everything downstream of Experiment 1's vote shares, with the merged
+# precincts' shares taken from their summed vote counts. Published objects are untouched.
+source(here::here("maintained", "text_exp1_merged_shares.R"))
+
 # Figure timestamps ----
 # R's pdf() device stamps a wall-clock /CreationDate and /ModDate into every figure it
 # writes, and those two fields are the only reason two runs of this pipeline produce

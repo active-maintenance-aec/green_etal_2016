@@ -56,10 +56,12 @@ states it. `ground_truth/` ties every published number to the code that
 produces it: `published_claims.csv` is the extraction of every number
 the article and appendix print, `archive_values.csv` is what the
 deposited scripts themselves print, `build_ground_truth.R` assembles the
-comparison, and `claims_gate.R` enforces the coverage. `original/` is
-created by the download script and is deliberately absent from the
-repository. This file is the reproducibility report, also available as a
-PDF in `report/`.
+comparison, and `claims_gate.R` enforces the coverage. `errata.qmd`
+corrects the published article and appendix, rendering to
+`green_etal_2016_errata.pdf` at the root and writing its entries to
+`errata_entries.csv`. `original/` is created by the download script and
+is deliberately absent from the repository. This file is the
+reproducibility report, also available as a PDF in `report/`.
 
 **License.** CC0 1.0 Universal, matching the terms of the deposit this
 repository maintains. See `LICENSE`.
@@ -122,8 +124,15 @@ facts the deposit does not record, such as how many signs were planted
 and how far in advance, and are verified against the article’s own
 methods section rather than against code.
 
-Nothing in the article contradicts its own tables, its own data or its
-own code, so this repository carries no errata document.
+That agreement is between the page and the deposit, and it does not make
+the deposit right. The deposited Experiment 1 script sums vote shares
+across merged precincts and the printed numbers carry the result, so 38
+of the matches above are matches to an error, and each carries
+`defect_locus = archive`. Reading the article and its appendix word by
+word found further errors of description and wording.
+`green_etal_2016_errata.pdf`, at the root of this repository, lists 23
+corrections and one unresolved citation, set out under Errata below.
+None changes the paper’s conclusions.
 
 The rewrite reaches Experiment 2 through the pre-saved `exp_2.RData`
 object rather than through the seed, which is what makes it immune to
@@ -374,7 +383,10 @@ cleaning steps, the six published tables, the appendix margin and
 turnout tables, appendix Table D.5, Figure 2, footnote 3’s cost
 calculation, the randomization inference, and the in-text claims. It is
 a translation, not a reanalysis: every estimator, specification and
-sample restriction is the one the paper used.
+sample restriction is the one the paper used. An eighteenth script,
+`text_exp1_merged_shares.R`, is the exception by design: it recomputes
+everything downstream of Experiment 1’s vote shares for errata entry 1,
+and leaves the published objects alone.
 
 ## Architecture
 
@@ -610,37 +622,56 @@ sit inside those ranges.
 
 # Errata
 
-None. The extraction covers all 481 numbers the article and its appendix
-print, and no row carries `defect_locus = paper_internal`: nothing in
-the article contradicts its own tables, its own data, or the code the
-authors deposited. The 43 values a deposited script no longer reproduces
-are a property of R rather than of the paper, and the paper’s numbers
-are the correct ones.
+`errata.qmd` renders to `green_etal_2016_errata.pdf` at the root of this
+repository and writes its entries to `errata_entries.csv`. The note
+lists 23 corrections and one unresolved citation, and none changes the
+paper’s conclusions.
 
-Two things about the published record are worth recording without rising
-to errata. Table 5 prints its second goodness-of-fit row without the
-`R2` label its three sibling tables carry, so the values 0.094 and 0.825
-sit under a blank stub. And the appendix numbers its tables C.1 through
-C.4 and then D.5, so there is no Table D.1 through D.4. Neither
-misstates a quantity.
+Entry 1 is the only one that moves an estimate. Line 68 of
+`Experiment_1_Analysis.R` sums the share columns across the precincts
+merged for assignment after the shares are computed, so the four merged
+units, all in the adjacent arm, carry the sum of two shares. With each
+merged unit’s shares taken from its summed vote counts, Table 3’s
+spillover estimate goes from 0.037 to 0.007 in Model 1 and from 0.018 to
+0.019 in Model 2, so covariate adjustment raises the estimate where the
+article says it falls. Table 7’s pooled estimates hold at the precision
+it prints. `maintained/text_exp1_merged_shares.R` writes the corrected
+values to `maintained/output/text_exp1_merged_shares.csv` and leaves the
+published objects alone, so the rewrite still reproduces the page. The
+entry’s 38 ground-truth rows therefore keep their matching verdicts and
+carry `defect_locus = archive`: the page reports the deposit faithfully,
+and the deposit’s code is wrong.
+
+Entries 2 and 24 are mirror errors of description: the notes to Tables 3
+to 6 call past vote shares margins, and the notes to Tables C.1 to C.4
+call past vote margins shares. No estimate changes. Table 5’s missing
+`R2` label and the appendix’s jump from Table C.4 to Table D.5, which
+this report formerly recorded as falling short of errata, are entries 5
+and 22. The remaining entries correct wording, spelling, and references.
+
+The extraction covers all 481 numbers the article and its appendix
+print, and no row carries `defect_locus = paper_internal`: none of those
+numbers contradicts the article’s own tables. The 43 values a deposited
+script no longer reproduces are a property of R rather than of the
+paper, and the paper’s numbers are the correct ones.
 
 # R environment
 
 | Item      | Value                  |
 |:----------|:-----------------------|
-| R version | 4.6.0                  |
+| R version | 4.6.1                  |
 | Platform  | aarch64-apple-darwin23 |
-| Date run  | 2026-09-27             |
+| Date run  | 2026-11-05             |
 
-| Package   | Version |
-|:----------|:--------|
-| estimatr  | 2.0.1   |
-| metafor   | 5.0.1   |
-| dplyr     | 1.2.1   |
-| ggplot2   | 4.0.3   |
-| tidyr     | 1.3.2   |
-| purrr     | 1.2.2   |
-| here      | 1.0.2   |
-| gridExtra | 2.3     |
+| Package   | Version    |
+|:----------|:-----------|
+| estimatr  | 2.0.1.9000 |
+| metafor   | 5.0.1      |
+| dplyr     | 1.2.1      |
+| ggplot2   | 4.0.3      |
+| tidyr     | 1.3.2      |
+| purrr     | 1.2.2      |
+| here      | 1.0.2      |
+| gridExtra | 2.3        |
 
 Package versions used for the run behind this report.
