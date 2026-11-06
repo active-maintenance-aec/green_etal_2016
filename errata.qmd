@@ -153,11 +153,13 @@ fit_evidence <- function(tables) {
 # value comes from the same expression that glues the sentence, so the two cannot be written
 # apart, and the gate below re-checks that each one is still inside the span it belongs to.
 # An entry of a class that changes no quantity, and a note, carries NA.
-# Entry 1 is unresolved: it names 38 ids, but its corrected sentence carries numbers for only
-# seven of them (the spillover estimates, the RI p-value, Pr(ATE > 0), and the pooled
-# interaction), the rest being table and figure cells listed in the note, so it carries NA
-# until each id is tied to its cell and listed in values_unresolved.
-values_unresolved <- c(1)
+# Entry 1 names 38 ids, and its corrected sentence carries numbers for the first seven (the
+# spillover estimates, the RI p-value, Pr(ATE > 0), and the pooled interaction). Those seven
+# store their values, and the other 31, table and figure cells listed in the note, store NA
+# positions (Alex, 2026-11-05, review queue rows 6 and 7). Only entry 1 may hold one.
+entry_1_values <- c(percent_points(c(spillover_m1, spillover_m1_se, spillover_m2, spillover_m2_se)),
+                    sprintf("%.2f", ri_p), percent_points(agnostic_pr), fmt(indirect_interaction),
+                    rep("NA", length(entry_1_claims) - 7))
 entries <- tribble(
   ~entry, ~class, ~source, ~form, ~title, ~location, ~published, ~corrected, ~note, ~claim_ids, ~corrected_values,
 
@@ -168,7 +170,7 @@ entries <- tribble(
   str_glue("the estimated spillover effect is [[{percent_points(spillover_m1)}]] percentage points (robust SE = [[{percent_points(spillover_m1_se)}]]). ... The estimated spillover effect [[increases]] to [[{percent_points(spillover_m2)}]] percentage points, and its standard error falls to [[{percent_points(spillover_m2_se)}]] percentage points. Using randomization inference, we fail to reject the joint null hypothesis of no direct or indirect effects (p = [[{sprintf('%.2f', ri_p)}]]). ... there is a [[{percent_points(agnostic_pr)}]] percent chance that lawn signs increase the vote share of the advertising candidate. ... The estimated average interaction effect for the indirect treatment is [[{fmt(indirect_interaction)}]], with a standard error of 0.007."),
   str_c("The Experiment 1 analysis computes each precinct's vote shares and then sums its columns across the precincts merged for assignment, so the four merged units carry the sum of two shares: their outcomes are 0.658, 0.802, 0.894, and 0.739 where the shares of their summed votes are 0.328, 0.398, 0.433, and 0.367, and their covariates reach 1.171. All four units are in the adjacent group, which is why the unadjusted spillover estimate is the number that moves most. The corrected values take the merged units' shares from their summed vote counts, by the deposited script's own definitions, which return the deposited value for every other unit. The direct effect in Table 3 stays at 0.025 in both models, the pooled estimates in Table 7 stay at 0.017 and 0.015 with standard errors of 0.007 and 0.006, and the paper's conclusions stand. The vote margin and turnout results use counts and are unaffected. The printed tables report the deposited objects faithfully, so the error is in the analysis rather than in their transcription. Every printed cell that moves follows. ", changed_list),
   str_c(entry_1_claims, collapse = ";"),
-  NA_character_,
+  str_c(entry_1_values, collapse = ";"),
 
   2, "description", "reading", "full",
   "The covariates described as vote margins are vote shares",
@@ -389,7 +391,7 @@ stopifnot(nrow(entries) == max(entries$entry), !anyDuplicated(entries$entry),
 # value. Each value has to be inside the span it belongs to, matched by position where the
 # counts line up, and inside SOME span where an entry marks a label as well as a number and
 # its spans outnumber its values. The spelled form is tolerated ("four" for 4), and so is a
-# thousands separator.
+# thousands separator. An NA position has no span to be inside.
 marked_spans <- function(x) str_match_all(x, "\\[\\[(.*?)\\]\\]")[[1]][, 2]
 gate_words <- c("zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten")
 in_span <- function(v, s) {
@@ -407,10 +409,11 @@ stopifnot(all(lengths(quantified$ids) == lengths(quantified$values)))
 
 value_placed <- pmap_lgl(quantified, function(...) {
   e <- list(...)
-  if (length(e$values) == length(e$spans)) {
-    all(map2_lgl(e$values, e$spans, in_span))
+  values <- e$values[e$values != "NA"]
+  if (length(values) == length(e$spans)) {
+    all(map2_lgl(values, e$spans, in_span))
   } else {
-    all(map_lgl(e$values, \(v) any(map_lgl(e$spans, \(s) in_span(v, s)))))
+    all(map_lgl(values, \(v) any(map_lgl(e$spans, \(s) in_span(v, s)))))
   }
 })
 
@@ -424,8 +427,8 @@ if (!all(value_placed)) {
 # Empty claim_ids is stored as "" and counts as missing.
 no_claim <- is.na(entries$claim_ids) | entries$claim_ids == ""
 stopifnot(
-  all(!is.na(entries$corrected_values[entries$class == "quantity" & entries$form != "note" & !no_claim &
-                                        !entries$entry %in% values_unresolved])),
+  all(!is.na(entries$corrected_values[entries$class == "quantity" & entries$form != "note" & !no_claim])),
+  !any(str_detect(entries$corrected_values[entries$entry != 1], "(^|;)NA(;|$)"), na.rm = TRUE),
   all(is.na(entries$corrected_values[entries$class != "quantity" | entries$form == "note"])),
   all(is.na(entries$corrected_values) | !no_claim)
 )
