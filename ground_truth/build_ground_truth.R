@@ -374,7 +374,8 @@ gt <- gt |>
 # it is the key maintained/in_text_claims.R prints and the gate matches on. A separate
 # prose restatement of it would be a second description free to drift from the first.
 gt_out <- gt |>
-  transmute(paper_id, claim_id, table_figure = location, claim_type,
+  transmute(paper_id, claim_id, table_figure = location,
+            claim = str_c(location, ": ", claim_id), claim_type,
             value_script, value_paper, match, value_rewrite, match_rewrite, holds,
             defect_locus, notes) |>
   arrange(table_figure, claim_id, .locale = "en")
