@@ -642,12 +642,12 @@ entry’s 38 ground-truth rows therefore keep their matching verdicts and
 carry `defect_locus = archive`: the page reports the deposit faithfully,
 and the deposit’s code is wrong.
 
-Entries 2 and 24 are mirror errors of description: the notes to Tables 3
+Entries 2 and 5 are mirror errors of description: the notes to Tables 3
 to 6 call past vote shares margins, and the notes to Tables C.1 to C.4
 call past vote margins shares. No estimate changes. Table 5’s missing
 `R2` label and the appendix’s jump from Table C.4 to Table D.5, which
-this report formerly recorded as falling short of errata, are entries 5
-and 22. The remaining entries correct wording, spelling, and references.
+this report formerly recorded as falling short of errata, are entries 6
+and 8. The remaining entries correct wording, spelling, and references.
 
 The extraction covers all 481 numbers the article and its appendix
 print, and no row carries `defect_locus = paper_internal`: none of those
@@ -661,7 +661,7 @@ paper, and the paper’s numbers are the correct ones.
 |:----------|:-----------------------|
 | R version | 4.6.1                  |
 | Platform  | aarch64-apple-darwin23 |
-| Date run  | 2026-11-05             |
+| Date run  | 2026-11-07             |
 
 | Package   | Version    |
 |:----------|:-----------|
