@@ -22,6 +22,8 @@
 - [Errata](#errata)
 - [R environment](#r-environment)
 
+**Archived at Zenodo:** [doi:10.5281/zenodo.24168393](https://doi.org/10.5281/zenodo.24168393). This DOI always resolves to the latest release of the maintained version.
+
 *Drafted by Claude Opus 5 under the supervision of Alex Coppock.*
 
 This repository holds the actively maintained replication code for
