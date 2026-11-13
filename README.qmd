@@ -41,8 +41,8 @@ gt <- read_csv(
   here::here("ground_truth", "green_etal_2016_ground_truth.csv"),
   col_types = cols(.default = col_character(), value_paper = col_character(),
                    value_script = col_double(), value_rewrite = col_double(),
-                   match = col_double(), match_rewrite = col_double(),
-                   holds = col_double())
+                   match = col_logical(), match_rewrite = col_logical(),
+                   holds = col_logical())
 )
 
 claims <- read_csv(
@@ -69,7 +69,7 @@ This repository holds the actively maintained replication code for Green, Krasno
 
 **The data are not redistributed here.** The deposit is 12 MB across 33 files and lives at Harvard Dataverse, which is the only copy this repository points at. `download_original.R` fetches it and verifies every file; `original_manifest.csv` pins the file identifiers, sizes and checksums, so the exact bytes this code was written against are recorded in version control even though the bytes themselves are not.
 
-**Repository layout.** `maintained/` is the maintained rewrite: one script per published table or figure, writing to `output/`, which is committed so a reader can compare a fresh run against it without downloading anything. It also holds `in_text_claims.R`, which recomputes every quantity the article states and prints it beside the sentence that states it. `ground_truth/` ties every published number to the code that produces it: `published_claims.csv` is the extraction of every number the article and appendix print, `archive_values.csv` is what the deposited scripts themselves print, `build_ground_truth.R` assembles the comparison, and `claims_gate.R` enforces the coverage. `errata.qmd` corrects the published article and appendix, rendering to `green_etal_2016_errata.pdf` at the root and writing its entries to `errata_entries.csv`. `original/` is created by the download script and is deliberately absent from the repository. This file is the reproducibility report, also available as a PDF in `report/`.
+**Repository layout.** `maintained/` is the maintained rewrite: one script per published table or figure, writing to `output/`, which is committed so a reader can compare a fresh run against it without downloading anything. It also holds `in_text_claims.R`, which recomputes every quantity the article states and prints it beside the sentence that states it. `ground_truth/` ties every published number to the code that produces it: `published_claims.csv` is the extraction of every number the article and appendix print, `archive_values.csv` is what the deposited scripts themselves print, `build_ground_truth.R` assembles the comparison and writes `float_coverage.csv`, and `claims_gate.R` enforces the coverage. `run_archive.R` runs the deposited scripts in a scratch copy, as shipped and stripped of the intermediates the deposit ships, and writes `archive_run_status.csv` and `archive_overwrites.csv`. `errata.qmd` corrects the published article and appendix, rendering to `green_etal_2016_errata.pdf` at the root and writing its entries to `errata_entries.csv`. `original/` is created by the download script and is deliberately absent from the repository. This file is the reproducibility report, also available as a PDF in `report/`.
 
 **License.** CC0 1.0 Universal, matching the terms of the deposit this repository maintains. See `LICENSE`.
 
@@ -96,7 +96,7 @@ n_holds <- sum(!is.na(gt$holds))
 n_holds_true <- sum(gt$holds == 1, na.rm = TRUE)
 n_blocks <- sum(claims$needs_block)
 n_floats <- length(float_order)
-n_float_rows <- sum(gt$table_figure %in% float_order)
+n_float_rows <- sum(gt$location %in% float_order)
 
 # The errata are defined once, in errata.qmd, which writes errata_entries.csv when it renders.
 spine <- read_csv(here("errata_entries.csv"), show_col_types = FALSE)
@@ -257,16 +257,16 @@ The article and its appendix print `r n_claims` numbers. `r n_rewrite_verifiable
 
 ```{r coverage_table}
 gt |>
-  filter(table_figure %in% float_order) |>
+  filter(location %in% float_order) |>
   summarize(
     cells = n(),
     archive = sum(!is.na(match)),
     archive_match = sum(match == 1, na.rm = TRUE),
     rewrite = sum(!is.na(match_rewrite)),
     rewrite_match = sum(match_rewrite == 1, na.rm = TRUE),
-    .by = table_figure
+    .by = location
   ) |>
-  arrange(match(table_figure, float_order)) |>
+  arrange(match(location, float_order)) |>
   kable(
     booktabs = TRUE,
     col.names = c("Float", "Published cells", "Archive comparable", "Archive matching",
@@ -288,7 +288,7 @@ gt |>
     archive = sprintf(paste0("%.", digits, "f"), value_script),
     rewrite = sprintf(paste0("%.", digits, "f"), value_rewrite)
   ) |>
-  select(table_figure, claim_id, value_paper, archive, rewrite, defect_locus) |>
+  select(location, claim_id, value_paper, archive, rewrite, defect_locus) |>
   kable(
     booktabs = TRUE,
     col.names = c("Location", "Claim", "Paper", "Archive", "Rewrite", "Locus"),
@@ -399,7 +399,7 @@ panel <- c(prior = "Prior", u1 = "Update 1", u2 = "Update 2", u3 = "Update 3",
 statistic <- c(mean = "mean", sd = "sd", pr = "pr(ATE > 0)")
 
 gt |>
-  filter(table_figure == "Figure 2") |>
+  filter(location == "Figure 2") |>
   mutate(
     parts = str_split(claim_id, "_"),
     observer = observer[map_chr(parts, 2)],
@@ -409,6 +409,7 @@ gt |>
   ) |>
   arrange(match(observer, !!observer), match(panel, !!panel), quantity, .locale = "en") |>
   select(observer, panel, quantity, value_paper, value_rewrite, match_rewrite) |>
+  mutate(match_rewrite = as.integer(match_rewrite)) |>
   kable(
     booktabs = TRUE,
     col.names = c("Observer", "Panel", "Quantity", "Paper", "Rewrite", "Match"),
@@ -433,11 +434,11 @@ knitr::include_graphics(
 
 # Maintained rewrite verification
 
-Every published value with a counterpart in the pipeline carries `match_rewrite = 1`: **`r n_rewrite_match`** of `r n_rewrite_verifiable`, with `r n_rewrite_fail` differing. The prose is where the coverage was thinnest and is now complete, so it is worth setting out separately.
+Every published value with a counterpart in the pipeline carries `match_rewrite = TRUE`: **`r n_rewrite_match`** of `r n_rewrite_verifiable`, with `r n_rewrite_fail` differing. The prose is where the coverage was thinnest and is now complete, so it is worth setting out separately.
 
 ```{r prose_verify}
 gt |>
-  filter(!table_figure %in% float_order, !is.na(value_rewrite)) |>
+  filter(!location %in% float_order, !is.na(value_rewrite)) |>
   mutate(
     digits = as.integer(claims$digits[match(claim_id, claims$claim_id)]),
     rewrite = sprintf(paste0("%.", digits, "f"), value_rewrite),
@@ -447,7 +448,7 @@ gt |>
                         !is.na(holds) & holds == 0 ~ "does not hold",
                         .default = "")
   ) |>
-  select(table_figure, claim_id, value_paper, rewrite, verdict) |>
+  select(location, claim_id, value_paper, rewrite, verdict) |>
   kable(
     booktabs = TRUE,
     col.names = c("Location", "Claim", "Paper", "Rewrite", "Verdict"),

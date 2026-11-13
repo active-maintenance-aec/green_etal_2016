@@ -1,34 +1,45 @@
 # green_etal_2016/maintained/in_text_claims.R
-# Output: printed CLAIM lines, one per published quantity
-# Depends on: maintained/output/ (run run_all.R first), ground_truth/published_claims.csv
+# Output: printed CLAIM lines, one per published quantity, and a CLAIM SUMMARY line
+# Depends on: maintained/output/ (run run_all.R first), ground_truth/published_claims.csv,
+#   errata_entries.csv, excheckr
 # Description: The second instrument. Every quantity the article or its online appendix
 #   prints is recomputed here from the pipeline's own output files, by a path that does
 #   not run through the ground truth, and printed as
-#   CLAIM <claim_id> = <value> || <label>. ground_truth/claims_gate.R runs this file,
-#   counts the printed claims against the extraction, and compares each value against
-#   the ground truth's value_rewrite. Nothing here refits a model or reads the article.
+#   CLAIM <claim_id> = <value> || [verdict] <label>. ground_truth/claims_gate.R runs this
+#   file, counts the printed claims against the extraction, and compares each value
+#   against the ground truth's value_rewrite. Nothing here refits a model or reads the
+#   article.
+#
+#   The scoring comes from excheckr. claim() prints each value at the precision the page
+#   prints, which is the extraction's digits, and scores it against the extraction's
+#   value_paper: [match] where the two agree, [range] where the call site declares the
+#   value one draw of an unseeded procedure, and MISMATCH otherwise. assert_claims() stops
+#   the run on any failing verdict or on any difference between the claims printed and
+#   the claims the extraction says need a block.
 
 source(here::here("maintained", "helpers.R"))
+library(excheckr)
 
 options(width = 200)
 
 out <- function(f) read_csv(here::here("maintained", "output", f), show_col_types = FALSE)
 
-# published_claims.csv is the extraction, not the comparison. It is read for two things
-# only: the set of claim ids, and the number of decimals the page prints each one at,
-# which both instruments must agree on or a correct value fails on its formatting.
-claims_meta <- read_csv(
-  here::here("ground_truth", "published_claims.csv"),
-  col_types = cols(.default = col_character(), value_paper = col_character(),
-                   needs_block = col_logical(), digits = col_integer())
-)
+# Both frames are read as character: value_paper carries "0.020", and a reader left to
+# guess would return 0.02 and destroy the precision every comparison depends on.
+published <- read_csv(here::here("ground_truth", "published_claims.csv"),
+                      col_types = cols(.default = col_character()))
+errata <- read_csv(here::here("errata_entries.csv"),
+                   col_types = cols(.default = col_character()))
 
-claim <- function(claim_id, value, label) {
-  meta <- claims_meta[claims_meta$claim_id == claim_id, ]
-  stopifnot(nrow(meta) == 1, !is.na(meta$digits))
-  shown <- if (is.na(value)) "NA" else sprintf(paste0("%.", meta$digits, "f"), value)
-  cat(sprintf("CLAIM %s = %s || %s\n", claim_id, shown, label))
-}
+# The errata spine is registered but binds no claim. Its one quantity entry, entry 1,
+# corrects values the published objects carry faithfully: the pipeline reproduces those
+# objects, and text_exp1_merged_shares.R computes the corrections beside them, so every
+# claim below is expected to reproduce the page, entry 1's included. Entry 1 also stores
+# NA for the 31 table and figure cells it names, which excheckr cannot score as
+# corrected. errata.qmd reads its corrected values from the same output file and gates
+# them against its sentences.
+claim_start(published = published, errata = errata, quantity_classes = character(),
+            format = "id")
 
 # One cell out of a tidied regression output. The assertion is what stops a widened
 # output file turning a scalar into a vector and a claim into a silent list.
@@ -310,11 +321,12 @@ claim("text_fn3_cost_total", pick(cost, "^cost per vote, direct and indirect$"),
       "cost per vote including spillovers, dollars")
 claim("text_fn3_ci_level", pick(cost, "^interval level"), "interval level, per cent")
 # The archive draws the interval unseeded, so what is checkable is the endpoint's
-# central value over repeated draws rather than any single one.
+# central value over repeated draws rather than any single one. Both are declared range,
+# and build_ground_truth.R scores them against the minimum and maximum over the seeds.
 claim("text_fn3_ci_low", pick(cost, "^interval lower endpoint, median"),
-      "lower interval endpoint, median over 200 seeds, dollars")
+      "lower interval endpoint, median over 200 seeds, dollars", expect = "range")
 claim("text_fn3_ci_high", pick(cost, "^interval upper endpoint, median"),
-      "upper interval endpoint, median over 200 seeds, dollars")
+      "upper interval endpoint, median over 200 seeds, dollars", expect = "range")
 
 # Appendix B: randomization protocols ----
 
@@ -424,3 +436,11 @@ claim("appd_three_of_four_positive", sum(by_experiment$all_positive),
 claim("appd_e4_negative_interactions",
       as.numeric(by_experiment$all_negative[by_experiment$experiment == "Experiment 4"]),
       "1 if both of Experiment 4's interaction coefficients are negative")
+
+# Gates ----
+# assert_claims() stops on any MISMATCH, STALE, DRIFT, or MISSING verdict and on any
+# difference between the claims printed and those the extraction marks needs_block.
+# claim_summary() prints the verdict counts, so the claims scored [range] are counted
+# rather than merely allowed.
+assert_claims()
+invisible(claim_summary())

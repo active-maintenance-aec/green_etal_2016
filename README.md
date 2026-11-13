@@ -22,7 +22,10 @@
 - [Errata](#errata)
 - [R environment](#r-environment)
 
-**Archived at Zenodo:** [doi:10.5281/zenodo.24168393](https://doi.org/10.5281/zenodo.24168393). This DOI always resolves to the latest release of the maintained version.
+**Archived at Zenodo:**
+[doi:10.5281/zenodo.24168393](https://doi.org/10.5281/zenodo.24168393).
+This DOI always resolves to the latest release of the maintained
+version.
 
 *Drafted by Claude Opus 5 under the supervision of Alex Coppock.*
 
@@ -58,8 +61,11 @@ states it. `ground_truth/` ties every published number to the code that
 produces it: `published_claims.csv` is the extraction of every number
 the article and appendix print, `archive_values.csv` is what the
 deposited scripts themselves print, `build_ground_truth.R` assembles the
-comparison, and `claims_gate.R` enforces the coverage. `errata.qmd`
-corrects the published article and appendix, rendering to
+comparison and writes `float_coverage.csv`, and `claims_gate.R` enforces
+the coverage. `run_archive.R` runs the deposited scripts in a scratch
+copy, as shipped and stripped of the intermediates the deposit ships,
+and writes `archive_run_status.csv` and `archive_overwrites.csv`.
+`errata.qmd` corrects the published article and appendix, rendering to
 `green_etal_2016_errata.pdf` at the root and writing its entries to
 `errata_entries.csv`. `original/` is created by the download script and
 is deliberately absent from the repository. This file is the
@@ -539,7 +545,7 @@ alt="Figure 2 as reproduced by the maintained rewrite." />
 # Maintained rewrite verification
 
 Every published value with a counterpart in the pipeline carries
-`match_rewrite = 1`: **400** of 400, with 0 differing. The prose is
+`match_rewrite = TRUE`: **400** of 400, with 0 differing. The prose is
 where the coverage was thinnest and is now complete, so it is worth
 setting out separately.
 
@@ -661,19 +667,19 @@ paper, and the paper’s numbers are the correct ones.
 
 | Item      | Value                  |
 |:----------|:-----------------------|
-| R version | 4.6.1                  |
+| R version | 4.6.2                  |
 | Platform  | aarch64-apple-darwin23 |
-| Date run  | 2026-11-07             |
+| Date run  | 2026-11-13             |
 
-| Package   | Version    |
-|:----------|:-----------|
-| estimatr  | 2.0.1.9000 |
-| metafor   | 5.0.1      |
-| dplyr     | 1.2.1      |
-| ggplot2   | 4.0.3      |
-| tidyr     | 1.3.2      |
-| purrr     | 1.2.2      |
-| here      | 1.0.2      |
-| gridExtra | 2.3        |
+| Package   | Version |
+|:----------|:--------|
+| estimatr  | 2.0.1   |
+| metafor   | 5.2.1   |
+| dplyr     | 1.2.1   |
+| ggplot2   | 4.0.3   |
+| tidyr     | 1.3.2   |
+| purrr     | 1.2.2   |
+| here      | 1.0.2   |
+| gridExtra | 2.3.1   |
 
 Package versions used for the run behind this report.

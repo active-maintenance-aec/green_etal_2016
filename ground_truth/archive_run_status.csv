@@ -1,0 +1,21 @@
+pass,script,role,exit_status,outcome,stopped_at
+as_shipped,Experiment_1_Analysis.R,analysis,0,clean,NA
+as_shipped,Experiment_2_Analysis.R,analysis,0,clean,NA
+as_shipped,Experiment_3_Analysis.R,analysis,0,clean,NA
+as_shipped,Experiment_4_Analysis.R,analysis,0,clean,NA
+as_shipped,Pooled_analysis.R,analysis,0,clean,NA
+as_shipped,in_text_calculations.R,analysis,0,clean,NA
+as_shipped,Experiment_1_RA_Function.R,other,NA,not_run,"not run: regenerates a deposited permutation matrix by redrawing randomizations, and its save() is commented out, so a run writes nothing"
+as_shipped,Experiment_2_RA_Function.R,other,NA,not_run,"not run: regenerates a deposited permutation matrix by redrawing randomizations, and its save() is commented out, so a run writes nothing"
+as_shipped,Experiment_3_RA_Function.R,other,NA,not_run,"not run: regenerates a deposited permutation matrix by redrawing randomizations, and its save() is commented out, so a run writes nothing"
+as_shipped,Experiment_4_RA_Function.R,other,NA,not_run,"not run: regenerates a deposited permutation matrix by redrawing randomizations, and its save() is commented out, so a run writes nothing"
+stripped,Experiment_1_Analysis.R,analysis,1,error,"Error in readChar(con, 5L, useBytes = TRUE) : cannot open the connection (cannot open Experiment_1_Permutation_Matrix.rdata)"
+stripped,Experiment_2_Analysis.R,analysis,1,error,"Error in readChar(con, 5L, useBytes = TRUE) : cannot open the connection (cannot open Experiment_2_Permutation_Matrix.rdata)"
+stripped,Experiment_3_Analysis.R,analysis,1,error,"Error in readChar(con, 5L, useBytes = TRUE) : cannot open the connection (cannot open Experiment_3_Data_with_Random_Assignment.rdata)"
+stripped,Experiment_4_Analysis.R,analysis,1,error,"Error in readChar(con, 5L, useBytes = TRUE) : cannot open the connection (cannot open Experiment_4_Data_with_Random_Assignment.rdata)"
+stripped,Pooled_analysis.R,analysis,1,error,"Error in readChar(con, 5L, useBytes = TRUE) : cannot open the connection (cannot open exp_1.rdata)"
+stripped,in_text_calculations.R,analysis,1,error,"Error in readChar(con, 5L, useBytes = TRUE) : cannot open the connection (cannot open exp_1.rdata)"
+stripped,Experiment_1_RA_Function.R,other,NA,not_run,"not run: regenerates a deposited permutation matrix by redrawing randomizations, and its save() is commented out, so a run writes nothing"
+stripped,Experiment_2_RA_Function.R,other,NA,not_run,"not run: regenerates a deposited permutation matrix by redrawing randomizations, and its save() is commented out, so a run writes nothing"
+stripped,Experiment_3_RA_Function.R,other,NA,not_run,"not run: regenerates a deposited permutation matrix by redrawing randomizations, and its save() is commented out, so a run writes nothing"
+stripped,Experiment_4_RA_Function.R,other,NA,not_run,"not run: regenerates a deposited permutation matrix by redrawing randomizations, and its save() is commented out, so a run writes nothing"

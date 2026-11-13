@@ -1,7 +1,7 @@
 # green_etal_2016/ground_truth/build_ground_truth.R
-# Output: ground_truth/green_etal_2016_ground_truth.csv
+# Output: ground_truth/green_etal_2016_ground_truth.csv, ground_truth/float_coverage.csv
 # Depends on: ground_truth/published_claims.csv, ground_truth/archive_values.csv,
-#   maintained/output/ (run the maintained scripts first)
+#   errata_entries.csv, maintained/output/ (run the maintained scripts first)
 # Description: Assemble the ground truth. value_paper comes from published_claims.csv,
 #   the hand-reviewed extraction of every numeric token in the article and the online
 #   appendix, and from nowhere else. value_script comes from archive_values.csv, the
@@ -367,20 +367,122 @@ gt <- gt |>
       " The deposited analysis sums vote shares across merged precincts, which moves this value: see errata entry 1 and maintained/output/text_exp1_merged_shares.csv.",
       ""
     ),
-    notes = str_c(verdict_clause, coverage_clause, locus_clause)
+    extraction_note = if_else(is.na(notes), "", str_c(" ", notes)),
+    notes = str_c(verdict_clause, coverage_clause, locus_clause, extraction_note)
   )
 
+# Printed precision, carried from the extraction ----
+# The extraction's digits is the precision the page prints. Nothing here overrides it, so
+# it has to be the count of decimals in value_paper itself.
+stopifnot(!anyNA(gt$digits),
+          all(gt$digits == excheckr::claim_digits(gt$value_paper)))
+
+# Disposition: what became of each defect ----
+# corrected_here is computed from the errata spine, never typed: a row is corrected here
+# exactly when an entry's claim_ids names it. Every other row with a locus takes the
+# judgment the report already states. The Experiment 2 rows are the README's "The
+# Experiment 2 seed": the article prints the deployed assignment's values, the rewrite
+# reproduces them from exp_2.RData, and the defect is in the deposited script's path
+# under a later R, so the article needs no erratum.
+errata_ids <- read_csv(here::here("errata_entries.csv"),
+                       col_types = cols(.default = col_character())) |>
+  filter(!is.na(claim_ids), claim_ids != "") |>
+  pull(claim_ids) |>
+  str_split(";") |>
+  unlist()
+stopifnot(all(errata_ids %in% gt$claim_id))
+
+environment_reason <- "Experiment_2_Analysis.R draws the observed assignment with set.seed(12345); sample(1:10000, 1), which finds column 8243 under R 3.6 or later rather than the deployed column 7210; the article prints column 7210's values, the rewrite reproduces them from exp_2.RData, and the README documents the drift."
+
+gt <- gt |>
+  mutate(
+    disposition = case_when(
+      is.na(defect_locus) ~ NA_character_,
+      claim_id %in% errata_ids ~ "corrected_here",
+      defect_locus == "environment" & claim_id %in% sampler_rows ~ "documented_only",
+      .default = NA_character_
+    ),
+    disposition_reason = if_else(disposition == "documented_only", environment_reason,
+                                 NA_character_)
+  )
+
+undisposed <- filter(gt, defect_locus == "paper_internal", is.na(disposition))
+if (nrow(undisposed) > 0) {
+  print(select(undisposed, claim_id, location, value_paper), n = nrow(undisposed))
+  stop(str_glue("{nrow(undisposed)} paper_internal rows carry no disposition."))
+}
+print(count(filter(gt, !is.na(defect_locus)), defect_locus, disposition))
+
 # claim_id is the claim: it names the float, the row, the column and the statistic, and
-# it is the key maintained/in_text_claims.R prints and the gate matches on. A separate
-# prose restatement of it would be a second description free to drift from the first.
+# it is the key maintained/in_text_claims.R prints and the gate matches on. The
+# extraction's claim column is that key prefixed with its location, never a prose
+# restatement, which would be a second description free to drift from the first.
+stopifnot(all(gt$claim == str_c(gt$location, ": ", gt$claim_id)))
+
 gt_out <- gt |>
-  transmute(paper_id, claim_id, table_figure = location,
-            claim = str_c(location, ": ", claim_id), claim_type,
-            value_script, value_paper, match, value_rewrite, match_rewrite, holds,
-            defect_locus, notes) |>
-  arrange(table_figure, claim_id, .locale = "en")
+  mutate(across(c(match, match_rewrite, holds), as.logical)) |>
+  select(paper_id, claim_id, location, claim_type, claim, value_paper, digits,
+         value_script, match, value_rewrite, match_rewrite, holds, defect_locus,
+         disposition, disposition_reason, notes) |>
+  arrange(location, claim_id, .locale = "en")
 
 write_csv(gt_out, here::here("ground_truth", "green_etal_2016_ground_truth.csv"))
+
+# Float coverage ----
+# One row per published float. Every number a table prints is an extraction row located
+# at that table, so published_numbers is that count and covered counts the rows compared.
+# Figure 2 prints its panel labels on its face, three numbers for each of its fifteen
+# posterior densities; plotted counts the densities, and a density is reproduced when all
+# three of its labels are. Table 1 and Figure 1 carry no data.
+floats <- tibble(
+  float = c("Table 1", "Table 2", "Figure 1", "Table 3", "Table 4", "Table 5", "Table 6",
+            "Table 7", "Figure 2", "Table C.1", "Table C.2", "Table C.3", "Table C.4",
+            "Table D.5"),
+  note = c("Lists the expected mechanism in each experiment in words; prints no numbers.",
+           NA, "Photographs of the signs; prints no numbers.", rep(NA, 11))
+)
+stopifnot(setequal(intersect(gt_out$location, floats$float),
+                   floats$float[is.na(floats$note)]))
+
+figure_2_panels <- gt_out |>
+  filter(location == "Figure 2") |>
+  mutate(panel = str_remove(claim_id, "_(mean|sd|pr)$")) |>
+  summarize(reproduced = all(match_rewrite), .by = panel)
+stopifnot(nrow(figure_2_panels) == 15)
+
+float_coverage <- gt_out |>
+  filter(location %in% floats$float) |>
+  summarize(
+    published_numbers = n(),
+    covered = sum(!is.na(match_rewrite) | !is.na(holds)),
+    reproduced_by_rewrite = sum(match_rewrite, na.rm = TRUE),
+    reproduced_by_archive = if_else(all(is.na(match)), NA_integer_, sum(match, na.rm = TRUE)),
+    .by = location
+  ) |>
+  right_join(floats, by = c("location" = "float")) |>
+  mutate(
+    across(c(published_numbers, covered, reproduced_by_rewrite, reproduced_by_archive),
+           \(x) if_else(is.na(note), x, 0L)),
+    plotted = case_when(location == "Figure 2" ~ nrow(figure_2_panels),
+                        location == "Figure 1" ~ 0L,
+                        .default = NA_integer_),
+    plotted_reproduced = case_when(location == "Figure 2" ~ sum(figure_2_panels$reproduced),
+                                   location == "Figure 1" ~ 0L,
+                                   .default = NA_integer_),
+    note = if_else(location == "Figure 2",
+                   "Prints a posterior mean, standard deviation, and Pr(ATE > 0) on each of its 15 densities: 3 observers by 5 updates.",
+                   note)
+  ) |>
+  arrange(match(location, floats$float)) |>
+  select(float = location, published_numbers, covered, reproduced_by_rewrite,
+         reproduced_by_archive, plotted, plotted_reproduced, note)
+
+stopifnot(nrow(float_coverage) == nrow(floats),
+          with(filter(float_coverage, published_numbers > 0),
+               all(covered == published_numbers)))
+
+write_csv(float_coverage, here::here("ground_truth", "float_coverage.csv"))
+print(float_coverage, n = nrow(float_coverage), width = 200)
 
 # Coverage, checked against the extraction and against the second instrument ----
 required <- claims$claim_id[claims$claim_type %in% c("pipeline", "descriptive")]
@@ -395,11 +497,11 @@ print(tibble(
                "rewrite comparable", "rewrite matching", "rewrite differing",
                "descriptive and unseeded claims judged", "of which hold",
                "rows with a defect locus"),
-  value = c(nrow(claims), nrow(gt_out), n_distinct(gt_out$table_figure),
-            sum(!is.na(gt_out$match)), sum(gt_out$match == 1, na.rm = TRUE),
-            sum(!is.na(gt_out$match_rewrite)), sum(gt_out$match_rewrite == 1, na.rm = TRUE),
-            sum(gt_out$match_rewrite == 0, na.rm = TRUE),
-            sum(!is.na(gt_out$holds)), sum(gt_out$holds == 1, na.rm = TRUE),
+  value = c(nrow(claims), nrow(gt_out), n_distinct(gt_out$location),
+            sum(!is.na(gt_out$match)), sum(gt_out$match, na.rm = TRUE),
+            sum(!is.na(gt_out$match_rewrite)), sum(gt_out$match_rewrite, na.rm = TRUE),
+            sum(!gt_out$match_rewrite, na.rm = TRUE),
+            sum(!is.na(gt_out$holds)), sum(gt_out$holds, na.rm = TRUE),
             sum(!is.na(gt_out$defect_locus)))
 ))
-print(count(gt_out, table_figure, name = "rows"), n = Inf)
+print(count(gt_out, location, name = "rows"), n = Inf)
